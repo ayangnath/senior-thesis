@@ -51,8 +51,6 @@ pip install numpy lxml
 ## Usage
 
 ```bash
-cd "Senior Thesis/cvd_recolor"
-
 # run on test SVGs (7 curated test cases)
 python3 main.py test_svgs/ output/ --cvd deutan
 
@@ -126,19 +124,18 @@ Regenerate test cases with `python3 generate_tests.py`.
 ## File structure
 
 ```
-cvd_recolor/
-  main.py                    pipeline orchestration, CLI entry point
-  color_science.py           sRGB/Lab conversions, CIEDE2000, Machado CVD simulation
-  svg_parser.py              SVG DOM parsing, element classification, recoloring
-  classifier.py              Phase 2: palette type classification
-  data_signal_extractor.py   Phase 3: data characteristic extraction
-  reconciler.py              Phase 4: palette vs data reconciliation
-  invariant_tests.py         Phase 5: CVD simulation and invariant testing
-  recolorer.py               Phase 5: repair strategies per palette type
-  generate_tests.py          test case generator
-  test_svgs/                 7 curated test cases
-  input_svgs/                your SVGs go here
-  output/                    generated output
+main.py                    pipeline orchestration, CLI entry point
+color_science.py           sRGB/Lab conversions, CIEDE2000, Machado CVD simulation
+svg_parser.py              SVG DOM parsing, element classification, recoloring
+classifier.py              Phase 2: palette type classification
+data_signal_extractor.py   Phase 3: data characteristic extraction
+reconciler.py              Phase 4: palette vs data reconciliation
+invariant_tests.py         Phase 5: CVD simulation and invariant testing
+recolorer.py               Phase 5: repair strategies per palette type
+generate_tests.py          test case generator
+test_svgs/                 7 curated test cases
+input_svgs/                your SVGs go here
+output/                    generated output
 ```
 
 ## Color science details
