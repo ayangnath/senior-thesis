@@ -23,7 +23,7 @@ env/
 .env.local
 
 # Generated output (reproducible by running the tool)
-cvd_recolor/output/
+output/
 
 # IDE
 .vscode/
