@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 350 350">
+  <text x="175" y="22" text-anchor="middle" font-size="14" fill="#333">
+    Correlation Matrix
+  </text>
+
+  <!-- Variable labels -->
+  <text x="95"  y="48" text-anchor="middle" font-size="10" fill="#666">A</text>
+  <text x="155" y="48" text-anchor="middle" font-size="10" fill="#666">B</text>
+  <text x="215" y="48" text-anchor="middle" font-size="10" fill="#666">C</text>
+  <text x="275" y="48" text-anchor="middle" font-size="10" fill="#666">D</text>
+
+  <text x="55" y="95"  text-anchor="end" font-size="10" fill="#666">A</text>
+  <text x="55" y="155" text-anchor="end" font-size="10" fill="#666">B</text>
+  <text x="55" y="215" text-anchor="end" font-size="10" fill="#666">C</text>
+  <text x="55" y="275" text-anchor="end" font-size="10" fill="#666">D</text>
+
+  <!-- Correlation cells: -1 (red) to 0 (white) to +1 (green) -->
+  <!-- This red-green diverging scheme collapses under CVD -->
+  <!-- Row A -->
+  <rect x="65"  y="55"  width="55" height="55" fill="#1b7837"/>  <!-- A-A: +1.0 -->
+  <rect x="125" y="55"  width="55" height="55" fill="#a6dba0"/>  <!-- A-B: +0.5 -->
+  <rect x="185" y="55"  width="55" height="55" fill="#d6604d"/>  <!-- A-C: -0.6 -->
+  <rect x="245" y="55"  width="55" height="55" fill="#f7f7f7"/>  <!-- A-D: 0.0 -->
+
+  <!-- Row B -->
+  <rect x="65"  y="115" width="55" height="55" fill="#a6dba0"/>  <!-- B-A: +0.5 -->
+  <rect x="125" y="115" width="55" height="55" fill="#1b7837"/>  <!-- B-B: +1.0 -->
+  <rect x="185" y="115" width="55" height="55" fill="#b2182b"/>  <!-- B-C: -0.9 -->
+  <rect x="245" y="115" width="55" height="55" fill="#fddbc7"/>  <!-- B-D: -0.2 -->
+
+  <!-- Row C -->
+  <rect x="65"  y="175" width="55" height="55" fill="#d6604d"/>  <!-- C-A: -0.6 -->
+  <rect x="125" y="175" width="55" height="55" fill="#b2182b"/>  <!-- C-B: -0.9 -->
+  <rect x="185" y="175" width="55" height="55" fill="#1b7837"/>  <!-- C-C: +1.0 -->
+  <rect x="245" y="175" width="55" height="55" fill="#d9f0d3"/>  <!-- C-D: +0.3 -->
+
+  <!-- Row D -->
+  <rect x="65"  y="235" width="55" height="55" fill="#f7f7f7"/>  <!-- D-A: 0.0 -->
+  <rect x="125" y="235" width="55" height="55" fill="#fddbc7"/>  <!-- D-B: -0.2 -->
+  <rect x="185" y="235" width="55" height="55" fill="#d9f0d3"/>  <!-- D-C: +0.3 -->
+  <rect x="245" y="235" width="55" height="55" fill="#1b7837"/>  <!-- D-D: +1.0 -->
+
+  <!-- Legend -->
+  <g class="legend" transform="translate(60, 310)">
+    <text x="0" y="10" font-size="9" fill="#666">-1</text>
+    <rect x="18"  y="0" width="40" height="14" fill="#b2182b"/>
+    <rect x="60"  y="0" width="40" height="14" fill="#d6604d"/>
+    <rect x="102" y="0" width="40" height="14" fill="#fddbc7"/>
+    <rect x="144" y="0" width="40" height="14" fill="#f7f7f7" stroke="#ccc" stroke-width="0.5"/>
+    <rect x="186" y="0" width="40" height="14" fill="#d9f0d3"/>
+    <rect x="228" y="0" width="40" height="14" fill="#a6dba0"/>
+    <rect x="270" y="0" width="40" height="14" fill="#1b7837"/>
+    <text x="315" y="10" font-size="9" fill="#666">+1</text>
+  </g>
+</svg>

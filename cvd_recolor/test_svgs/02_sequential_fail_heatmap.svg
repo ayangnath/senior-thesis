@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <text x="200" y="25" text-anchor="middle" font-size="14" fill="#333">
+    Temperature Heatmap (Sequential)
+  </text>
+
+  <!-- Heatmap grid: 5x5 with green-yellow-red sequential ramp -->
+  <!-- Row labels (non-data) -->
+  <text x="55" y="65" text-anchor="end" font-size="10" fill="#666">Mon</text>
+  <text x="55" y="105" text-anchor="end" font-size="10" fill="#666">Tue</text>
+  <text x="55" y="145" text-anchor="end" font-size="10" fill="#666">Wed</text>
+  <text x="55" y="185" text-anchor="end" font-size="10" fill="#666">Thu</text>
+  <text x="55" y="225" text-anchor="end" font-size="10" fill="#666">Fri</text>
+
+  <!-- Column labels -->
+  <text x="95"  y="48" text-anchor="middle" font-size="10" fill="#666">6am</text>
+  <text x="155" y="48" text-anchor="middle" font-size="10" fill="#666">9am</text>
+  <text x="215" y="48" text-anchor="middle" font-size="10" fill="#666">12pm</text>
+  <text x="275" y="48" text-anchor="middle" font-size="10" fill="#666">3pm</text>
+  <text x="335" y="48" text-anchor="middle" font-size="10" fill="#666">6pm</text>
+
+  <!-- Data cells: using a green(low) → yellow(mid) → red(high) sequential ramp -->
+  <!-- This is the classic problematic ramp for deuteranopia -->
+  <!-- Row 1 -->
+  <rect x="65" y="52" width="55" height="35" fill="#1a9641"/>
+  <rect x="125" y="52" width="55" height="35" fill="#66bd63"/>
+  <rect x="185" y="52" width="55" height="35" fill="#a6d96a"/>
+  <rect x="245" y="52" width="55" height="35" fill="#d9ef8b"/>
+  <rect x="305" y="52" width="55" height="35" fill="#fee08b"/>
+  <!-- Row 2 -->
+  <rect x="65" y="92" width="55" height="35" fill="#66bd63"/>
+  <rect x="125" y="92" width="55" height="35" fill="#a6d96a"/>
+  <rect x="185" y="92" width="55" height="35" fill="#fee08b"/>
+  <rect x="245" y="92" width="55" height="35" fill="#fdae61"/>
+  <rect x="305" y="92" width="55" height="35" fill="#f46d43"/>
+  <!-- Row 3 -->
+  <rect x="65" y="132" width="55" height="35" fill="#a6d96a"/>
+  <rect x="125" y="132" width="55" height="35" fill="#fee08b"/>
+  <rect x="185" y="132" width="55" height="35" fill="#fdae61"/>
+  <rect x="245" y="132" width="55" height="35" fill="#f46d43"/>
+  <rect x="305" y="132" width="55" height="35" fill="#d73027"/>
+  <!-- Row 4 -->
+  <rect x="65" y="172" width="55" height="35" fill="#d9ef8b"/>
+  <rect x="125" y="172" width="55" height="35" fill="#fdae61"/>
+  <rect x="185" y="172" width="55" height="35" fill="#f46d43"/>
+  <rect x="245" y="172" width="55" height="35" fill="#d73027"/>
+  <rect x="305" y="172" width="55" height="35" fill="#a50026"/>
+  <!-- Row 5 -->
+  <rect x="65" y="212" width="55" height="35" fill="#fee08b"/>
+  <rect x="125" y="212" width="55" height="35" fill="#f46d43"/>
+  <rect x="185" y="212" width="55" height="35" fill="#d73027"/>
+  <rect x="245" y="212" width="55" height="35" fill="#a50026"/>
+  <rect x="305" y="212" width="55" height="35" fill="#67001f"/>
+
+  <!-- Legend: sequential ramp -->
+  <g class="legend" transform="translate(65, 260)">
+    <text x="0" y="0" font-size="9" fill="#666">Low</text>
+    <rect x="25" y="-9" width="20" height="12" fill="#1a9641"/>
+    <rect x="47" y="-9" width="20" height="12" fill="#66bd63"/>
+    <rect x="69" y="-9" width="20" height="12" fill="#a6d96a"/>
+    <rect x="91" y="-9" width="20" height="12" fill="#d9ef8b"/>
+    <rect x="113" y="-9" width="20" height="12" fill="#fee08b"/>
+    <rect x="135" y="-9" width="20" height="12" fill="#fdae61"/>
+    <rect x="157" y="-9" width="20" height="12" fill="#f46d43"/>
+    <rect x="179" y="-9" width="20" height="12" fill="#d73027"/>
+    <rect x="201" y="-9" width="20" height="12" fill="#a50026"/>
+    <rect x="223" y="-9" width="20" height="12" fill="#67001f"/>
+    <text x="250" y="0" font-size="9" fill="#666">High</text>
+  </g>
+</svg>

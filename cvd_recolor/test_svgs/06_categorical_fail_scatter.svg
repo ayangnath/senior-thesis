@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="320" viewBox="0 0 400 320">
+  <text x="200" y="20" text-anchor="middle" font-size="14" fill="#333">
+    Species Distribution (Scatter)
+  </text>
+
+  <line x1="50" y1="30" x2="50" y2="250" stroke="#666" stroke-width="1"/>
+  <line x1="50" y1="250" x2="380" y2="250" stroke="#666" stroke-width="1"/>
+
+  <!-- Species A: Red -->
+  <circle cx="100" cy="80"  r="6" fill="#e41a1c"/>
+  <circle cx="130" cy="100" r="6" fill="#e41a1c"/>
+  <circle cx="110" cy="120" r="6" fill="#e41a1c"/>
+  <circle cx="150" cy="90"  r="6" fill="#e41a1c"/>
+
+  <!-- Species B: Green -->
+  <circle cx="180" cy="150" r="6" fill="#4daf4a"/>
+  <circle cx="200" cy="130" r="6" fill="#4daf4a"/>
+  <circle cx="170" cy="170" r="6" fill="#4daf4a"/>
+  <circle cx="210" cy="160" r="6" fill="#4daf4a"/>
+
+  <!-- Species C: Brown -->
+  <circle cx="250" cy="70"  r="6" fill="#a65628"/>
+  <circle cx="270" cy="90"  r="6" fill="#a65628"/>
+  <circle cx="260" cy="110" r="6" fill="#a65628"/>
+
+  <!-- Species D: Orange -->
+  <circle cx="300" cy="180" r="6" fill="#ff7f00"/>
+  <circle cx="320" cy="200" r="6" fill="#ff7f00"/>
+  <circle cx="280" cy="190" r="6" fill="#ff7f00"/>
+
+  <!-- Species E: Dark green -->
+  <circle cx="140" cy="200" r="6" fill="#006d2c"/>
+  <circle cx="160" cy="220" r="6" fill="#006d2c"/>
+  <circle cx="120" cy="210" r="6" fill="#006d2c"/>
+
+  <!-- Species F: Olive -->
+  <circle cx="340" cy="100" r="6" fill="#808000"/>
+  <circle cx="350" cy="120" r="6" fill="#808000"/>
+  <circle cx="360" cy="80"  r="6" fill="#808000"/>
+
+  <g class="legend" transform="translate(50, 270)">
+    <rect x="0" y="-5" width="10" height="10" fill="#e41a1c"/>
+    <text x="14" y="4" font-size="9" fill="#333">Sp. A</text>
+    <rect x="55" y="-5" width="10" height="10" fill="#4daf4a"/>
+    <text x="69" y="4" font-size="9" fill="#333">Sp. B</text>
+    <rect x="110" y="-5" width="10" height="10" fill="#a65628"/>
+    <text x="124" y="4" font-size="9" fill="#333">Sp. C</text>
+    <rect x="165" y="-5" width="10" height="10" fill="#ff7f00"/>
+    <text x="179" y="4" font-size="9" fill="#333">Sp. D</text>
+    <rect x="220" y="-5" width="10" height="10" fill="#006d2c"/>
+    <text x="234" y="4" font-size="9" fill="#333">Sp. E</text>
+    <rect x="275" y="-5" width="10" height="10" fill="#808000"/>
+    <text x="289" y="4" font-size="9" fill="#333">Sp. F</text>
+  </g>
+</svg>

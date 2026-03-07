@@ -1,0 +1,396 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 2050" width="1420" height="2050" style="background:#ffffff">
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .title { font-size: 18px; font-weight: bold; fill: #222; }
+    .phase-label { font-size: 13px; font-weight: bold; fill: #333; }
+    .node-text { font-size: 10.5px; fill: #222; }
+    .node-text-bold { font-size: 10.5px; fill: #222; font-weight: bold; }
+    .node-text-sm { font-size: 9.5px; fill: #555; }
+    .decision-text { font-size: 10px; fill: #222; }
+    .edge-label { font-size: 9px; fill: #444; }
+    .edge-label-yes { font-size: 9px; fill: #2e7d32; font-weight: bold; }
+    .edge-label-no { font-size: 9px; fill: #c62828; font-weight: bold; }
+    .note-text { font-size: 9px; fill: #666; font-style: italic; }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c62828"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="35" text-anchor="middle" class="title">CVD Visualization Repair Tool: Decision Tree</text>
+
+  <!-- ===== PHASE 1: DETECTION ===== -->
+  <rect x="40" y="55" width="1320" height="130" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="73" class="phase-label" fill="#5c6bc0">Phase 1: Detection and Extraction</text>
+
+  <rect x="520" y="85" width="360" height="36" rx="4" fill="#e8eaf6" stroke="#5c6bc0" stroke-width="1.5"/>
+  <text x="700" y="108" text-anchor="middle" class="node-text-bold">Detect SVG visualization on page</text>
+
+  <line x1="700" y1="121" x2="700" y2="138" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="480" y="138" width="440" height="36" rx="4" fill="#e8eaf6" stroke="#5c6bc0" stroke-width="1.5"/>
+  <text x="700" y="155" text-anchor="middle" class="node-text">Separate <tspan font-weight="bold">data marks</tspan> (bars, areas, bubbles) from</text>
+  <text x="700" y="167" text-anchor="middle" class="node-text"><tspan font-weight="bold">non-data elements</tspan> (axes, labels, gridlines, titles)</text>
+
+  <!-- ===== PHASE 2: CLASSIFY PALETTE TYPE ===== -->
+  <rect x="40" y="195" width="1320" height="200" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="213" class="phase-label" fill="#5c6bc0">Phase 2: Classify Palette Type</text>
+  <text x="200" y="213" class="note-text">(heuristic cue about designer intent, not ground truth)</text>
+
+  <line x1="700" y1="174" x2="700" y2="225" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <polygon points="700,225 870,265 700,305 530,265" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+  <text x="700" y="261" text-anchor="middle" class="decision-text">Classify palette:</text>
+  <text x="700" y="274" text-anchor="middle" class="decision-text">L* shape, pairwise Delta E, labels?</text>
+
+  <line x1="575" y1="281" x2="210" y2="355" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <rect x="110" y="355" width="200" height="30" rx="4" fill="#ffebee" stroke="#e53935" stroke-width="1.5"/>
+  <text x="210" y="375" text-anchor="middle" class="node-text-bold" fill="#c62828">Categorical</text>
+
+  <line x1="660" y1="303" x2="510" y2="355" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <rect x="410" y="355" width="200" height="30" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="510" y="375" text-anchor="middle" class="node-text-bold" fill="#2e7d32">Sequential</text>
+
+  <line x1="740" y1="303" x2="810" y2="355" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <rect x="710" y="355" width="200" height="30" rx="4" fill="#fff8e1" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="810" y="375" text-anchor="middle" class="node-text-bold" fill="#e65100">Diverging</text>
+
+  <line x1="830" y1="281" x2="1120" y2="355" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <rect x="1020" y="355" width="200" height="30" rx="4" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.5"/>
+  <text x="1120" y="375" text-anchor="middle" class="node-text-bold" fill="#6a1b9a">Ambiguous / Hybrid</text>
+
+  <!-- ===== PHASE 3: DATA SIGNALS ===== -->
+  <rect x="40" y="405" width="1320" height="100" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="423" class="phase-label" fill="#5c6bc0">Phase 3: Extract Data Signals</text>
+  <text x="240" y="423" class="note-text">(what the data actually looks like, independent of palette)</text>
+
+  <line x1="210" y1="385" x2="460" y2="435" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="510" y1="385" x2="570" y2="435" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="810" y1="385" x2="720" y2="435" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="1120" y1="385" x2="830" y2="435" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <rect x="440" y="435" width="520" height="55" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="700" y="454" text-anchor="middle" class="node-text">Count categories. Examine legend/axis labels (strings vs. numbers).</text>
+  <text x="700" y="467" text-anchor="middle" class="node-text">Analyze color usage distribution (clustered? skewed? full range?)</text>
+  <text x="700" y="480" text-anchor="middle" class="node-text">If diverging: validate midpoint semantics (is it 0, mean, median?)</text>
+
+  <!-- ===== PHASE 4: RECONCILE ===== -->
+  <rect x="40" y="515" width="1320" height="175" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="533" class="phase-label" fill="#5c6bc0">Phase 4: Reconcile Palette Type vs. Data Signals</text>
+
+  <line x1="700" y1="490" x2="700" y2="543" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <polygon points="700,543 850,578 700,613 550,578" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+  <text x="700" y="575" text-anchor="middle" class="decision-text">Palette type matches</text>
+  <text x="700" y="587" text-anchor="middle" class="decision-text">data signals?</text>
+
+  <line x1="700" y1="613" x2="700" y2="675" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="712" y="645" class="edge-label-yes">Yes</text>
+
+  <line x1="850" y1="578" x2="1060" y2="578" stroke="#c62828" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <text x="950" y="571" class="edge-label-no">No, mismatch</text>
+
+  <rect x="1060" y="548" width="280" height="60" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1.5"/>
+  <text x="1200" y="566" text-anchor="middle" class="node-text-bold" fill="#c62828">Offer user TWO paths (DR4):</text>
+  <text x="1200" y="579" text-anchor="middle" class="node-text-sm">A: Repair assuming designer's palette type</text>
+  <text x="1200" y="592" text-anchor="middle" class="node-text-sm">B: Repair toward data-appropriate type</text>
+
+  <line x1="1200" y1="608" x2="1200" y2="645" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="1200" y1="645" x2="712" y2="675" stroke="#555" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+  <text x="1000" y="660" class="note-text">user chooses, then proceed</text>
+
+
+  <!-- ===== PHASE 5: SIMULATE & TEST INVARIANTS ===== -->
+  <rect x="40" y="685" width="1320" height="880" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="703" class="phase-label" fill="#5c6bc0">Phase 5: Simulate Under CVD, Test Invariants, Repair</text>
+
+  <rect x="480" y="715" width="440" height="32" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="700" y="736" text-anchor="middle" class="node-text">Simulate palette under target CVD type (Machado et al. 2009)</text>
+
+  <line x1="700" y1="747" x2="700" y2="770" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <polygon points="700,770 830,800 700,830 570,800" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+  <text x="700" y="797" text-anchor="middle" class="decision-text">Reconciled</text>
+  <text x="700" y="809" text-anchor="middle" class="decision-text">palette type?</text>
+
+  <line x1="595" y1="815" x2="210" y2="865" stroke="#e53935" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="830" x2="700" y2="865" stroke="#43a047" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="805" y1="815" x2="1190" y2="865" stroke="#f9a825" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+
+  <!-- ==================== CATEGORICAL BRANCH ==================== -->
+  <rect x="60" y="865" width="300" height="28" rx="4" fill="#ffebee" stroke="#e53935" stroke-width="1.5"/>
+  <text x="210" y="884" text-anchor="middle" class="node-text-bold" fill="#c62828">CATEGORICAL PATH</text>
+
+  <line x1="210" y1="893" x2="210" y2="915" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <polygon points="210,915 310,945 210,975 110,945" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="210" y="942" text-anchor="middle" class="decision-text" font-size="9">All pairwise</text>
+  <text x="210" y="953" text-anchor="middle" class="decision-text" font-size="9">Delta E at least 8?</text>
+
+  <line x1="110" y1="945" x2="55" y2="945" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+  <rect x="5" y="930" width="50" height="30" rx="12" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="30" y="949" text-anchor="middle" class="edge-label-yes">PASS</text>
+
+  <line x1="210" y1="975" x2="210" y2="1005" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="222" y="995" class="edge-label-no">Fail</text>
+
+  <polygon points="210,1005 310,1035 210,1065 110,1035" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="210" y="1032" text-anchor="middle" class="decision-text" font-size="9">How many</text>
+  <text x="210" y="1043" text-anchor="middle" class="decision-text" font-size="9">categories?</text>
+
+  <line x1="110" y1="1035" x2="60" y2="1085" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="70" y="1060" class="edge-label">8 or fewer</text>
+  <rect x="5" y="1085" width="185" height="50" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="97" y="1103" text-anchor="middle" class="node-text-sm" font-weight="bold">Swap in CVD-safe palette</text>
+  <text x="97" y="1115" text-anchor="middle" class="node-text-sm">(Okabe-Ito, Tol, etc.)</text>
+  <text x="97" y="1127" text-anchor="middle" class="node-text-sm">Pick max min pairwise Delta E</text>
+
+  <line x1="310" y1="1035" x2="340" y2="1085" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="335" y="1060" class="edge-label">More than 8</text>
+  <rect x="230" y="1085" width="185" height="50" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="322" y="1103" text-anchor="middle" class="node-text-sm" font-weight="bold">Max Delta E + supplementary</text>
+  <text x="322" y="1115" text-anchor="middle" class="node-text-sm">encoding (texture, labels)</text>
+  <text x="322" y="1127" text-anchor="middle" class="node-text-sm">Flag: hard to distinguish</text>
+
+  <rect x="60" y="1155" width="300" height="30" rx="4" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="210" y="1174" text-anchor="middle" class="node-text-sm" fill="#6a1b9a">Edge: labels are numeric, possible mismatch, route to Phase 4</text>
+
+
+  <!-- ==================== SEQUENTIAL BRANCH ==================== -->
+  <rect x="530" y="865" width="340" height="28" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="700" y="884" text-anchor="middle" class="node-text-bold" fill="#2e7d32">SEQUENTIAL PATH</text>
+
+  <line x1="700" y1="893" x2="700" y2="918" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 1: Monotonicity (diamond y=918..972) -->
+  <polygon points="700,918 800,945 700,972 600,945" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="700" y="942" text-anchor="middle" class="decision-text" font-size="9">Test 1: L* values</text>
+  <text x="700" y="953" text-anchor="middle" class="decision-text" font-size="9">monotonic?</text>
+
+  <!-- Yes: right, down around repair, back to next test input -->
+  <line x1="800" y1="945" x2="855" y2="945" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="825" y="938" class="edge-label-yes">Yes</text>
+  <path d="M 855 945 L 855 1050 L 800 1050" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <!-- No: down to repair -->
+  <line x1="700" y1="972" x2="700" y2="995" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="712" y="988" class="edge-label-no" font-size="8">No</text>
+
+  <rect x="605" y="995" width="190" height="38" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="700" y="1011" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: force monotonic L*</text>
+  <text x="700" y="1023" text-anchor="middle" class="node-text-sm">Single-hue ramp or adjust L*</text>
+
+  <line x1="700" y1="1033" x2="700" y2="1050" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 2: Uniformity (diamond y=1050..1104) -->
+  <polygon points="700,1050 800,1077 700,1104 600,1077" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="700" y="1074" text-anchor="middle" class="decision-text" font-size="9">Test 2: Steps</text>
+  <text x="700" y="1085" text-anchor="middle" class="decision-text" font-size="9">roughly uniform Delta E?</text>
+
+  <line x1="800" y1="1077" x2="855" y2="1077" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="825" y="1070" class="edge-label-yes">Yes</text>
+  <path d="M 855 1077 L 855 1182 L 800 1182" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <line x1="700" y1="1104" x2="700" y2="1127" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="712" y="1120" class="edge-label-no" font-size="8">No</text>
+
+  <rect x="595" y="1127" width="210" height="38" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="700" y="1143" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: redistribute L* evenly</text>
+  <text x="700" y="1155" text-anchor="middle" class="node-text-sm">Clip range or resample steps</text>
+
+  <line x1="700" y1="1165" x2="700" y2="1182" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 3: Direction (diamond y=1182..1236) -->
+  <polygon points="700,1182 800,1209 700,1236 600,1209" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="700" y="1206" text-anchor="middle" class="decision-text" font-size="9">Test 3: Direction</text>
+  <text x="700" y="1217" text-anchor="middle" class="decision-text" font-size="9">preserved?</text>
+
+  <line x1="800" y1="1209" x2="855" y2="1209" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="825" y="1202" class="edge-label-yes">Yes</text>
+  <path d="M 855 1209 L 855 1314 L 800 1314" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <line x1="700" y1="1236" x2="700" y2="1259" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="712" y="1252" class="edge-label-no" font-size="8">No</text>
+
+  <rect x="590" y="1259" width="220" height="38" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="700" y="1275" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: remap to CVD-safe seq.</text>
+  <text x="700" y="1287" text-anchor="middle" class="node-text-sm">(viridis, cividis, inferno)</text>
+
+  <line x1="700" y1="1297" x2="700" y2="1314" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 4: Min step (diamond y=1314..1368) -->
+  <polygon points="700,1314 800,1341 700,1368 600,1341" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="700" y="1338" text-anchor="middle" class="decision-text" font-size="9">Test 4: Delta L* at least 3</text>
+  <text x="700" y="1349" text-anchor="middle" class="decision-text" font-size="9">between adj. steps?</text>
+
+  <!-- Yes: PASS (final test, no skip needed) -->
+  <line x1="800" y1="1341" x2="870" y2="1341" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+  <text x="835" y="1334" class="edge-label-yes">Yes</text>
+  <rect x="870" y="1329" width="50" height="24" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="895" y="1345" text-anchor="middle" class="edge-label-yes">PASS</text>
+
+  <line x1="700" y1="1368" x2="700" y2="1388" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="712" y="1383" class="edge-label-no" font-size="8">No</text>
+
+  <rect x="590" y="1388" width="220" height="38" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="700" y="1404" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: expand L* range or</text>
+  <text x="700" y="1416" text-anchor="middle" class="node-text-sm">reduce number of bins</text>
+
+
+  <!-- ==================== DIVERGING BRANCH ==================== -->
+  <rect x="1040" y="865" width="300" height="28" rx="4" fill="#fff8e1" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="1190" y="884" text-anchor="middle" class="node-text-bold" fill="#e65100">DIVERGING PATH</text>
+
+  <line x1="1190" y1="893" x2="1190" y2="918" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="1080" y="918" width="220" height="38" rx="4" fill="#f3e5f5" stroke="#8e24aa" stroke-width="1.2"/>
+  <text x="1190" y="934" text-anchor="middle" class="node-text-sm" font-weight="bold">Pre-check: midpoint semantic?</text>
+  <text x="1190" y="946" text-anchor="middle" class="node-text-sm">Is it 0, mean, median, labeled?</text>
+
+  <line x1="1190" y1="956" x2="1190" y2="978" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 1: Midpoint (diamond y=978..1032) -->
+  <polygon points="1190,978 1300,1005 1190,1032 1080,1005" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="1190" y="1002" text-anchor="middle" class="decision-text" font-size="9">Test 1: Midpoint at</text>
+  <text x="1190" y="1013" text-anchor="middle" class="decision-text" font-size="9">perceptual extremum?</text>
+
+  <!-- Yes: right, down around repair, to Test 2 -->
+  <line x1="1300" y1="1005" x2="1355" y2="1005" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="1325" y="998" class="edge-label-yes">Yes</text>
+  <path d="M 1355 1005 L 1355 1148 L 1300 1148" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <!-- No: down -->
+  <line x1="1190" y1="1032" x2="1190" y2="1048" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+
+  <rect x="1082" y="1048" width="100" height="36" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1"/>
+  <text x="1132" y="1063" text-anchor="middle" class="node-text-sm" fill="#c62828" font-weight="bold">Disappears</text>
+  <text x="1132" y="1074" text-anchor="middle" class="node-text-sm" fill="#c62828">(blends in)</text>
+
+  <rect x="1198" y="1048" width="100" height="36" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1"/>
+  <text x="1248" y="1063" text-anchor="middle" class="node-text-sm" fill="#c62828" font-weight="bold">Shifts</text>
+  <text x="1248" y="1074" text-anchor="middle" class="node-text-sm" fill="#c62828">(wrong step)</text>
+
+  <line x1="1190" y1="1084" x2="1190" y2="1098" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <rect x="1080" y="1098" width="220" height="32" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="1190" y="1111" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: increase L* contrast</text>
+  <text x="1190" y="1123" text-anchor="middle" class="node-text-sm">at midpoint / anchor explicitly</text>
+
+  <line x1="1190" y1="1130" x2="1190" y2="1148" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 2: Bidirectional (diamond y=1148..1202) -->
+  <polygon points="1190,1148 1300,1175 1190,1202 1080,1175" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="1190" y="1172" text-anchor="middle" class="decision-text" font-size="9">Test 2: Endpoints</text>
+  <text x="1190" y="1183" text-anchor="middle" class="decision-text" font-size="9">distinct? (Delta E greater than 10)</text>
+
+  <line x1="1300" y1="1175" x2="1355" y2="1175" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="1325" y="1168" class="edge-label-yes">Yes</text>
+  <path d="M 1355 1175 L 1355 1268 L 1300 1268" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <line x1="1190" y1="1202" x2="1190" y2="1218" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+
+  <rect x="1080" y="1218" width="220" height="32" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="1190" y="1231" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: replace arm hue(s)</text>
+  <text x="1190" y="1243" text-anchor="middle" class="node-text-sm">to stay distinct under CVD</text>
+
+  <line x1="1190" y1="1250" x2="1190" y2="1268" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 3: Per-arm monotonicity (diamond y=1268..1322) -->
+  <polygon points="1190,1268 1300,1295 1190,1322 1080,1295" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="1190" y="1292" text-anchor="middle" class="decision-text" font-size="9">Test 3: Each arm</text>
+  <text x="1190" y="1303" text-anchor="middle" class="decision-text" font-size="9">passes Seq. Tests 1-4?</text>
+
+  <line x1="1300" y1="1295" x2="1355" y2="1295" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="1325" y="1288" class="edge-label-yes">Yes</text>
+  <path d="M 1355 1295 L 1355 1388 L 1300 1388" fill="none" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <line x1="1190" y1="1322" x2="1190" y2="1338" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+
+  <rect x="1075" y="1338" width="230" height="32" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="1190" y="1351" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: apply Sequential repairs</text>
+  <text x="1190" y="1363" text-anchor="middle" class="node-text-sm">to each failing arm independently</text>
+
+  <line x1="1190" y1="1370" x2="1190" y2="1388" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Test 4: Arm symmetry (diamond y=1388..1442) -->
+  <polygon points="1190,1388 1300,1415 1190,1442 1080,1415" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.2"/>
+  <text x="1190" y="1412" text-anchor="middle" class="decision-text" font-size="9">Test 4: Arm L*</text>
+  <text x="1190" y="1423" text-anchor="middle" class="decision-text" font-size="9">symmetric at equal dist.?</text>
+
+  <line x1="1300" y1="1415" x2="1360" y2="1415" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+  <text x="1330" y="1408" class="edge-label-yes">Yes</text>
+  <rect x="1360" y="1403" width="50" height="24" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="1385" y="1419" text-anchor="middle" class="edge-label-yes">PASS</text>
+
+  <line x1="1190" y1="1442" x2="1190" y2="1458" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+
+  <rect x="1080" y="1458" width="220" height="32" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.2"/>
+  <text x="1190" y="1471" text-anchor="middle" class="node-text-sm" font-weight="bold">Repair: balance L* profiles</text>
+  <text x="1190" y="1483" text-anchor="middle" class="node-text-sm">across arms (lower priority)</text>
+
+
+  <!-- ===== PHASE 6: VERIFY & APPLY ===== -->
+  <line x1="210" y1="1185" x2="210" y2="1520" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="700" y1="1426" x2="700" y2="1520" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="1190" y1="1490" x2="1190" y2="1520" stroke="#555" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <line x1="210" y1="1520" x2="700" y2="1548" stroke="#555" stroke-width="1"/>
+  <line x1="1190" y1="1520" x2="700" y2="1548" stroke="#555" stroke-width="1"/>
+
+  <rect x="40" y="1530" width="1320" height="310" rx="0" fill="none" stroke="#bbb" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="55" y="1548" class="phase-label" fill="#5c6bc0">Phase 6: Verify and Apply</text>
+
+  <line x1="700" y1="1520" x2="700" y2="1562" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="510" y="1562" width="380" height="30" rx="4" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="700" y="1582" text-anchor="middle" class="node-text-bold">Re-simulate repaired palette under CVD</text>
+
+  <line x1="700" y1="1592" x2="700" y2="1612" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <polygon points="700,1612 830,1642 700,1672 570,1642" fill="#fff3e0" stroke="#ef6c00" stroke-width="1.5"/>
+  <text x="700" y="1639" text-anchor="middle" class="decision-text">ALL invariants</text>
+  <text x="700" y="1651" text-anchor="middle" class="decision-text">pass?</text>
+
+  <line x1="570" y1="1642" x2="470" y2="1642" stroke="#c62828" stroke-width="1.2" marker-end="url(#arrow-red)"/>
+  <text x="520" y="1635" class="edge-label-no">No</text>
+  <rect x="350" y="1627" width="120" height="30" rx="4" fill="#fce4ec" stroke="#c62828" stroke-width="1.2"/>
+  <text x="410" y="1646" text-anchor="middle" class="node-text-sm" fill="#c62828">Iterate repair</text>
+  <path d="M 350 1642 Q 320 1642 320 1600 Q 320 1570 400 1570" fill="none" stroke="#c62828" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow-red)"/>
+
+  <line x1="700" y1="1672" x2="700" y2="1698" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="712" y="1690" class="edge-label-yes">Yes</text>
+
+  <rect x="520" y="1698" width="360" height="28" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1.2"/>
+  <text x="700" y="1717" text-anchor="middle" class="node-text">Verify non-data elements unchanged (DR6)</text>
+
+  <line x1="700" y1="1726" x2="700" y2="1748" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="520" y="1748" width="360" height="28" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1.2"/>
+  <text x="700" y="1767" text-anchor="middle" class="node-text">Update legend swatches to match (DR7)</text>
+
+  <line x1="700" y1="1776" x2="700" y2="1798" stroke="#555" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="520" y="1798" width="360" height="32" rx="4" fill="#c8e6c9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="700" y="1819" text-anchor="middle" class="node-text-bold" fill="#1b5e20">Apply repaired palette to SVG DOM</text>
+
+
+  <!-- ===== EDGE CASES / NOTES ===== -->
+  <rect x="40" y="1855" width="1320" height="175" rx="6" fill="#fafafa" stroke="#ccc" stroke-width="1"/>
+  <text x="55" y="1875" class="phase-label" fill="#666">Open Questions and Edge Cases and other random thoughts</text>
+
+  <text x="60" y="1897" class="node-text-sm"><tspan font-weight="bold">Multiple simultaneous failures.</tspan> A palette can fail several invariants at once. Fix in order: midpoint, then monotonicity, then uniformity, then step size.</text>
+  <text x="60" y="1947" class="node-text-sm"><tspan font-weight="bold">Data distribution.</tspan> Cannot move midpoint relative to other points because data may be unevenly distributed. Repairs that look good on the palette</text>
+  <text x="68" y="1961" class="node-text-sm">in isolation might distort the data mapping.</text>
+  <text x="60" y="1979" class="node-text-sm"><tspan font-weight="bold">Dynamic vs. fixed repair menu.</tspan> Current ideas proposes from fixed set of replacement palettes. More sophisticated version would generate palettes?</text>
+  <text x="60" y="2011" class="node-text-sm"><tspan font-weight="bold">LLM integration points.</tspan> Palette classification (Phase 2), midpoint validation (Div. pre-check), mismatch detection (Phase 4) are candidates for LLM reasoning.</text>
+
+</svg>

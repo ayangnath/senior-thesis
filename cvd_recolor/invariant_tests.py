@@ -1,0 +1,526 @@
+# Invariant tests for each palette type (DR3). Categorical gets pairwise delta E,
+# sequential gets monotonicity/uniformity/direction/min-step, and diverging
+# gets midpoint/endpoint/arm checks.
+
+import numpy as np
+from typing import List, Tuple, Optional, Dict
+from color_science import (
+    srgb_to_lab, ciede2000, simulate_cvd_lab,
+    pairwise_de_under_cvd, get_lightness_under_cvd
+)
+
+
+CATEGORICAL_MIN_DE = 8.0           # pairwise distinguishability
+DIVERGING_ENDPOINT_MIN_DE = 10.0   # endpoint separation
+SEQUENTIAL_MIN_DL = 3.0            # adjacent step size
+MONOTONICITY_TOLERANCE = 0.5       # floating point tolerance
+
+
+# Result of one invariant test (pass/fail with metric details).
+class TestResult:
+    def __init__(
+        self,
+        test_name: str,
+        passed: bool,
+        metric_value: float,
+        threshold: float,
+        repair_suggestion: Optional[str] = None,
+        details: Optional[Dict] = None,
+    ):
+        self.test_name = test_name
+        self.passed = passed
+        self.metric_value = metric_value
+        self.threshold = threshold
+        self.repair_suggestion = repair_suggestion
+        self.details = details or {}
+
+    def __repr__(self):
+        status = "PASS" if self.passed else "FAIL"
+        return (
+            f"[{status}] {self.test_name}: "
+            f"{self.metric_value:.2f} (threshold: {self.threshold})"
+        )
+
+
+# How a palette can fail under CVD simulation.
+class FailureMode:
+    PAIRWISE_COLLAPSE = "pairwise_collapse"           # Categorical
+    MONOTONICITY_VIOLATION = "monotonicity_violation" # Sequential
+    UNIFORMITY_DISTORTION = "uniformity_distortion"   # Sequential
+    DIRECTION_REVERSAL = "direction_reversal"         # Sequential
+    MIDPOINT_DISAPPEARANCE = "midpoint_disappearance" # Diverging
+    MIDPOINT_SHIFT = "midpoint_shift"                  # Diverging
+    BIDIRECTIONAL_COLLAPSE = "bidirectional_collapse" # Diverging
+
+
+# Check that all pairwise delta E values are at least 8 under CVD.
+def test_categorical_pairwise(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 2:
+        return TestResult(
+            "Categorical Pairwise ΔE",
+            passed=True,
+            metric_value=float('inf'),
+            threshold=CATEGORICAL_MIN_DE,
+            details={"reason": "fewer than 2 colors"},
+        )
+
+    de_matrix = pairwise_de_under_cvd(colors, cvd_type)
+    n = len(colors)
+
+    # find the worst pair
+    min_de = float('inf')
+    worst_pair = None
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            if de_matrix[i, j] < min_de:
+                min_de = de_matrix[i, j]
+                worst_pair = (i, j)
+
+    passed = min_de >= CATEGORICAL_MIN_DE
+
+    if passed:
+        repair = None
+    elif n <= 8:
+        repair = "Swap in CVD-safe palette (Okabe-Ito, Tol, etc.) - Pick max min pairwise Delta E"
+    else:
+        repair = "Max Delta E + supplementary encoding (texture, labels) - Flag: hard to distinguish"
+
+    return TestResult(
+        "Categorical Pairwise ΔE",
+        passed=passed,
+        metric_value=round(min_de, 2),
+        threshold=CATEGORICAL_MIN_DE,
+        repair_suggestion=repair,
+        details={
+            "worst_pair": worst_pair,
+            "n_categories": n,
+            "cvd_type": cvd_type,
+            "failure_mode": FailureMode.PAIRWISE_COLLAPSE if not passed else None,
+        },
+    )
+
+
+# Check that L* values stay monotonic under CVD simulation.
+def test_sequential_monotonicity(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 2:
+        return TestResult(
+            "Sequential Test 1: Monotonicity",
+            passed=True,
+            metric_value=1.0,
+            threshold=1.0,
+            details={"reason": "fewer than 2 colors"},
+        )
+
+    L_values = get_lightness_under_cvd(colors, cvd_type)
+    diffs = np.diff(L_values)
+
+    # figure out expected direction
+    orig_L = [srgb_to_lab(c)[0] for c in colors]
+    expected_increasing = np.mean(np.diff(orig_L)) >= 0
+
+    if expected_increasing:
+        is_monotonic = np.all(diffs > -MONOTONICITY_TOLERANCE)
+    else:
+        is_monotonic = np.all(diffs < MONOTONICITY_TOLERANCE)
+
+    return TestResult(
+        "Sequential Test 1: Monotonicity",
+        passed=is_monotonic,
+        metric_value=1.0 if is_monotonic else 0.0,
+        threshold=1.0,
+        repair_suggestion=None if is_monotonic else "Force monotonic L* (Single-hue ramp or adjust L*)",
+        details={
+            "L_values_under_cvd": [round(l, 2) for l in L_values],
+            "diffs": [round(d, 2) for d in diffs],
+            "expected_direction": "increasing" if expected_increasing else "decreasing",
+            "failure_mode": FailureMode.MONOTONICITY_VIOLATION if not is_monotonic else None,
+        },
+    )
+
+
+# Check that step sizes are roughly uniform (CV < 0.4).
+def test_sequential_uniformity(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 3:
+        return TestResult(
+            "Sequential Test 2: Uniformity",
+            passed=True,
+            metric_value=1.0,
+            threshold=1.0,
+            details={"reason": "fewer than 3 colors for uniformity check"},
+        )
+
+    L_values = get_lightness_under_cvd(colors, cvd_type)
+    diffs = np.abs(np.diff(L_values))
+
+    # coefficient of variation of step sizes
+    mean_step = np.mean(diffs)
+    std_step = np.std(diffs)
+    cv = std_step / (mean_step + 1e-10)
+
+    is_uniform = cv < 0.4
+
+    return TestResult(
+        "Sequential Test 2: Uniformity",
+        passed=is_uniform,
+        metric_value=round(cv, 2),
+        threshold=0.4,
+        repair_suggestion=None if is_uniform else "Redistribute L* evenly (Clip range or resample steps)",
+        details={
+            "step_sizes": [round(d, 2) for d in diffs],
+            "mean_step": round(mean_step, 2),
+            "std_step": round(std_step, 2),
+            "cv": round(cv, 2),
+            "failure_mode": FailureMode.UNIFORMITY_DISTORTION if not is_uniform else None,
+        },
+    )
+
+
+# Check that the lightness direction is preserved under CVD.
+def test_sequential_direction(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 2:
+        return TestResult(
+            "Sequential Test 3: Direction",
+            passed=True,
+            metric_value=1.0,
+            threshold=1.0,
+            details={"reason": "fewer than 2 colors"},
+        )
+
+    # compare original vs CVD-simulated direction
+    orig_L = [srgb_to_lab(c)[0] for c in colors]
+    orig_increasing = orig_L[-1] > orig_L[0]
+
+    cvd_L = get_lightness_under_cvd(colors, cvd_type)
+    cvd_increasing = cvd_L[-1] > cvd_L[0]
+
+    direction_preserved = (orig_increasing == cvd_increasing)
+
+    return TestResult(
+        "Sequential Test 3: Direction",
+        passed=direction_preserved,
+        metric_value=1.0 if direction_preserved else 0.0,
+        threshold=1.0,
+        repair_suggestion=None if direction_preserved else "Remap to CVD-safe seq. (viridis, cividis, inferno)",
+        details={
+            "original_direction": "increasing" if orig_increasing else "decreasing",
+            "cvd_direction": "increasing" if cvd_increasing else "decreasing",
+            "failure_mode": FailureMode.DIRECTION_REVERSAL if not direction_preserved else None,
+        },
+    )
+
+
+# Check that adjacent steps have at least 3 delta L* between them.
+def test_sequential_min_step(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 2:
+        return TestResult(
+            "Sequential Test 4: Min Step Size",
+            passed=True,
+            metric_value=float('inf'),
+            threshold=SEQUENTIAL_MIN_DL,
+            details={"reason": "fewer than 2 colors"},
+        )
+
+    L_values = get_lightness_under_cvd(colors, cvd_type)
+    diffs = np.abs(np.diff(L_values))
+    min_step = np.min(diffs) if len(diffs) > 0 else 0
+
+    passed = min_step >= SEQUENTIAL_MIN_DL
+
+    return TestResult(
+        "Sequential Test 4: Min Step Size",
+        passed=passed,
+        metric_value=round(min_step, 2),
+        threshold=SEQUENTIAL_MIN_DL,
+        repair_suggestion=None if passed else "Expand L* range or reduce number of bins",
+        details={
+            "step_sizes": [round(d, 2) for d in diffs],
+            "min_step": round(min_step, 2),
+        },
+    )
+
+
+# Extra check for multi-hue sequential palettes: adjacent delta E >= 5.
+# Multi-hue ramps can have plateaus where consecutive steps merge under CVD.
+def test_sequential_adjacent_de(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    ADJACENT_MIN_DE = 5.0
+
+    if len(colors) < 2:
+        return TestResult(
+            "Sequential Cross-Check: Adjacent ΔE",
+            passed=True,
+            metric_value=float('inf'),
+            threshold=ADJACENT_MIN_DE,
+            details={"reason": "fewer than 2 colors"},
+        )
+
+    min_de = float('inf')
+    worst_pair = None
+    adjacent_des = []
+
+    for i in range(len(colors) - 1):
+        lab_i = simulate_cvd_lab(colors[i], cvd_type)
+        lab_j = simulate_cvd_lab(colors[i + 1], cvd_type)
+        de = ciede2000(lab_i, lab_j)
+        adjacent_des.append(round(de, 2))
+        if de < min_de:
+            min_de = de
+            worst_pair = (i, i + 1)
+
+    passed = min_de >= ADJACENT_MIN_DE
+
+    return TestResult(
+        "Sequential Cross-Check: Adjacent ΔE",
+        passed=passed,
+        metric_value=round(min_de, 2),
+        threshold=ADJACENT_MIN_DE,
+        repair_suggestion=None if passed else (
+            "Multi-hue ramp has plateau under CVD. "
+            "Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        ),
+        details={
+            "adjacent_delta_e_values": adjacent_des,
+            "worst_pair": worst_pair,
+            "failure_mode": FailureMode.PAIRWISE_COLLAPSE if not passed else None,
+            "note": "Cross-type check: pairwise separation applied to sequential palette",
+        },
+    )
+
+
+# Sort colors by L* ascending. SVG palette order is arbitrary, so we need
+# to sort before testing monotonicity and step sizes.
+def _sort_by_lightness(colors: List[Tuple]) -> List[Tuple]:
+    labs = [srgb_to_lab(c) for c in colors]
+    sorted_indices = sorted(range(len(colors)), key=lambda i: labs[i][0])
+    return [colors[i] for i in sorted_indices]
+
+
+# Run all four sequential tests (plus an adjacent delta E check for multi-hue).
+def run_sequential_tests(colors: List[Tuple], cvd_type: str = "deutan",
+                         classification_details: Optional[Dict] = None) -> List[TestResult]:
+    sorted_colors = _sort_by_lightness(colors)
+
+    results = [
+        test_sequential_monotonicity(sorted_colors, cvd_type),
+        test_sequential_uniformity(sorted_colors, cvd_type),
+        test_sequential_direction(sorted_colors, cvd_type),
+        test_sequential_min_step(sorted_colors, cvd_type),
+    ]
+
+    # multi-hue palettes get an extra adjacent delta E check
+    details = classification_details or {}
+    hue_diversity = details.get("hue_diversity_deg", 0)
+    if hue_diversity > 40:
+        results.append(test_sequential_adjacent_de(sorted_colors, cvd_type))
+
+    return results
+
+
+# Check that the midpoint sits at a perceptual extremum (lightest or darkest)
+# and is distinguishable from its neighbors.
+def test_diverging_midpoint_extremum(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    n = len(colors)
+    if n < 3:
+        return TestResult(
+            "Diverging Test 1: Midpoint Extremum",
+            passed=False,
+            metric_value=0.0,
+            threshold=1.0,
+            details={"reason": "need at least 3 colors for diverging"},
+        )
+
+    mid_idx = n // 2
+    L_values = get_lightness_under_cvd(colors, cvd_type)
+
+    # is the midpoint at the L* minimum or maximum?
+    mid_L = L_values[mid_idx]
+    min_L = np.min(L_values)
+    max_L = np.max(L_values)
+
+    is_extremum = (abs(mid_L - min_L) < 1.0) or (abs(mid_L - max_L) < 1.0)
+
+    # also make sure it doesn't blend into its neighbors
+    if mid_idx > 0 and mid_idx < n - 1:
+        de_left = ciede2000(
+            simulate_cvd_lab(colors[mid_idx], cvd_type),
+            simulate_cvd_lab(colors[mid_idx - 1], cvd_type),
+        )
+        de_right = ciede2000(
+            simulate_cvd_lab(colors[mid_idx], cvd_type),
+            simulate_cvd_lab(colors[mid_idx + 1], cvd_type),
+        )
+        midpoint_distinct = min(de_left, de_right) >= 3.0
+    else:
+        midpoint_distinct = True
+
+    passed = is_extremum and midpoint_distinct
+
+    if not passed:
+        if not midpoint_distinct:
+            failure = "Disappears (blends in)"
+        else:
+            failure = "Shifts (wrong step)"
+        repair = "Increase L* contrast at midpoint / anchor explicitly"
+    else:
+        failure = None
+        repair = None
+
+    return TestResult(
+        "Diverging Test 1: Midpoint Extremum",
+        passed=passed,
+        metric_value=1.0 if passed else 0.0,
+        threshold=1.0,
+        repair_suggestion=repair,
+        details={
+            "midpoint_index": mid_idx,
+            "midpoint_L": round(mid_L, 2),
+            "is_extremum": is_extremum,
+            "is_distinct_from_neighbors": midpoint_distinct,
+            "failure_mode": failure,
+        },
+    )
+
+
+# Check that the two endpoints remain distinct under CVD (delta E > 10).
+def test_diverging_endpoints_distinct(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    if len(colors) < 2:
+        return TestResult(
+            "Diverging Test 2: Endpoints Distinct",
+            passed=False,
+            metric_value=0.0,
+            threshold=DIVERGING_ENDPOINT_MIN_DE,
+            details={"reason": "need at least 2 colors"},
+        )
+
+    left_lab = simulate_cvd_lab(colors[0], cvd_type)
+    right_lab = simulate_cvd_lab(colors[-1], cvd_type)
+    de = ciede2000(left_lab, right_lab)
+
+    passed = de >= DIVERGING_ENDPOINT_MIN_DE
+
+    return TestResult(
+        "Diverging Test 2: Endpoints Distinct",
+        passed=passed,
+        metric_value=round(de, 2),
+        threshold=DIVERGING_ENDPOINT_MIN_DE,
+        repair_suggestion=None if passed else "Replace arm hue(s) to stay distinct under CVD",
+        details={
+            "endpoint_de": round(de, 2),
+            "failure_mode": FailureMode.BIDIRECTIONAL_COLLAPSE if not passed else None,
+        },
+    )
+
+
+# Check that each arm individually passes the sequential tests.
+def test_diverging_arms_sequential(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    n = len(colors)
+    if n < 3:
+        return TestResult(
+            "Diverging Test 3: Arms Sequential",
+            passed=False,
+            metric_value=0.0,
+            threshold=1.0,
+            details={"reason": "need at least 3 colors"},
+        )
+
+    mid_idx = n // 2
+    left_arm = colors[:mid_idx + 1]
+    right_arm = colors[mid_idx:]
+
+    left_results = run_sequential_tests(left_arm, cvd_type)
+    right_results = run_sequential_tests(right_arm, cvd_type)
+
+    left_passed = all(r.passed for r in left_results)
+    right_passed = all(r.passed for r in right_results)
+    both_passed = left_passed and right_passed
+
+    return TestResult(
+        "Diverging Test 3: Arms Sequential",
+        passed=both_passed,
+        metric_value=1.0 if both_passed else 0.0,
+        threshold=1.0,
+        repair_suggestion=None if both_passed else "Apply Sequential repairs to each failing arm independently",
+        details={
+            "left_arm_passed": left_passed,
+            "right_arm_passed": right_passed,
+            "left_arm_results": [str(r) for r in left_results],
+            "right_arm_results": [str(r) for r in right_results],
+        },
+    )
+
+
+# Check that the two arms have roughly symmetric L* profiles.
+def test_diverging_arm_symmetry(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+    n = len(colors)
+    if n < 3:
+        return TestResult(
+            "Diverging Test 4: Arm Symmetry",
+            passed=False,
+            metric_value=0.0,
+            threshold=1.0,
+            details={"reason": "need at least 3 colors"},
+        )
+
+    mid_idx = n // 2
+    L_values = get_lightness_under_cvd(colors, cvd_type)
+
+    # compare L* at equal distances from midpoint
+    max_distance = min(mid_idx, n - mid_idx - 1)
+    diffs = []
+
+    for k in range(1, max_distance + 1):
+        left_L = L_values[mid_idx - k]
+        right_L = L_values[mid_idx + k]
+        diffs.append(abs(left_L - right_L))
+
+    if diffs:
+        max_asymmetry = max(diffs)
+        is_symmetric = max_asymmetry < 5.0  # Allow 5 L* units asymmetry
+    else:
+        max_asymmetry = 0
+        is_symmetric = True
+
+    return TestResult(
+        "Diverging Test 4: Arm Symmetry",
+        passed=is_symmetric,
+        metric_value=round(max_asymmetry, 2),
+        threshold=5.0,
+        repair_suggestion=None if is_symmetric else "Balance L* profiles across arms (lower priority)",
+        details={
+            "max_asymmetry": round(max_asymmetry, 2),
+            "asymmetry_at_each_step": [round(d, 2) for d in diffs],
+        },
+    )
+
+
+# Run all four diverging invariant tests.
+def run_diverging_tests(colors: List[Tuple], cvd_type: str = "deutan",
+                        classification_details: Optional[Dict] = None) -> List[TestResult]:
+    return [
+        test_diverging_midpoint_extremum(colors, cvd_type),
+        test_diverging_endpoints_distinct(colors, cvd_type),
+        test_diverging_arms_sequential(colors, cvd_type),
+        test_diverging_arm_symmetry(colors, cvd_type),
+    ]
+
+
+# Run the right invariant tests for the palette type.
+def run_invariant_tests(
+    colors: List[Tuple],
+    palette_type: str,
+    cvd_type: str = "deutan",
+    classification_details: Optional[Dict] = None,
+) -> List[TestResult]:
+    if palette_type == "categorical":
+        return [test_categorical_pairwise(colors, cvd_type)]
+    elif palette_type == "sequential":
+        return run_sequential_tests(colors, cvd_type, classification_details)
+    elif palette_type == "diverging":
+        return run_diverging_tests(colors, cvd_type, classification_details)
+    else:
+        raise ValueError(f"Unknown palette type: {palette_type}")
+
+
+# True if every test passed.
+def all_tests_passed(test_results: List[TestResult]) -> bool:
+    return all(r.passed for r in test_results)

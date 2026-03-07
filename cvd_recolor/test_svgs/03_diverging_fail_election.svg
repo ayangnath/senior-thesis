@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 450 300">
+  <text x="225" y="25" text-anchor="middle" font-size="14" fill="#333">
+    Temperature Anomaly by Region (Diverging)
+  </text>
+
+  <!-- Simplified regions using rectangles -->
+  <!-- Red (hot) → White (neutral) → Green (cold) diverging scheme -->
+  <!-- This collapses under protanopia/deuteranopia: both arms lose distinction -->
+  <rect x="20"  y="40" width="80" height="60" fill="#1b7837"/>  <!-- Strong green (cold) -->
+  <rect x="105" y="40" width="80" height="60" fill="#5aae61"/>  <!-- Medium green -->
+  <rect x="190" y="40" width="80" height="60" fill="#a6dba0"/>  <!-- Light green -->
+  <rect x="275" y="40" width="80" height="60" fill="#d9f0d3"/>  <!-- Very light green -->
+  <rect x="360" y="40" width="80" height="60" fill="#f7f7f7"/>  <!-- White/neutral -->
+
+  <rect x="20"  y="105" width="80" height="60" fill="#f7f7f7"/> <!-- White/neutral -->
+  <rect x="105" y="105" width="80" height="60" fill="#fddbc7"/> <!-- Very light red -->
+  <rect x="190" y="105" width="80" height="60" fill="#f4a582"/> <!-- Light red -->
+  <rect x="275" y="105" width="80" height="60" fill="#d6604d"/> <!-- Medium red -->
+  <rect x="360" y="105" width="80" height="60" fill="#b2182b"/> <!-- Strong red -->
+
+  <!-- Mixed rows -->
+  <rect x="20"  y="170" width="80" height="60" fill="#5aae61"/>
+  <rect x="105" y="170" width="80" height="60" fill="#f4a582"/>
+  <rect x="190" y="170" width="80" height="60" fill="#f7f7f7"/>
+  <rect x="275" y="170" width="80" height="60" fill="#a6dba0"/>
+  <rect x="360" y="170" width="80" height="60" fill="#d6604d"/>
+
+  <!-- Legend -->
+  <g class="legend" transform="translate(30, 250)">
+    <text x="0" y="12" font-size="10" fill="#333">Cold</text>
+    <rect x="40"  y="2" width="25" height="15" fill="#1b7837"/>
+    <rect x="68"  y="2" width="25" height="15" fill="#5aae61"/>
+    <rect x="96"  y="2" width="25" height="15" fill="#a6dba0"/>
+    <rect x="124" y="2" width="25" height="15" fill="#d9f0d3"/>
+    <rect x="152" y="2" width="25" height="15" fill="#f7f7f7" stroke="#ccc" stroke-width="0.5"/>
+    <rect x="180" y="2" width="25" height="15" fill="#fddbc7"/>
+    <rect x="208" y="2" width="25" height="15" fill="#f4a582"/>
+    <rect x="236" y="2" width="25" height="15" fill="#d6604d"/>
+    <rect x="264" y="2" width="25" height="15" fill="#b2182b"/>
+    <text x="295" y="12" font-size="10" fill="#333">Hot</text>
+  </g>
+</svg>
