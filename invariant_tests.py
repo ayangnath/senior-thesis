@@ -316,6 +316,28 @@ def run_sequential_tests(colors: List[Tuple], cvd_type: str = "deutan",
     return results
 
 
+# Find the actual diverging midpoint as the L* extremum in the interior,
+# rather than assuming it's at n//2 (palette may not be in gradient order).
+def _find_diverging_midpoint(colors: List[Tuple]) -> int:
+    n = len(colors)
+    L_values = [srgb_to_lab(c)[0] for c in colors]
+    L_arr = np.array(L_values)
+
+    min_idx = int(np.argmin(L_arr))
+    max_idx = int(np.argmax(L_arr))
+
+    interior = []
+    if 0 < max_idx < n - 1:
+        interior.append(max_idx)
+    if 0 < min_idx < n - 1:
+        interior.append(min_idx)
+
+    if interior:
+        mean_L = np.mean(L_arr)
+        return max(interior, key=lambda i: abs(L_arr[i] - mean_L))
+    return n // 2
+
+
 # Check that the midpoint sits at a perceptual extremum (lightest or darkest)
 # and is distinguishable from its neighbors.
 def test_diverging_midpoint_extremum(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
@@ -329,7 +351,7 @@ def test_diverging_midpoint_extremum(colors: List[Tuple], cvd_type: str = "deuta
             details={"reason": "need at least 3 colors for diverging"},
         )
 
-    mid_idx = n // 2
+    mid_idx = _find_diverging_midpoint(colors)
     L_values = get_lightness_under_cvd(colors, cvd_type)
 
     # is the midpoint at the L* minimum or maximum?
@@ -423,7 +445,7 @@ def test_diverging_arms_sequential(colors: List[Tuple], cvd_type: str = "deutan"
             details={"reason": "need at least 3 colors"},
         )
 
-    mid_idx = n // 2
+    mid_idx = _find_diverging_midpoint(colors)
     left_arm = colors[:mid_idx + 1]
     right_arm = colors[mid_idx:]
 
@@ -449,46 +471,77 @@ def test_diverging_arms_sequential(colors: List[Tuple], cvd_type: str = "deutan"
     )
 
 
-# Check that the two arms have roughly symmetric L* profiles.
-def test_diverging_arm_symmetry(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
+# Check that the L* range ratio between arms is preserved under CVD.
+# Instead of forcing symmetry, this preserves asymmetric diverging palettes:
+# if the original has a 1.3:1 L* range ratio, the CVD version should approximate that.
+def test_diverging_arm_ratio_preservation(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
     n = len(colors)
     if n < 3:
         return TestResult(
-            "Diverging Test 4: Arm Symmetry",
+            "Diverging Test 4: Arm Ratio Preservation",
             passed=False,
             metric_value=0.0,
             threshold=1.0,
             details={"reason": "need at least 3 colors"},
         )
 
-    mid_idx = n // 2
-    L_values = get_lightness_under_cvd(colors, cvd_type)
+    mid_idx = _find_diverging_midpoint(colors)
 
-    # compare L* at equal distances from midpoint
-    max_distance = min(mid_idx, n - mid_idx - 1)
-    diffs = []
+    # original L* values
+    orig_L = [srgb_to_lab(c)[0] for c in colors]
+    # CVD-simulated L* values
+    cvd_L = list(get_lightness_under_cvd(colors, cvd_type))
 
-    for k in range(1, max_distance + 1):
-        left_L = L_values[mid_idx - k]
-        right_L = L_values[mid_idx + k]
-        diffs.append(abs(left_L - right_L))
+    # L* range of each arm
+    orig_left_range = abs(orig_L[0] - orig_L[mid_idx])
+    orig_right_range = abs(orig_L[-1] - orig_L[mid_idx])
+    cvd_left_range = abs(cvd_L[0] - cvd_L[mid_idx])
+    cvd_right_range = abs(cvd_L[-1] - cvd_L[mid_idx])
 
-    if diffs:
-        max_asymmetry = max(diffs)
-        is_symmetric = max_asymmetry < 5.0  # Allow 5 L* units asymmetry
+    # compute ratio (larger / smaller, always >= 1)
+    if min(orig_left_range, orig_right_range) < 1.0:
+        orig_ratio = 1.0
     else:
-        max_asymmetry = 0
-        is_symmetric = True
+        orig_ratio = max(orig_left_range, orig_right_range) / min(orig_left_range, orig_right_range)
+
+    if min(cvd_left_range, cvd_right_range) < 1.0:
+        cvd_ratio = float('inf') if max(cvd_left_range, cvd_right_range) > 5.0 else 1.0
+    else:
+        cvd_ratio = max(cvd_left_range, cvd_right_range) / min(cvd_left_range, cvd_right_range)
+
+    ratio_diff = abs(orig_ratio - cvd_ratio)
+
+    # also check that the longer arm stays the same side
+    orig_left_longer = orig_left_range >= orig_right_range
+    cvd_left_longer = cvd_left_range >= cvd_right_range
+    # skip orientation check if the palette is nearly symmetric (< 3 L* difference)
+    nearly_symmetric = abs(orig_left_range - orig_right_range) < 3.0
+    same_orientation = nearly_symmetric or (orig_left_longer == cvd_left_longer)
+
+    passed = ratio_diff < 0.3 and same_orientation
+
+    if not passed and not same_orientation:
+        repair = "CVD flips which arm has greater L* range; adjust arm hues to preserve asymmetry direction"
+    elif not passed:
+        repair = "Adjust arm L* ranges to preserve original asymmetry ratio under CVD"
+    else:
+        repair = None
 
     return TestResult(
-        "Diverging Test 4: Arm Symmetry",
-        passed=is_symmetric,
-        metric_value=round(max_asymmetry, 2),
-        threshold=5.0,
-        repair_suggestion=None if is_symmetric else "Balance L* profiles across arms (lower priority)",
+        "Diverging Test 4: Arm Ratio Preservation",
+        passed=passed,
+        metric_value=round(ratio_diff, 2),
+        threshold=0.3,
+        repair_suggestion=repair,
         details={
-            "max_asymmetry": round(max_asymmetry, 2),
-            "asymmetry_at_each_step": [round(d, 2) for d in diffs],
+            "orig_left_range": round(orig_left_range, 2),
+            "orig_right_range": round(orig_right_range, 2),
+            "orig_ratio": round(orig_ratio, 2),
+            "cvd_left_range": round(cvd_left_range, 2),
+            "cvd_right_range": round(cvd_right_range, 2),
+            "cvd_ratio": round(cvd_ratio, 2) if cvd_ratio != float('inf') else "inf",
+            "ratio_difference": round(ratio_diff, 2) if ratio_diff != float('inf') else "inf",
+            "same_orientation": same_orientation,
         },
     )
 
@@ -500,7 +553,7 @@ def run_diverging_tests(colors: List[Tuple], cvd_type: str = "deutan",
         test_diverging_midpoint_extremum(colors, cvd_type),
         test_diverging_endpoints_distinct(colors, cvd_type),
         test_diverging_arms_sequential(colors, cvd_type),
-        test_diverging_arm_symmetry(colors, cvd_type),
+        test_diverging_arm_ratio_preservation(colors, cvd_type),
     ]
 
 

@@ -373,69 +373,110 @@ def _extend_mapping_for_legend_gradients(parsed_svg, color_mapping):
 
 
 # Remap gradient stop colors for legends that use a gradient colorbar.
-# Uses L*-based interpolation (common in D3, Vega-Lite, Highcharts).
+# Uses offset-based interpolation: each stop's offset (position in the
+# gradient) maps to the same relative position in the new palette. This
+# avoids issues when gradient stop L* values don't match the data palette
+# range or aren't monotonic.
 def _recolor_svg_gradients(parsed_svg, color_mapping):
     from color_science import srgb_to_lab, lab_to_srgb
     import numpy as np
 
-    ref = []
-    for old_hex, new_hex in color_mapping.items():
-        old_rgb = parse_color(old_hex)
+    # Collect new colors and sort by L* (dark to light)
+    new_labs = []
+    for new_hex in color_mapping.values():
         new_rgb = parse_color(new_hex)
-        if old_rgb and new_rgb:
-            L = srgb_to_lab(old_rgb)[0]
-            new_lab = np.array(srgb_to_lab(new_rgb))
-            ref.append((L, new_lab))
-    ref.sort(key=lambda x: x[0])
+        if new_rgb:
+            new_labs.append(np.array(srgb_to_lab(new_rgb)))
 
-    if not ref:
+    if not new_labs:
         return
 
-    ref_Ls = np.array([r[0] for r in ref])
-    ref_labs = np.array([r[1] for r in ref])
+    new_labs.sort(key=lambda lab: lab[0])
+    new_labs_arr = np.array(new_labs)
+    n_ref = len(new_labs_arr)
 
     root = parsed_svg.tree.getroot()
-    for elem in root.iter():
-        tag = _get_local_tag(elem)
-        if tag != "stop":
-            continue
-        stop_color_str = _get_style_property(elem, "stop-color")
-        if not stop_color_str:
-            stop_color_str = elem.get("stop-color")
-        if not stop_color_str:
+
+    for grad_elem in root.iter():
+        tag = _get_local_tag(grad_elem)
+        if tag not in ("linearGradient", "radialGradient"):
             continue
 
-        stop_rgb = parse_color(stop_color_str)
-        if not stop_rgb:
+        # Collect stops with offsets and L*
+        stops = []
+        for child in grad_elem:
+            if _get_local_tag(child) != "stop":
+                continue
+
+            offset_str = child.get("offset", "0").strip()
+            if offset_str.endswith('%'):
+                try:
+                    offset = float(offset_str[:-1]) / 100.0
+                except ValueError:
+                    offset = 0.0
+            else:
+                try:
+                    offset = float(offset_str)
+                except ValueError:
+                    offset = 0.0
+
+            stop_color_str = _get_style_property(child, "stop-color")
+            if not stop_color_str:
+                stop_color_str = child.get("stop-color")
+            if not stop_color_str:
+                continue
+            stop_rgb = parse_color(stop_color_str)
+            if not stop_rgb:
+                continue
+
+            L = srgb_to_lab(stop_rgb)[0]
+            stops.append((offset, L, child))
+
+        if not stops:
             continue
 
-        # interpolate into new palette by lightness
-        L = srgb_to_lab(stop_rgb)[0]
-        idx = np.searchsorted(ref_Ls, L)
-        if idx == 0:
-            new_lab = ref_labs[0]
-        elif idx >= len(ref_Ls):
-            new_lab = ref_labs[-1]
-        else:
-            lo_L = ref_Ls[idx - 1]
-            hi_L = ref_Ls[idx]
-            t = (L - lo_L) / (hi_L - lo_L + 1e-10)
-            t = max(0.0, min(1.0, t))
-            new_lab = ref_labs[idx - 1] * (1 - t) + ref_labs[idx] * t
+        stops.sort(key=lambda x: x[0])
 
-        new_hex = rgb_to_hex(lab_to_srgb(new_lab))
+        # Determine direction: does L* increase or decrease along offset?
+        first_L = stops[0][1]
+        last_L = stops[-1][1]
+        ascending = last_L >= first_L
 
-        # write back
-        style = elem.get("style", "")
-        if "stop-color" in style:
-            new_style = re.sub(
-                r'stop-color\s*:\s*[^;]+',
-                f'stop-color:{new_hex}',
-                style
-            )
-            elem.set("style", new_style)
-        else:
-            elem.set("stop-color", new_hex)
+        offset_min = stops[0][0]
+        offset_max = stops[-1][0]
+        offset_range = offset_max - offset_min
+
+        for offset, _stop_L, stop_elem in stops:
+            if offset_range < 0.001:
+                t = 0.5
+            else:
+                t = (offset - offset_min) / offset_range
+
+            # Map normalized offset to position in new palette (sorted dark→light)
+            if ascending:
+                pos = t * (n_ref - 1)
+            else:
+                pos = (1.0 - t) * (n_ref - 1)
+
+            idx_lo = max(0, int(pos))
+            idx_hi = min(idx_lo + 1, n_ref - 1)
+            frac = pos - idx_lo
+            frac = max(0.0, min(1.0, frac))
+
+            new_lab = new_labs_arr[idx_lo] * (1 - frac) + new_labs_arr[idx_hi] * frac
+            new_hex = rgb_to_hex(lab_to_srgb(new_lab))
+
+            # write back
+            style = stop_elem.get("style", "")
+            if "stop-color" in style:
+                new_style = re.sub(
+                    r'stop-color\s*:\s*[^;]+',
+                    f'stop-color:{new_hex}',
+                    style
+                )
+                stop_elem.set("style", new_style)
+            else:
+                stop_elem.set("stop-color", new_hex)
 
 
 # Apply a color mapping to data and legend elements. Non-data elements stay

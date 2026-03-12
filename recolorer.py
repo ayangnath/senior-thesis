@@ -308,64 +308,151 @@ def recolor_sequential(colors, cvd_type="deutan", attempt=0):
 
 # Generate a CVD-accessible diverging palette by interpolating through
 # a neutral midpoint between two safe endpoint hues.
+# Preserves the original palette's arm asymmetry: if the original has
+# unequal L* ranges on each side, the remapped version matches that ratio.
 def recolor_diverging(colors, cvd_type="deutan", attempt=0):
     n = len(colors)
-    mid_idx = n // 2
+    orig_labs = [srgb_to_lab(c) for c in colors]
+    L_values = [lab[0] for lab in orig_labs]
+    L_arr = np.array(L_values)
 
+    # --- 1. Choose the safe scheme closest to the original ---
     if attempt == 0:
-        # pick the closest safe scheme to the original
         orig_left_lab = srgb_to_lab(colors[0])
         orig_right_lab = srgb_to_lab(colors[-1])
-
         best_scheme = None
         best_dist = float('inf')
-
         for scheme in SAFE_DIVERGING_ENDPOINTS:
-            left_lab = srgb_to_lab(scheme["left"])
-            right_lab = srgb_to_lab(scheme["right"])
-            dist = ciede2000(orig_left_lab, left_lab) + ciede2000(orig_right_lab, right_lab)
-            dist2 = ciede2000(orig_left_lab, right_lab) + ciede2000(orig_right_lab, left_lab)
-            if min(dist, dist2) < best_dist:
-                best_dist = min(dist, dist2)
-                if dist2 < dist:
+            sl = srgb_to_lab(scheme["left"])
+            sr = srgb_to_lab(scheme["right"])
+            d1 = ciede2000(orig_left_lab, sl) + ciede2000(orig_right_lab, sr)
+            d2 = ciede2000(orig_left_lab, sr) + ciede2000(orig_right_lab, sl)
+            if min(d1, d2) < best_dist:
+                best_dist = min(d1, d2)
+                if d2 < d1:
                     best_scheme = {"left": scheme["right"], "mid": scheme["mid"], "right": scheme["left"]}
                 else:
                     best_scheme = scheme
-
         if best_scheme is None:
             best_scheme = SAFE_DIVERGING_ENDPOINTS[0]
     else:
-        # cycle through schemes on retries
-        scheme = SAFE_DIVERGING_ENDPOINTS[attempt % len(SAFE_DIVERGING_ENDPOINTS)]
-        best_scheme = scheme
+        best_scheme = SAFE_DIVERGING_ENDPOINTS[attempt % len(SAFE_DIVERGING_ENDPOINTS)]
 
-    # interpolate both arms through the midpoint
-    left_lab = srgb_to_lab(best_scheme["left"])
-    mid_lab = srgb_to_lab(best_scheme["mid"])
-    right_lab = srgb_to_lab(best_scheme["right"])
+    left_lab = np.array(srgb_to_lab(best_scheme["left"]), dtype=np.float64)
+    mid_lab = np.array(srgb_to_lab(best_scheme["mid"]), dtype=np.float64)
+    right_lab = np.array(srgb_to_lab(best_scheme["right"]), dtype=np.float64)
 
-    n_left = mid_idx + 1   # including midpoint
-    n_right = n - mid_idx  # including midpoint
+    # --- 2. Separate originals into left/right arms by hue proximity ---
+    left_ep_hue = np.arctan2(left_lab[2], left_lab[1])
+    right_ep_hue = np.arctan2(right_lab[2], right_lab[1])
+
+    left_indices = []
+    right_indices = []
+    achromatic_indices = []
+
+    for i in range(n):
+        chroma = np.sqrt(orig_labs[i][1]**2 + orig_labs[i][2]**2)
+        if chroma < 3:
+            achromatic_indices.append(i)
+            continue
+        hue = np.arctan2(orig_labs[i][2], orig_labs[i][1])
+        d_left = abs(hue - left_ep_hue)
+        if d_left > np.pi:
+            d_left = 2 * np.pi - d_left
+        d_right = abs(hue - right_ep_hue)
+        if d_right > np.pi:
+            d_right = 2 * np.pi - d_right
+        if d_left <= d_right:
+            left_indices.append(i)
+        else:
+            right_indices.append(i)
+
+    # Distribute achromatic originals proportionally
+    n_chromatic_left = len(left_indices)
+    n_chromatic_right = len(right_indices)
+    n_chromatic = n_chromatic_left + n_chromatic_right
+    for i in achromatic_indices:
+        if n_chromatic > 0:
+            if len(left_indices) / max(len(left_indices) + len(right_indices), 1) < n_chromatic_left / n_chromatic:
+                left_indices.append(i)
+            else:
+                right_indices.append(i)
+        else:
+            if len(left_indices) <= len(right_indices):
+                left_indices.append(i)
+            else:
+                right_indices.append(i)
+
+    # --- 3. Set arm sizes from actual assignment ---
+    n_left = len(left_indices)   # including midpoint
+    n_right = len(right_indices) + 1  # +1 because midpoint is shared
+
+    # Compute arm L* ranges from actual arm members
+    left_Ls = sorted([L_values[i] for i in left_indices])
+    right_Ls = sorted([L_values[i] for i in right_indices])
+    mid_L = max(np.max(L_arr), mid_lab[0])  # midpoint is the lightest
+
+    orig_left_range = abs(left_Ls[0] - mid_L) if left_Ls else 40
+    orig_right_range = abs(right_Ls[0] - mid_L) if right_Ls else 40
+
+    # --- 4. Generate new colors with correct arm sizes ---
+    safe_left_range = abs(left_lab[0] - mid_lab[0])
+    safe_right_range = abs(right_lab[0] - mid_lab[0])
+    total_safe = safe_left_range + safe_right_range
+    total_orig = orig_left_range + orig_right_range
+
+    if total_orig > 1.0 and total_safe > 1.0:
+        left_weight = orig_left_range / total_orig
+        right_weight = orig_right_range / total_orig
+        target_left_range = total_safe * left_weight
+        target_right_range = total_safe * right_weight
+    else:
+        target_left_range = safe_left_range
+        target_right_range = safe_right_range
+
+    left_sign = np.sign(left_lab[0] - mid_lab[0])
+    right_sign = np.sign(right_lab[0] - mid_lab[0])
+    if left_sign == 0: left_sign = -1
+    if right_sign == 0: right_sign = -1
 
     new_colors = []
 
-    # left arm
+    # left arm: endpoint → midpoint
     for i in range(n_left):
         t = i / max(n_left - 1, 1)
-        lab = left_lab * (1 - t) + mid_lab * t
-        new_colors.append(lab_to_srgb(lab))
+        ab = left_lab[1:] * (1 - t) + mid_lab[1:] * t
+        L = mid_lab[0] + left_sign * target_left_range * (1 - t)
+        L = np.clip(L, 5, 98)
+        new_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
 
-    # right arm (skip midpoint, already included)
+    # right arm: midpoint → endpoint (skip midpoint, already in left)
     for i in range(1, n_right):
         t = i / max(n_right - 1, 1)
-        lab = mid_lab * (1 - t) + right_lab * t
-        new_colors.append(lab_to_srgb(lab))
+        ab = mid_lab[1:] * (1 - t) + right_lab[1:] * t
+        L = mid_lab[0] + right_sign * target_right_range * t
+        L = np.clip(L, 5, 98)
+        new_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
 
-    # build mapping
+    # --- 5. Map by L*-rank within each arm ---
+    left_indices.sort(key=lambda i: L_values[i])
+    right_indices.sort(key=lambda i: L_values[i])
+
+    left_new = sorted(range(n_left), key=lambda j: srgb_to_lab(new_colors[j])[0])
+    right_new = sorted(range(n_left, len(new_colors)),
+                       key=lambda j: srgb_to_lab(new_colors[j])[0])
+
     color_map = {}
-    for i, orig in enumerate(colors):
-        if i < len(new_colors):
-            color_map[rgb_to_hex(orig)] = rgb_to_hex(new_colors[i])
+    for rank in range(min(len(left_indices), len(left_new))):
+        oi = left_indices[rank]
+        ni = left_new[rank]
+        color_map[rgb_to_hex(colors[oi])] = rgb_to_hex(new_colors[ni])
+
+    for rank in range(min(len(right_indices), len(right_new))):
+        oi = right_indices[rank]
+        ni = right_new[rank]
+        hex_key = rgb_to_hex(colors[oi])
+        if hex_key not in color_map:
+            color_map[hex_key] = rgb_to_hex(new_colors[ni])
 
     return color_map
 

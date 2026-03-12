@@ -234,6 +234,11 @@ def classify_palette(colors):
     # (think election maps, temperature maps)
     if has_clusters and n_achromatic >= 1 and not is_single_hue:
         if avg_chroma > 35 and hue_div > 50:
+            # large L* range in a big palette = multi-hue sequential ramp (e.g. YlGnBu)
+            # n >= 10 avoids false positives on 8-9 color categorical palettes
+            if L_range > 50 and n >= 10:
+                details["rule"] = "0_override: large_L_range_sequential"
+                return PaletteClassification("sequential", 0.75, details)
             # but if everything is very saturated and spread out, it's categorical
             details["rule"] = "0_override: high_chroma_categorical"
             return PaletteClassification("categorical", 0.85, details)
@@ -250,12 +255,20 @@ def classify_palette(colors):
         if _is_unidirectional_hue(labs):
             details["rule"] = "0_override: unidirectional_hue_sequential"
             return PaletteClassification("sequential", 0.80, details)
+        # large palette with narrow hue arc: continuous multi-hue gradient
+        # (e.g. red→orange→yellow→green), not two distinct diverging arms
+        if n > 50 and hue_div < 40:
+            details["rule"] = "0_override: large_palette_narrow_hue_sequential"
+            return PaletteClassification("sequential", 0.80, details)
         details["rule"] = "0: hue_clusters + achromatic"
         return PaletteClassification("diverging", 0.90, details)
 
     # two hue clusters in a large palette is usually diverging
     if has_clusters and n >= 8 and not is_single_hue:
         if avg_chroma > 35 and hue_div > 50:
+            if L_range > 50 and n >= 10:
+                details["rule"] = "0.5_override: large_L_range_sequential"
+                return PaletteClassification("sequential", 0.75, details)
             details["rule"] = "0.5_override: high_chroma_categorical"
             return PaletteClassification("categorical", 0.85, details)
         # only if clusters are reasonably balanced
@@ -363,6 +376,12 @@ def classify_palette(colors):
         else:
             details["rule"] = "5e: monotonic_fallback_categorical"
             return PaletteClassification("categorical", 0.70, details)
+
+    # multi-hue sequential ramps with unordered SVG colors:
+    # high hue diversity but hue transitions are unidirectional when sorted by L*
+    if L_range > 20 and not is_single_hue and _is_unidirectional_hue(labs):
+        details["rule"] = "5.5: multi_hue_sequential"
+        return PaletteClassification("sequential", 0.75, details)
 
     # lots of different hues in a small palette = categorical
     if hue_div > 50 and avg_chroma > 20 and n >= 2 and n <= 10:
