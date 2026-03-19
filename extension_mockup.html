@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVD Repair Extension Mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    background: #d5d5d5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  .popup {
+    width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .popup-header {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+  }
+
+  .popup-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .popup-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: conic-gradient(#4285f4 0deg 120deg, #ea4335 120deg 240deg, #fbbc04 240deg 360deg);
+  }
+
+  .popup-badge {
+    font-size: 9px;
+    color: #188038;
+    background: #e6f4ea;
+    padding: 2px 7px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  .popup-body {
+    padding: 10px 12px;
+  }
+
+  .top-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .cvd-select {
+    flex: 1;
+    padding: 5px 22px 5px 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 10px;
+    font-family: inherit;
+    color: #333;
+    background: #fff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23888'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+  }
+
+  .type-chip {
+    font-size: 10px;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: #fce8e6;
+    color: #c5221f;
+  }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .toggle-label-text {
+    font-size: 11px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .toggle-track {
+    width: 32px;
+    height: 18px;
+    background: #4285f4;
+    border-radius: 9px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .toggle-track.off {
+    background: #c4c4c4;
+  }
+
+  .toggle-thumb {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 16px;
+    transition: left 0.2s;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .toggle-track.off .toggle-thumb {
+    left: 2px;
+  }
+
+  .preview-area {
+    background: #f8f8f8;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .preview-label {
+    font-size: 9px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .mini-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 70px;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 0 4px;
+  }
+
+  .mini-group {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5px;
+  }
+
+  .mini-bar {
+    flex: 1;
+    border-radius: 1.5px 1.5px 0 0;
+    min-width: 6px;
+    transition: background 0.25s ease;
+  }
+
+  .mini-legend {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+
+  .mini-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 8px;
+    color: #777;
+  }
+
+  .mini-legend-swatch {
+    width: 7px;
+    height: 7px;
+    border-radius: 1.5px;
+    transition: background 0.25s ease;
+  }
+
+  .palette-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f8f8;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+    padding: 7px 10px;
+  }
+
+  .nav-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #555;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .nav-btn:hover {
+    border-color: #4285f4;
+    color: #4285f4;
+    background: #f0f4ff;
+  }
+
+  .palette-info {
+    flex: 1;
+    text-align: center;
+  }
+
+  .palette-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .palette-meta {
+    font-size: 9px;
+    color: #999;
+    margin-top: 1px;
+  }
+
+  .palette-swatches {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .palette-swatch-big {
+    width: 22px;
+    height: 11px;
+    border-radius: 2px;
+  }
+
+  .popup-footer {
+    padding: 8px 12px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-link {
+    font-size: 9.5px;
+    color: #4285f4;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .footer-link:hover { text-decoration: underline; }
+
+  .figure-caption {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 11.5px;
+    color: #666;
+    font-style: italic;
+    max-width: 460px;
+  }
+</style>
+</head>
+<body>
+
+<div class="popup">
+  <div class="popup-header">
+    <div class="popup-title">
+      <div class="popup-icon"></div>
+      CVD Palette Repair
+    </div>
+    <div class="popup-badge">1 SVG found</div>
+  </div>
+
+  <div class="popup-body">
+    <div class="top-row">
+      <select class="cvd-select" id="cvdSelect">
+        <option value="deut" selected>Deuteranopia</option>
+        <option value="prot">Protanopia</option>
+        <option value="trit">Tritanopia</option>
+      </select>
+      <div class="type-chip">Categorical · 4</div>
+    </div>
+
+    <div class="toggle-row">
+      <span class="toggle-label-text">Show correction</span>
+      <div class="toggle-track" id="toggleTrack" onclick="toggleCorrection()">
+        <div class="toggle-thumb"></div>
+      </div>
+    </div>
+
+    <div class="preview-area">
+      <div class="preview-label" id="previewLabel">Corrected</div>
+      <div class="mini-chart">
+        <div class="mini-group">
+          <div class="mini-bar" style="height:50px"></div>
+          <div class="mini-bar" style="height:36px"></div>
+          <div class="mini-bar" style="height:25px"></div>
+          <div class="mini-bar" style="height:20px"></div>
+        </div>
+        <div class="mini-group">
+          <div class="mini-bar" style="height:43px"></div>
+          <div class="mini-bar" style="height:47px"></div>
+          <div class="mini-bar" style="height:18px"></div>
+          <div class="mini-bar" style="height:29px"></div>
+        </div>
+        <div class="mini-group">
+          <div class="mini-bar" style="height:57px"></div>
+          <div class="mini-bar" style="height:32px"></div>
+          <div class="mini-bar" style="height:40px"></div>
+          <div class="mini-bar" style="height:14px"></div>
+        </div>
+        <div class="mini-group">
+          <div class="mini-bar" style="height:32px"></div>
+          <div class="mini-bar" style="height:40px"></div>
+          <div class="mini-bar" style="height:47px"></div>
+          <div class="mini-bar" style="height:23px"></div>
+        </div>
+      </div>
+      <div class="mini-legend" id="miniLegend">
+        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Tech</div>
+        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Health</div>
+        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Finance</div>
+        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Education</div>
+      </div>
+    </div>
+
+    <div class="palette-nav" id="paletteNav">
+      <div class="nav-btn" onclick="prevPalette()">&#8249;</div>
+      <div class="palette-info">
+        <div class="palette-name" id="paletteName">Okabe-Ito</div>
+        <div class="palette-meta" id="paletteMeta">1 / 3 · min ΔE 21.3</div>
+        <div class="palette-swatches" id="paletteSwatches"></div>
+      </div>
+      <div class="nav-btn" onclick="nextPalette()">&#8250;</div>
+    </div>
+  </div>
+
+  <div class="popup-footer">
+    <a class="footer-link">Reset to original</a>
+    <a class="footer-link">Settings</a>
+  </div>
+</div>
+
+<div class="figure-caption">
+  Figure 4.X — Browser extension popup showing correction toggle, mini chart preview, and candidate palette navigation.
+</div>
+
+<script>
+  const palettes = [
+    { name: 'Okabe-Ito', de: '21.3', colors: ['#0072b2','#e69f00','#56b4e9','#009e73'] },
+    { name: 'IBM Design', de: '18.7', colors: ['#648fff','#dc267f','#ffb000','#fe6100'] },
+    { name: 'Wong', de: '16.2', colors: ['#785ef0','#fe6100','#ffb000','#648fff'] },
+  ];
+  const origColors = ['#e53935','#43a047','#fb8c00','#8e24aa'];
+
+  let correctionOn = true;
+  let currentIdx = 0;
+
+  function applyColors() {
+    const colors = correctionOn ? palettes[currentIdx].colors : origColors;
+    document.querySelectorAll('.mini-bar').forEach((bar, i) => {
+      bar.style.background = colors[i % 4];
+    });
+    document.querySelectorAll('.mini-legend-swatch').forEach((sw, i) => {
+      sw.style.background = colors[i % 4];
+    });
+    document.getElementById('previewLabel').textContent = correctionOn ? 'Corrected' : 'Original';
+  }
+
+  function updatePaletteNav() {
+    const p = palettes[currentIdx];
+    document.getElementById('paletteName').textContent = p.name;
+    document.getElementById('paletteMeta').textContent = `${currentIdx + 1} / ${palettes.length} · min ΔE ${p.de}`;
+    document.getElementById('paletteSwatches').innerHTML = p.colors.map(c =>
+      `<div class="palette-swatch-big" style="background:${c}"></div>`
+    ).join('');
+  }
+
+  function toggleCorrection() {
+    correctionOn = !correctionOn;
+    document.getElementById('toggleTrack').classList.toggle('off', !correctionOn);
+    document.getElementById('paletteNav').style.opacity = correctionOn ? '1' : '0.35';
+    document.getElementById('paletteNav').style.pointerEvents = correctionOn ? 'auto' : 'none';
+    applyColors();
+  }
+
+  function nextPalette() {
+    currentIdx = (currentIdx + 1) % palettes.length;
+    updatePaletteNav();
+    applyColors();
+  }
+
+  function prevPalette() {
+    currentIdx = (currentIdx - 1 + palettes.length) % palettes.length;
+    updatePaletteNav();
+    applyColors();
+  }
+
+  applyColors();
+  updatePaletteNav();
+</script>
+
+</body>
+</html>
