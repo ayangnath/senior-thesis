@@ -182,6 +182,40 @@ def recolor_categorical(colors, cvd_type="deutan", attempt=0):
 
 
 # Interpolate a Lab ramp to n evenly-spaced steps.
+# Sort colors by projection onto the first principal component in Lab space.
+# For single-hue ramps this reduces to L*-ordering.  For multi-hue ramps
+# (e.g. orange→yellow→green) it captures the hue gradient, which carries
+# ordering information when the L* range is narrow.
+def _pca_sort_indices(labs):
+    n = len(labs)
+    if n < 2:
+        return list(range(n))
+
+    lab_array = np.array([[lab[0], lab[1], lab[2]] for lab in labs],
+                         dtype=np.float64)
+    mean = lab_array.mean(axis=0)
+    centered = lab_array - mean
+
+    try:
+        _, _, Vt = np.linalg.svd(centered, full_matrices=False)
+        pc1 = Vt[0]
+    except np.linalg.LinAlgError:
+        # SVD failed; fall back to L*-sorting
+        return sorted(range(n), key=lambda i: labs[i][0])
+
+    projections = centered @ pc1
+
+    # Ensure direction: positive projection ↔ higher L* so that
+    # sorted_indices[0] is the "darkest" original color.
+    L_values = [lab[0] for lab in labs]
+    if len(set(L_values)) > 1:
+        corr = np.corrcoef(projections, L_values)[0, 1]
+        if corr < 0:
+            projections = -projections
+
+    return sorted(range(n), key=lambda i: projections[i])
+
+
 def _interpolate_ramp(ramp_labs, n):
     new_colors = []
     for i in range(n):
@@ -263,14 +297,33 @@ def _enforce_sequential_under_cvd(new_colors_sorted, cvd_type):
 
 
 # Generate a CVD-accessible sequential palette. Maps by lightness rank
-# so the data ordering is preserved. Retries cycle through different ramps.
-def recolor_sequential(colors, cvd_type="deutan", attempt=0):
+# so the data ordering is preserved. When the original legend has
+# non-monotonic L*, positional_order overrides L*-rank mapping to avoid
+# shuffling colors that the viewer interprets by position, not lightness.
+def recolor_sequential(colors, cvd_type="deutan", attempt=0, positional_order=None):
     n = len(colors)
     labs = [srgb_to_lab(c) for c in colors]
     L_values = [lab[0] for lab in labs]
 
-    # sort originals by lightness (darkest first)
-    sorted_indices = sorted(range(n), key=lambda i: L_values[i])
+    if positional_order is not None and len(positional_order) == n:
+        # Use positional mapping: positional_order[0] is the index of the
+        # original color at "lowest data value" → gets darkest new color.
+        # Determine direction: if positional order goes generally light→dark,
+        # reverse so first position still maps to "low end" of new ramp.
+        pos_Ls = [L_values[i] for i in positional_order]
+        first_half_mean = np.mean(pos_Ls[:max(n // 2, 1)])
+        second_half_mean = np.mean(pos_Ls[max(n // 2, 1):]) if n > 1 else first_half_mean
+        if first_half_mean > second_half_mean:
+            # Original goes light→dark; reverse so we still map low→dark
+            sorted_indices = list(reversed(positional_order))
+        else:
+            sorted_indices = list(positional_order)
+    else:
+        # PCA ordering: projects colors onto the principal axis of variation
+        # in Lab space.  For single-hue ramps this reduces to L*-ordering;
+        # for multi-hue ramps it captures hue progression which carries
+        # ordering information when L* range is narrow.
+        sorted_indices = _pca_sort_indices(labs)
 
     # pick a ramp: infer from original on first try, cycle on retries
     ramp_names = list(SAFE_SEQUENTIAL_ANCHORS.keys())
@@ -299,7 +352,7 @@ def recolor_sequential(colors, cvd_type="deutan", attempt=0):
     # verify and fix invariants under CVD
     new_colors_sorted = _enforce_sequential_under_cvd(new_colors_sorted, cvd_type)
 
-    # map by lightness rank: darkest original gets darkest new, etc.
+    # map by rank: sorted_indices[0] gets darkest new, etc.
     color_map = {}
     for rank, orig_idx in enumerate(sorted_indices):
         color_map[rgb_to_hex(colors[orig_idx])] = rgb_to_hex(new_colors_sorted[rank])
@@ -458,11 +511,13 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
 
 
 # Dispatch to the right recoloring strategy for the palette type.
-def recolor_palette(colors, palette_type, cvd_type="deutan", test_results=None, attempt=0):
+def recolor_palette(colors, palette_type, cvd_type="deutan", test_results=None,
+                    attempt=0, positional_order=None):
     if palette_type == "categorical":
         return recolor_categorical(colors, cvd_type, attempt=attempt)
     elif palette_type == "sequential":
-        return recolor_sequential(colors, cvd_type, attempt=attempt)
+        return recolor_sequential(colors, cvd_type, attempt=attempt,
+                                  positional_order=positional_order)
     elif palette_type == "diverging":
         return recolor_diverging(colors, cvd_type, attempt=attempt)
     else:

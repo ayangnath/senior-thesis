@@ -10,13 +10,104 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from color_science import rgb_to_hex, parse_color
+from color_science import rgb_to_hex, parse_color, srgb_to_lab, ciede2000
 from svg_parser import parse_svg, apply_recoloring, write_svg
 from classifier import classify_palette
 from data_signal_extractor import extract_data_signals
 from reconciler import reconcile_palette_vs_data
 from invariant_tests import run_invariant_tests, all_tests_passed
 from recolorer import recolor_palette
+
+
+# Check whether L* values are monotonic (all increasing or all decreasing).
+def _is_L_monotonic(L_values, tol=0.5):
+    if len(L_values) < 2:
+        return True
+    diffs = [L_values[i + 1] - L_values[i] for i in range(len(L_values) - 1)]
+    return all(d >= -tol for d in diffs) or all(d <= tol for d in diffs)
+
+
+# Compute a positional ordering for data palette colors based on the legend's
+# spatial arrangement.  Falls back to palette order when the legend has fewer
+# than 3 colors.  Returns a list of indices into `colors` sorted from "lowest
+# data value" to "highest" (i.e. position in the legend).
+def _compute_positional_order(colors, legend_colors_hex):
+    n = len(colors)
+    palette_hex = [rgb_to_hex(c) for c in colors]
+
+    if len(legend_colors_hex) >= 3:
+        # Match each data color to its nearest legend color by ΔE
+        legend_labs = [srgb_to_lab(parse_color(h)) for h in legend_colors_hex]
+        positions = []
+        for i, c in enumerate(colors):
+            c_lab = srgb_to_lab(c)
+            best_pos = 0
+            best_d = float('inf')
+            for j, l_lab in enumerate(legend_labs):
+                d = ciede2000(c_lab, l_lab)
+                if d < best_d:
+                    best_d = d
+                    best_pos = j
+            positions.append((best_pos, i))
+        positions.sort(key=lambda x: x[0])
+        return [idx for _, idx in positions]
+    else:
+        # No usable legend; use palette order (order of first appearance)
+        return list(range(n))
+
+
+# After recoloring, verify that each data color still maps to the same
+# legend position it did before.  Returns a list of mismatch dicts.
+def _check_legend_data_consistency(colors, color_mapping, legend_colors_hex):
+    if len(legend_colors_hex) < 2:
+        return []
+
+    legend_labs = [srgb_to_lab(parse_color(h)) for h in legend_colors_hex]
+
+    def closest_legend_pos(hex_c):
+        rgb = parse_color(hex_c)
+        if not rgb:
+            return -1
+        lab = srgb_to_lab(rgb)
+        best_pos, best_d = 0, float('inf')
+        for j, l_lab in enumerate(legend_labs):
+            d = ciede2000(lab, l_lab)
+            if d < best_d:
+                best_d = d
+                best_pos = j
+        return best_pos
+
+    # Build new legend colors after mapping
+    new_legend = [color_mapping.get(h, h) for h in legend_colors_hex]
+    new_legend_labs = [srgb_to_lab(parse_color(h)) for h in new_legend]
+
+    def closest_new_legend_pos(hex_c):
+        rgb = parse_color(hex_c)
+        if not rgb:
+            return -1
+        lab = srgb_to_lab(rgb)
+        best_pos, best_d = 0, float('inf')
+        for j, l_lab in enumerate(new_legend_labs):
+            d = ciede2000(lab, l_lab)
+            if d < best_d:
+                best_d = d
+                best_pos = j
+        return best_pos
+
+    mismatches = []
+    for c in colors:
+        old_hex = rgb_to_hex(c)
+        new_hex = color_mapping.get(old_hex, old_hex)
+        pos_before = closest_legend_pos(old_hex)
+        pos_after = closest_new_legend_pos(new_hex)
+        if pos_before != pos_after:
+            mismatches.append({
+                "color_before": old_hex,
+                "color_after": new_hex,
+                "legend_pos_before": pos_before,
+                "legend_pos_after": pos_after,
+            })
+    return mismatches
 
 
 # Make numpy types JSON-serializable.
@@ -60,6 +151,27 @@ def process_single_svg(svg_path, cvd_type="deutan", user_choice=None):
             report["status"] = "skipped"
             report["warnings"].append("Fewer than 2 data colors detected; nothing to check.")
             return parsed, report
+
+        # Detect non-monotonic luminance in the legend encoding.
+        # When L* diffs on the legend change sign, L*-rank remapping may
+        # shuffle colors.  We only check when we have ≥3 discrete legend
+        # swatches in spatial order — gradient legends and DOM walk order
+        # are not reliable signals for this test.
+        legend_hex = parsed.ordered_legend_colors
+        legend_L_monotonic = True  # assume monotonic unless proven otherwise
+
+        if len(legend_hex) >= 3:
+            legend_Ls = [srgb_to_lab(parse_color(h))[0] for h in legend_hex]
+            legend_L_monotonic = _is_L_monotonic(legend_Ls)
+
+        report["phases"]["phase1"]["legend_luminance_monotonic"] = legend_L_monotonic
+        report["phases"]["phase1"]["n_legend_swatches_ordered"] = len(legend_hex)
+        if not legend_L_monotonic:
+            report["warnings"].append(
+                "Non-monotonic luminance detected in legend swatches. "
+                "L*-rank remapping may re-order values; using legend-based "
+                "positional mapping instead."
+            )
 
         # phase 2: classify palette type (DR1)
         classification = classify_palette(colors)
@@ -146,10 +258,19 @@ def process_single_svg(svg_path, cvd_type="deutan", user_choice=None):
         best_verify_results = None
         best_verify_passed = False
 
+        # Compute positional order only when we have ≥3 real legend swatches
+        # whose L* is non-monotonic.  Without a usable spatial legend,
+        # L*-rank mapping is the best available heuristic (DOM walk order
+        # is meaningless for scattered layouts like calendars / heatmaps).
+        positional_order = None
+        if not legend_L_monotonic and len(legend_hex) >= 3 \
+                and final_type in ("sequential",):
+            positional_order = _compute_positional_order(colors, legend_hex)
+
         for iteration in range(MAX_REPAIR_ITERATIONS):
             color_mapping = recolor_palette(
                 colors, final_type, cvd_type, test_results,
-                attempt=iteration
+                attempt=iteration, positional_order=positional_order
             )
 
             if not color_mapping:
@@ -229,6 +350,21 @@ def process_single_svg(svg_path, cvd_type="deutan", user_choice=None):
                 "Some legend swatches may not match the recolored data palette."
             )
 
+        # DR7b: verify that data→legend position mapping is preserved.
+        # If a data color's closest legend position changed, the recoloring
+        # introduced a discrepancy between what the legend shows and what
+        # the visualization displays.
+        legend_mismatches = []
+        if legend_hex:
+            legend_mismatches = _check_legend_data_consistency(
+                colors, best_mapping, legend_hex
+            )
+            if legend_mismatches:
+                report["warnings"].append(
+                    f"{len(legend_mismatches)} data color(s) now map to a "
+                    f"different legend position after recoloring."
+                )
+
         final_new_colors = []
         for c in colors:
             hex_c = rgb_to_hex(c)
@@ -237,7 +373,7 @@ def process_single_svg(svg_path, cvd_type="deutan", user_choice=None):
             else:
                 final_new_colors.append(c)
 
-        report["phases"]["phase6"] = {
+        phase6_report = {
             "color_mapping": best_mapping,
             "new_palette": [rgb_to_hex(c) for c in final_new_colors],
             "verification_tests": [
@@ -252,6 +388,9 @@ def process_single_svg(svg_path, cvd_type="deutan", user_choice=None):
             "iterations_used": len(iteration_log),
             "iteration_log": iteration_log,
         }
+        if legend_mismatches:
+            phase6_report["legend_position_shifts"] = legend_mismatches
+        report["phases"]["phase6"] = phase6_report
 
         if best_verify_passed:
             report["status"] = "recolored"

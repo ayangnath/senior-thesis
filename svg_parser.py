@@ -29,6 +29,14 @@ LEGEND_PATTERNS = re.compile(
 
 LEGEND_SWATCH_MAX_DIM = 30  # px, small rects below this are likely swatches
 
+# Tags where rule (i) (uniform fill/stroke/dims → non-data) is safe to apply.
+# Paths/polygons are excluded because uniform color across complex shapes is
+# common in real data (e.g., map regions all one color).
+GRID_DETECT_TAGS = {"rect", "circle", "ellipse", "line"}
+
+# Tags where rule (ii) (singleton element → non-data bounding box) applies.
+SINGLETON_NONDATA_TAGS = {"rect"}
+
 
 # A single SVG element with its color and role (data, legend, non-data).
 class SVGElement:
@@ -54,7 +62,8 @@ class SVGElement:
 
 # The result of parsing an SVG: classified elements, palette, and labels.
 class ParsedSVG:
-    def __init__(self, tree, elements, data_colors, palette_map, labels=None):
+    def __init__(self, tree, elements, data_colors, palette_map, labels=None,
+                 ordered_legend_colors=None):
         self.tree = tree
         self.elements = elements
         self.data_elements = [e for e in elements if e.role == "data"]
@@ -63,6 +72,8 @@ class ParsedSVG:
         self.data_colors = data_colors
         self.palette_map = palette_map
         self.labels = labels or []
+        # Legend colors in spatial order (hex), for monotonicity checks
+        self.ordered_legend_colors = ordered_legend_colors or []
 
     # Unique data colors as a list of (R,G,B) tuples.
     @property
@@ -144,6 +155,91 @@ def _get_numeric_attr(elem, attr, default=None):
         return float(val)
     except ValueError:
         return default
+
+
+# Get the spatial dimensions of an element for grid detection comparisons.
+def _get_element_dims(elem):
+    tag = _get_local_tag(elem)
+    if tag == "rect":
+        w = _get_numeric_attr(elem, "width")
+        h = _get_numeric_attr(elem, "height")
+        return (w, h)
+    elif tag == "circle":
+        r = _get_numeric_attr(elem, "r")
+        return (r,)
+    elif tag == "ellipse":
+        rx = _get_numeric_attr(elem, "rx")
+        ry = _get_numeric_attr(elem, "ry")
+        return (rx, ry)
+    elif tag == "line":
+        x1 = _get_numeric_attr(elem, "x1", 0)
+        y1 = _get_numeric_attr(elem, "y1", 0)
+        x2 = _get_numeric_attr(elem, "x2", 0)
+        y2 = _get_numeric_attr(elem, "y2", 0)
+        length = round(((x2 - x1)**2 + (y2 - y1)**2)**0.5, 1)
+        return (length,)
+    return None
+
+
+# Get the (x, y) position of an element for spatial ordering.
+def _get_element_position(elem):
+    tag = _get_local_tag(elem)
+    if tag == "rect":
+        return (_get_numeric_attr(elem, "x", 0), _get_numeric_attr(elem, "y", 0))
+    elif tag in ("circle", "ellipse"):
+        return (_get_numeric_attr(elem, "cx", 0), _get_numeric_attr(elem, "cy", 0))
+    elif tag == "line":
+        return (_get_numeric_attr(elem, "x1", 0), _get_numeric_attr(elem, "y1", 0))
+    return None
+
+
+# Check if two dimension tuples match within tolerance.
+def _dims_match(d1, d2, tol=0.5):
+    if d1 is None or d2 is None:
+        return d1 is None and d2 is None
+    if len(d1) != len(d2):
+        return False
+    return all(abs(a - b) < tol for a, b in zip(d1, d2)
+               if a is not None and b is not None)
+
+
+# Group data elements by tag and reclassify structural/decorative elements.
+# Rule (i): All elements of a tag share the same fill, stroke, and dimensions
+#            → likely grid lines or uniform background tiles → non-data.
+# Rule (ii): Only one element of a tag exists (for rects only)
+#             → likely a bounding box → non-data.
+def _reclassify_grid_and_annotations(elements):
+    tag_groups = defaultdict(list)
+    for elem in elements:
+        if elem.role == "data":
+            tag = _get_local_tag(elem.elem)
+            tag_groups[tag].append(elem)
+
+    for tag, group in tag_groups.items():
+        # Rule (ii): singleton rect → bounding box
+        if len(group) == 1 and tag in SINGLETON_NONDATA_TAGS:
+            group[0].role = "non-data"
+            continue
+
+        # Rule (i): uniform fill + stroke + dims → grid / annotation
+        if tag not in GRID_DETECT_TAGS or len(group) < 2:
+            continue
+
+        ref = group[0]
+        ref_dims = _get_element_dims(ref.elem)
+        all_same = True
+
+        for elem in group[1:]:
+            if elem.fill != ref.fill or elem.stroke != ref.stroke:
+                all_same = False
+                break
+            if not _dims_match(_get_element_dims(elem.elem), ref_dims):
+                all_same = False
+                break
+
+        if all_same:
+            for elem in group:
+                elem.role = "non-data"
 
 
 # Classify an element as data, legend, or non-data based on tag, class/id, and parent context.
@@ -237,6 +333,31 @@ def _extract_labels(root):
     return unique_labels
 
 
+# Get legend colors in spatial order (left-to-right or top-to-bottom).
+def _get_ordered_legend_colors(legend_elements):
+    positioned = []
+    for elem in legend_elements:
+        pos = _get_element_position(elem.elem)
+        if pos and elem.effective_color:
+            positioned.append((pos, elem.effective_color))
+
+    if not positioned:
+        return []
+
+    # Determine layout direction from coordinate spread
+    xs = [p[0] for p, _ in positioned]
+    ys = [p[1] for p, _ in positioned]
+    x_range = max(xs) - min(xs) if len(xs) > 1 else 0
+    y_range = max(ys) - min(ys) if len(ys) > 1 else 0
+
+    if x_range >= y_range:
+        positioned.sort(key=lambda item: item[0][0])  # sort by x
+    else:
+        positioned.sort(key=lambda item: item[0][1])  # sort by y
+
+    return [rgb_to_hex(color) for _, color in positioned]
+
+
 # Parse an SVG into classified elements, build the palette map, and extract text labels.
 def parse_svg(filepath):
     parser = etree.XMLParser(remove_blank_text=True, recover=True)
@@ -280,6 +401,9 @@ def parse_svg(filepath):
         svg_elem = SVGElement(elem, fill_color, stroke_color, role)
         elements.append(svg_elem)
 
+    # Reclassify grid lines and bounding boxes by structural patterns
+    _reclassify_grid_and_annotations(elements)
+
     # collect unique data colors, filtering out near-white/near-black
     seen = set()
     data_colors = []
@@ -311,7 +435,12 @@ def parse_svg(filepath):
     # grab text labels for data signal analysis
     labels = _extract_labels(root)
 
-    return ParsedSVG(tree, elements, data_colors, color_to_elements, labels=labels)
+    # get legend colors in spatial order for monotonicity checks
+    legend_elems = [e for e in elements if e.role == "legend"]
+    ordered_legend = _get_ordered_legend_colors(legend_elems)
+
+    return ParsedSVG(tree, elements, data_colors, color_to_elements,
+                     labels=labels, ordered_legend_colors=ordered_legend)
 
 
 # Interpolate new colors for legend entries that aren't in color_mapping.

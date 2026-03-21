@@ -22,7 +22,7 @@ For diverging palettes, the neutral midpoint must remain identifiable as the per
 
 ## The 6-phase pipeline
 
-Phase 1 parses the SVG and separates data marks (bars, areas, bubbles, map regions) from non-data elements (axes, labels, gridlines, titles). It extracts the color palette used for data encoding and identifies legend elements for later synchronization.
+Phase 1 parses the SVG and separates data marks (bars, areas, bubbles, map regions) from non-data elements (axes, labels, gridlines, titles). It also detects grid lines and annotation elements by grouping SVG elements by tag and checking for uniform stroke/fill/dimensions. It extracts the color palette used for data encoding and identifies legend elements for later synchronization.
 
 Phase 2 classifies the palette as categorical, sequential, or diverging using heuristics like L* shape analysis, pairwise ΔE patterns, and hue diversity.
 
@@ -38,7 +38,7 @@ For sequential palettes, it runs four tests in order: is L* monotonic, are steps
 
 For diverging palettes, it validates the midpoint semantic, checks midpoint extremum, endpoint separation, per-arm monotonicity, and arm symmetry.
 
-Phase 6 re-simulates the repaired palette under CVD, verifies all invariants pass (iterating up to 3 times if needed), checks that non-data elements are unchanged, updates legend swatches to match data marks, and applies the repaired palette to the SVG DOM.
+Phase 6 generates a replacement palette. For sequential palettes, colors are ordered using PCA on the full Lab coordinates rather than L* alone, which correctly handles multi-hue ramps where lightness range is narrow but hue carries the ordering information. The repaired palette is re-simulated under CVD and verified against all invariants (iterating up to 3 times if needed). Non-data elements are checked to be unchanged, legend swatches are updated to match data marks, and a legend-data consistency check verifies that each data color's closest legend position is preserved after recoloring.
 
 ## Setup
 
@@ -131,7 +131,7 @@ classifier.py              Phase 2: palette type classification
 data_signal_extractor.py   Phase 3: data characteristic extraction
 reconciler.py              Phase 4: palette vs data reconciliation
 invariant_tests.py         Phase 5: CVD simulation and invariant testing
-recolorer.py               Phase 5: repair strategies per palette type
+recolorer.py               Phase 6: repair strategies per palette type
 generate_tests.py          test case generator
 test_svgs/                 7 curated test cases
 input_svgs/                your SVGs go here
@@ -144,7 +144,7 @@ CVD simulation uses the Machado, Oliveira, and Fernandes (2009) physiologically-
 
 Color distance uses CIEDE2000 (Sharma et al. 2005), the current standard for perceptual color difference. Key thresholds: categorical pairwise minimum ΔE >= 8, diverging endpoint minimum ΔE > 10, sequential adjacent minimum ΔL* >= 3.
 
-The tool includes embedded CVD-safe palettes for repairs: Okabe-Ito, IBM Design, and Wong for categorical; ColorBrewer blues, viridis, cividis, and inferno for sequential; and purple-orange, blue-red, and coolwarm variants for diverging.
+The tool includes embedded CVD-safe palettes for repairs: Okabe-Ito, IBM Design, and Wong for categorical; single-hue blue, purple, and orange ramps for sequential; and blue-orange, purple-green, and blue-red endpoint pairs for diverging.
 
 ## References
 
