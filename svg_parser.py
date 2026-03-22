@@ -203,11 +203,21 @@ def _dims_match(d1, d2, tol=0.5):
                if a is not None and b is not None)
 
 
+# Check whether an RGB color is achromatic (gray) within tolerance.
+def _is_achromatic(rgb, max_diff=10):
+    if rgb is None:
+        return False
+    r, g, b = rgb
+    return max(abs(r - g), abs(g - b), abs(r - b)) < max_diff
+
+
 # Group data elements by tag and reclassify structural/decorative elements.
 # Rule (i): All elements of a tag share the same fill, stroke, and dimensions
 #            → likely grid lines or uniform background tiles → non-data.
 # Rule (ii): Only one element of a tag exists (for rects only)
 #             → likely a bounding box → non-data.
+# Rule (iii): No-fill data elements with uniform achromatic stroke are grid
+#              lines. Groups by tag, so scattered data (varied strokes) is safe.
 def _reclassify_grid_and_annotations(elements):
     tag_groups = defaultdict(list)
     for elem in elements:
@@ -222,24 +232,104 @@ def _reclassify_grid_and_annotations(elements):
             continue
 
         # Rule (i): uniform fill + stroke + dims → grid / annotation
-        if tag not in GRID_DETECT_TAGS or len(group) < 2:
+        if tag in GRID_DETECT_TAGS and len(group) >= 2:
+            ref = group[0]
+            ref_dims = _get_element_dims(ref.elem)
+            all_same = True
+
+            for elem in group[1:]:
+                if elem.fill != ref.fill or elem.stroke != ref.stroke:
+                    all_same = False
+                    break
+                if not _dims_match(_get_element_dims(elem.elem), ref_dims):
+                    all_same = False
+                    break
+
+            if all_same:
+                for elem in group:
+                    elem.role = "non-data"
+                continue
+
+
+def _reclassify_nofill_achromatic(elements):
+    # Group ALL data elements by tag so we can compare filled vs no-fill.
+    tag_data = defaultdict(list)
+    for elem in elements:
+        if elem.role == "data":
+            tag = _get_local_tag(elem.elem)
+            tag_data[tag].append(elem)
+
+    for tag, group in tag_data.items():
+        filled = [e for e in group if e.fill is not None]
+        nofill_achromatic = [e for e in group
+                             if e.fill is None and _is_achromatic(e.stroke)]
+
+        if not nofill_achromatic:
             continue
 
-        ref = group[0]
-        ref_dims = _get_element_dims(ref.elem)
-        all_same = True
+        if filled:
+            # Mixed group: tag has both filled data elements and no-fill
+            # achromatic elements. The no-fill achromatic ones are grid/axis
+            # lines (data elements of this tag type have fill).
+            for e in nofill_achromatic:
+                e.role = "non-data"
+        else:
+            # All elements of this tag are no-fill. Only reclassify if they
+            # ALL share the same achromatic stroke (uniform grid/axis lines).
+            # If strokes vary, they're likely data (e.g. scatterplot circles
+            # with a subtle color ramp).
+            if len(nofill_achromatic) == 1:
+                nofill_achromatic[0].role = "non-data"
+            else:
+                ref_stroke = nofill_achromatic[0].stroke
+                if all(e.stroke == ref_stroke for e in nofill_achromatic[1:]):
+                    for e in nofill_achromatic:
+                        e.role = "non-data"
 
-        for elem in group[1:]:
-            if elem.fill != ref.fill or elem.stroke != ref.stroke:
-                all_same = False
-                break
-            if not _dims_match(_get_element_dims(elem.elem), ref_dims):
-                all_same = False
-                break
 
-        if all_same:
-            for elem in group:
-                elem.role = "non-data"
+# Extract width from a rect-like <path> d attribute (M...h<w>V...h<-w>z).
+# Returns None for non-rectangular or complex paths.
+def _get_path_rect_width(elem):
+    d = elem.get("d", "")
+    m = re.match(r'M[\d.\s-]+h([\d.]+)V', d)
+    if m:
+        return round(float(m.group(1)), 1)
+    return None
+
+
+# Detect annotation/background boxes: filled elements with unique dimensions
+# and a perfectly achromatic fill (R==G==B) among their tag peers. These are
+# background panels (e.g. matplotlib colorbar area) that should not be recolored.
+def _reclassify_annotation_boxes(elements):
+    tag_filled = defaultdict(list)
+    for elem in elements:
+        if elem.role == "data" and elem.fill is not None:
+            tag = _get_local_tag(elem.elem)
+            tag_filled[tag].append(elem)
+
+    for tag, group in tag_filled.items():
+        if len(group) < 3:
+            continue
+
+        # Collect effective dimensions for each element
+        dims_map = defaultdict(list)
+        for e in group:
+            dims = _get_element_dims(e.elem)
+            if dims is None and tag == "path":
+                w = _get_path_rect_width(e.elem)
+                if w is not None:
+                    dims = (w,)
+            if dims is not None:
+                key = tuple(round(x, 1) if x is not None else 0 for x in dims)
+                dims_map[key].append(e)
+
+        for _dim_key, elems in dims_map.items():
+            if len(elems) == 1:
+                e = elems[0]
+                # Strictly achromatic (R==G==B): only true grays, not
+                # desaturated data colors like near-gray diverging midpoints.
+                if _is_achromatic(e.fill, max_diff=1):
+                    e.role = "non-data"
 
 
 # Classify an element as data, legend, or non-data based on tag, class/id, and parent context.
@@ -611,6 +701,14 @@ def _recolor_svg_gradients(parsed_svg, color_mapping):
 # Apply a color mapping to data and legend elements. Non-data elements stay
 # untouched. Also handles gradient stops and raster legend images.
 def apply_recoloring(parsed_svg, color_mapping):
+    # Late-reclassify grid/axis elements right before recoloring.
+    # This runs AFTER the palette is already built, so classification,
+    # invariant tests, and repair all use the original palette (unchanged).
+    # The only effect is that these elements get role="non-data" and are
+    # skipped by the role check below, preserving their original colors.
+    _reclassify_nofill_achromatic(parsed_svg.elements)
+    _reclassify_annotation_boxes(parsed_svg.elements)
+
     full_mapping = _extend_mapping_for_legend_gradients(parsed_svg, color_mapping)
 
     for hex_old, elems in parsed_svg.palette_map.items():
