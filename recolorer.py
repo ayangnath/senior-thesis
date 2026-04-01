@@ -395,46 +395,45 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
     mid_lab = np.array(srgb_to_lab(best_scheme["mid"]), dtype=np.float64)
     right_lab = np.array(srgb_to_lab(best_scheme["right"]), dtype=np.float64)
 
-    # --- 2. Separate originals into left/right arms by hue proximity ---
+    # --- 2. Split palette into arms at the L* peak (midpoint) ---
+    # Diverging palettes go endpoint -> midpoint -> endpoint with an
+    # inverted-V lightness curve.  Splitting at the L* maximum avoids
+    # relying on hue angles for near-achromatic midpoint colors, which
+    # are too noisy to classify reliably.
+    midpoint_idx = int(np.argmax(L_arr))
+
+    group_a = list(range(midpoint_idx + 1))   # includes midpoint
+    group_b = list(range(midpoint_idx + 1, n))
+
+    # Match each group to the correct safe-scheme arm by comparing the
+    # most chromatic color in each group to the safe endpoint hues.
     left_ep_hue = np.arctan2(left_lab[2], left_lab[1])
     right_ep_hue = np.arctan2(right_lab[2], right_lab[1])
 
-    left_indices = []
-    right_indices = []
-    achromatic_indices = []
+    def _dominant_hue(indices):
+        best_chroma = 0.0
+        best_hue = 0.0
+        for idx in indices:
+            c = np.sqrt(orig_labs[idx][1]**2 + orig_labs[idx][2]**2)
+            if c > best_chroma:
+                best_chroma = c
+                best_hue = np.arctan2(orig_labs[idx][2], orig_labs[idx][1])
+        return best_hue
 
-    for i in range(n):
-        chroma = np.sqrt(orig_labs[i][1]**2 + orig_labs[i][2]**2)
-        if chroma < 3:
-            achromatic_indices.append(i)
-            continue
-        hue = np.arctan2(orig_labs[i][2], orig_labs[i][1])
-        d_left = abs(hue - left_ep_hue)
-        if d_left > np.pi:
-            d_left = 2 * np.pi - d_left
-        d_right = abs(hue - right_ep_hue)
-        if d_right > np.pi:
-            d_right = 2 * np.pi - d_right
-        if d_left <= d_right:
-            left_indices.append(i)
-        else:
-            right_indices.append(i)
+    hue_a = _dominant_hue(group_a)
+    da_left = abs(hue_a - left_ep_hue)
+    if da_left > np.pi:
+        da_left = 2 * np.pi - da_left
+    da_right = abs(hue_a - right_ep_hue)
+    if da_right > np.pi:
+        da_right = 2 * np.pi - da_right
 
-    # Distribute achromatic originals proportionally
-    n_chromatic_left = len(left_indices)
-    n_chromatic_right = len(right_indices)
-    n_chromatic = n_chromatic_left + n_chromatic_right
-    for i in achromatic_indices:
-        if n_chromatic > 0:
-            if len(left_indices) / max(len(left_indices) + len(right_indices), 1) < n_chromatic_left / n_chromatic:
-                left_indices.append(i)
-            else:
-                right_indices.append(i)
-        else:
-            if len(left_indices) <= len(right_indices):
-                left_indices.append(i)
-            else:
-                right_indices.append(i)
+    if da_left <= da_right:
+        left_indices = group_a
+        right_indices = group_b
+    else:
+        left_indices = group_b
+        right_indices = group_a
 
     # --- 3. Set arm sizes from actual assignment ---
     n_left = len(left_indices)   # including midpoint
