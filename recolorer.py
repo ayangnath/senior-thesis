@@ -7,7 +7,10 @@ from color_science import (
     simulate_cvd, simulate_cvd_lab, pairwise_de_under_cvd,
     get_lightness_under_cvd
 )
-from invariant_tests import test_categorical_pairwise, CATEGORICAL_MIN_DE
+from invariant_tests import (
+    test_categorical_pairwise, CATEGORICAL_MIN_DE,
+    adaptive_min_step, adaptive_uniformity_cv
+)
 
 
 # pre-built CVD-safe categorical palettes
@@ -240,6 +243,9 @@ def _enforce_sequential_under_cvd(new_colors_sorted, cvd_type):
 
     current_labs = np.array([srgb_to_lab(c) for c in new_colors_sorted], dtype=np.float64)
 
+    step_threshold = adaptive_min_step(n)
+    cv_threshold = adaptive_uniformity_cv(n)
+
     for _iteration in range(10):
         current_rgb = [lab_to_srgb(lab) for lab in current_labs]
         cvd_L = np.array(get_lightness_under_cvd(current_rgb, cvd_type))
@@ -252,14 +258,14 @@ def _enforce_sequential_under_cvd(new_colors_sorted, cvd_type):
         abs_diffs = np.abs(diffs)
         mean_step = np.mean(abs_diffs)
         cv = np.std(abs_diffs) / (mean_step + 1e-10)
-        is_uniform = cv < 0.4
+        is_uniform = cv < cv_threshold
 
         # test direction
         direction_ok = cvd_L[-1] > cvd_L[0]
 
         # test min step size
         min_step = np.min(abs_diffs) if len(abs_diffs) > 0 else 0
-        step_ok = min_step >= 3.0
+        step_ok = min_step >= step_threshold
 
         if is_monotonic and is_uniform and direction_ok and step_ok:
             return current_rgb
@@ -270,18 +276,28 @@ def _enforce_sequential_under_cvd(new_colors_sorted, cvd_type):
             continue
 
         if not is_monotonic:
+            # scale push to palette size to avoid cascading into the L* ceiling
+            push = max(0.5, min(2.0, 80.0 / n))
             for i in range(1, n):
                 if cvd_L[i] <= cvd_L[i-1] + 0.5:
-                    current_labs[i][0] += (cvd_L[i-1] - cvd_L[i]) + 2.0
+                    current_labs[i][0] += (cvd_L[i-1] - cvd_L[i]) + push
                     current_labs[i][0] = min(current_labs[i][0], 98)
             continue
 
         if not step_ok:
-            for i in range(len(abs_diffs)):
-                if abs_diffs[i] < 3.0:
-                    adjust = (3.0 - abs_diffs[i]) / 2 + 0.5
-                    current_labs[i][0] = max(current_labs[i][0] - adjust, 5)
-                    current_labs[i+1][0] = min(current_labs[i+1][0] + adjust, 98)
+            # for large palettes, redistribute evenly instead of local pushes
+            # which cascade and cause clamping collisions
+            if n > 30:
+                L_lo = current_labs[0][0]
+                L_hi = current_labs[-1][0]
+                for i in range(n):
+                    current_labs[i][0] = L_lo + (L_hi - L_lo) * i / max(n - 1, 1)
+            else:
+                for i in range(len(abs_diffs)):
+                    if abs_diffs[i] < step_threshold:
+                        adjust = (step_threshold - abs_diffs[i]) / 2 + 0.5
+                        current_labs[i][0] = max(current_labs[i][0] - adjust, 5)
+                        current_labs[i+1][0] = min(current_labs[i+1][0] + adjust, 98)
             continue
 
         if not is_uniform:
@@ -467,7 +483,8 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
     if left_sign == 0: left_sign = -1
     if right_sign == 0: right_sign = -1
 
-    new_colors = []
+    left_arm_colors = []
+    right_arm_colors = []
 
     # left arm: endpoint → midpoint
     for i in range(n_left):
@@ -475,7 +492,7 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
         ab = left_lab[1:] * (1 - t) + mid_lab[1:] * t
         L = mid_lab[0] + left_sign * target_left_range * (1 - t)
         L = np.clip(L, 5, 98)
-        new_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
+        left_arm_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
 
     # right arm: midpoint → endpoint (skip midpoint, already in left)
     for i in range(1, n_right):
@@ -483,7 +500,15 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
         ab = mid_lab[1:] * (1 - t) + right_lab[1:] * t
         L = mid_lab[0] + right_sign * target_right_range * t
         L = np.clip(L, 5, 98)
-        new_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
+        right_arm_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
+
+    # enforce sequential invariants on each arm under CVD
+    if len(left_arm_colors) >= 2:
+        left_arm_colors = _enforce_sequential_under_cvd(left_arm_colors, cvd_type)
+    if len(right_arm_colors) >= 2:
+        right_arm_colors = _enforce_sequential_under_cvd(right_arm_colors, cvd_type)
+
+    new_colors = left_arm_colors + right_arm_colors
 
     # --- 5. Map by L*-rank within each arm ---
     left_indices.sort(key=lambda i: L_values[i])
