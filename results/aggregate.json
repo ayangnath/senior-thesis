@@ -1,0 +1,397 @@
+{
+  "protan": {
+    "n": 60,
+    "by_status": {
+      "recolored": 36,
+      "passed": 12,
+      "skipped": 7,
+      "recolored_with_warnings": 5
+    },
+    "by_type": {
+      "diverging": 9,
+      "sequential": 35,
+      "categorical": 9
+    },
+    "by_type_status": {
+      "diverging": {
+        "recolored": 5,
+        "passed": 1,
+        "recolored_with_warnings": 3
+      },
+      "sequential": {
+        "recolored": 26,
+        "passed": 7,
+        "recolored_with_warnings": 2
+      },
+      "categorical": {
+        "recolored": 5,
+        "passed": 4
+      }
+    },
+    "invariants_relevant": {
+      "Diverging Test 1: Midpoint Extremum": 9,
+      "Diverging Test 2: Endpoints Distinct": 9,
+      "Diverging Test 3: Arms Sequential": 9,
+      "Diverging Test 4: Arm Ratio Preservation": 9,
+      "Sequential Test 1: Monotonicity": 35,
+      "Sequential Test 2: Uniformity": 35,
+      "Sequential Test 3: Direction": 35,
+      "Sequential Test 4: Min Step Size": 35,
+      "Sequential Cross-Check: Adjacent \u0394E": 17,
+      "Categorical Pairwise \u0394E": 9
+    },
+    "invariants_violated_pre": {
+      "Diverging Test 3: Arms Sequential": 8,
+      "Sequential Test 1: Monotonicity": 16,
+      "Sequential Test 2: Uniformity": 25,
+      "Sequential Test 4: Min Step Size": 23,
+      "Categorical Pairwise \u0394E": 5,
+      "Diverging Test 1: Midpoint Extremum": 2,
+      "Diverging Test 4: Arm Ratio Preservation": 5,
+      "Sequential Cross-Check: Adjacent \u0394E": 10
+    },
+    "invariants_repaired": {
+      "Diverging Test 3: Arms Sequential": 5,
+      "Sequential Test 1: Monotonicity": 16,
+      "Sequential Test 2: Uniformity": 25,
+      "Sequential Test 4: Min Step Size": 21,
+      "Categorical Pairwise \u0394E": 5,
+      "Diverging Test 1: Midpoint Extremum": 2,
+      "Diverging Test 4: Arm Ratio Preservation": 5
+    },
+    "invariants_still_failing": {
+      "Diverging Test 3: Arms Sequential": 3,
+      "Sequential Test 4: Min Step Size": 2
+    },
+    "tier1": [
+      "AreaChart11",
+      "BoxAndWhisker11",
+      "BubbleChart25",
+      "BumpChart1",
+      "CandlestickChart8",
+      "GeoHeatmap1",
+      "GeoHeatmap2",
+      "GeoHeatmap4",
+      "Public_opinion_of_same-sex_marriage_in_USA_by_state",
+      "Public_support_of_same-sex_marriage_in_Mexico",
+      "StackedBarChart15",
+      "World_map_of_countries_by_literacy_rate"
+    ],
+    "tier2": [
+      "2020StatePredictions",
+      "BarChart10",
+      "Brexit_referendum_map",
+      "DensityPlot9",
+      "GeoHeatmap5",
+      "Heatmap5",
+      "InternetPenetrationWorldMap",
+      "State_recognition_of_same-sex_relationships_(South_America)",
+      "_bespoke10"
+    ],
+    "tier3": [
+      "2020_United_States_presidential_election_results_map_by_county",
+      "AreaChart24",
+      "Average_annual_surface_temperature,_North_America,_2022",
+      "BarChart12",
+      "BubbleChart12",
+      "BubbleChart21",
+      "BumpChart11",
+      "BumpChart9",
+      "Calendar12",
+      "Calendar14",
+      "Calendar20",
+      "Colonial_Africa_1913_map",
+      "DensityPlot21",
+      "DivergingStackedBarChart22",
+      "French_alone_or_in_any_combination_by_state_2020",
+      "GeoHeatmap11",
+      "GeoHeatmap18",
+      "GeoHeatmap21",
+      "Heatmap10",
+      "Heatmap20",
+      "Heatmap21",
+      "Language_Map_of_Uttar_Pradesh_(2011_Census)",
+      "London_Underground_and_Overground_full_map",
+      "Map_of_the_U.S._states_by_Human_Development_Index_(2022)",
+      "Percent_of_population_living_on_less_than_$1.25_per_day",
+      "PolarAreaChart12",
+      "Population_density_map_of_the_world",
+      "Prevailing_religious_population_by_country_percentage",
+      "Scatterplot16",
+      "StreamGraph4",
+      "Temperature_anomalies_2010-06",
+      "World_Map_Index_of_perception_of_corruption_2009"
+    ],
+    "error_files": [],
+    "skipped_files": [
+      "AreaChart14",
+      "AreaChart15",
+      "Armenian_provinces_by_HDI_(2017)",
+      "BarChartInRadialLayout2",
+      "BubbleChart2",
+      "DensityPlot12",
+      "StreamGraph17"
+    ],
+    "repair_attempted": 41,
+    "repair_success": 36,
+    "fp_tier1": 0,
+    "cat_ge8": [
+      [
+        "Average_annual_surface_temperature,_North_America,_2022",
+        9,
+        "recolored"
+      ],
+      [
+        "BumpChart1",
+        8,
+        "passed"
+      ],
+      [
+        "Percent_of_population_living_on_less_than_$1.25_per_day",
+        9,
+        "recolored"
+      ],
+      [
+        "StackedBarChart15",
+        9,
+        "passed"
+      ],
+      [
+        "StreamGraph4",
+        8,
+        "recolored"
+      ]
+    ],
+    "cat_ge8_passed_pre": 2,
+    "cat_ge8_repaired": 3
+  },
+  "deutan": {
+    "n": 60,
+    "by_status": {
+      "recolored": 40,
+      "passed": 11,
+      "skipped": 7,
+      "recolored_with_warnings": 2
+    },
+    "by_type": {
+      "diverging": 9,
+      "sequential": 35,
+      "categorical": 9
+    },
+    "by_type_status": {
+      "diverging": {
+        "recolored": 6,
+        "passed": 1,
+        "recolored_with_warnings": 2
+      },
+      "sequential": {
+        "recolored": 28,
+        "passed": 7
+      },
+      "categorical": {
+        "recolored": 6,
+        "passed": 3
+      }
+    },
+    "invariants_relevant": {
+      "Diverging Test 1: Midpoint Extremum": 9,
+      "Diverging Test 2: Endpoints Distinct": 9,
+      "Diverging Test 3: Arms Sequential": 9,
+      "Diverging Test 4: Arm Ratio Preservation": 9,
+      "Sequential Test 1: Monotonicity": 35,
+      "Sequential Test 2: Uniformity": 35,
+      "Sequential Test 3: Direction": 35,
+      "Sequential Test 4: Min Step Size": 35,
+      "Sequential Cross-Check: Adjacent \u0394E": 17,
+      "Categorical Pairwise \u0394E": 9
+    },
+    "invariants_violated_pre": {
+      "Diverging Test 3: Arms Sequential": 8,
+      "Sequential Test 2: Uniformity": 25,
+      "Sequential Test 4: Min Step Size": 25,
+      "Categorical Pairwise \u0394E": 6,
+      "Sequential Test 1: Monotonicity": 16,
+      "Diverging Test 1: Midpoint Extremum": 1,
+      "Sequential Cross-Check: Adjacent \u0394E": 10,
+      "Diverging Test 4: Arm Ratio Preservation": 1
+    },
+    "invariants_repaired": {
+      "Diverging Test 3: Arms Sequential": 6,
+      "Sequential Test 2: Uniformity": 25,
+      "Sequential Test 4: Min Step Size": 25,
+      "Categorical Pairwise \u0394E": 6,
+      "Sequential Test 1: Monotonicity": 16,
+      "Diverging Test 1: Midpoint Extremum": 1,
+      "Diverging Test 4: Arm Ratio Preservation": 1
+    },
+    "invariants_still_failing": {
+      "Diverging Test 3: Arms Sequential": 2
+    },
+    "tier1": [
+      "AreaChart11",
+      "BoxAndWhisker11",
+      "BubbleChart25",
+      "BumpChart1",
+      "CandlestickChart8",
+      "GeoHeatmap1",
+      "GeoHeatmap2",
+      "GeoHeatmap4",
+      "Public_opinion_of_same-sex_marriage_in_USA_by_state",
+      "Public_support_of_same-sex_marriage_in_Mexico",
+      "World_map_of_countries_by_literacy_rate"
+    ],
+    "tier2": [
+      "2020StatePredictions",
+      "2020_United_States_presidential_election_results_map_by_county",
+      "BarChart10",
+      "Brexit_referendum_map",
+      "Colonial_Africa_1913_map",
+      "DensityPlot21",
+      "DensityPlot9",
+      "GeoHeatmap21",
+      "GeoHeatmap5",
+      "Heatmap5",
+      "PolarAreaChart12",
+      "Scatterplot16",
+      "State_recognition_of_same-sex_relationships_(South_America)"
+    ],
+    "tier3": [
+      "AreaChart24",
+      "Average_annual_surface_temperature,_North_America,_2022",
+      "BarChart12",
+      "BubbleChart12",
+      "BubbleChart21",
+      "BumpChart11",
+      "BumpChart9",
+      "Calendar12",
+      "Calendar14",
+      "Calendar20",
+      "DivergingStackedBarChart22",
+      "French_alone_or_in_any_combination_by_state_2020",
+      "GeoHeatmap11",
+      "GeoHeatmap18",
+      "Heatmap10",
+      "Heatmap20",
+      "Heatmap21",
+      "InternetPenetrationWorldMap",
+      "Language_Map_of_Uttar_Pradesh_(2011_Census)",
+      "London_Underground_and_Overground_full_map",
+      "Map_of_the_U.S._states_by_Human_Development_Index_(2022)",
+      "Percent_of_population_living_on_less_than_$1.25_per_day",
+      "Population_density_map_of_the_world",
+      "Prevailing_religious_population_by_country_percentage",
+      "StackedBarChart15",
+      "StreamGraph4",
+      "Temperature_anomalies_2010-06",
+      "World_Map_Index_of_perception_of_corruption_2009",
+      "_bespoke10"
+    ],
+    "error_files": [],
+    "skipped_files": [
+      "AreaChart14",
+      "AreaChart15",
+      "Armenian_provinces_by_HDI_(2017)",
+      "BarChartInRadialLayout2",
+      "BubbleChart2",
+      "DensityPlot12",
+      "StreamGraph17"
+    ],
+    "repair_attempted": 42,
+    "repair_success": 40,
+    "fp_tier1": 0,
+    "cat_ge8": [
+      [
+        "Average_annual_surface_temperature,_North_America,_2022",
+        9,
+        "recolored"
+      ],
+      [
+        "BumpChart1",
+        8,
+        "passed"
+      ],
+      [
+        "Percent_of_population_living_on_less_than_$1.25_per_day",
+        9,
+        "recolored"
+      ],
+      [
+        "StackedBarChart15",
+        9,
+        "recolored"
+      ],
+      [
+        "StreamGraph4",
+        8,
+        "recolored"
+      ]
+    ],
+    "cat_ge8_passed_pre": 1,
+    "cat_ge8_repaired": 4
+  },
+  "combined": {
+    "tier1": 11,
+    "tier2": 7,
+    "tier3": 35,
+    "errors": 7,
+    "tier1_files": [
+      "AreaChart11",
+      "BoxAndWhisker11",
+      "BubbleChart25",
+      "BumpChart1",
+      "CandlestickChart8",
+      "GeoHeatmap1",
+      "GeoHeatmap2",
+      "GeoHeatmap4",
+      "Public_opinion_of_same-sex_marriage_in_USA_by_state",
+      "Public_support_of_same-sex_marriage_in_Mexico",
+      "World_map_of_countries_by_literacy_rate"
+    ],
+    "tier2_files": [
+      "2020StatePredictions",
+      "BarChart10",
+      "Brexit_referendum_map",
+      "DensityPlot9",
+      "GeoHeatmap5",
+      "Heatmap5",
+      "State_recognition_of_same-sex_relationships_(South_America)"
+    ],
+    "tier3_files": [
+      "2020_United_States_presidential_election_results_map_by_county",
+      "AreaChart24",
+      "Average_annual_surface_temperature,_North_America,_2022",
+      "BarChart12",
+      "BubbleChart12",
+      "BubbleChart21",
+      "BumpChart11",
+      "BumpChart9",
+      "Calendar12",
+      "Calendar14",
+      "Calendar20",
+      "Colonial_Africa_1913_map",
+      "DensityPlot21",
+      "DivergingStackedBarChart22",
+      "French_alone_or_in_any_combination_by_state_2020",
+      "GeoHeatmap11",
+      "GeoHeatmap18",
+      "GeoHeatmap21",
+      "Heatmap10",
+      "Heatmap20",
+      "Heatmap21",
+      "InternetPenetrationWorldMap",
+      "Language_Map_of_Uttar_Pradesh_(2011_Census)",
+      "London_Underground_and_Overground_full_map",
+      "Map_of_the_U.S._states_by_Human_Development_Index_(2022)",
+      "Percent_of_population_living_on_less_than_$1.25_per_day",
+      "PolarAreaChart12",
+      "Population_density_map_of_the_world",
+      "Prevailing_religious_population_by_country_percentage",
+      "Scatterplot16",
+      "StackedBarChart15",
+      "StreamGraph4",
+      "Temperature_anomalies_2010-06",
+      "World_Map_Index_of_perception_of_corruption_2009",
+      "_bespoke10"
+    ]
+  }
+}

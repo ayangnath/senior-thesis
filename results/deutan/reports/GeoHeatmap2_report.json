@@ -1,0 +1,101 @@
+{
+  "file": "GeoHeatmap2.svg",
+  "cvd_type": "deutan",
+  "status": "passed",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 3141,
+      "n_legend_elements": 9,
+      "n_nondata_elements": 2,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#c6dbef",
+        "#9ecae1",
+        "#6baed6",
+        "#4292c6",
+        "#deebf7",
+        "#2171b5",
+        "#08519c",
+        "#f7fbff",
+        "#08306b"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 9
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 77.4981775284187,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 14.636392158268558,
+        "has_hue_clusters": true,
+        "n_achromatic": 4,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 3,
+          "cluster1_mean_hue": 280.3,
+          "cluster2_mean_hue": 248.7,
+          "hue_separation": 31.5,
+          "max_gap": 313.0
+        },
+        "avg_chroma": 26.07110221659369,
+        "rule": "2b: single_hue_sequential_unordered"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.25,
+          "threshold": 0.4,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 6.3,
+          "threshold": 3.0,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": true
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": false,
+  "processing_time_sec": 0.043
+}

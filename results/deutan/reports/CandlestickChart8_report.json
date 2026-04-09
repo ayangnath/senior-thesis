@@ -1,0 +1,65 @@
+{
+  "file": "CandlestickChart8.svg",
+  "cvd_type": "deutan",
+  "status": "passed",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 118,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 2,
+      "n_data_colors": 2,
+      "original_palette": [
+        "#e41a1c",
+        "#4daf4a"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.7,
+      "details": {
+        "n_colors": 2,
+        "lightness_range": 15.278608827829501,
+        "is_monotonic": true,
+        "monotonic_direction": "increasing",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 55.388872640157665,
+        "has_hue_clusters": false,
+        "n_achromatic": 0,
+        "avg_chroma": 76.84967067105725,
+        "rule": "5e: monotonic_fallback_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 2,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 9.76,
+          "threshold": 8.0,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": true
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": false,
+  "processing_time_sec": 0.004
+}

@@ -1,0 +1,18 @@
+{
+  "file": "AreaChart15.svg",
+  "cvd_type": "protan",
+  "status": "skipped",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 0,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 0,
+      "n_data_colors": 0,
+      "original_palette": []
+    }
+  },
+  "warnings": [
+    "Fewer than 2 data colors detected; nothing to check."
+  ],
+  "processing_time_sec": 0.001
+}

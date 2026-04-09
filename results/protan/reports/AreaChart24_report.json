@@ -1,0 +1,129 @@
+{
+  "file": "AreaChart24.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 24,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 15,
+      "n_data_colors": 7,
+      "original_palette": [
+        "#e9e9e9",
+        "#ff7f00",
+        "#984ea3",
+        "#4daf4a",
+        "#377eb8",
+        "#e41a1c",
+        "#474747"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 7,
+        "lightness_range": 62.18742046276483,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 103.02224684876113,
+        "has_hue_clusters": true,
+        "n_achromatic": 2,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 2,
+          "cluster1_mean_hue": 75.4,
+          "cluster2_mean_hue": 294.3,
+          "hue_separation": 141.1,
+          "max_gap": 126.4
+        },
+        "avg_chroma": 47.34946715293771,
+        "rule": "0_override: high_chroma_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 7,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": false,
+          "value": 6.06,
+          "threshold": 8.0,
+          "repair_suggestion": "Swap in CVD-safe palette (Okabe-Ito, Tol, etc.) - Pick max min pairwise Delta E"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#e9e9e9": "#56b4e9",
+        "#ff7f00": "#d55e00",
+        "#984ea3": "#cc79a7",
+        "#4daf4a": "#009e73",
+        "#377eb8": "#0072b2",
+        "#e41a1c": "#e69f00",
+        "#474747": "#f0e442"
+      },
+      "new_palette": [
+        "#56b4e9",
+        "#d55e00",
+        "#cc79a7",
+        "#009e73",
+        "#0072b2",
+        "#e69f00",
+        "#f0e442"
+      ],
+      "verification_tests": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 12.24
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#e9e9e9": "#56b4e9",
+            "#ff7f00": "#d55e00",
+            "#984ea3": "#cc79a7",
+            "#4daf4a": "#009e73",
+            "#377eb8": "#0072b2",
+            "#e41a1c": "#e69f00",
+            "#474747": "#f0e442"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Categorical Pairwise \u0394E",
+              "passed": true,
+              "value": 12.24
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.005
+}

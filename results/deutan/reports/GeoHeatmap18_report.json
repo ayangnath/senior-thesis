@@ -1,0 +1,307 @@
+{
+  "file": "GeoHeatmap18.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 579,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 14,
+      "n_data_colors": 37,
+      "original_palette": [
+        "#cccccc",
+        "#81d4fa",
+        "#f8bbd0",
+        "#dfa8bb",
+        "#002c15",
+        "#3e070a",
+        "#00180b",
+        "#150203",
+        "#006d34",
+        "#001008",
+        "#530a0d",
+        "#e31b23",
+        "#9e1318",
+        "#971217",
+        "#290506",
+        "#45080b",
+        "#300607",
+        "#003c1d",
+        "#c7181f",
+        "#f5f5f5",
+        "#670c10",
+        "#005d2c",
+        "#004520",
+        "#007135",
+        "#006530",
+        "#4c090c",
+        "#220405",
+        "#00612e",
+        "#00140a",
+        "#00200f",
+        "#007537",
+        "#d51921",
+        "#002411",
+        "#00853f",
+        "#004922",
+        "#005528",
+        "#00813d"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 37,
+        "lightness_range": 94.64536037323028,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 76.55228842340374,
+        "has_hue_clusters": true,
+        "n_achromatic": 9,
+        "cluster_info": {
+          "cluster1_size": 16,
+          "cluster2_size": 14,
+          "cluster1_mean_hue": 154.3,
+          "cluster2_mean_hue": 25.0,
+          "hue_separation": 129.3,
+          "max_gap": 115.6
+        },
+        "avg_chroma": 35.36288388808044,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 37,
+      "has_numeric_labels": true,
+      "has_string_labels": false,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.99,
+          "threshold": 0.62,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.21,
+          "threshold": 0.9166666666666665,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": false,
+          "value": 0.76,
+          "threshold": 0.9166666666666665,
+          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#e31b23": "#08306b",
+        "#d51921": "#083674",
+        "#c7181f": "#093d7e",
+        "#9e1318": "#094387",
+        "#971217": "#094991",
+        "#670c10": "#08509b",
+        "#530a0d": "#0e56a0",
+        "#4c090c": "#145ca5",
+        "#45080b": "#1863aa",
+        "#3e070a": "#1c69af",
+        "#f8bbd0": "#206fb4",
+        "#300607": "#2775b7",
+        "#dfa8bb": "#2e7cbb",
+        "#290506": "#3482be",
+        "#220405": "#3a89c1",
+        "#150203": "#408fc5",
+        "#cccccc": "#4795c8",
+        "#f5f5f5": "#509acb",
+        "#001008": "#58a0ce",
+        "#00140a": "#5fa5d1",
+        "#00180b": "#67abd4",
+        "#00200f": "#70b0d7",
+        "#002411": "#7ab6d9",
+        "#002c15": "#84bbdb",
+        "#81d4fa": "#8ec1dd",
+        "#003c1d": "#97c6df",
+        "#004520": "#a0cbe2",
+        "#004922": "#a8cee4",
+        "#005528": "#b0d2e7",
+        "#005d2c": "#b8d5ea",
+        "#00612e": "#bfd8ed",
+        "#006530": "#c7dcef",
+        "#006d34": "#d1e2f3",
+        "#007135": "#dbe8f6",
+        "#007537": "#e4eef9",
+        "#00813d": "#eef5fc",
+        "#00853f": "#f7fbff"
+      },
+      "new_palette": [
+        "#4795c8",
+        "#8ec1dd",
+        "#206fb4",
+        "#2e7cbb",
+        "#84bbdb",
+        "#1c69af",
+        "#67abd4",
+        "#408fc5",
+        "#d1e2f3",
+        "#58a0ce",
+        "#0e56a0",
+        "#08306b",
+        "#094387",
+        "#094991",
+        "#3482be",
+        "#1863aa",
+        "#2775b7",
+        "#97c6df",
+        "#093d7e",
+        "#509acb",
+        "#08509b",
+        "#b8d5ea",
+        "#a0cbe2",
+        "#dbe8f6",
+        "#c7dcef",
+        "#145ca5",
+        "#3a89c1",
+        "#bfd8ed",
+        "#5fa5d1",
+        "#70b0d7",
+        "#e4eef9",
+        "#083674",
+        "#7ab6d9",
+        "#f7fbff",
+        "#a8cee4",
+        "#b0d2e7",
+        "#eef5fc"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.15
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 1.22
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#e31b23": "#08306b",
+            "#d51921": "#083674",
+            "#c7181f": "#093d7e",
+            "#9e1318": "#094387",
+            "#971217": "#094991",
+            "#670c10": "#08509b",
+            "#530a0d": "#0e56a0",
+            "#4c090c": "#145ca5",
+            "#45080b": "#1863aa",
+            "#3e070a": "#1c69af",
+            "#f8bbd0": "#206fb4",
+            "#300607": "#2775b7",
+            "#dfa8bb": "#2e7cbb",
+            "#290506": "#3482be",
+            "#220405": "#3a89c1",
+            "#150203": "#408fc5",
+            "#cccccc": "#4795c8",
+            "#f5f5f5": "#509acb",
+            "#001008": "#58a0ce",
+            "#00140a": "#5fa5d1",
+            "#00180b": "#67abd4",
+            "#00200f": "#70b0d7",
+            "#002411": "#7ab6d9",
+            "#002c15": "#84bbdb",
+            "#81d4fa": "#8ec1dd",
+            "#003c1d": "#97c6df",
+            "#004520": "#a0cbe2",
+            "#004922": "#a8cee4",
+            "#005528": "#b0d2e7",
+            "#005d2c": "#b8d5ea",
+            "#00612e": "#bfd8ed",
+            "#006530": "#c7dcef",
+            "#006d34": "#d1e2f3",
+            "#007135": "#dbe8f6",
+            "#007537": "#e4eef9",
+            "#00813d": "#eef5fc",
+            "#00853f": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.15
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 1.22
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.033
+}
