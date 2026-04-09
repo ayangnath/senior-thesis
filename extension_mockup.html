@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVD Repair Extension Mockup</title>
+<title>VCR Extension Mockup</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
@@ -21,7 +21,7 @@
   }
 
   .popup {
-    width: 280px;
+    width: 300px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 6px 28px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.08);
@@ -49,7 +49,7 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: conic-gradient(#4285f4 0deg 120deg, #ea4335 120deg 240deg, #fbbc04 240deg 360deg);
+    background: conic-gradient(#0072b2 0deg 120deg, #e69f00 120deg 240deg, #009e73 240deg 360deg);
   }
 
   .popup-badge {
@@ -65,10 +65,51 @@
     padding: 10px 12px;
   }
 
+  /* SVG selector row (multi-SVG support) */
+  .svg-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 5px 7px;
+    background: #f4f6fa;
+    border: 1px solid #e0e4ec;
+    border-radius: 4px;
+  }
+
+  .svg-selector-label {
+    font-size: 9px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+  }
+
+  .svg-selector select {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 10px;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .apply-all-btn {
+    font-size: 9px;
+    color: #4285f4;
+    background: none;
+    border: 1px solid #c8d6f5;
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
   .top-row {
     display: flex;
     gap: 6px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .cvd-select {
@@ -93,9 +134,71 @@
     border-radius: 4px;
     font-weight: 600;
     white-space: nowrap;
-    background: #fce8e6;
-    color: #c5221f;
+    background: #e8eef9;
+    color: #1a47a8;
   }
+
+  .spot-check-link {
+    display: block;
+    font-size: 9px;
+    color: #4285f4;
+    margin-bottom: 8px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .spot-check-link:hover { text-decoration: underline; }
+
+  /* DR4 mismatch banner */
+  .mismatch-banner {
+    background: #fff7e6;
+    border: 1px solid #f5d99a;
+    border-radius: 4px;
+    padding: 7px 8px;
+    margin-bottom: 8px;
+  }
+
+  .mismatch-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #8a5a00;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .mismatch-text {
+    font-size: 9.5px;
+    color: #6b4a00;
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .path-options {
+    display: flex;
+    gap: 4px;
+  }
+
+  .path-btn {
+    flex: 1;
+    font-size: 9px;
+    padding: 4px 5px;
+    border-radius: 3px;
+    border: 1px solid #d4b878;
+    background: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    color: #5a4000;
+    line-height: 1.25;
+  }
+
+  .path-btn.active {
+    background: #8a5a00;
+    color: #fff;
+    border-color: #8a5a00;
+  }
+
+  .path-btn b { display: block; font-weight: 600; margin-bottom: 1px; }
 
   .toggle-row {
     display: flex;
@@ -120,9 +223,7 @@
     transition: background 0.2s;
   }
 
-  .toggle-track.off {
-    background: #c4c4c4;
-  }
+  .toggle-track.off { background: #c4c4c4; }
 
   .toggle-thumb {
     width: 14px;
@@ -136,16 +237,14 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   }
 
-  .toggle-track.off .toggle-thumb {
-    left: 2px;
-  }
+  .toggle-track.off .toggle-thumb { left: 2px; }
 
   .preview-area {
     background: #f8f8f8;
     border: 1px solid #e4e4e4;
     border-radius: 6px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .preview-label {
@@ -157,11 +256,52 @@
     margin-bottom: 6px;
   }
 
+  .swatch-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .swatch-row:last-of-type { margin-bottom: 0; }
+
+  .swatch-row-label {
+    font-size: 9px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    width: 56px;
+    flex-shrink: 0;
+  }
+
+  .swatch-row-strip {
+    flex: 1;
+    display: flex;
+    height: 18px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+
+  .swatch-row-strip .sw {
+    flex: 1;
+    height: 100%;
+  }
+
+  .preview-hint {
+    font-size: 8.5px;
+    color: #999;
+    font-style: italic;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* (legacy preview styles kept for compatibility) */
   .mini-chart {
     display: flex;
     align-items: flex-end;
     gap: 3px;
-    height: 70px;
+    height: 60px;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 0 4px;
@@ -179,6 +319,21 @@
     border-radius: 1.5px 1.5px 0 0;
     min-width: 6px;
     transition: background 0.25s ease;
+  }
+
+  /* Sequential / diverging gradient strip */
+  .gradient-strip {
+    height: 18px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+
+  .gradient-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    color: #888;
+    margin-top: 3px;
   }
 
   .mini-legend {
@@ -202,6 +357,56 @@
     border-radius: 1.5px;
     transition: background 0.25s ease;
   }
+
+  /* Invariant report (Why this was changed) */
+  .invariant-report {
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .invariant-summary {
+    padding: 6px 8px;
+    font-size: 10px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafafa;
+    user-select: none;
+  }
+
+  .invariant-summary::after {
+    content: '▾';
+    font-size: 8px;
+    color: #888;
+  }
+
+  .invariant-report.collapsed .invariant-summary::after { content: '▸'; }
+  .invariant-report.collapsed .invariant-details { display: none; }
+
+  .invariant-details {
+    padding: 6px 8px 8px;
+    font-size: 9px;
+    color: #555;
+    border-top: 1px solid #eee;
+    line-height: 1.5;
+  }
+
+  .invariant-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 0;
+  }
+
+  .invariant-status {
+    font-weight: 600;
+  }
+  .invariant-status.fail { color: #c5221f; }
+  .invariant-status.pass { color: #188038; }
+  .invariant-status.fixed { color: #1a73e8; }
 
   .palette-nav {
     display: flex;
@@ -287,7 +492,7 @@
     font-size: 11.5px;
     color: #666;
     font-style: italic;
-    max-width: 460px;
+    max-width: 480px;
   }
 </style>
 </head>
@@ -297,19 +502,50 @@
   <div class="popup-header">
     <div class="popup-title">
       <div class="popup-icon"></div>
-      CVD Palette Repair
+      VCR — Visualization Color Repair
     </div>
-    <div class="popup-badge">1 SVG found</div>
+    <div class="popup-badge" id="svgCountBadge">3 SVGs found</div>
   </div>
 
   <div class="popup-body">
+
+    <!-- DR-aligned: multi-SVG selector -->
+    <div class="svg-selector">
+      <span class="svg-selector-label">SVG</span>
+      <select id="svgPicker">
+        <option value="0">1 / 3 · Stacked bar (revenue)</option>
+        <option value="1">2 / 3 · Choropleth (unemployment)</option>
+        <option value="2">3 / 3 · Calendar heatmap (activity)</option>
+      </select>
+      <button class="apply-all-btn" title="Apply to all detected SVGs">All</button>
+    </div>
+
     <div class="top-row">
       <select class="cvd-select" id="cvdSelect">
         <option value="deut" selected>Deuteranopia</option>
         <option value="prot">Protanopia</option>
         <option value="trit">Tritanopia</option>
       </select>
-      <div class="type-chip">Categorical · 4</div>
+      <div class="type-chip" id="typeChip">Categorical · 4</div>
+    </div>
+
+    <!-- DR5: minimal user input / spot-check -->
+    <a class="spot-check-link" id="spotCheckLink">Don't know your CVD type? Take a 10-second spot-check →</a>
+
+    <!-- DR4: two repair options (shown when palette and data disagree) -->
+    <div class="mismatch-banner" id="mismatchBanner" style="display:none;">
+      <div class="mismatch-title">Two ways to fix this chart</div>
+      <div class="mismatch-text" id="mismatchText">
+        This chart uses many distinct colors, but the data looks like a range of values. Pick the version that reads better:
+      </div>
+      <div class="path-options">
+        <button class="path-btn active" data-path="A">
+          <b>Distinct colors</b>Each value its own hue
+        </button>
+        <button class="path-btn" data-path="B">
+          <b>Light-to-dark</b>Ordered gradient
+        </button>
+      </div>
     </div>
 
     <div class="toggle-row">
@@ -320,42 +556,18 @@
     </div>
 
     <div class="preview-area">
-      <div class="preview-label" id="previewLabel">Corrected</div>
-      <div class="mini-chart">
-        <div class="mini-group">
-          <div class="mini-bar" style="height:50px"></div>
-          <div class="mini-bar" style="height:36px"></div>
-          <div class="mini-bar" style="height:25px"></div>
-          <div class="mini-bar" style="height:20px"></div>
-        </div>
-        <div class="mini-group">
-          <div class="mini-bar" style="height:43px"></div>
-          <div class="mini-bar" style="height:47px"></div>
-          <div class="mini-bar" style="height:18px"></div>
-          <div class="mini-bar" style="height:29px"></div>
-        </div>
-        <div class="mini-group">
-          <div class="mini-bar" style="height:57px"></div>
-          <div class="mini-bar" style="height:32px"></div>
-          <div class="mini-bar" style="height:40px"></div>
-          <div class="mini-bar" style="height:14px"></div>
-        </div>
-        <div class="mini-group">
-          <div class="mini-bar" style="height:32px"></div>
-          <div class="mini-bar" style="height:40px"></div>
-          <div class="mini-bar" style="height:47px"></div>
-          <div class="mini-bar" style="height:23px"></div>
-        </div>
+      <div class="swatch-row">
+        <div class="swatch-row-label">Original</div>
+        <div class="swatch-row-strip" id="origStrip"></div>
       </div>
-      <div class="mini-legend" id="miniLegend">
-        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Tech</div>
-        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Health</div>
-        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Finance</div>
-        <div class="mini-legend-item"><div class="mini-legend-swatch"></div>Education</div>
+      <div class="swatch-row">
+        <div class="swatch-row-label" id="correctedLabel">Corrected</div>
+        <div class="swatch-row-strip" id="correctedStrip"></div>
       </div>
+      <div class="preview-hint">Toggle above to recolor the chart on the page.</div>
     </div>
 
-    <div class="palette-nav" id="paletteNav">
+<div class="palette-nav" id="paletteNav">
       <div class="nav-btn" onclick="prevPalette()">&#8249;</div>
       <div class="palette-info">
         <div class="palette-name" id="paletteName">Okabe-Ito</div>
@@ -367,44 +579,134 @@
   </div>
 
   <div class="popup-footer">
-    <a class="footer-link">Reset to original</a>
     <a class="footer-link">Settings</a>
   </div>
 </div>
 
-<div class="figure-caption">
-  Figure 4.X — Browser extension popup showing correction toggle, mini chart preview, and candidate palette navigation.
-</div>
-
 <script>
-  const palettes = [
-    { name: 'Okabe-Ito', de: '21.3', colors: ['#0072b2','#e69f00','#56b4e9','#009e73'] },
-    { name: 'IBM Design', de: '18.7', colors: ['#648fff','#dc267f','#ffb000','#fe6100'] },
-    { name: 'Wong', de: '16.2', colors: ['#785ef0','#fe6100','#ffb000','#648fff'] },
+  // Three example SVGs covering categorical, sequential, diverging,
+  // and a categorical-but-mismatched case.
+  const svgs = [
+    {
+      name: 'Stacked bar (revenue)',
+      type: 'Categorical', n: 4,
+      mismatch: false,
+      candidates: [
+        { name: 'Okabe-Ito', meta: 'min ΔE 21.3', colors: ['#0072b2','#e69f00','#56b4e9','#009e73'] },
+        { name: 'IBM Design', meta: 'min ΔE 18.7', colors: ['#648fff','#dc267f','#ffb000','#fe6100'] },
+        { name: 'Wong',       meta: 'min ΔE 16.2', colors: ['#785ef0','#fe6100','#ffb000','#648fff'] },
+      ],
+      orig: ['#e53935','#43a047','#fb8c00','#8e24aa'],
+      legend: ['Tech','Health','Finance','Education'],
+      invariants: [
+        ['Pairwise distinguishability','fail → fixed','fixed'],
+        ['Lightness monotonicity','n/a','pass'],
+        ['Midpoint integrity','n/a','pass'],
+      ],
+      invSummary: '1 invariant failed → fixed'
+    },
+    {
+      name: 'Choropleth (unemployment)',
+      type: 'Sequential', n: 12,
+      mismatch: false,
+      candidates: [
+        { name: 'Single-hue Blue', meta: '12 steps · ΔE step ~5.2', stops: ['#f0f7ff','#08306b'] },
+        { name: 'Single-hue Purple', meta: '12 steps · ΔE step ~4.9', stops: ['#f7f0fa','#3f007d'] },
+        { name: 'Single-hue Orange', meta: '12 steps · ΔE step ~4.7', stops: ['#fff5eb','#7f2704'] },
+      ],
+      orig: ['#1a9850','#ffffbf','#d73027'],
+      legend: [],
+      ticks: ['0%','—','20%+'],
+      invariants: [
+        ['Lightness monotonicity','fail → fixed','fixed'],
+        ['Perceptual uniformity','fail → fixed','fixed'],
+        ['Direction preservation','fail → fixed','fixed'],
+        ['Pairwise distinguishability','pass','pass'],
+      ],
+      invSummary: '3 invariants failed → fixed'
+    },
+    {
+      name: 'Calendar heatmap (activity)',
+      type: 'Categorical', n: 29,
+      mismatch: true,
+      mismatchText: 'This chart uses 29 distinct colors, but the values look ordered. Pick the version that reads better:',
+      candidates: [
+        { name: 'Single-hue Blue (sequential)', meta: '29 steps · ΔE step ~2.1', stops: ['#f0f7ff','#08306b'] },
+        { name: 'Single-hue Orange (sequential)', meta: '29 steps · ΔE step ~2.0', stops: ['#fff5eb','#7f2704'] },
+      ],
+      orig: ['#ffffcc','#fd8d3c','#800026'],
+      legend: [],
+      ticks: ['0','—','max'],
+      invariants: [
+        ['Lightness monotonicity','fail → fixed','fixed'],
+        ['Perceptual uniformity','fail → fixed','fixed'],
+        ['Pairwise distinguishability','partial','fixed'],
+      ],
+      invSummary: 'Reclassified as sequential; 2 invariants fixed'
+    },
   ];
-  const origColors = ['#e53935','#43a047','#fb8c00','#8e24aa'];
 
-  let correctionOn = true;
+  let svgIdx = 0;
   let currentIdx = 0;
+  let correctionOn = true;
+
+  function current() { return svgs[svgIdx]; }
+
+  function makeGradient(stops) {
+    return `linear-gradient(to right, ${stops.join(', ')})`;
+  }
+
+  function stripHtml(colorsOrStops, isGradient) {
+    if (isGradient) {
+      return `<div class="sw" style="flex:1;background:${makeGradient(colorsOrStops)}"></div>`;
+    }
+    return colorsOrStops.map(c => `<div class="sw" style="background:${c}"></div>`).join('');
+  }
 
   function applyColors() {
-    const colors = correctionOn ? palettes[currentIdx].colors : origColors;
-    document.querySelectorAll('.mini-bar').forEach((bar, i) => {
-      bar.style.background = colors[i % 4];
-    });
-    document.querySelectorAll('.mini-legend-swatch').forEach((sw, i) => {
-      sw.style.background = colors[i % 4];
-    });
-    document.getElementById('previewLabel').textContent = correctionOn ? 'Corrected' : 'Original';
+    const s = current();
+    const cand = s.candidates[currentIdx];
+    const isGradient = !cand.colors;
+
+    // Original strip (always the original palette)
+    const origIsGradient = s.type !== 'Categorical' || s.mismatch;
+    document.getElementById('origStrip').innerHTML = origIsGradient
+      ? stripHtml(s.orig, true)
+      : stripHtml(s.orig, false);
+
+    // Corrected strip (currently selected candidate)
+    document.getElementById('correctedStrip').innerHTML = isGradient
+      ? stripHtml(cand.stops, true)
+      : stripHtml(cand.colors, false);
+
+    document.getElementById('correctedLabel').textContent =
+      correctionOn ? 'Corrected' : 'Corrected (off)';
+    document.getElementById('correctedStrip').style.opacity = correctionOn ? '1' : '0.3';
   }
 
   function updatePaletteNav() {
-    const p = palettes[currentIdx];
-    document.getElementById('paletteName').textContent = p.name;
-    document.getElementById('paletteMeta').textContent = `${currentIdx + 1} / ${palettes.length} · min ΔE ${p.de}`;
-    document.getElementById('paletteSwatches').innerHTML = p.colors.map(c =>
-      `<div class="palette-swatch-big" style="background:${c}"></div>`
-    ).join('');
+    const s = current();
+    const cand = s.candidates[currentIdx];
+    document.getElementById('paletteName').textContent = cand.name;
+    document.getElementById('paletteMeta').textContent = `${currentIdx + 1} / ${s.candidates.length} · ${cand.meta}`;
+    const swatchHtml = cand.colors
+      ? cand.colors.map(c => `<div class="palette-swatch-big" style="background:${c}"></div>`).join('')
+      : `<div class="palette-swatch-big" style="width:70px;background:${makeGradient(cand.stops)}"></div>`;
+    document.getElementById('paletteSwatches').innerHTML = swatchHtml;
+  }
+
+  function updateChrome() {
+    const s = current();
+    document.getElementById('typeChip').textContent = `${s.type} · ${s.n}`;
+    // Mismatch banner
+    const banner = document.getElementById('mismatchBanner');
+    if (s.mismatch) {
+      banner.style.display = 'block';
+      document.getElementById('mismatchText').textContent = s.mismatchText;
+    } else {
+      banner.style.display = 'none';
+    }
+    // Invariant report
   }
 
   function toggleCorrection() {
@@ -416,19 +718,42 @@
   }
 
   function nextPalette() {
-    currentIdx = (currentIdx + 1) % palettes.length;
+    const s = current();
+    currentIdx = (currentIdx + 1) % s.candidates.length;
     updatePaletteNav();
     applyColors();
   }
 
   function prevPalette() {
-    currentIdx = (currentIdx - 1 + palettes.length) % palettes.length;
+    const s = current();
+    currentIdx = (currentIdx - 1 + s.candidates.length) % s.candidates.length;
     updatePaletteNav();
     applyColors();
   }
 
-  applyColors();
+  document.getElementById('svgPicker').addEventListener('change', e => {
+    svgIdx = parseInt(e.target.value, 10);
+    currentIdx = 0;
+    updateChrome();
+    updatePaletteNav();
+    applyColors();
+  });
+
+  document.querySelectorAll('.path-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.path-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  document.getElementById('spotCheckLink').addEventListener('click', e => {
+    e.preventDefault();
+    alert('Spot-check (DR5): user is shown 2–3 swatch pairs and asked which look identical. The result picks the simulation matrices automatically.');
+  });
+
+  updateChrome();
   updatePaletteNav();
+  applyColors();
 </script>
 
 </body>
