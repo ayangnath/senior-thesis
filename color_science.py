@@ -152,7 +152,6 @@ def parse_color(color_str):
 
     return None
 
-# Convert (R, G, B) to a hex string like '#rrggbb'
 def rgb_to_hex(rgb):
     return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 

@@ -256,7 +256,7 @@ def classify_palette(colors):
             details["rule"] = "0_override: unidirectional_hue_sequential"
             return PaletteClassification("sequential", 0.80, details)
         # large palette with narrow hue arc: continuous multi-hue gradient
-        # (e.g. red→orange→yellow→green), not two distinct diverging arms
+        # (e.g. red->orange->yellow->green), not two distinct diverging arms
         if n > 50 and hue_div < 40:
             details["rule"] = "0_override: large_palette_narrow_hue_sequential"
             return PaletteClassification("sequential", 0.80, details)

@@ -187,7 +187,7 @@ def recolor_categorical(colors, cvd_type="deutan", attempt=0):
 # Interpolate a Lab ramp to n evenly-spaced steps.
 # Sort colors by projection onto the first principal component in Lab space.
 # For single-hue ramps this reduces to L*-ordering.  For multi-hue ramps
-# (e.g. orange→yellow→green) it captures the hue gradient, which carries
+# (e.g. orange->yellow->green) it captures the hue gradient, which carries
 # ordering information when the L* range is narrow.
 def _pca_sort_indices(labs):
     n = len(labs)
@@ -208,7 +208,7 @@ def _pca_sort_indices(labs):
 
     projections = centered @ pc1
 
-    # Ensure direction: positive projection ↔ higher L* so that
+    # Ensure direction: positive projection means higher L* so that
     # sorted_indices[0] is the "darkest" original color.
     L_values = [lab[0] for lab in labs]
     if len(set(L_values)) > 1:
@@ -323,14 +323,14 @@ def recolor_sequential(colors, cvd_type="deutan", attempt=0, positional_order=No
 
     if positional_order is not None and len(positional_order) == n:
         # Use positional mapping: positional_order[0] is the index of the
-        # original color at "lowest data value" → gets darkest new color.
-        # Determine direction: if positional order goes generally light→dark,
+        # original color at "lowest data value" gets darkest new color.
+        # Determine direction: if positional order goes generally light->dark,
         # reverse so first position still maps to "low end" of new ramp.
         pos_Ls = [L_values[i] for i in positional_order]
         first_half_mean = np.mean(pos_Ls[:max(n // 2, 1)])
         second_half_mean = np.mean(pos_Ls[max(n // 2, 1):]) if n > 1 else first_half_mean
         if first_half_mean > second_half_mean:
-            # Original goes light→dark; reverse so we still map low→dark
+            # Original goes light->dark; reverse so we still map low->dark
             sorted_indices = list(reversed(positional_order))
         else:
             sorted_indices = list(positional_order)
@@ -486,7 +486,7 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
     left_arm_colors = []
     right_arm_colors = []
 
-    # left arm: endpoint → midpoint
+    # left arm: endpoint to midpoint
     for i in range(n_left):
         t = i / max(n_left - 1, 1)
         ab = left_lab[1:] * (1 - t) + mid_lab[1:] * t
@@ -494,7 +494,7 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
         L = np.clip(L, 5, 98)
         left_arm_colors.append(lab_to_srgb(np.array([L, ab[0], ab[1]])))
 
-    # right arm: midpoint → endpoint (skip midpoint, already in left)
+    # right arm: midpoint to endpoint (skip midpoint, already in left)
     for i in range(1, n_right):
         t = i / max(n_right - 1, 1)
         ab = mid_lab[1:] * (1 - t) + right_lab[1:] * t
