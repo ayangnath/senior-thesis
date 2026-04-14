@@ -1,0 +1,217 @@
+{
+  "file": "Population_density_map_of_the_world.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 206,
+      "n_legend_elements": 22,
+      "n_nondata_elements": 16,
+      "n_data_colors": 14,
+      "original_palette": [
+        "#cccccc",
+        "#002147",
+        "#ce261e",
+        "#aaaaaa",
+        "#ef6548",
+        "#d7301f",
+        "#fdbb84",
+        "#fc8d59",
+        "#b30000",
+        "#fee8c8",
+        "#7f0000",
+        "#990000",
+        "#fdd49e",
+        "#fff7ec"
+      ],
+      "legend_luminance_monotonic": false,
+      "n_legend_swatches_ordered": 21
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 14,
+        "lightness_range": 84.69163141995193,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 51.44391343489872,
+        "has_hue_clusters": false,
+        "n_achromatic": 4,
+        "avg_chroma": 44.512954279449495,
+        "rule": "1: large_palette_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 14,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.63,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 2.78,
+          "threshold": 2.5384615384615383,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#990000": "#a63603",
+        "#7f0000": "#c14002",
+        "#b30000": "#db4b02",
+        "#d7301f": "#e85d0c",
+        "#ce261e": "#f36f1b",
+        "#ef6548": "#fa8231",
+        "#fc8d59": "#fd9547",
+        "#fdbb84": "#fda760",
+        "#fdd49e": "#feb87c",
+        "#fee8c8": "#fdcb99",
+        "#fff7ec": "#fed8b3",
+        "#aaaaaa": "#fee4cb",
+        "#cccccc": "#ffeddb",
+        "#002147": "#fff5eb"
+      },
+      "new_palette": [
+        "#ffeddb",
+        "#fff5eb",
+        "#f36f1b",
+        "#fee4cb",
+        "#fa8231",
+        "#e85d0c",
+        "#fda760",
+        "#fd9547",
+        "#db4b02",
+        "#fdcb99",
+        "#c14002",
+        "#a63603",
+        "#feb87c",
+        "#fed8b3"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.21
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 2.82
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#990000": "#a63603",
+            "#7f0000": "#c14002",
+            "#b30000": "#db4b02",
+            "#d7301f": "#e85d0c",
+            "#ce261e": "#f36f1b",
+            "#ef6548": "#fa8231",
+            "#fc8d59": "#fd9547",
+            "#fdbb84": "#fda760",
+            "#fdd49e": "#feb87c",
+            "#fee8c8": "#fdcb99",
+            "#fff7ec": "#fed8b3",
+            "#aaaaaa": "#fee4cb",
+            "#cccccc": "#ffeddb",
+            "#002147": "#fff5eb"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.21
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 2.82
+            }
+          ]
+        }
+      ],
+      "legend_position_shifts": [
+        {
+          "color_before": "#002147",
+          "color_after": "#fff5eb",
+          "legend_pos_before": 0,
+          "legend_pos_after": 3
+        },
+        {
+          "color_before": "#ce261e",
+          "color_after": "#f36f1b",
+          "legend_pos_before": 15,
+          "legend_pos_after": 13
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead.",
+    "2 data color(s) now map to a different legend position after recoloring."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.028
+}

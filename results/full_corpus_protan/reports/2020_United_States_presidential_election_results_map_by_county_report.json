@@ -1,0 +1,215 @@
+{
+  "file": "2020_United_States_presidential_election_results_map_by_county.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 3146,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 48,
+      "n_data_colors": 14,
+      "original_palette": [
+        "#d40000",
+        "#cc2f4a",
+        "#aa0000",
+        "#e27f90",
+        "#86b6f2",
+        "#1666cb",
+        "#4389e3",
+        "#f2b3be",
+        "#808080",
+        "#800000",
+        "#0645b4",
+        "#b9d7ff",
+        "#002b84",
+        "#a9a9a9"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 14,
+        "lightness_range": 63.510482470224055,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 80.9811473780876,
+        "has_hue_clusters": true,
+        "n_achromatic": 2,
+        "cluster_info": {
+          "cluster1_size": 6,
+          "cluster2_size": 6,
+          "cluster1_mean_hue": 26.4,
+          "cluster2_mean_hue": 281.5,
+          "hue_separation": 104.8,
+          "max_gap": 227.1
+        },
+        "avg_chroma": 47.10590869294201,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 14,
+      "has_numeric_labels": false,
+      "has_string_labels": false,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.65,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.12,
+          "threshold": 2.5384615384615383,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": true,
+          "value": 7.53,
+          "threshold": 5.0,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#d40000": "#08306b",
+        "#aa0000": "#094185",
+        "#800000": "#0b539e",
+        "#cc2f4a": "#1965ab",
+        "#e27f90": "#2776b8",
+        "#f2b3be": "#3988c1",
+        "#808080": "#4c98ca",
+        "#a9a9a9": "#62a7d2",
+        "#b9d7ff": "#7cb7d9",
+        "#002b84": "#97c6df",
+        "#86b6f2": "#aed1e6",
+        "#0645b4": "#c3daee",
+        "#4389e3": "#ddeaf6",
+        "#1666cb": "#f7fbff"
+      },
+      "new_palette": [
+        "#08306b",
+        "#1965ab",
+        "#094185",
+        "#2776b8",
+        "#aed1e6",
+        "#f7fbff",
+        "#ddeaf6",
+        "#3988c1",
+        "#4c98ca",
+        "#0b539e",
+        "#c3daee",
+        "#7cb7d9",
+        "#97c6df",
+        "#62a7d2"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.19
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 3.58
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#d40000": "#08306b",
+            "#aa0000": "#094185",
+            "#800000": "#0b539e",
+            "#cc2f4a": "#1965ab",
+            "#e27f90": "#2776b8",
+            "#f2b3be": "#3988c1",
+            "#808080": "#4c98ca",
+            "#a9a9a9": "#62a7d2",
+            "#b9d7ff": "#7cb7d9",
+            "#002b84": "#97c6df",
+            "#86b6f2": "#aed1e6",
+            "#0645b4": "#c3daee",
+            "#4389e3": "#ddeaf6",
+            "#1666cb": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.19
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 3.58
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.172
+}

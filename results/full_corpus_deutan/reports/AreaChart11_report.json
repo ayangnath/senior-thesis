@@ -1,0 +1,87 @@
+{
+  "file": "AreaChart11.svg",
+  "cvd_type": "deutan",
+  "status": "passed",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 5,
+      "n_legend_elements": 2,
+      "n_nondata_elements": 18,
+      "n_data_colors": 3,
+      "original_palette": [
+        "#78909c",
+        "#00e396",
+        "#008ffb"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 2
+    },
+    "phase2": {
+      "palette_type": "diverging",
+      "confidence": 0.65,
+      "details": {
+        "n_colors": 3,
+        "lightness_range": 21.898358904419183,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": true,
+        "v_midpoint_index": 1,
+        "hue_diversity_deg": 51.989466077345945,
+        "has_hue_clusters": false,
+        "n_achromatic": 1,
+        "avg_chroma": 47.355937085810986,
+        "rule": "4: small_v_shape"
+      }
+    },
+    "phase3": {
+      "n_categories": 3,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "diverging",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 20.19,
+          "threshold": 10.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.08,
+          "threshold": 0.3,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": true
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": false,
+  "processing_time_sec": 0.004
+}

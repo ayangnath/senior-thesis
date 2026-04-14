@@ -1,0 +1,203 @@
+{
+  "file": "Annual_Net_Migration_Rate_2015\u20132020.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 2035,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 19,
+      "n_data_colors": 11,
+      "original_palette": [
+        "#ffaaaa",
+        "#aa0000",
+        "#ccffaa",
+        "#66ff00",
+        "#225500",
+        "#800000",
+        "#ff5555",
+        "#55d400",
+        "#c0c0c0",
+        "#d40000",
+        "#285a07"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 11,
+        "lightness_range": 69.31221038526857,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 54.90606797606202,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 5,
+          "cluster2_size": 5,
+          "cluster1_mean_hue": 130.6,
+          "cluster2_mean_hue": 34.1,
+          "hue_separation": 96.5,
+          "max_gap": 251.1
+        },
+        "avg_chroma": 63.08666373975643,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 11,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.64,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.9,
+          "threshold": 3.0,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": false,
+          "value": 1.57,
+          "threshold": 5.0,
+          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#d40000": "#a63603",
+        "#ff5555": "#c94302",
+        "#aa0000": "#e35608",
+        "#800000": "#f26d18",
+        "#ffaaaa": "#fb8635",
+        "#c0c0c0": "#fe9e54",
+        "#225500": "#feb576",
+        "#285a07": "#fdcd9c",
+        "#ccffaa": "#fcdbba",
+        "#55d400": "#ffebd8",
+        "#66ff00": "#fff7ed"
+      },
+      "new_palette": [
+        "#fb8635",
+        "#e35608",
+        "#fcdbba",
+        "#fff7ed",
+        "#feb576",
+        "#f26d18",
+        "#c94302",
+        "#ffebd8",
+        "#fe9e54",
+        "#a63603",
+        "#fdcd9c"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.3
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 3.17
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#d40000": "#a63603",
+            "#ff5555": "#c94302",
+            "#aa0000": "#e35608",
+            "#800000": "#f26d18",
+            "#ffaaaa": "#fb8635",
+            "#c0c0c0": "#fe9e54",
+            "#225500": "#feb576",
+            "#285a07": "#fdcd9c",
+            "#ccffaa": "#fcdbba",
+            "#55d400": "#ffebd8",
+            "#66ff00": "#fff7ed"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.3
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 3.17
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.071
+}

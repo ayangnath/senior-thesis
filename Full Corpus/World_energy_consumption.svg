@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: wikimedia.svg.chart, 2013-08-28 -->
+<!-- modify viewBox (x,y,dx,dy) for position (x,y) and size (dx,dy) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="head" version="1.1" viewBox="-10.45,-50.3,80.35,60.2" width="750" height="560" font-family="Helvetica, Arial">
+
+<!-- also a workaround for librsvg: a <rect> must be placed somewhere before text for a good display of text -->
+<rect id="imagebackground" x="-10.45" y="-50.3" width="80.35" height="60.2" stroke-width="0.06" stroke="none" fill="white"/>
+ 
+<title>World energy consumption</title>
+<desc>   
+  This svg graphic is to edit with an text editor.
+  Please do not overwrite this file by saving with an image editor.
+  ----------------&#13;   source: http://www.bp.com/statisticalreview
+  https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/xlsx/energy-economics/statistical-review/bp-stats-review-2019-all-data.xlsx
+  all data per day, look in: 'bp-stats-review-2019-all-data.xlsx', tab 'Oil Consumption - barrels'
+    -&gt; values of tab 'Oil Consumption - tonnes' = tab 'Primary Energy - Cons by fuel'
+
+  Nuclear, hydro, renewable energy in TWh
+
+  Oil, gas, coal are to be calculated into TWh as follows:
+  1 toe = 11.63 MWh (http://en.wikipedia.org/wiki/Tonne_of_oil_equivalent)
+  BP thermal to electrical conversion efficiency: 38%, recalculated by use of:
+        'statistical_review_of_world_energy_full_report_2012.xlsx", tab 'Primary Energy - Cons by fuel'
+        i.e. nuclear 2011: 2651.8 TWh / 600.03 Mtoe = 4.4194 TWh/Mtoe; 4.4194 MWh/toe / 11.63 MWh/toe = 0.38 = 38%
+   -&gt; 1 toe = 4.4194 MWh energy production
+   -&gt; 1 Mio toe = 4.4194 TWh energy production
+   -&gt; 1000 Mio toe = 4.4 x 1000 TWh energy production
+</desc>
+
+<style id="styles" type="text/css"> <![CDATA[
+  .graphgeneral {         /*-- general look of graphs and markers, e.g. in legend --*/
+    stroke-width:    0.385;
+    fill:            none;
+    stroke-linejoin: round;
+    stroke-linecap:  round;
+  }
+  .graphgeneralstretch {  /*-- general look of graphs and markers on a stretched chart --*/ 
+    stroke-width:    0.175;
+    fill:            none;
+    stroke-linejoin: round;
+    stroke-linecap:  round;
+  } 
+
+  .graph1lineblank { /*-- look of graph 1 --*/
+    stroke:          #B40404;
+  }
+  .graph1line {
+    stroke:          #B40404; 
+  }    
+
+  .graph2lineblank { /*-- look of graph 2 --*/
+    stroke:          #424242;
+  }
+  .graph2line {
+    stroke:          #424242; 
+  }    
+
+  .graph3lineblank { /*-- look of graph 3 --*/
+    stroke:          #00B2F7;
+  }
+  .graph3line {
+    stroke:          #00B2F7; 
+  }  
+
+  .graph4lineblank { /*-- look of graph 4 --*/
+    stroke:          #0431B4 ;
+  }
+  .graph4line {
+    stroke:          #0431B4 ; 
+  }  
+
+  .graph5lineblank { /*-- look of graph 5 --*/
+    stroke:          #FF6600  ;
+  }
+  .graph5line {
+    stroke:          #FF6600  ; 
+  }  
+
+  .graph6lineblank { /*-- look of graph 6 --*/
+    stroke:          #01DF01 ;
+  }
+  .graph6line {
+    stroke:          #01DF01 ; 
+  }  
+
+  .graph7lineblank { /*-- look of graph 7 --*/
+    stroke:          rgb(00%, 00%, 30%);
+  }
+  .graph7line {
+    stroke:          rgb(00%, 00%, 30%); 
+  }  
+
+  .graph8lineblank { /*-- look of graph 8 --*/
+    stroke:          rgb(00%, 30%, 00%);
+  }
+  .graph8line {
+    stroke:          rgb(00%, 30%, 00%); 
+  }  
+  .axisline {
+    stroke:         black;
+    stroke-width:   0.193;
+    stroke-linecap: round;
+  }
+  .titletext {
+    font-size:    3.63px;       
+  }
+  .axistext-x {
+    font-size:    3.3px;
+  }
+  .axistext-x-number {
+    font-size:    3.3px;
+  }
+  .axistext-y {
+    font-size:    3.3px;
+  }
+  .axismark-main {
+    stroke:       black;
+    stroke-width: 0.135;
+  }
+  .axismark-second {
+    stroke:       black;
+    stroke-width: 0.135;
+  }  
+  .legendtext {
+    font-size:    2.31px;
+    text-anchor:  start;
+  } 
+      
+  .gridline {
+    stroke:       black;
+    stroke-width: 0.096;
+  }  
+]]></style>
+
+<defs>
+  <!--== axis dashes definitions ==-->
+  <!-- x-axis mark, modify "height" -->
+  <pattern id="x-axismark-main" x="5" width="10" height="1.2" patternUnits="userSpaceOnUse"> 
+    <line x1="0" y1="-1" x2="0" y2="1.2" class="axismark-main"/>
+  </pattern>
+ 
+  <!-- x-axis 2nd mark, modify "width" and "x1"-->
+  <pattern id="x-axismark-second" x="0" width="5" height="1.2" patternUnits="userSpaceOnUse"> 
+    <line x1="0" y1="-1" x2="0" y2="1.2" class="axismark-second"/>
+  </pattern>
+ 
+   
+  <!-- x-axis gridline vertical, modify "width" -->
+  <pattern id="x-gridline" height="40" width="10" patternUnits="userSpaceOnUse">  
+    <line x1="5" x2="5" y1="0" y2="40" class="gridline"/>
+  </pattern>
+ 
+   
+  <!-- y-axis gridline horizontal, modify "height" -->
+  <pattern id="y-gridline" width="110" height="11" patternUnits="userSpaceOnUse">  
+    <line x1="0" x2="110" y1="0" y2="0" class="gridline"/>
+  </pattern>
+
+  <!-- y-axis mark, modify "width" -->
+  <pattern id="y-axismark-main" width="1.2" height="11" patternUnits="userSpaceOnUse">
+    <line x1="-1" y1="0" x2="1.2" y2="0" class="axismark-main"/>    
+  </pattern>
+
+  <!-- y-axis2 mark, modify "width" -->
+  <pattern id="y-axis2mark-main" width="0.6" height="10" patternUnits="userSpaceOnUse">
+    <line x1="-1" y1="0" x2="11" y2="0" class="axismark-main"/>    
+  </pattern> 
+</defs> 
+
+<g transform="scale(1, -1)">  
+   
+  <rect id="x-gridline-area" x="0.3" y="0" width="56.1" height="44" fill="url(#x-gridline)"/>
+   
+  <rect id="y-gridline-area" x="0" y="0.3" width="55" height="44.9" fill="url(#y-gridline)"/>
+
+  <!-- x axis, modify "x2" and "width" -->
+
+  <rect id="x-axismark2" x="-0.3" y="-0.6" width="55" height="0.57" fill="url(#x-axismark-second)"/>
+  <rect id="x-axismark" x="4.7" y="-1.1" width="51.1" height="1.05" fill="url(#x-axismark-main)"/>
+  <line id="x-axis" x1="0" y1="0" x2="55" y2="0" class="axisline"/>
+
+  <!-- y axis, modify "height" -->
+  <rect id="y-axismark" x="-1.05" y="-0.3" width="1.05" height="45" fill="url(#y-axismark-main)"/>
+  <line id="y-axis" x1="0" y1="0" x2="0" y2="44" class="axisline"/> 
+</g>
+
+<!-- x axis text, modify each value -->
+<g id="axistext-x" class="axistext-x-number" transform="translate(0, 4.3)" text-anchor="middle"> 
+  <switch><text x="5" id="trsvg22"> <tspan id="trsvg1">1970</tspan></text></switch>
+  <switch><text x="15" id="trsvg23"> <tspan id="trsvg2">1980</tspan></text></switch>
+  <switch><text x="25" id="trsvg24"> <tspan id="trsvg3">1990</tspan></text></switch>
+  <switch><text x="35" id="trsvg25"> <tspan id="trsvg4">2000</tspan></text></switch>
+  <switch><text x="45" id="trsvg26"> <tspan id="trsvg5">2010</tspan></text></switch>
+  <switch><text x="55" id="trsvg27"> <tspan id="trsvg6">2020</tspan></text></switch>
+  <switch><text id="title-x-ja" class="axistext-x" x="27.5" y="4.3" systemLanguage="ja"> <tspan id="trsvg7-ja">年</tspan></text><text id="title-x-de" class="axistext-x" x="27.5" y="4.3" systemLanguage="de"> <tspan id="trsvg7-de">Jahr</tspan></text><text id="title-x" class="axistext-x" x="27.5" y="4.3"> <tspan id="trsvg7">Year</tspan></text></switch> 
+</g>
+
+<!-- y axis text, modify each value -->
+<g id="axistext-y" class="axistext-y" text-anchor="end" transform="translate(-1.7, 0.8)"> 
+  <switch><text y="-0" id="trsvg28"> <tspan id="trsvg8">0</tspan></text></switch>
+  <switch><text y="-11" id="trsvg29"> <tspan id="trsvg9">5</tspan></text></switch>
+  <switch><text y="-22" id="trsvg30"> <tspan id="trsvg10">10</tspan></text></switch>
+  <switch><text y="-33" id="trsvg31"> <tspan id="trsvg11">15</tspan></text></switch>
+  <switch><text y="-44" id="trsvg32"> <tspan id="trsvg12">20</tspan></text></switch>
+  <switch><text id="title-y-ja" x="22" y="-5.1" transform="rotate(-90)" text-anchor="middle" systemLanguage="ja"> <tspan id="trsvg13-ja">エネルギー 1000 TWh/年</tspan></text><text id="title-y-de" x="22" y="-5.1" transform="rotate(-90)" text-anchor="middle" systemLanguage="de"> <tspan id="trsvg13-de">Energie (1000 TWh / Jahr)</tspan></text><text id="title-y" x="22" y="-5.1" transform="rotate(-90)" text-anchor="middle"> <tspan id="trsvg13">Energy, 1000 TWh per year</tspan></text></switch>
+</g> 
+
+
+<!-- legend -->
+<g id="legend" class="legendtext" transform="translate(52.8, -28.6)">
+
+  <g id="legend-background" class="axismark-main">
+    <rect x="0" y="0" fill="white" stroke="none" width="17.1" height="16.4"/>
+  </g>
+  <g class="graphgeneral"><g class="graph1line">
+    <polyline id="legend-line1" points="1.1 1.78 3.85 1.78" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text1-ja" x="5" y="2.46" systemLanguage="ja"> <tspan id="trsvg14-ja">石油</tspan></text><text id="legend-text1-de" x="5" y="2.46" systemLanguage="de"> <tspan id="trsvg14-de">Erdöl</tspan></text><text id="legend-text1" x="5" y="2.46"> <tspan id="trsvg14">Oil</tspan></text></switch> 
+  <g class="graphgeneral"><g class="graph2line">
+    <polyline id="legend-line2" points="1.1 4.32 3.85 4.32" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text2-ja" x="5" y="5.01" systemLanguage="ja"> <tspan id="trsvg15-ja">石炭</tspan></text><text id="legend-text2-de" x="5" y="5.01" systemLanguage="de"> <tspan id="trsvg15-de">Kohle</tspan></text><text id="legend-text2" x="5" y="5.01"> <tspan id="trsvg15">Coal</tspan></text></switch> 
+  <g class="graphgeneral"><g class="graph3line">
+    <polyline id="legend-line3" points="1.1 6.86 3.85 6.86" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text3-ja" x="5" y="7.55" systemLanguage="ja"> <tspan id="trsvg16-ja">天然ガス</tspan></text><text id="legend-text3-de" x="5" y="7.55" systemLanguage="de"> <tspan id="trsvg16-de">Erdgas</tspan></text><text id="legend-text3" x="5" y="7.55"> <tspan id="trsvg16">Natural gas</tspan></text></switch> 
+  <g class="graphgeneral"><g class="graph4line">
+    <polyline id="legend-line4" points="1.1 9.4 3.85 9.4" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text4-ja" x="5" y="10.09" systemLanguage="ja"> <tspan id="trsvg17-ja">水力</tspan></text><text id="legend-text4-de" x="5" y="10.09" systemLanguage="de"> <tspan id="trsvg17-de">Wasserkraft</tspan></text><text id="legend-text4" x="5" y="10.09"> <tspan id="trsvg17">Hydro</tspan></text></switch> 
+  <g class="graphgeneral"><g class="graph5line">
+    <polyline id="legend-line5" points="1.1 11.94 3.85 11.94" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text5-ja" x="5" y="12.63" systemLanguage="ja"> <tspan id="trsvg18-ja">原子力</tspan></text><text id="legend-text5-de" x="5" y="12.63" systemLanguage="de"> <tspan id="trsvg18-de">Kernenergie</tspan></text><text id="legend-text5" x="5" y="12.63"> <tspan id="trsvg18">Nuclear</tspan></text></switch> 
+  <g class="graphgeneral"><g class="graph6line">
+    <polyline id="legend-line6" points="1.1 14.48 3.85 14.48" marker-start="none" marker-end="none"/>
+  </g></g>
+  <switch><text id="legend-text6-ja" x="5" y="15.17" systemLanguage="ja"><tspan id="trsvg19-ja">その他</tspan><tspan x="4.6" dy="2.1" id="trsvg20-ja">再生可能</tspan></text><text id="legend-text6-de" x="5" y="15.17" systemLanguage="de"><tspan id="trsvg19-de">Andere</tspan><tspan x="4.6" dy="2.1" id="trsvg20-de">Erneuerbare</tspan></text><text id="legend-text6" x="5" y="15.17"><tspan id="trsvg19">Other</tspan><tspan x="4.6" dy="2.1" id="trsvg20">renewable</tspan></text></switch>
+</g> &#13;
+<!-- additional text --> 
+
+  <switch><text id="title-ja" class="titletext" text-anchor="middle" x="27.5" y="-47.1" systemLanguage="ja"> <tspan id="trsvg21-ja">世界のエネルギー消費</tspan></text><text id="title-de" class="titletext" text-anchor="middle" x="27.5" y="-47.1" systemLanguage="de"> <tspan id="trsvg21-de">Weltweiter Energieverbrauch</tspan></text><text id="title" class="titletext" text-anchor="middle" x="27.5" y="-47.1"> <tspan id="trsvg21">World energy consumption</tspan></text></switch>
+ 
+<!--====== graph data with origin values, you can manually copy or attach the values here ======-->
+<!-- modify displacement "translate" -->
+<defs>
+<g id="graphs">   
+  <!-- Other<tspan x="4.6" dy="2.1">Renewable</tspan> -->
+
+  <polyline id="graph6" points="       1965     0.018     1966     0.020     1967     0.020     1968     0.022     1969     0.023     1970     0.026     1971     0.028     1972     0.030     1973     0.032     1974     0.034     1975     0.034     1976     0.038     1977     0.041     1978     0.043     1979     0.046     1980     0.049     1981     0.053     1982     0.061     1983     0.068     1984     0.076     1985     0.078     1986     0.086     1987     0.092     1988     0.095     1989     0.107     1990     0.121     1991     0.126     1992     0.136     1993     0.141     1994     0.148     1995     0.155     1996     0.160     1997     0.174     1998     0.185     1999     0.199     2000     0.218     2001     0.231     2002     0.260     2003     0.283     2004     0.323     2005     0.363     2006     0.410     2007     0.473     2008     0.548     2009     0.636     2010     0.754     2011     0.900     2012     1.055     2013     1.248     2014     1.412     2015     1.629     2016     1.842     2017     2.166     2018     2.480   "/> 
+  <!-- Nuclear -->
+
+  <polyline id="graph5" points="       1965     0.026     1966     0.035     1967     0.042     1968     0.053     1969     0.063     1970     0.078     1971     0.110     1972     0.151     1973     0.203     1974     0.263     1975     0.364     1976     0.433     1977     0.535     1978     0.619     1979     0.640     1980     0.711     1981     0.836     1982     0.917     1983     1.029     1984     1.244     1985     1.489     1986     1.595     1987     1.735     1988     1.891     1989     1.945     1990     2.001     1991     2.096     1992     2.112     1993     2.185     1994     2.226     1995     2.322     1996     2.407     1997     2.390     1998     2.431     1999     2.524     2000     2.581     2001     2.654     2002     2.696     2003     2.642     2004     2.757     2005     2.769     2006     2.804     2007     2.746     2008     2.738     2009     2.699     2010     2.768     2011     2.652     2012     2.472     2013     2.492     2014     2.541     2015     2.576     2016     2.615     2017     2.639     2018     2.701   "/> 
+  <!-- Hydro -->
+
+  <polyline id="graph4" points="       1965     0.920     1966     0.986     1967     1.009     1968     1.059     1969     1.122     1970     1.175     1971     1.222     1972     1.277     1973     1.293     1974     1.419     1975     1.441     1976     1.435     1977     1.473     1978     1.589     1979     1.668     1980     1.699     1981     1.725     1982     1.797     1983     1.879     1984     1.941     1985     1.980     1986     2.007     1987     2.035     1988     2.099     1989     2.087     1990     2.161     1991     2.213     1992     2.212     1993     2.344     1994     2.360     1995     2.489     1996     2.524     1997     2.570     1998     2.591     1999     2.608     2000     2.655     2001     2.587     2002     2.634     2003     2.629     2004     2.805     2005     2.916     2006     3.027     2007     3.079     2008     3.256     2009     3.250     2010     3.433     2011     3.499     2012     3.667     2013     3.793     2014     3.883     2015     3.884     2016     4.018     2017     4.065     2018     4.193   "/> 
+  <!-- Natural Gas -->
+
+  <polyline id="graph3" points="       1965     2.396     1966     2.611     1967     2.803     1968     3.058     1969     3.358     1970     3.654     1971     3.911     1972     4.127     1973     4.323     1974     4.429     1975     4.431     1976     4.695     1977     4.849     1978     5.052     1979     5.365     1980     5.410     1981     5.470     1982     5.499     1983     5.587     1984     6.043     1985     6.179     1986     6.240     1987     6.567     1988     6.874     1989     7.180     1990     7.404     1991     7.591     1992     7.592     1993     7.703     1994     7.750     1995     8.022     1996     8.422     1997     8.373     1998     8.527     1999     8.768     2000     9.117     2001     9.244     2002     9.518     2003     9.779     2004     10.153     2005     10.429     2006     10.692     2007     11.130     2008     11.395     2009     11.164     2010     11.995     2011     12.287     2012     12.607     2013     12.805     2014     12.892     2015     13.173     2016     13.491     2017     13.885     2018     14.626   "/> 
+  <!-- Coal -->
+
+  <polyline id="graph2" points="       1965     6.138     1966     6.206     1967     6.107     1968     6.199     1969     6.394     1970     6.485     1971     6.449     1972     6.521     1973     6.716     1974     6.721     1975     6.852     1976     7.102     1977     7.312     1978     7.394     1979     7.737     1980     7.925     1981     8.036     1982     8.126     1983     8.375     1984     8.739     1985     9.084     1986     9.190     1987     9.555     1988     9.838     1989     9.938     1990     9.811     1991     9.703     1992     9.677     1993     9.723     1994     9.774     1995     9.825     1996     10.074     1997     10.083     1998     10.010     1999     10.080     2000     10.420     2001     10.593     2002     11.004     2003     11.973     2004     12.801     2005     13.738     2006     14.457     2007     15.266     2008     15.483     2009     15.250     2010     15.954     2011     16.716     2012     16.781     2013     17.090     2014     17.077     2015     16.657     2016     16.396     2017     16.433     2018     16.670   "/>
+</g>
+<g id="graph1">
+  <!-- Oil -->
+  <polyline id="graph1-line" stroke-width="0.175" points="       1965     6.869     1966     7.397     1967     7.926     1968     8.604     1969     9.329     1970     10.132     1971     10.735     1972     11.558     1973     12.459     1974     12.279     1975     12.155     1976     12.949     1977     13.390     1978     13.851     1979     14.085     1980     13.530     1981     13.040     1982     12.638     1983     12.558     1984     12.847     1985     12.867     1986     13.257     1987     13.522     1988     13.973     1989     14.202     1990     14.369     1991     14.370     1992     14.616     1993     14.525     1994     14.847     1995     15.043     1996     15.398     1997     15.797     1998     15.879     1999     16.162     2000     16.362     2001     16.511     2002     16.654     2003     17.029     2004     17.671     2005     17.903     2006     18.133     2007     18.402     2008     18.309     2009     18.002     2010     18.570     2011     18.763     2012     18.994     2013     19.226     2014     19.381     2015     19.736     2016     20.101     2017     20.360     2018     20.603   "/>
+</g>
+</defs>
+ 
+<g class="graphgeneralstretch" transform="scale(1, -2.2) translate(-1965, -0)"> 
+  <!-- graph 6 --> 
+  <use id="graphuse6p2" transform="translate(0.103, 0)" class="graph6lineblank" xlink:href="#graph6"/>  
+  <use id="graphuse6m2" transform="translate(-0.103, 0)" class="graph6lineblank" xlink:href="#graph6"/> 
+  <use id="graphuse6-1" transform="translate(0, 0)" class="graph6line" xlink:href="#graph6"/>
+  <!-- graph 5 --> 
+  <use id="graphuse5p2" transform="translate(0.103, 0)" class="graph5lineblank" xlink:href="#graph5"/>  
+  <use id="graphuse5m2" transform="translate(-0.103, 0)" class="graph5lineblank" xlink:href="#graph5"/> 
+  <use id="graphuse5-1" transform="translate(0, 0)" class="graph5line" xlink:href="#graph5"/>
+  <!-- graph 4 --> 
+  <use id="graphuse4p2" transform="translate(0.103, 0)" class="graph4lineblank" xlink:href="#graph4"/>  
+  <use id="graphuse4m2" transform="translate(-0.103, 0)" class="graph4lineblank" xlink:href="#graph4"/> 
+  <use id="graphuse4-1" transform="translate(0, 0)" class="graph4line" xlink:href="#graph4"/>
+  <!-- graph 3 --> 
+  <use id="graphuse3p2" transform="translate(0.103, 0)" class="graph3lineblank" xlink:href="#graph3"/>  
+  <use id="graphuse3m2" transform="translate(-0.103, 0)" class="graph3lineblank" xlink:href="#graph3"/> 
+  <use id="graphuse3-1" transform="translate(0, 0)" class="graph3line" xlink:href="#graph3"/>
+  <!-- graph 2 --> 
+  <use id="graphuse2p2" transform="translate(0.103, 0)" class="graph2lineblank" xlink:href="#graph2"/>  
+  <use id="graphuse2m2" transform="translate(-0.103, 0)" class="graph2lineblank" xlink:href="#graph2"/> 
+  <use id="graphuse2-1" transform="translate(0, 0)" class="graph2line" xlink:href="#graph2"/>
+  <!-- graph 1 --> 
+  <use id="graphuse1p2" transform="translate(0.103, 0)" class="graph1lineblank" xlink:href="#graph1"/>  
+  <use id="graphuse1m2" transform="translate(-0.103, 0)" class="graph1lineblank" xlink:href="#graph1"/> 
+  <use id="graphuse1-1" transform="translate(0, 0)" class="graph1line" xlink:href="#graph1"/>
+</g>
+</svg>

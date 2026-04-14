@@ -1,0 +1,137 @@
+{
+  "file": "StackedBarChart1.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 9,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 0,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#d53e4f",
+        "#f46d43",
+        "#fdae61",
+        "#fee08b",
+        "#ffffbf",
+        "#e6f598",
+        "#abdda4",
+        "#66c2a5",
+        "#3288bd"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 48.95752129173155,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": true,
+        "v_midpoint_index": 4,
+        "hue_diversity_deg": 64.58197898376923,
+        "has_hue_clusters": true,
+        "n_achromatic": 0,
+        "cluster_info": {
+          "cluster1_size": 2,
+          "cluster2_size": 7,
+          "cluster1_mean_hue": 213.7,
+          "cluster2_mean_hue": 84.3,
+          "hue_separation": 129.4,
+          "max_gap": 125.5
+        },
+        "avg_chroma": 46.5478816935001,
+        "rule": "0.5_override: high_chroma_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": false,
+          "value": 1.96,
+          "threshold": 8.0,
+          "repair_suggestion": "Max Delta E + supplementary encoding (texture, labels) - Flag: hard to distinguish"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#d53e4f": "#d53e4f",
+        "#f46d43": "#f46a42",
+        "#fdae61": "#f1a856",
+        "#fee08b": "#ff9082",
+        "#ffffbf": "#ffe3c3",
+        "#e6f598": "#00ff8c",
+        "#abdda4": "#9bd9a7",
+        "#66c2a5": "#66c2a5",
+        "#3288bd": "#3288bd"
+      },
+      "new_palette": [
+        "#d53e4f",
+        "#f46a42",
+        "#f1a856",
+        "#ff9082",
+        "#ffe3c3",
+        "#00ff8c",
+        "#9bd9a7",
+        "#66c2a5",
+        "#3288bd"
+      ],
+      "verification_tests": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 8.08
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#d53e4f": "#d53e4f",
+            "#f46d43": "#f46a42",
+            "#fdae61": "#f1a856",
+            "#fee08b": "#ff9082",
+            "#ffffbf": "#ffe3c3",
+            "#e6f598": "#00ff8c",
+            "#abdda4": "#9bd9a7",
+            "#66c2a5": "#66c2a5",
+            "#3288bd": "#3288bd"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Categorical Pairwise \u0394E",
+              "passed": true,
+              "value": 8.08
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.085
+}

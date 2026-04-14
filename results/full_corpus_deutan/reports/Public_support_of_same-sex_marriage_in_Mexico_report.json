@@ -1,0 +1,87 @@
+{
+  "file": "Public_support_of_same-sex_marriage_in_Mexico.svg",
+  "cvd_type": "deutan",
+  "status": "passed",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 31,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 3,
+      "n_data_colors": 3,
+      "original_palette": [
+        "#b000dc",
+        "#dd55ff",
+        "#f5cdff"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.9,
+      "details": {
+        "n_colors": 3,
+        "lightness_range": 42.34251603714573,
+        "is_monotonic": true,
+        "monotonic_direction": "increasing",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 0.6720976806308192,
+        "has_hue_clusters": false,
+        "n_achromatic": 0,
+        "avg_chroma": 77.14982711187145,
+        "rule": "2: single_hue_sequential_monotonic"
+      }
+    },
+    "phase3": {
+      "n_categories": 3,
+      "has_numeric_labels": false,
+      "has_string_labels": false,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.22,
+          "threshold": 0.4,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 15.88,
+          "threshold": 3.0,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": true
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": false,
+  "processing_time_sec": 0.003
+}

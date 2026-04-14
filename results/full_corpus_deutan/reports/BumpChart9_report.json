@@ -1,0 +1,207 @@
+{
+  "file": "BumpChart9.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 37,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 96,
+      "n_data_colors": 12,
+      "original_palette": [
+        "#889eae",
+        "#9e0142",
+        "#d53e4f",
+        "#f46d43",
+        "#fdae61",
+        "#fee08b",
+        "#ffffbf",
+        "#e6f598",
+        "#abdda4",
+        "#66c2a5",
+        "#3288bd",
+        "#5e4fa2"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 12,
+        "lightness_range": 65.32621764411154,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 93.73740862429892,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 7,
+          "cluster2_size": 4,
+          "cluster1_mean_hue": 104.3,
+          "cluster2_mean_hue": 330.3,
+          "hue_separation": 134.0,
+          "max_gap": 87.7
+        },
+        "avg_chroma": 45.0352744075905,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 12,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.75,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.86,
+          "threshold": 3.0,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": false,
+          "value": 1.96,
+          "threshold": 5.0,
+          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#9e0142": "#08306b",
+        "#5e4fa2": "#09458a",
+        "#d53e4f": "#115aa3",
+        "#3288bd": "#1f6eb3",
+        "#f46d43": "#3583be",
+        "#889eae": "#4a97c9",
+        "#fdae61": "#64a9d3",
+        "#66c2a5": "#83bbdb",
+        "#fee08b": "#a2cce2",
+        "#ffffbf": "#bbd6eb",
+        "#abdda4": "#d8e7f5",
+        "#e6f598": "#f7fbff"
+      },
+      "new_palette": [
+        "#4a97c9",
+        "#08306b",
+        "#115aa3",
+        "#3583be",
+        "#64a9d3",
+        "#a2cce2",
+        "#bbd6eb",
+        "#f7fbff",
+        "#d8e7f5",
+        "#83bbdb",
+        "#1f6eb3",
+        "#09458a"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.12
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 4.7
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#9e0142": "#08306b",
+            "#5e4fa2": "#09458a",
+            "#d53e4f": "#115aa3",
+            "#3288bd": "#1f6eb3",
+            "#f46d43": "#3583be",
+            "#889eae": "#4a97c9",
+            "#fdae61": "#64a9d3",
+            "#66c2a5": "#83bbdb",
+            "#fee08b": "#a2cce2",
+            "#ffffbf": "#bbd6eb",
+            "#abdda4": "#d8e7f5",
+            "#e6f598": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.12
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 4.7
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.01
+}

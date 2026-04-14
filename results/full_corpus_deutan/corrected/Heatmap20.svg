@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svgContent heatmap-0 rhtmlHeatmap" width="490" height="490">
+  <g class="inner" style="position:relative">
+    <g class="axis xaxis">
+      <g class="xaxis-label tick-0">
+        <path class="click-rect" transform="translate(75.885 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(75.885 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Coca-Cola</text>
+      </g>
+      <g class="xaxis-label tick-1">
+        <path class="click-rect" transform="translate(117.147 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(117.147 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Diet Coke</text>
+      </g>
+      <g class="xaxis-label tick-2">
+        <path class="click-rect" transform="translate(158.41 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(158.41 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Coke Zero</text>
+      </g>
+      <g class="xaxis-label tick-3">
+        <path class="click-rect" transform="translate(199.672 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(199.672 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Pepsi </text>
+      </g>
+      <g class="xaxis-label tick-4">
+        <path class="click-rect" transform="translate(240.935 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(240.935 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Diet Pepsi</text>
+      </g>
+      <g class="xaxis-label tick-5">
+        <path class="click-rect" transform="translate(282.197 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(282.197 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Pepsi Max</text>
+      </g>
+      <g class="xaxis-label tick-6">
+        <path class="click-rect" transform="translate(323.46 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(323.46 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Dislike all cola</text>
+      </g>
+      <g class="xaxis-label tick-7">
+        <path class="click-rect" transform="translate(364.722 21.5) matrix(1 0 -1 1 52.58 0)" fill="transparent" stroke="transparent" d="M0 0h41.262v52.58H0z"/>
+        <text transform="translate(364.722 21.5) rotate(-45 73.785 1.386)" dy="0" style="text-anchor:start;font-family:Arial;font-size:10px;fill:#2c2c2c">Don't care</text>
+      </g>
+    </g>
+    <text transform="translate(240.935 2)" dy="0" style="text-anchor:middle;font-weight:400;font-size:12px;fill:#2c2c2c;font-family:Arial" class="title">
+      <tspan x="0" y="0" style="dominant-baseline:text-before-edge">Preferred cola</tspan>
+    </text>
+    <g class="axis yaxis">
+      <g class="yaxis-label tick-0">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 80.08)"/>
+        <text dy="0" transform="translate(21.525 80.08) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">18 to 24</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-1">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 120.872)"/>
+        <text dy="0" transform="translate(21.525 120.872) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">25 to 29</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-2">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 161.664)"/>
+        <text dy="0" transform="translate(21.525 161.664) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">30 to 34</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-3">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 202.456)"/>
+        <text dy="0" transform="translate(21.525 202.456) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">35 to 39</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-4">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 243.248)"/>
+        <text dy="0" transform="translate(21.525 243.248) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">40 to 44</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-5">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 284.04)"/>
+        <text dy="0" transform="translate(21.525 284.04) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">45 to 49</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-6">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 324.832)"/>
+        <text dy="0" transform="translate(21.525 324.832) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">50 to 54</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-7">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 365.624)"/>
+        <text dy="0" transform="translate(21.525 365.624) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">55 to 64</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-8">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 406.416)"/>
+        <text dy="0" transform="translate(21.525 406.416) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">65 or more</tspan>
+        </text>
+      </g>
+      <g class="yaxis-label tick-9">
+        <path class="click-rect" fill="transparent" stroke="transparent" d="M0 0h48.359v40.792H0z" transform="translate(21.525 447.208)"/>
+        <text dy="0" transform="translate(21.525 447.208) translate(48.36 15.396)" style="font-family:Arial;font-size:10px;fill:#2c2c2c;text-anchor:end">
+          <tspan x="0" y="5" style="dominant-baseline:central">65+</tspan>
+        </text>
+      </g>
+    </g>
+    <text dy="0" transform="rotate(-90 143.02 141.02)" style="font-weight:400;font-size:12px;fill:#2c2c2c;font-family:Arial;text-anchor:middle;dominant-baseline:text-before-edge" class="ytitle">Age</text>
+    <g class="legend">
+      <g class="legendBars">
+        <path style="fill:#08306b;stroke:#08306b;stroke-width:1px" d="M0 0h26v7.358H0z" transform="translate(437.984 100.08)"/>
+        <path transform="translate(437.984 100.08) translate(0 7.358)" style="fill:#08316c;stroke:#08316c;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 14.717)" style="fill:#08316d;stroke:#08316d;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 22.075)" style="fill:#08326e;stroke:#08326e;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 29.434)" style="fill:#08326f;stroke:#08326f;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 36.792)" style="fill:#083370;stroke:#083370;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 44.15)" style="fill:#083371;stroke:#083371;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 51.509)" style="fill:#083471;stroke:#083471;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 58.867)" style="fill:#083572;stroke:#083572;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 66.226)" style="fill:#083573;stroke:#083573;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 73.584)" style="fill:#083674;stroke:#083674;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 80.942)" style="fill:#083675;stroke:#083675;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 88.3)" style="fill:#083775;stroke:#083775;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 95.66)" style="fill:#083776;stroke:#083776;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 103.018)" style="fill:#093877;stroke:#093877;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 110.376)" style="fill:#093878;stroke:#093878;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 117.734)" style="fill:#093979;stroke:#093979;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 125.093)" style="fill:#093a79;stroke:#093a79;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 132.451)" style="fill:#093a7a;stroke:#093a7a;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 139.81)" style="fill:#093b7c;stroke:#093b7c;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 147.168)" style="fill:#093c7e;stroke:#093c7e;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 154.526)" style="fill:#093e80;stroke:#093e80;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 161.885)" style="fill:#093f82;stroke:#093f82;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 169.243)" style="fill:#094083;stroke:#094083;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 176.602)" style="fill:#094185;stroke:#094185;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 183.96)" style="fill:#094286;stroke:#094286;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 191.318)" style="fill:#094388;stroke:#094388;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 198.677)" style="fill:#094489;stroke:#094489;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 206.035)" style="fill:#09468c;stroke:#09468c;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 213.394)" style="fill:#094990;stroke:#094990;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 220.752)" style="fill:#084d97;stroke:#084d97;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 228.11)" style="fill:#0c559f;stroke:#0c559f;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 235.469)" style="fill:#0f57a1;stroke:#0f57a1;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 242.827)" style="fill:#1059a2;stroke:#1059a2;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 250.186)" style="fill:#145ea6;stroke:#145ea6;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 257.544)" style="fill:#1762a9;stroke:#1762a9;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 264.902)" style="fill:#1c69af;stroke:#1c69af;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 272.26)" style="fill:#2271b5;stroke:#2271b5;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 279.62)" style="fill:#3a88c1;stroke:#3a88c1;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 286.978)" style="fill:#4a97c9;stroke:#4a97c9;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 294.336)" style="fill:#64a9d3;stroke:#64a9d3;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 301.694)" style="fill:#72b1d8;stroke:#72b1d8;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 309.053)" style="fill:#7bb6d9;stroke:#7bb6d9;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 316.411)" style="fill:#97c6e0;stroke:#97c6e0;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 323.77)" style="fill:#b5d4e9;stroke:#b5d4e9;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 331.128)" style="fill:#c3d9ed;stroke:#c3d9ed;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 338.486)" style="fill:#caddf0;stroke:#caddf0;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 345.845)" style="fill:#e8f1fa;stroke:#e8f1fa;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 353.203)" style="fill:#f1f7fd;stroke:#f1f7fd;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+        <path transform="translate(437.984 100.08) translate(0 360.562)" style="fill:#f7fbff;stroke:#f7fbff;stroke-width:1px" d="M0 0h26v7.358H0z"/>
+      </g>
+      <g class="legendLabels">
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 468)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 468)">0%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 437.897)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 437.897)">5%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 407.795)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 407.795)">10%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 377.692)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 377.692)">15%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 347.59)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 347.59)">20%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 317.487)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 317.487)">25%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 287.385)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 287.385)">30%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 257.282)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 257.282)">35%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 227.18)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 227.18)">40%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 197.077)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 197.077)">45%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 166.975)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 166.975)">50%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 136.872)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 136.872)">55%</text>
+        </g>
+        <g class="tick" style="opacity:1">
+          <path d="M0 0h6" transform="translate(467.984 106.77)"/>
+          <text dy=".32em" style="text-anchor:start;font-size:10px;font-family:Arial;fill:#2c2c2c" transform="translate(467.984 106.77)">60%</text>
+        </g>
+        <path class="domain" d="M473.984 100.08h-6V468h6"/>
+      </g>
+    </g>
+    <g class="colormap-transform" transform="translate(75.885 80.08)">
+      <svg class="colormap" width="330.1" height="407.92">
+        <path class="data-cell" data-index="0x0" data-row="0" data-column="0" fill="#155fa7" d="M0 0h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="0x1" data-row="0" data-column="1" fill="#e0ecf7" d="M41.262 0h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="0x2" data-row="0" data-column="2" fill="#a8cee4" d="M82.525 0h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="0x3" data-row="0" data-column="3" fill="#93c4df" d="M123.787 0h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="0x4" data-row="0" data-column="4" fill="#f7fbff" d="M165.05 0h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="0x5" data-row="0" data-column="5" fill="#4393c6" d="M206.312 0h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="0x6" data-row="0" data-column="6" fill="#083573" d="M247.575 0h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="0x7" data-row="0" data-column="7" fill="#f7fbff" d="M288.837 0h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="1x0" data-row="1" data-column="0" fill="#519bcb" d="M0 40.792h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="1x1" data-row="1" data-column="1" fill="#a2cce2" d="M41.262 40.792h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="1x2" data-row="1" data-column="2" fill="#1c69af" d="M82.525 40.792h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="1x3" data-row="1" data-column="3" fill="#b5d4e9" d="M123.787 40.792h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="1x4" data-row="1" data-column="4" fill="#8bbfdd" d="M165.05 40.792h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="1x5" data-row="1" data-column="5" fill="#1f6eb3" d="M206.312 40.792h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="1x6" data-row="1" data-column="6" fill="#f7fbff" d="M247.575 40.792h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="1x7" data-row="1" data-column="7" fill="#f7fbff" d="M288.837 40.792h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="2x0" data-row="2" data-column="0" fill="#58a0ce" d="M0 81.584h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="2x1" data-row="2" data-column="1" fill="#83bbdb" d="M41.262 81.584h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="2x2" data-row="2" data-column="2" fill="#a2cce2" d="M82.525 81.584h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="2x3" data-row="2" data-column="3" fill="#4393c6" d="M123.787 81.584h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="2x4" data-row="2" data-column="4" fill="#f7fbff" d="M165.05 81.584h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="2x5" data-row="2" data-column="5" fill="#73b2d8" d="M206.312 81.584h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="2x6" data-row="2" data-column="6" fill="#f7fbff" d="M247.575 81.584h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="2x7" data-row="2" data-column="7" fill="#f7fbff" d="M288.837 81.584h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="3x0" data-row="3" data-column="0" fill="#2473b6" d="M0 122.376h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="3x1" data-row="3" data-column="1" fill="#0c559f" d="M41.262 122.376h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="3x2" data-row="3" data-column="2" fill="#3e8dc4" d="M82.525 122.376h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="3x3" data-row="3" data-column="3" fill="#9bc8e0" d="M123.787 122.376h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="3x4" data-row="3" data-column="4" fill="#f7fbff" d="M165.05 122.376h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="3x5" data-row="3" data-column="5" fill="#f7fbff" d="M206.312 122.376h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="3x6" data-row="3" data-column="6" fill="#f7fbff" d="M247.575 122.376h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="3x7" data-row="3" data-column="7" fill="#f7fbff" d="M288.837 122.376h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="4x0" data-row="4" data-column="0" fill="#9bc8e0" d="M0 163.168h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="4x1" data-row="4" data-column="1" fill="#084f9a" d="M41.262 163.168h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="4x2" data-row="4" data-column="2" fill="#4a97c9" d="M82.525 163.168h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="4x3" data-row="4" data-column="3" fill="#094a92" d="M123.787 163.168h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="4x4" data-row="4" data-column="4" fill="#64a9d3" d="M165.05 163.168h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="4x5" data-row="4" data-column="5" fill="#7bb6d9" d="M206.312 163.168h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="4x6" data-row="4" data-column="6" fill="#f7fbff" d="M247.575 163.168h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="4x7" data-row="4" data-column="7" fill="#f7fbff" d="M288.837 163.168h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="5x0" data-row="5" data-column="0" fill="#bbd6eb" d="M0 203.96h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="5x1" data-row="5" data-column="1" fill="#d0e1f2" d="M41.262 203.96h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="5x2" data-row="5" data-column="2" fill="#6aadd6" d="M82.525 203.96h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="5x3" data-row="5" data-column="3" fill="#115aa3" d="M123.787 203.96h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="5x4" data-row="5" data-column="4" fill="#bbd6eb" d="M165.05 203.96h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="5x5" data-row="5" data-column="5" fill="#c8dcf0" d="M206.312 203.96h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="5x6" data-row="5" data-column="6" fill="#f7fbff" d="M247.575 203.96h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="5x7" data-row="5" data-column="7" fill="#08306b" d="M288.837 203.96h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="6x0" data-row="6" data-column="0" fill="#5ea4d1" d="M0 244.752h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="6x1" data-row="6" data-column="1" fill="#afd1e7" d="M41.262 244.752h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="6x2" data-row="6" data-column="2" fill="#2a78b9" d="M82.525 244.752h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="6x3" data-row="6" data-column="3" fill="#bbd6eb" d="M123.787 244.752h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="6x4" data-row="6" data-column="4" fill="#1964ab" d="M165.05 244.752h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="6x5" data-row="6" data-column="5" fill="#2473b6" d="M206.312 244.752h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="6x6" data-row="6" data-column="6" fill="#f7fbff" d="M247.575 244.752h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="6x7" data-row="6" data-column="7" fill="#093a7a" d="M288.837 244.752h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="7x0" data-row="7" data-column="0" fill="#4a97c9" d="M0 285.544h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="7x1" data-row="7" data-column="1" fill="#307ebc" d="M41.262 285.544h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="7x2" data-row="7" data-column="2" fill="#3a88c1" d="M82.525 285.544h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="7x3" data-row="7" data-column="3" fill="#4393c6" d="M123.787 285.544h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="7x4" data-row="7" data-column="4" fill="#093f82" d="M165.05 285.544h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="7x5" data-row="7" data-column="5" fill="#09458a" d="M206.312 285.544h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="7x6" data-row="7" data-column="6" fill="#083573" d="M247.575 285.544h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="7x7" data-row="7" data-column="7" fill="#f7fbff" d="M288.837 285.544h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="8x0" data-row="8" data-column="0" fill="#d0e1f2" d="M0 326.336h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="8x1" data-row="8" data-column="1" fill="#83bbdb" d="M41.262 326.336h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="8x2" data-row="8" data-column="2" fill="#d0e1f2" d="M82.525 326.336h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="8x3" data-row="8" data-column="3" fill="#d8e7f5" d="M123.787 326.336h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="8x4" data-row="8" data-column="4" fill="#3583be" d="M165.05 326.336h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="8x5" data-row="8" data-column="5" fill="#c8dcf0" d="M206.312 326.336h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="8x6" data-row="8" data-column="6" fill="#f7fbff" d="M247.575 326.336h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="8x7" data-row="8" data-column="7" fill="#f7fbff" d="M288.837 326.336h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="9x0" data-row="9" data-column="0" fill="#e8f1fa" d="M0 367.128h41.012v40.542H0z"/>
+        <path class="data-cell" data-index="9x1" data-row="9" data-column="1" fill="#c2d9ed" d="M41.262 367.128h41.012v40.542H41.262z"/>
+        <path class="data-cell" data-index="9x2" data-row="9" data-column="2" fill="#e0ecf7" d="M82.525 367.128h41.012v40.542H82.525z"/>
+        <path class="data-cell" data-index="9x3" data-row="9" data-column="3" fill="#eff6fc" d="M123.787 367.128h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="9x4" data-row="9" data-column="4" fill="#64a9d3" d="M165.05 367.128h41.012v40.542H165.05z"/>
+        <path class="data-cell" data-index="9x5" data-row="9" data-column="5" fill="#d0e1f2" d="M206.312 367.128h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="9x6" data-row="9" data-column="6" fill="#f7fbff" d="M247.575 367.128h41.012v40.542h-41.012z"/>
+        <path class="data-cell" data-index="9x7" data-row="9" data-column="7" fill="#f7fbff" d="M288.837 367.128h41.012v40.542h-41.012z"/>
+        <g class="brush" style="pointer-events:all;-webkit-tap-highlight-color:transparent"/>
+      </svg>
+    </g>
+  </g>
+</svg>

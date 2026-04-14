@@ -1,0 +1,139 @@
+{
+  "file": "Average_annual_surface_temperature,_North_America,_2022.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 29,
+      "n_legend_elements": 21,
+      "n_nondata_elements": 190,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#cccccc",
+        "#002147",
+        "#ce261e",
+        "#aaaaaa",
+        "#fee090",
+        "#92c5de",
+        "#053061",
+        "#d73027",
+        "#a50026"
+      ],
+      "legend_luminance_monotonic": false,
+      "n_legend_swatches_ordered": 19
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 77.16893779878087,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 126.29268086734369,
+        "has_hue_clusters": true,
+        "n_achromatic": 2,
+        "cluster_info": {
+          "cluster1_size": 4,
+          "cluster2_size": 3,
+          "cluster1_mean_hue": 46.6,
+          "cluster2_mean_hue": 268.2,
+          "hue_separation": 138.4,
+          "max_gap": 149.1
+        },
+        "avg_chroma": 38.565217883426875,
+        "rule": "0_override: high_chroma_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": false,
+          "value": 2.73,
+          "threshold": 8.0,
+          "repair_suggestion": "Max Delta E + supplementary encoding (texture, labels) - Flag: hard to distinguish"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#cccccc": "#cccccc",
+        "#002147": "#001d41",
+        "#ce261e": "#c41813",
+        "#aaaaaa": "#aaaaaa",
+        "#fee090": "#fee090",
+        "#92c5de": "#92c5de",
+        "#053061": "#073468",
+        "#d73027": "#e13b31",
+        "#a50026": "#a50026"
+      },
+      "new_palette": [
+        "#cccccc",
+        "#001d41",
+        "#c41813",
+        "#aaaaaa",
+        "#fee090",
+        "#92c5de",
+        "#073468",
+        "#e13b31",
+        "#a50026"
+      ],
+      "verification_tests": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 8.26
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#cccccc": "#cccccc",
+            "#002147": "#001d41",
+            "#ce261e": "#c41813",
+            "#aaaaaa": "#aaaaaa",
+            "#fee090": "#fee090",
+            "#92c5de": "#92c5de",
+            "#053061": "#073468",
+            "#d73027": "#e13b31",
+            "#a50026": "#a50026"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Categorical Pairwise \u0394E",
+              "passed": true,
+              "value": 8.26
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.016
+}

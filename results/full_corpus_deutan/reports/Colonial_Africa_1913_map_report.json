@@ -1,0 +1,188 @@
+{
+  "file": "Colonial_Africa_1913_map.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 43,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 225,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#a4dbfb",
+        "#fbc5c0",
+        "#bbfdd9",
+        "#d2f89b",
+        "#eaaff7",
+        "#c0a6f2",
+        "#f7fab2",
+        "#f4f4f4",
+        "#27aaea"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "diverging",
+      "confidence": 0.9,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 30.71840084863358,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 113.47368278484542,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 4,
+          "cluster2_size": 4,
+          "cluster1_mean_hue": 109.8,
+          "cluster2_mean_hue": 281.0,
+          "hue_separation": 171.2,
+          "max_gap": 85.7
+        },
+        "avg_chroma": 32.05514323888432,
+        "rule": "0: hue_clusters + achromatic"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "hue_cluster",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "diverging",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 17.1,
+          "threshold": 10.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Apply Sequential repairs to each failing arm independently"
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.04,
+          "threshold": 0.3,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#c0a6f2": "#a43401",
+        "#eaaff7": "#b8562d",
+        "#fbc5c0": "#ca7653",
+        "#a4dbfb": "#d9957a",
+        "#d2f89b": "#e6b5a2",
+        "#bbfdd9": "#f0d6cc",
+        "#f7fab2": "#f7f7f7",
+        "#27aaea": "#0c326d",
+        "#f4f4f4": "#888db0"
+      },
+      "new_palette": [
+        "#d9957a",
+        "#ca7653",
+        "#f0d6cc",
+        "#e6b5a2",
+        "#b8562d",
+        "#a43401",
+        "#f7f7f7",
+        "#888db0",
+        "#0c326d"
+      ],
+      "verification_tests": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 63.32
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.23
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#c0a6f2": "#a43401",
+            "#eaaff7": "#b8562d",
+            "#fbc5c0": "#ca7653",
+            "#a4dbfb": "#d9957a",
+            "#d2f89b": "#e6b5a2",
+            "#bbfdd9": "#f0d6cc",
+            "#f7fab2": "#f7f7f7",
+            "#27aaea": "#0c326d",
+            "#f4f4f4": "#888db0"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Diverging Test 1: Midpoint Extremum",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 2: Endpoints Distinct",
+              "passed": true,
+              "value": 63.32
+            },
+            {
+              "name": "Diverging Test 3: Arms Sequential",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 4: Arm Ratio Preservation",
+              "passed": true,
+              "value": 0.23
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.017
+}

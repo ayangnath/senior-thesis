@@ -1,0 +1,2198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2211"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   width="1200"
+   height="796"
+   version="1.0"
+   sodipodi:docbase="/home/simeon/Dokumente"
+   sodipodi:docname="tokyo_subway_map_en_jp.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata2216">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Tokyo Subway Map</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>comicinker@gmx.de</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:description>Interactive subway map for wikipedia</dc:description>
+        <dc:language>en-US</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>map subway tokyo interactive</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <cc:license
+           rdf:resource="" />
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>comicinker@gmx.de</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2008-02-18</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2214" />
+  <sodipodi:namedview
+     inkscape:window-height="987"
+     inkscape:window-width="1266"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.64"
+     inkscape:cx="695.92896"
+     inkscape:cy="434.24295"
+     inkscape:window-x="6"
+     inkscape:window-y="0"
+     inkscape:current-layer="layer8" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="Vorlage"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="Ginza">
+    <a
+       id="a5400"
+       xlink:href="http://en.wikipedia.org/wiki/Ginza_Line"
+       xlink:title="Show Ginza Line (銀座線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="cccccccccccc"
+         id="path4429"
+         d="M 271.90613,556.26597 L 359.08214,556.26597 L 443.66362,471.68449 L 475.31682,471.68449 L 545.62842,541.99609 L 545.62842,611.26988 L 788.73533,611.26988 L 811.04824,588.95698 L 811.04824,426.53977 L 741.77445,357.78488 L 741.77445,175.77901 L 880.84094,176.42764"
+         style="fill:none;fill-rule:evenodd;stroke:#ffa500;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="Yurakucho">
+    <a
+       id="a3418"
+       xlink:href="http://en.wikipedia.org/wiki/Yurakucho_Line"
+       xlink:title="Show Yūrakuchō Line (有楽町線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="path2447"
+         d="M 47.739244,105.85658 L 180.57887,105.85658 L 310.82398,236.1017 L 505.4133,236.1017 L 505.4133,314.45632 L 471.68448,348.18514 L 471.68448,394.36767 L 604.78357,525.91004 L 1124.9856,525.91004"
+         style="fill:none;fill-rule:evenodd;stroke:#cccc66;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer9"
+     inkscape:label="Hibiya"
+     style="display:inline">
+    <a
+       id="a18064"
+       xlink:title="Show Hibiya Line (東京地下鉄日比谷線) in Wikipedia (en)"
+       xlink:href="http://en.wikipedia.org/wiki/Hibiya_Line">
+      <path
+         id="path15141"
+         d="M 196.875,598.34375 L 592.1875,598.34375 L 642.96875,547.5625 L 881.25,547.5625 L 881.25,370.21875 L 796.875,370.21875 L 760.9375,334.28125 L 760.9375,110.0625 L 809.76563,61.234372 L 861.71875,61.234372"
+         style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Marunouchi">
+    <a
+       id="a2406"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Marunouchi_Line"
+       xlink:title="Show Marunouchi Line (丸ノ内線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="cccccccccccccccccc"
+         id="path3142"
+         d="M 194.67472,110.29726 L 281.38114,198.38692 L 520.12667,198.26276 L 554.4619,238.60444 L 621.9361,238.60444 L 678.65354,295.32188 L 678.65354,335.41525 L 678.65354,428.31451 L 678.41529,474.98574 L 787.68793,475.84455 L 787.68793,547.61672 L 758.5958,576.70885 L 619.00244,576.70885 L 435.60605,390.55034 L 323.43335,390.55034 L 297.52644,415.46673 L 192.25612,415.46673 L 118.73813,344.71087"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:6;stroke-linecap:round;stroke-linejoin:miter;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer13"
+     inkscape:label="Chiyoda" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Toei Shinjuku">
+    <a
+       id="a2403"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Shinjuku_Line"
+       xlink:title="Show Toei Shinjuku Line (都営新宿線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="ccccccccc"
+         id="path6090"
+         d="M 263.26767,384.07577 L 367.74108,384.07577 L 401.24436,350.5725 L 474.27517,350.5725 L 515.59089,391.88822 L 559.35133,391.88822 L 559.35133,337.75192 L 989.79311,337.1995 L 1165.1523,161.84032"
+         style="fill:none;fill-rule:evenodd;stroke:#34cc34;stroke-width:6;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Yamanote Line">
+    <a
+       id="a21973"
+       xlink:href="http://en.wikipedia.org/wiki/Yamanote_Line"
+       xlink:title="Show Yamanote Line (山の手線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="cccccccccccc"
+         id="path2321"
+         d="M 753.51067,477.80195 L 753.51067,178.38642 L 647.44465,81.159236 L 623.13785,81.159236 L 587.78251,116.51458 L 334.77087,116.51458 L 271.24174,171.20486 L 271.24174,677.78058 L 363.77329,754.84418 L 618.71844,754.84418 L 755.58227,617.98034 L 753.51067,477.80195 z "
+         style="fill:none;fill-rule:evenodd;stroke:#7fc342;stroke-width:6;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:12, 12;stroke-dashoffset:0;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Oedo"
+     style="display:inline">
+    <a
+       id="a6305"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Oedo_Line"
+       xlink:title="Show Toei Oedo Line (都営地下鉄大江戸線) in Wikipedia (en)">
+      <path
+         sodipodi:nodetypes="ccccccccccccccccc"
+         id="path5334"
+         d="M 51.375727,136.95438 L 188.93009,274.50875 L 188.93009,380.57476 L 223.73301,380.57476 L 297.20582,307.10195 L 514.86213,307.10195 L 514.86213,227.55244 L 853.49999,227.55244 L 939.40241,313.45486 L 939.40241,560.1136 L 835.96042,663.55558 L 503.81358,663.55558 L 444.35861,604.10061 L 444.35861,465.09612 L 262.95534,465.09612 L 262.95534,380.29855 L 223.733,380.57477"
+         style="fill:none;fill-rule:evenodd;stroke:#b51e82;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="Tozai">
+    <a
+       id="a20947"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Tozai_Line"
+       xlink:title="Show Tozai Line (東西線) in Wikipedia (en)">
+      <path
+         id="path19975"
+         d="M 143.63107,274.50875 L 282.84271,274.50875 L 302.73009,294.39613 L 550.21747,294.39613 L 550.21747,390.51845 L 589.4398,429.74078 L 1000.998,429.74078 L 1147.6675,283.07137"
+         style="fill:none;fill-rule:evenodd;stroke:#0080ff;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="Hanzomon"
+     style="display:inline">
+    <a
+       id="a6467"
+       style="stroke:#9400d3;stroke-opacity:1;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Hanz%C5%8Dmon_Line"
+       xlink:title="Show Tokyo Metro Hanzōmon Line (東京地下鉄半蔵門線) in Wikipedia (en)">
+      <path
+         id="path6463"
+         d="M 987.75165,135.54198 L 987.75165,342.4855 L 927.57659,402.66056 L 740.44682,402.66056 L 719.16539,423.94198 L 647.9827,423.94198 L 647.9827,396.05598 L 592.94453,344.13124 L 567.99389,344.13124 L 567.99389,433.48193 L 545.24478,456.23104 L 445.80916,456.23104 L 351.88275,549.63854 L 267.30744,549.63854"
+         style="fill:none;fill-rule:evenodd;stroke:#9400d3;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;stroke-miterlimit:4;stroke-dasharray:none"
+         sodipodi:nodetypes="cccccccccccccc" />
+    </a>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Stations"
+     style="display:inline">
+    <a
+       id="a18026"
+       xlink:href="http://en.wikipedia.org/wiki/%C5%8Ctemachi_Station_%28Tokyo%29"
+       xlink:title="Show Ōtemachi Station (大手町) in Wikipedia (en)"
+       transform="matrix(0.9085329,0,0,0.6925008,59.877388,130.7211)">
+      <rect
+         y="413.64621"
+         x="629.75922"
+         height="27.380835"
+         width="64.540535"
+         id="rect2168"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.89108396;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a21970"
+       xlink:href="http://en.wikipedia.org/wiki/Shinjuku_Station"
+       xlink:title="Show Shinjuku Station (新宿駅) in Wikipedia (en)">
+      <rect
+         y="360.99136"
+         x="255.2196"
+         height="68.352753"
+         width="34"
+         id="rect3147"
+         style="fill:#faf1b1;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a7066"
+       xlink:href="http://en.wikipedia.org/wiki/Roppongi"
+       xlink:title="Roppongi 六本木"
+       transform="matrix(1.4408774,0,0,1.3260985,-193.76152,-192.40624)">
+      <rect
+         y="584.77643"
+         x="434.18179"
+         height="24.447174"
+         width="22.4914"
+         id="rect6067"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.08515024;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2212"
+       xlink:href="http://en.wikipedia.org/wiki/Shimbashi_Station"
+       xlink:title="Show Shimbashi Station (新橋駅) in Wikipedia (en)"
+       transform="matrix(0.5658486,0,0,0.3143793,603.24221,491.94439)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2214"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62578583;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2216"
+       xlink:href="http://en.wikipedia.org/wiki/Daimon_Station_%28Tokyo%29"
+       xlink:title="Show Daimon Station (大門駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,561.00071,539.10262)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2218"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2232"
+       xlink:href="http://en.wikipedia.org/wiki/Gotanda_Station"
+       xlink:title="Show Gotanda Station (五反田駅) in Wikipedia (en)"
+       transform="matrix(0.9899686,0,0,0.5503971,58.268199,488.676)">
+      <path
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1"
+         d="M 248.3833,394.96669 C 254.7447,394.96669 261.1061,394.96669 267.4675,394.96669 C 267.4675,406.40858 267.4675,417.85048 267.4675,429.29238 C 261.1061,429.29238 254.7447,429.29238 248.3833,429.29238 C 248.3833,417.85048 248.3833,406.40858 248.3833,394.96669 z "
+         id="rect2234" />
+    </a>
+    <a
+       id="a2236"
+       xlink:href="http://en.wikipedia.org/wiki/Meguro_Station"
+       xlink:title="Show Meguro Station (目黒駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,122.46168,516.12374)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2238"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2240"
+       xlink:href="http://en.wikipedia.org/wiki/Ebisu_Station_%28Tokyo%29"
+       xlink:title="Show Ebisu Station (恵比寿駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,122.46168,472.31479)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2242"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2244"
+       xlink:href="http://en.wikipedia.org/wiki/Shibuya_Station"
+       xlink:title="Show Shibuya Station (渋谷駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,122.46168,428.50586)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2246"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2248"
+       xlink:title="Show Meiji-Jingumae Station (明治神宮前駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,122.46168,385.64916)"
+       xlink:href="http://en.wikipedia.org/wiki/Meiji-Jingumae_Station">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2250"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2252"
+       xlink:href="http://en.wikipedia.org/wiki/Yoyogi_Station"
+       xlink:title="Show Yoyogi Station (代々木駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,122.46168,341.84024)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2254"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2256"
+       xlink:href="http://en.wikipedia.org/wiki/Takadanobaba_Station"
+       xlink:title="Show Takadanobaba Station in WIkipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,120.9248,147.45682)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2258"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2260"
+       xlink:href="http://en.wikipedia.org/wiki/Ikebukuro_Station"
+       xlink:title="Show Ikebukuro Station (池袋駅) in Wikipedia (en)"
+       transform="matrix(0.56591,0,0,0.3143736,123.46559,69.524354)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2262"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62508488;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2264"
+       xlink:href="http://en.wikipedia.org/wiki/Sugamo_Station"
+       xlink:title="Show Sumago Station in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,298.47476,-5.2205141)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2266"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2268"
+       xlink:href="http://en.wikipedia.org/wiki/Komagome_Station"
+       xlink:title="Show Komagome Station in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,401.01925,-7.0113006)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2270"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2272"
+       xlink:href="http://en.wikipedia.org/wiki/Nishi-Nippori_Station"
+       xlink:title="Show Nishi-Nippori Station (西日暮里駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,500.23539,-44.70152)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2274"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2276"
+       xlink:href="http://en.wikipedia.org/wiki/Ueno%2C_Tokyo"
+       xlink:title="Show Ueno Station (上野駅) in WIkipedia (en)"
+       transform="matrix(0.967311,0,0,0.3143736,493.61777,54.557557)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2278"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.00786257;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2280"
+       xlink:title="Show Okachimachi Station (御徒町駅) in Wikipedia (en)"
+       transform="matrix(0.967311,0,0,0.3141333,495.61777,105.51966)"
+       xlink:href="http://en.wikipedia.org/wiki/Okachimachi_Station">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2282"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.00863028;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2284"
+       xlink:href="http://en.wikipedia.org/wiki/Akihabara"
+       xlink:title="Show Akihabara Station (秋葉原駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,606.939,160.46784)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2286"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a2288"
+       xlink:href="http://en.wikipedia.org/wiki/Kanda_Station_%28Tokyo%29"
+       xlink:title="Show Kanda Station (神田駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,606.939,247.32826)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2290"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="744.70111"
+       y="280.80106"
+       id="text3285"><tspan
+         sodipodi:role="line"
+         id="tspan3287"
+         x="744.70111"
+         y="280.80106"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Akihabara</tspan><tspan
+         sodipodi:role="line"
+         x="744.70111"
+         y="297.29841"
+         id="tspan3289"
+         style="font-size:13px;text-align:end;text-anchor:end">秋葉原</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="731.18549"
+       y="173.21298"
+       id="text3294"><tspan
+         sodipodi:role="line"
+         id="tspan3296"
+         x="731.18549"
+         y="173.21298"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Ueno</tspan><tspan
+         sodipodi:role="line"
+         x="731.18549"
+         y="189.71033"
+         id="tspan3298"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">上野</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="585.32172"
+       y="58.515129"
+       id="text3300"><tspan
+         sodipodi:role="line"
+         x="585.32172"
+         y="58.515129"
+         id="tspan3304"
+         style="font-size:10px;font-weight:bold">Nishi-nippori</tspan><tspan
+         sodipodi:role="line"
+         x="585.32172"
+         y="75.012481"
+         id="tspan3308"
+         style="font-size:13px;font-weight:normal">西日暮里</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="504.18826"
+       y="92.858665"
+       id="text3310"><tspan
+         sodipodi:role="line"
+         id="tspan3312"
+         x="504.18826"
+         y="92.858665"
+         style="font-size:10px;font-weight:bold;text-align:start;text-anchor:start">Komagome</tspan><tspan
+         sodipodi:role="line"
+         x="504.18826"
+         y="109.35602"
+         id="tspan3314"
+         style="font-size:13px;font-weight:normal;text-align:start;text-anchor:start">駒込</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="406.55099"
+       y="94.105476"
+       id="text3319"><tspan
+         sodipodi:role="line"
+         id="tspan3321"
+         x="406.55099"
+         y="94.105476"
+         style="font-size:10px;font-weight:bold">Sumago</tspan><tspan
+         sodipodi:role="line"
+         x="406.55099"
+         y="110.60283"
+         id="tspan3323"
+         style="font-size:13px;font-weight:normal">巣鴨</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="261.3403"
+       y="190.93245"
+       id="text3325"><tspan
+         sodipodi:role="line"
+         id="tspan3327"
+         x="261.3403"
+         y="190.93245"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Ikebukuro</tspan><tspan
+         sodipodi:role="line"
+         x="261.3403"
+         y="207.4298"
+         id="tspan3329"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">池袋</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="258.04852"
+       y="460.41324"
+       id="text3346"><tspan
+         sodipodi:role="line"
+         id="tspan3348"
+         x="258.04852"
+         y="460.41324"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Yoyogi</tspan><tspan
+         sodipodi:role="line"
+         x="258.04852"
+         y="476.91059"
+         id="tspan3350"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">代々木</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="258.00653"
+       y="504.18866"
+       id="text3352"><tspan
+         sodipodi:role="line"
+         x="258.00653"
+         y="504.18866"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end"
+         id="tspan7331">Meiji-jingumae</tspan><tspan
+         sodipodi:role="line"
+         x="258.00653"
+         y="520.68601"
+         id="tspan3356"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">明治神宮前</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="257.74384"
+       y="547.96405"
+       id="text3358"><tspan
+         sodipodi:role="line"
+         id="tspan3360"
+         x="257.74384"
+         y="547.96405"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Shibuya</tspan><tspan
+         sodipodi:role="line"
+         x="257.74384"
+         y="564.4614"
+         id="tspan3362"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">渋谷</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="765.11694"
+       y="613.86841"
+       id="text3364"><tspan
+         sodipodi:role="line"
+         id="tspan3366"
+         x="765.11694"
+         y="613.86841"
+         style="font-size:10px;font-weight:bold">Shimbashi</tspan><tspan
+         sodipodi:role="line"
+         x="765.11694"
+         y="630.36576"
+         id="tspan3368"
+         style="font-size:13px;font-weight:normal">新橋</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="696.87732"
+       y="688.49091"
+       id="text3370"><tspan
+         sodipodi:role="line"
+         id="tspan3372"
+         x="696.87732"
+         y="688.49091"
+         style="font-size:10px;font-weight:bold">Daimon</tspan><tspan
+         sodipodi:role="line"
+         x="696.87732"
+         y="704.98826"
+         id="tspan3374"
+         style="font-size:13px;font-weight:normal">大門</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="299.46692"
+       y="711.6734"
+       id="text3380"><tspan
+         sodipodi:role="line"
+         id="tspan3382"
+         x="299.46692"
+         y="711.6734"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Gotanda</tspan><tspan
+         sodipodi:role="line"
+         x="299.46692"
+         y="728.17075"
+         id="tspan3384"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">五反田</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="257.70575"
+       y="635.20728"
+       id="text3386"><tspan
+         sodipodi:role="line"
+         id="tspan3388"
+         x="257.70575"
+         y="635.20728"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Meguro</tspan><tspan
+         sodipodi:role="line"
+         x="257.70575"
+         y="651.70463"
+         id="tspan3390"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">目黒</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="258.02313"
+       y="591.7395"
+       id="text3392"><tspan
+         sodipodi:role="line"
+         id="tspan3394"
+         x="258.02313"
+         y="591.7395"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Ebisu</tspan><tspan
+         sodipodi:role="line"
+         x="258.02313"
+         y="608.23685"
+         id="tspan3396"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">恵比寿</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="790.3598"
+       y="454.76871"
+       id="text2281"><tspan
+         sodipodi:role="line"
+         x="790.3598"
+         y="454.76871"
+         id="tspan2285"
+         style="font-size:14px;font-weight:bold;text-align:end;text-anchor:end">Tokyo <tspan
+   style="font-weight:normal"
+   id="tspan21979">東京</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="292.75015"
+       y="266.28375"
+       id="text2287"><tspan
+         sodipodi:role="line"
+         id="tspan2289"
+         x="292.75015"
+         y="266.28375"
+         style="font-size:10px;font-weight:bold">Takadanobaba</tspan><tspan
+         sodipodi:role="line"
+         x="292.75015"
+         y="282.7811"
+         id="tspan2291"
+         style="font-size:13px;font-weight:normal">高田馬場</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="316.13034"
+       y="356.90985"
+       id="text2293"><tspan
+         sodipodi:role="line"
+         id="tspan2295"
+         x="316.13034"
+         y="356.90985"
+         style="font-size:14px;font-weight:bold;text-align:end;text-anchor:end">Shinjuku</tspan><tspan
+         sodipodi:role="line"
+         x="316.13034"
+         y="375.49443"
+         id="tspan2297"
+         style="font-size:14px;font-weight:normal;text-align:end;text-anchor:end">新宿</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="389.68796"
+       y="579.39807"
+       id="text2299"><tspan
+         sodipodi:role="line"
+         id="tspan2301"
+         x="389.68796"
+         y="579.39807"
+         style="font-size:12px;font-weight:bold">Roppongi</tspan><tspan
+         sodipodi:role="line"
+         x="389.68796"
+         y="596.40193"
+         id="tspan2303"
+         style="font-size:13px;font-weight:normal">六本木</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="692.72644"
+       y="445.12918"
+       id="text2305"><tspan
+         sodipodi:role="line"
+         id="tspan2307"
+         x="692.72644"
+         y="445.12918"
+         style="font-weight:bold;text-align:end;text-anchor:end">Otemachi</tspan><tspan
+         sodipodi:role="line"
+         x="692.72644"
+         y="461.05882"
+         id="tspan2309"
+         style="font-weight:normal;text-align:end;text-anchor:end">大手町</tspan></text>
+    <a
+       id="a4264"
+       xlink:href="http://en.wikipedia.org/wiki/Shinjuku-sanchome_Station"
+       xlink:title="Show Shinjuku-sanchome Station (新宿三丁目駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,194.72011,260.87463)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4266"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4268"
+       xlink:href="http://en.wikipedia.org/wiki/Ichigaya_Station"
+       xlink:title="Show Ichigaya Station (市ヶ谷) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,328.40749,226.90034)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4270"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4272"
+       xlink:href="http://en.wikipedia.org/wiki/Kudanshita_Station"
+       xlink:title="Show Kudanshita Station (九段下駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,402.98516,267.22753)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="59.896141"
+         id="rect4274"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4276"
+       xlink:href="http://en.wikipedia.org/wiki/Jimbocho_Station"
+       xlink:title="Show Jimbocho Station (神保町駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,440.5502,215.8518)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4278"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4280"
+       xlink:href="http://en.wikipedia.org/wiki/Yoyogi_Station"
+       xlink:title="Show Yoyogi station in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,528.67307,214.81399)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4282"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4284"
+       xlink:href="http://en.wikipedia.org/wiki/Higashi-nihombashi_Station"
+       xlink:title="Show Higashi-nihombashi Station ((東日本橋駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,683.06573,214.19452)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4286"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4288"
+       xlink:href="http://en.wikipedia.org/wiki/Morishita_Station"
+       xlink:title="Show Morishita Station in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,787.85593,215.8518)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4290"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a4292"
+       xlink:href="http://en.wikipedia.org/wiki/Sumiyoshi_Station"
+       xlink:title="Show Sumiyoshi Station (住吉駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,838.8502,215.8518)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4294"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="325.37961"
+       y="335.55194"
+       id="text4296"><tspan
+         sodipodi:role="line"
+         id="tspan4298"
+         x="325.37961"
+         y="335.55194"
+         style="font-size:10px;font-weight:bold">Shinjuku-</tspan><tspan
+         sodipodi:role="line"
+         x="325.37961"
+         y="348.05194"
+         style="font-size:10px;font-weight:bold"
+         id="tspan5341">sanchome</tspan><tspan
+         sodipodi:role="line"
+         x="325.37961"
+         y="364.54929"
+         id="tspan4300"
+         style="font-size:13px;font-weight:normal">新宿三丁目</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="426.47379"
+       y="336.93304"
+       id="text4302"><tspan
+         sodipodi:role="line"
+         id="tspan4304"
+         x="426.47379"
+         y="336.93304"
+         style="font-size:10px;font-weight:bold">Ichigaya</tspan><tspan
+         sodipodi:role="line"
+         x="426.47379"
+         y="353.4304"
+         id="tspan4306"
+         style="font-size:13px;font-weight:normal">市ヶ谷</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="502.15628"
+       y="375.05051"
+       id="text4308"><tspan
+         sodipodi:role="line"
+         id="tspan4310"
+         x="502.15628"
+         y="375.05051"
+         style="font-size:10px;font-weight:bold">Kudanshita</tspan><tspan
+         sodipodi:role="line"
+         x="502.15628"
+         y="391.54786"
+         id="tspan4312"
+         style="font-size:13px;font-weight:normal">九段下</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="537.51166"
+       y="324.77963"
+       id="text4314"><tspan
+         sodipodi:role="line"
+         id="tspan4316"
+         x="537.51166"
+         y="324.77963"
+         style="font-size:10px;font-weight:bold">Jimbocho</tspan><tspan
+         sodipodi:role="line"
+         x="537.51166"
+         y="341.27698"
+         id="tspan4318"
+         style="font-size:13px;font-weight:normal">神保町</tspan></text>
+    <a
+       id="a5289"
+       xlink:href="http://en.wikipedia.org/wiki/Iidabashi_Station"
+       xlink:title="Show Iidabashi Station (飯田橋駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.5503971,365.63267,81.050878)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5291"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.98402846;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="463.88852"
+       y="277.04205"
+       id="text5293"><tspan
+         sodipodi:role="line"
+         id="tspan5295"
+         x="463.88852"
+         y="277.04205"
+         style="font-size:10px;font-weight:bold">Iidabashi</tspan><tspan
+         sodipodi:role="line"
+         x="463.88852"
+         y="293.53941"
+         id="tspan5297"
+         style="font-size:13px;font-weight:normal">飯田橋</tspan></text>
+    <a
+       id="a5299"
+       xlink:href="http://en.wikipedia.org/w/index.php?title=Kasuga_Station_%28Tokyo%29&amp;action=edit"
+       xlink:title="Show Kasuga in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.5503971,400.22302,10.977214)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5301"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.98402846;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="495.73975"
+       y="221.6423"
+       id="text5303"><tspan
+         sodipodi:role="line"
+         id="tspan5305"
+         x="495.73975"
+         y="221.6423"
+         style="font-size:10px;font-weight:bold">Kasuga</tspan></text>
+    <a
+       id="a5307"
+       xlink:href="http://en.wikipedia.org/Hongo-sanchome_Station"
+       xlink:title="Show Hongo-sanchome Station (本郷三丁目駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.5503971,463.90553,10.977214)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5309"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.98402846;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="569.55243"
+       y="192.74953"
+       id="text5311"><tspan
+         sodipodi:role="line"
+         id="tspan5313"
+         x="569.55243"
+         y="192.74953"
+         style="font-size:10px;font-weight:bold">Hongo-sanchome</tspan><tspan
+         sodipodi:role="line"
+         x="569.55243"
+         y="209.24688"
+         id="tspan5315"
+         style="font-size:13px;font-weight:normal">本郷三丁目</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="733.67426"
+       y="224.75679"
+       id="text5317"><tspan
+         sodipodi:role="line"
+         id="tspan5319"
+         x="733.67426"
+         y="224.75679"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Okachimachi</tspan><tspan
+         sodipodi:role="line"
+         x="733.67426"
+         y="241.25414"
+         id="tspan5321"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">御徒町</tspan></text>
+    <a
+       id="a5323"
+       xlink:title="Show Kuramae Station (蔵前駅) in WIkipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,699.24316,105.28578)"
+       xlink:href="http://en.wikipedia.org/wiki/Kuramae_Station">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5325"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+      <a
+         id="a6436"
+         xlink:href="http://en.wikipedia.org/wiki/Asakusa_Station_%28Tokyo_Metro%2C_Toei%2C_Tobu%29"
+         xlink:title="Show Asakusa Station (浅草駅) in Wikipedia (en)">
+        <rect
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1;display:inline"
+           id="rect6434"
+           width="34.226044"
+           height="61.606876"
+           x="307.93771"
+           y="211.99974" />
+      </a>
+      <text
+         xml:space="preserve"
+         style="font-size:28.45143318px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="347.51456"
+         y="150.21953"
+         id="text6439"
+         transform="scale(0.7453649,1.3416247)"><tspan
+           sodipodi:role="line"
+           id="tspan6441"
+           x="347.51456"
+           y="150.21953"
+           style="font-size:23.70952797px;font-weight:bold">Asakusa</tspan><tspan
+           sodipodi:role="line"
+           x="347.51456"
+           y="189.33397"
+           id="tspan6443"
+           style="font-size:30.82238579px">浅草</tspan></text>
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="796.39417"
+       y="218.65808"
+       id="text5327"><tspan
+         sodipodi:role="line"
+         id="tspan5329"
+         x="796.39417"
+         y="218.65808"
+         style="font-size:10px;font-weight:bold">Kuramae</tspan><tspan
+         sodipodi:role="line"
+         x="796.39417"
+         y="235.15543"
+         id="tspan5331"
+         style="font-size:13px;font-weight:normal">蔵前</tspan></text>
+    <a
+       id="a17970"
+       xlink:href="http://en.wikipedia.org/w/index.php?title=Kiyosumi_Shirakawa_Station&amp;action=edit"
+       xlink:title="ShowKiyosumi Shirakawa Station tation in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,787.85593,274.59864)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect17972"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a17974"
+       xlink:href="http://en.wikipedia.org/wiki/Monzen_Nakach%C5%8D_Station"
+       xlink:title="Show Monzen-nakachoo Station (門前仲町駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,787.85593,305.91369)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect17976"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a17978"
+       xlink:href="http://en.wikipedia.org/wiki/Tsukishima_Station"
+       xlink:title="Show Tsukishima Station in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,787.85593,401.39063)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect17980"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a17982"
+       xlink:href="http://en.wikipedia.org/wiki/Azabu_Juban_Station"
+       xlink:title="Show Azuba-juban Station (麻布十番駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,345.53273,531.28772)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect17984"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a17986"
+       xlink:href="http://en.wikipedia.org/wiki/Aoyama-itchome_Station"
+       xlink:title="Show Aoyama-itchōme Station (青山一丁目駅, ) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,288.94007,340.35374)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect17988"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="912.13898"
+       y="327.89307"
+       id="text17990"><tspan
+         sodipodi:role="line"
+         id="tspan17992"
+         x="912.13898"
+         y="327.89307"
+         style="font-size:10px;font-weight:bold">Morishita</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="1003.7601"
+       y="334.7233"
+       id="text17994"><tspan
+         sodipodi:role="line"
+         id="tspan17996"
+         x="1003.7601"
+         y="334.7233"
+         style="font-size:10px;font-weight:bold">Sumiyoshi</tspan><tspan
+         sodipodi:role="line"
+         x="1003.7601"
+         y="351.22065"
+         id="tspan17998"
+         style="font-size:13px;font-weight:normal">住吉</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="806.37329"
+       y="296.64075"
+       id="text18000"><tspan
+         sodipodi:role="line"
+         id="tspan18002"
+         x="806.37329"
+         y="296.64075"
+         style="font-size:10px;font-weight:bold">Higashi-</tspan><tspan
+         sodipodi:role="line"
+         x="806.37329"
+         y="309.14075"
+         style="font-size:10px;font-weight:bold"
+         id="tspan15132">nihombashi</tspan><tspan
+         sodipodi:role="line"
+         x="806.37329"
+         y="325.6381"
+         id="tspan18004"
+         style="font-size:13px;font-weight:normal">東日本橋</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="951.75354"
+       y="402.71112"
+       id="text18006"><tspan
+         sodipodi:role="line"
+         id="tspan18008"
+         x="951.75354"
+         y="402.71112"
+         style="font-size:10px;font-weight:bold">Kiyosumi-shirakawa</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="949.315"
+       y="425.18732"
+       id="text18010"><tspan
+         sodipodi:role="line"
+         id="tspan18012"
+         x="949.315"
+         y="425.18732"
+         style="font-size:10px;font-weight:bold">Monzen-nakachō</tspan><tspan
+         sodipodi:role="line"
+         x="949.315"
+         y="441.68467"
+         id="tspan18014"
+         style="font-size:13px;font-weight:normal">門前仲町</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="950.05231"
+       y="515.17291"
+       id="text18016"><tspan
+         sodipodi:role="line"
+         id="tspan18018"
+         x="950.05231"
+         y="515.17291"
+         style="font-size:10px;font-weight:bold">Tsukishima</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="560.75287"
+       y="640.21552"
+       id="text18020"><tspan
+         sodipodi:role="line"
+         id="tspan18022"
+         x="560.75287"
+         y="640.21552"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Azaba-juban</tspan><tspan
+         sodipodi:role="line"
+         x="560.75287"
+         y="656.71287"
+         id="tspan18024"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">麻布十番</tspan></text>
+    <a
+       id="a18029"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Station"
+       xlink:title="Show Tokyo Station (東京駅) in Wikipedia (en)"
+       transform="matrix(0.9899686,0,0,0.5503971,493.43979,257.36993)"
+       style="fill:#faf1b1;fill-opacity:1">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect18031"
+         style="opacity:1;fill:#faf1b1;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a5338"
+       xlink:title="Undergrund Walkway"
+       transform="translate(16,0)">
+      <rect
+         y="544.0932"
+         x="705.44952"
+         height="10.496117"
+         width="29.002428"
+         id="rect2417"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a2409"
+       xlink:href="http://en.wikipedia.org/wiki/Y%C5%ABrakuch%C5%8D_Station"
+       xlink:title="Show Yūrakuchō Station (有楽町駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.6282665,605.15311,288.32621)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2411"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.85700905;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a2413"
+       xlink:href="http://en.wikipedia.org/wiki/Hibiya_Station"
+       xlink:title="Show Hibiya Station (日比谷駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,565.37836,423.01199)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect2415"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="725.31415"
+       y="515.29193"
+       id="text4357"><tspan
+         sodipodi:role="line"
+         id="tspan4359"
+         x="725.31415"
+         y="515.29193"
+         style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle">Yūrakuchō</tspan><tspan
+         sodipodi:role="line"
+         x="725.31415"
+         y="531.78928"
+         id="tspan4361"
+         style="font-size:13px;font-weight:normal;text-align:center;text-anchor:middle">有楽町</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="716.49799"
+       y="567.57141"
+       id="text4363"><tspan
+         sodipodi:role="line"
+         id="tspan4365"
+         x="716.49799"
+         y="567.57141"
+         style="font-size:10px;font-weight:bold;text-align:center;text-anchor:middle">Hibiya</tspan><tspan
+         sodipodi:role="line"
+         x="716.49799"
+         y="584.06876"
+         id="tspan4367"
+         style="font-size:13px;font-weight:normal;text-align:center;text-anchor:middle">日比谷</tspan></text>
+    <a
+       style="display:inline"
+       id="a5343"
+       xlink:href="http://en.wikipedia.org/wiki/Yotsuya_Station"
+       xlink:title="Show Yotsuya Station (四ツ谷駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,289.68206,270.10071)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5345"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a5385"
+       xlink:title="Undergrund Walkway"
+       transform="matrix(0,1,-1,0,1070.8256,-238.01324)">
+      <rect
+         y="544.0932"
+         x="705.44952"
+         height="10.496117"
+         width="29.002428"
+         id="rect5387"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a5347"
+       xlink:href="http://en.wikipedia.org/wiki/Nagatach%C5%8D_Station"
+       xlink:title="Show Nagatachō Station (永田町駅) in Wikipedia (en)"
+       transform="matrix(0.5838904,0,0,0.5523193,365.92332,231.52256)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5349"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.94975138;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a5351"
+       xlink:href="http://en.wikipedia.org/wiki/Akasaka_Mitsuke_Station"
+       xlink:title="Show Akasaka-mitsuke Station (赤坂見附駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.5373957,370.94438,298.00841)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5353"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.00788522;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a5355"
+       xlink:href="http://en.wikipedia.org/wiki/Kasumigaseki_Station"
+       xlink:title="Show Kasumigaseki Station (霞ヶ関駅) in Wikipedia (en)"
+       transform="matrix(0.5526536,0,0,0.3072612,473.10144,452.58894)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5357"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.68695068;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a5359"
+       xlink:href="http://en.wikipedia.org/wiki/Ginza_Station"
+       xlink:title="Show Ginza Station (銀座駅) in Wikipedia (en)"
+       transform="matrix(2.0352638,0,0,0.5503971,272.99766,319.7942)">
+      <rect
+         y="394.96671"
+         x="248.38329"
+         height="34.325699"
+         width="19.084206"
+         id="rect5361"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.0461446;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="388.49033"
+       y="381.16644"
+       id="text5367"><tspan
+         sodipodi:role="line"
+         id="tspan5369"
+         x="388.49033"
+         y="381.16644"
+         style="font-size:10px;font-weight:bold">Yotsuya</tspan><tspan
+         sodipodi:role="line"
+         x="388.49033"
+         y="397.6638"
+         id="tspan5371"
+         style="font-size:13px;font-weight:normal">四ツ谷</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="533.75146"
+       y="454.21613"
+       id="text5373"><tspan
+         sodipodi:role="line"
+         id="tspan5375"
+         x="533.75146"
+         y="454.21613"
+         style="font-size:10px;font-weight:bold">Nagatachō</tspan><tspan
+         sodipodi:role="line"
+         x="533.75146"
+         y="470.71348"
+         id="tspan5377"
+         style="font-size:13px;font-weight:normal">永田町</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="531.59662"
+       y="505.58069"
+       id="text5379"><tspan
+         sodipodi:role="line"
+         id="tspan5381"
+         x="531.59662"
+         y="505.58069"
+         style="font-size:10px;font-weight:bold">Akasaka-mitsuke</tspan><tspan
+         sodipodi:role="line"
+         x="531.59662"
+         y="522.07804"
+         id="tspan5383"
+         style="font-size:13px;font-weight:normal">赤坂見附</tspan></text>
+    <a
+       style="display:inline"
+       id="a5389"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Station"
+       xlink:title="Show Tokyo Station (東京駅) in Wikipedia (en)"
+       transform="matrix(0.5380435,0,0,0.2991383,444.17879,425.60501)"
+       xlink:show="Tokyo (東京)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect5391"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.75991273;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="783.89417"
+       y="565.08545"
+       id="text15120"><tspan
+         sodipodi:role="line"
+         id="tspan15122"
+         x="783.89417"
+         y="565.08545"
+         style="font-size:10px;font-weight:bold">Ginza</tspan><tspan
+         sodipodi:role="line"
+         x="783.89417"
+         y="581.5828"
+         id="tspan15124"
+         style="font-size:13px">銀座</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="601.04077"
+       y="593.81165"
+       id="text15126"><tspan
+         sodipodi:role="line"
+         id="tspan15128"
+         x="601.04077"
+         y="593.81165"
+         style="font-size:10px;font-weight:bold">Kasumigaseki</tspan><tspan
+         sodipodi:role="line"
+         x="601.04077"
+         y="610.309"
+         id="tspan15130"
+         style="font-size:13px">霞ヶ関</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="357.8125"
+       y="449.90625"
+       id="text15134"><tspan
+         sodipodi:role="line"
+         id="tspan15136"
+         x="357.8125"
+         y="449.90625"
+         style="font-size:10px;font-weight:bold">Aoyama-itchōme</tspan><tspan
+         sodipodi:role="line"
+         x="357.8125"
+         y="466.4036"
+         id="tspan15138"
+         style="font-size:13px">青山一丁目</tspan></text>
+    <a
+       style="display:inline"
+       id="a21952"
+       xlink:href="http://en.wikipedia.org/wiki/Higashi-ginza_Station"
+       xlink:title="Show Higashi-ginza Station (東銀座駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,691.66557,421.02851)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect21954"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a21956"
+       xlink:href="http://en.wikipedia.org/w/index.php?title=Kayabach%C5%8D_Station&amp;action=edit"
+       xlink:title="Show Kayabachō Station (茅場町) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,732.54518,302.80909)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect21958"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a21960"
+       xlink:href="http://en.wikipedia.org/wiki/Ningyocho_Station"
+       xlink:title="Show Ningyōchō Station (人形町駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,689.45586,243.14696)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect21962"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a21964"
+       xlink:href="http://en.wikipedia.org/wiki/Kita-senju_Station"
+       xlink:title="Show Kita-Senju Station (北千住駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,715.97236,-66.212259)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect21966"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       style="display:inline"
+       id="a4418"
+       xlink:href="http://en.wikipedia.org/wiki/Kotake-mukaihara_Station"
+       xlink:title="Show Kotake-mukaihara Station (小竹向原駅) in Wikipedia (en)"
+       transform="matrix(0.56591,0,0,0.3143736,34.483102,-19.677276)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect4420"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62508488;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="119.86702"
+       y="90.289436"
+       id="text4422"><tspan
+         sodipodi:role="line"
+         id="tspan4424"
+         x="119.86702"
+         y="90.289436"
+         style="font-size:10px;font-weight:bold">Kotake-mukaihara</tspan><tspan
+         sodipodi:role="line"
+         x="119.86702"
+         y="106.78679"
+         id="tspan4426"
+         style="font-size:13px">小竹向原</tspan></text>
+    <a
+       id="a6388"
+       xlink:href="http://en.wikipedia.org/wiki/Omote-sando_Station"
+       xlink:title="Show Omotesandō Station (表参道駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,218.18898,415.48832)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect6390"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <a
+       id="a6392"
+       xlink:href="http://en.wikipedia.org/wiki/Mitsukoshimae_Station"
+       xlink:title="Show Mitsukoshimae Station (三越前駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,636.42626,272.27059)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect6394"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Bitstream Vera Sans"
+       x="743.46692"
+       y="366.77112"
+       id="text2311"><tspan
+         sodipodi:role="line"
+         id="tspan2313"
+         x="743.46692"
+         y="366.77112"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Kanda</tspan><tspan
+         sodipodi:role="line"
+         x="743.46692"
+         y="383.26847"
+         id="tspan2315"
+         style="font-size:13px;font-weight:normal;text-align:end;text-anchor:end">神田</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="313.93741"
+       y="528.24512"
+       id="text6402"><tspan
+         sodipodi:role="line"
+         id="tspan6404"
+         x="313.93741"
+         y="528.24512"
+         style="font-size:10px;font-weight:bold">Omotesandō</tspan><tspan
+         sodipodi:role="line"
+         x="313.93741"
+         y="544.74247"
+         id="tspan6406"
+         style="font-size:13px">表参道</tspan></text>
+    <a
+       id="a6408"
+       xlink:href="http://en.wikipedia.org/wiki/Tameike-Sann%C5%8D_Station"
+       xlink:title="Show ameike-Sannō Station (溜池山王駅) in Wikipedia (en)"
+       transform="matrix(0.9933956,0,0,0.3168176,283.2346,418.60175)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.78251922;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect6410"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.78251922;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="529.2829"
+       y="539.66101"
+       id="text6412"><tspan
+         sodipodi:role="line"
+         id="tspan6414"
+         x="529.2829"
+         y="539.66101"
+         style="font-size:10px;font-weight:bold;text-align:end;text-anchor:end">Tameike-Sannō</tspan><tspan
+         sodipodi:role="line"
+         x="529.2829"
+         y="556.15836"
+         id="tspan6416"
+         style="font-size:13px;text-align:end;text-anchor:end">溜池山王</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="798.59448"
+       y="393.32986"
+       id="text6418"><tspan
+         sodipodi:role="line"
+         id="tspan6420"
+         x="798.59448"
+         y="393.32986"
+         style="font-size:10px;font-weight:bold">Mitsukoshimae</tspan><tspan
+         sodipodi:role="line"
+         x="798.59448"
+         y="409.82722"
+         id="tspan6422"
+         style="font-size:13px">三越前</tspan></text>
+    <a
+       id="a6424"
+       xlink:href="http://en.wikipedia.org/wiki/Nihombashi_Station"
+       xlink:title="Show Nihombashi Station (日本橋駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3168176,659.77698,305.4805)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect6426"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.36178994;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="760.71448"
+       y="419.79401"
+       id="text6428"><tspan
+         sodipodi:role="line"
+         id="tspan6430"
+         x="760.71448"
+         y="419.79401"
+         style="font-size:10px;font-weight:bold">Nihombashi</tspan><tspan
+         sodipodi:role="line"
+         x="760.71448"
+         y="436.29136"
+         id="tspan6432"
+         style="font-size:13px">日本橋</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="852.04175"
+       y="364.27118"
+       id="text6445"><tspan
+         sodipodi:role="line"
+         id="tspan6447"
+         x="852.04175"
+         y="364.27118"
+         style="font-size:10px;font-weight:bold">Ningyōchō</tspan><tspan
+         sodipodi:role="line"
+         x="852.04175"
+         y="380.76853"
+         id="tspan6449"
+         style="font-size:13px">人形町</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="854.63629"
+       y="447.29593"
+       id="text6451"><tspan
+         sodipodi:role="line"
+         id="tspan6453"
+         x="854.63629"
+         y="447.29593"
+         style="font-size:10px;font-weight:bold">Kayabachō</tspan><tspan
+         sodipodi:role="line"
+         x="854.63629"
+         y="463.79328"
+         id="tspan6455"
+         style="font-size:13px">茅場町</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="831.07635"
+       y="565.2066"
+       id="text6457"><tspan
+         sodipodi:role="line"
+         id="tspan6459"
+         x="831.07635"
+         y="565.2066"
+         style="font-size:10px;font-weight:bold">Higashi-ginza</tspan><tspan
+         sodipodi:role="line"
+         x="831.07635"
+         y="581.70396"
+         id="tspan6461"
+         style="font-size:13px">東銀座</tspan></text>
+    <a
+       style="display:inline"
+       id="a7439"
+       xlink:href="http://en.wikipedia.org/wiki/Oshiage_Station"
+       xlink:title="Show Oshiage Station (押上駅) in Wikipedia (en)"
+       transform="matrix(0.5658589,0,0,0.3143736,837.24243,17.575658)">
+      <rect
+         y="367.68552"
+         x="248.38329"
+         height="61.606876"
+         width="34.226044"
+         id="rect7441"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.62520337;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4.80000019;stroke-dasharray:none;stroke-opacity:1" />
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="1005.6375"
+       y="137.50978"
+       id="text7443"><tspan
+         sodipodi:role="line"
+         id="tspan7445"
+         x="1005.6375"
+         y="137.50978"
+         style="font-size:10px;font-weight:bold">Oshiage</tspan><tspan
+         sodipodi:role="line"
+         x="1005.6375"
+         y="154.00713"
+         id="tspan7451"
+         style="font-size:13">押上</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="837.51239"
+       y="81.986961"
+       id="text9407"><tspan
+         sodipodi:role="line"
+         id="tspan9409"
+         x="837.51239"
+         y="81.986961"
+         style="font-size:10px;font-weight:bold">Kita-Senju</tspan><tspan
+         sodipodi:role="line"
+         x="837.51239"
+         y="95.261657"
+         id="tspan9411"
+         style="font-size:10px">北千住</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="Legend"
+     style="display:inline">
+    <rect
+       style="opacity:1;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.48136368;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:inline"
+       id="rect6308"
+       width="179.00504"
+       height="328.16037"
+       x="1016.6664"
+       y="461.21982" />
+    <rect
+       style="opacity:1;fill:#dadada;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.54759294;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7279"
+       width="171.20483"
+       height="31.993183"
+       x="1020.9092"
+       y="470.09174" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="1106.4349"
+       y="490.64078"
+       id="text7281"><tspan
+         sodipodi:role="line"
+         id="tspan7283"
+         x="1106.4349"
+         y="490.64078"
+         style="font-weight:bold">Tokyo Subway Lines</tspan></text>
+    <a
+       id="a21981"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Oedo_Line"
+       xlink:title="Show Toei Line (都営地下鉄大江戸線) in Wikipedia (en)">
+      <path
+         transform="translate(1007.7704,2.4859223)"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         sodipodi:ry="5.524272"
+         sodipodi:rx="5.524272"
+         sodipodi:cy="520.8913"
+         sodipodi:cx="20.992233"
+         id="path7285"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#b51e82;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </a>
+    <a
+       id="a2395"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Oedo_Line"
+       xlink:title="Show Toei Line (都営地下鉄大江戸線) in Wikipedia (en)"
+       transform="translate(1012.0466,2.2097087)">
+      <text
+         id="text8256"
+         y="525.31067"
+         x="29.549202"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="525.31067"
+           x="29.549202"
+           id="tspan8258"
+           sodipodi:role="line">Oedo</tspan></text>
+    </a>
+    <a
+       id="a21984"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Shinjuku_Line"
+       xlink:title="Show Toei Shinjuku Line (新宿線) in Wikipedia (en)">
+      <path
+         sodipodi:type="arc"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#34cc34;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path10206"
+         sodipodi:cx="20.992233"
+         sodipodi:cy="520.8913"
+         sodipodi:rx="5.524272"
+         sodipodi:ry="5.524272"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         transform="translate(1007.7704,20.676856)" />
+    </a>
+    <a
+       id="a2399"
+       xlink:href="http://en.wikipedia.org/wiki/Toei_Shinjuku_Line"
+       xlink:title="Show Toei Shinjuku Line (新宿線) in Wikipedia (en)"
+       transform="translate(1012.0466,2.2097087)">
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="29.432014"
+         y="543.76923"
+         id="text11177"><tspan
+           sodipodi:role="line"
+           id="tspan11179"
+           x="29.432014"
+           y="543.76923">Shinjuku</tspan></text>
+    </a>
+    <a
+       id="a21990"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Marunouchi_Line"
+       xlink:title="Show Marunouchi Line (丸ノ内線) in Wikipedia (en)">
+      <path
+         transform="translate(1007.7704,38.867805)"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         sodipodi:ry="5.524272"
+         sodipodi:rx="5.524272"
+         sodipodi:cy="520.8913"
+         sodipodi:cx="20.992233"
+         id="path12150"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff0000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </a>
+    <a
+       id="a2391"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Marunouchi_Line"
+       xlink:title="Show Marunouchi Line (丸ノ内線) in Wikipedia (en)"
+       transform="translate(1012.0466,2.2097087)">
+      <text
+         id="text13121"
+         y="562.22784"
+         x="29.045296"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="562.22784"
+           x="29.045296"
+           id="tspan13123"
+           sodipodi:role="line">Marunouchi</tspan></text>
+    </a>
+    <a
+       id="a21993"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Tozai_Line"
+       xlink:title="Show Tozai Line in Wikipedia (en)">
+      <path
+         sodipodi:type="arc"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0080ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path21919"
+         sodipodi:cx="20.992233"
+         sodipodi:cy="520.8913"
+         sodipodi:rx="5.524272"
+         sodipodi:ry="5.524272"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         transform="translate(1007.7704,57.058738)" />
+    </a>
+    <a
+       id="a22894"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Tozai_Line"
+       xlink:title="Show Tozai Line in Wikipedia (en)"
+       transform="translate(1012.0466,2.2097087)">
+      <text
+         id="text22890"
+         y="580.6864"
+         x="30.258186"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="580.6864"
+           x="30.258186"
+           id="tspan22892"
+           sodipodi:role="line">Tozai</tspan></text>
+    </a>
+    <a
+       id="a21976"
+       xlink:href="http://en.wikipedia.org/wiki/Yamanote_Line"
+       xlink:title="Show Yamanote Line (山手線) in Wikipedia (en)">
+      <path
+         id="path17082"
+         d="M 1025,776.46875 L 1060.1563,776.46875"
+         style="fill:#8d8d8d;fill-opacity:1;fill-rule:evenodd;stroke:#7fc342;stroke-width:6;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:12, 12;stroke-dashoffset:0;stroke-opacity:1" />
+    </a>
+    <a
+       id="a18060"
+       xlink:href="http://en.wikipedia.org/wiki/Yamanote_Line"
+       xlink:title="Show Yamanote Line (山手線) in Wikipedia (en)">
+      <text
+         id="text18053"
+         y="779.25"
+         x="1067.7812"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="779.25"
+           x="1067.7812"
+           id="tspan18055"
+           sodipodi:role="line">Yamanote</tspan></text>
+    </a>
+    <a
+       id="a21987"
+       xlink:href="http://en.wikipedia.org/wiki/Hibiya_Line"
+       xlink:title="Show Hibiya Line (東京地下鉄日比谷線) in Wikipedia (en)">
+      <path
+         transform="translate(1007.7704,73.058738)"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         sodipodi:ry="5.524272"
+         sodipodi:rx="5.524272"
+         sodipodi:cy="520.8913"
+         sodipodi:cx="20.992233"
+         id="path18067"
+         style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#808080;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </a>
+    <a
+       id="a4411"
+       xlink:href="http://en.wikipedia.org/wiki/Hibiya_Line"
+       xlink:title="Show Hibiya Line (東京地下鉄日比谷線) in Wikipedia (en)">
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         x="1042.3048"
+         y="598.89612"
+         id="text18071"><tspan
+           sodipodi:role="line"
+           id="tspan18073"
+           x="1042.3048"
+           y="598.89612">Hibiya</tspan></text>
+    </a>
+    <a
+       id="a4415"
+       xlink:href="http://en.wikipedia.org/wiki/Yurakucho_Line"
+       xlink:title="Show Yūrakuchō Line (有楽町線) in Wikipedia (en)">
+      <path
+         sodipodi:type="arc"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#cccc66;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path3423"
+         sodipodi:cx="20.992233"
+         sodipodi:cy="520.8913"
+         sodipodi:rx="5.524272"
+         sodipodi:ry="5.524272"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         transform="translate(1007.7704,89.058738)" />
+    </a>
+    <a
+       id="a3425"
+       transform="translate(1012.0466,34.209709)"
+       xlink:href="http://en.wikipedia.org/wiki/Yurakucho_Line"
+       xlink:title="Show Yūrakuchō Line (有楽町線) in Wikipedia (en)">
+      <a
+         id="a4405">
+        <text
+           xml:space="preserve"
+           style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+           x="30.258186"
+           y="580.6864"
+           id="text3427"><tspan
+             id="tspan4401"
+             sodipodi:role="line"
+             x="30.258186"
+             y="580.6864">Yūrakuchō</tspan></text>
+      </a>
+    </a>
+    <a
+       xlink:title="Show Ginza Line (銀座線) in Wikipedia (en)"
+       xlink:href="http://en.wikipedia.org/wiki/Ginza_Line"
+       transform="translate(1012.0466,50.209709)"
+       id="a5403">
+      <a
+         id="a5405">
+        <text
+           id="text5407"
+           y="580.6864"
+           x="30.258186"
+           style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             y="580.6864"
+             x="30.258186"
+             sodipodi:role="line"
+             id="tspan5409">Ginza</tspan></text>
+      </a>
+    </a>
+    <a
+       xlink:title="Show Ginza Line (銀座線) in Wikipedia (en)"
+       xlink:href="http://en.wikipedia.org/wiki/Ginza_Line"
+       id="a5411"
+       transform="translate(0,16)"
+       style="stroke:#ffa500;stroke-opacity:1">
+      <path
+         transform="translate(1007.7704,89.058738)"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         sodipodi:ry="5.524272"
+         sodipodi:rx="5.524272"
+         sodipodi:cy="520.8913"
+         sodipodi:cx="20.992233"
+         id="path5413"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffa500;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </a>
+    <a
+       style="display:inline"
+       xlink:title="Show Ginza Line (銀座線) in Wikipedia (en)"
+       xlink:href="http://en.wikipedia.org/wiki/Ginza_Line"
+       transform="translate(1012.4481,64.699878)"
+       id="a7453">
+      <a
+         id="a7455">
+        <a
+           id="a9403"
+           xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Hanz%C5%8Dmon_Line"
+           xlink:title="Show Tokyo Metro Hanzōmon Line (東京地下鉄半蔵門線) in Wikipedia (en)">
+          <text
+             xml:space="preserve"
+             style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+             x="30.258186"
+             y="580.6864"
+             id="text7457"><tspan
+               id="tspan7459"
+               sodipodi:role="line"
+               x="30.258186"
+               y="580.6864">Hanzōmon</tspan></text>
+        </a>
+      </a>
+    </a>
+    <a
+       xlink:title="Show Tokyo Metro Hanzōmon Line (東京地下鉄半蔵門線) in Wikipedia (en)"
+       xlink:href="http://en.wikipedia.org/wiki/Tokyo_Metro_Hanz%C5%8Dmon_Line"
+       id="a7461"
+       transform="translate(0.8957752,31.361569)"
+       style="stroke:#9400d3;stroke-opacity:1;display:inline">
+      <path
+         transform="translate(1007.7704,89.058738)"
+         d="M 26.516505 520.8913 A 5.524272 5.524272 0 1 1  15.467961,520.8913 A 5.524272 5.524272 0 1 1  26.516505 520.8913 z"
+         sodipodi:ry="5.524272"
+         sodipodi:rx="5.524272"
+         sodipodi:cy="520.8913"
+         sodipodi:cx="20.992233"
+         id="path7463"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#9400d3;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         sodipodi:type="arc" />
+    </a>
+  </g>
+</svg>
