@@ -77,5 +77,5 @@
     "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead."
   ],
   "recoloring_applied": false,
-  "processing_time_sec": 0.008
+  "processing_time_sec": 0.005
 }

@@ -211,5 +211,5 @@
     "Path B (alternative): Path B: Treat as sequential data. Evidence: Sequential palette but labels are strings. Data may be categorical. Repair will use ordered lightness gradient to convey magnitude."
   ],
   "recoloring_applied": true,
-  "processing_time_sec": 144.037
+  "processing_time_sec": 146.233
 }

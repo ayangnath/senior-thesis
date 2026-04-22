@@ -103,37 +103,37 @@
     "phase6": {
       "color_mapping": {
         "#002147": "#3c007a",
-        "#543005": "#57248a",
-        "#8c510a": "#6f4299",
-        "#ce261e": "#865fa9",
-        "#bf812d": "#9d7cb8",
-        "#aaaaaa": "#b49ac8",
-        "#dfc27d": "#cab8d8",
-        "#cccccc": "#e1d7e7",
-        "#f6e8c3": "#f7f7f7",
-        "#003c30": "#03471d",
-        "#01665e": "#33623d",
-        "#35978f": "#597e5f",
-        "#adacac": "#7f9b83",
-        "#80cdc1": "#a6b9a8",
-        "#c7eae5": "#ced8cf"
+        "#003c30": "#03461d",
+        "#543005": "#1a512a",
+        "#01665e": "#2b5c37",
+        "#8c510a": "#3b6744",
+        "#ce261e": "#4a7251",
+        "#35978f": "#597d5f",
+        "#bf812d": "#69896d",
+        "#aaaaaa": "#78947c",
+        "#adacac": "#87a08b",
+        "#80cdc1": "#97ac9a",
+        "#dfc27d": "#a7b8a9",
+        "#cccccc": "#b7c3b8",
+        "#c7eae5": "#c7d0c8",
+        "#f6e8c3": "#d7dcd8"
       },
       "new_palette": [
-        "#e1d7e7",
+        "#b7c3b8",
         "#3c007a",
-        "#865fa9",
-        "#b49ac8",
-        "#57248a",
-        "#6f4299",
-        "#9d7cb8",
-        "#cab8d8",
-        "#f7f7f7",
-        "#ced8cf",
-        "#a6b9a8",
-        "#597e5f",
-        "#33623d",
-        "#03471d",
-        "#7f9b83"
+        "#4a7251",
+        "#78947c",
+        "#1a512a",
+        "#3b6744",
+        "#69896d",
+        "#a7b8a9",
+        "#d7dcd8",
+        "#c7d0c8",
+        "#97ac9a",
+        "#597d5f",
+        "#2b5c37",
+        "#03461d",
+        "#87a08b"
       ],
       "verification_tests": [
         {
@@ -144,7 +144,7 @@
         {
           "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 24.53
+          "value": 11.17
         },
         {
           "name": "Diverging Test 3: Arms Sequential",
@@ -154,7 +154,7 @@
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 0.12
+          "value": 0.02
         }
       ],
       "verification_passed": true,
@@ -163,33 +163,33 @@
         {
           "iteration": 1,
           "color_mapping": {
-            "#002147": "#7f1000",
-            "#543005": "#933309",
-            "#8c510a": "#a64f2b",
-            "#ce261e": "#b76a4a",
-            "#bf812d": "#c7856a",
-            "#aaaaaa": "#d6a18c",
-            "#dfc27d": "#e2bdae",
-            "#cccccc": "#eedad2",
-            "#f6e8c3": "#f7f7f7",
-            "#003c30": "#354d8c",
-            "#01665e": "#59669e",
-            "#35978f": "#7981af",
-            "#adacac": "#989dc1",
-            "#80cdc1": "#b8bad3",
-            "#c7eae5": "#d7d8e5"
+            "#003c30": "#952700",
+            "#543005": "#9f380b",
+            "#01665e": "#a8471f",
+            "#8c510a": "#b05630",
+            "#ce261e": "#b86441",
+            "#35978f": "#c07353",
+            "#bf812d": "#c78164",
+            "#aaaaaa": "#ce8f76",
+            "#adacac": "#d49e88",
+            "#80cdc1": "#d9ad9b",
+            "#dfc27d": "#debbae",
+            "#cccccc": "#e2cac1",
+            "#c7eae5": "#e5d9d4",
+            "#f6e8c3": "#e8e8e8",
+            "#002147": "#1f3c79"
           },
           "verification_passed": false,
           "tests": [
             {
               "name": "Diverging Test 1: Midpoint Extremum",
-              "passed": true,
-              "value": 1.0
+              "passed": false,
+              "value": 0.0
             },
             {
               "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 25.3
+              "value": 12.85
             },
             {
               "name": "Diverging Test 3: Arms Sequential",
@@ -198,8 +198,8 @@
             },
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
-              "passed": false,
-              "value": 0.35
+              "passed": true,
+              "value": 0.08
             }
           ]
         },
@@ -207,20 +207,20 @@
           "iteration": 2,
           "color_mapping": {
             "#002147": "#3c007a",
-            "#543005": "#57248a",
-            "#8c510a": "#6f4299",
-            "#ce261e": "#865fa9",
-            "#bf812d": "#9d7cb8",
-            "#aaaaaa": "#b49ac8",
-            "#dfc27d": "#cab8d8",
-            "#cccccc": "#e1d7e7",
-            "#f6e8c3": "#f7f7f7",
-            "#003c30": "#03471d",
-            "#01665e": "#33623d",
-            "#35978f": "#597e5f",
-            "#adacac": "#7f9b83",
-            "#80cdc1": "#a6b9a8",
-            "#c7eae5": "#ced8cf"
+            "#003c30": "#03461d",
+            "#543005": "#1a512a",
+            "#01665e": "#2b5c37",
+            "#8c510a": "#3b6744",
+            "#ce261e": "#4a7251",
+            "#35978f": "#597d5f",
+            "#bf812d": "#69896d",
+            "#aaaaaa": "#78947c",
+            "#adacac": "#87a08b",
+            "#80cdc1": "#97ac9a",
+            "#dfc27d": "#a7b8a9",
+            "#cccccc": "#b7c3b8",
+            "#c7eae5": "#c7d0c8",
+            "#f6e8c3": "#d7dcd8"
           },
           "verification_passed": true,
           "tests": [
@@ -232,7 +232,7 @@
             {
               "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 24.53
+              "value": 11.17
             },
             {
               "name": "Diverging Test 3: Arms Sequential",
@@ -242,7 +242,7 @@
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 0.12
+              "value": 0.02
             }
           ]
         }
@@ -250,29 +250,17 @@
       "legend_position_shifts": [
         {
           "color_before": "#cccccc",
-          "color_after": "#e1d7e7",
+          "color_after": "#b7c3b8",
           "legend_pos_before": 11,
-          "legend_pos_after": 4
-        },
-        {
-          "color_before": "#002147",
-          "color_after": "#3c007a",
-          "legend_pos_before": 25,
-          "legend_pos_after": 1
-        },
-        {
-          "color_before": "#aaaaaa",
-          "color_after": "#b49ac8",
-          "legend_pos_before": 11,
-          "legend_pos_after": 4
+          "legend_pos_after": 6
         }
       ]
     }
   },
   "warnings": [
     "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead.",
-    "3 data color(s) now map to a different legend position after recoloring."
+    "1 data color(s) now map to a different legend position after recoloring."
   ],
   "recoloring_applied": true,
-  "processing_time_sec": 0.049
+  "processing_time_sec": 0.051
 }

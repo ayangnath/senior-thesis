@@ -25,8 +25,8 @@
       "n_legend_swatches_ordered": 0
     },
     "phase2": {
-      "palette_type": "sequential",
-      "confidence": 0.75,
+      "palette_type": "diverging",
+      "confidence": 0.9,
       "details": {
         "n_colors": 11,
         "lightness_range": 72.22486381526585,
@@ -46,7 +46,7 @@
           "max_gap": 241.7
         },
         "avg_chroma": 61.049796137668324,
-        "rule": "0_override: large_L_range_sequential"
+        "rule": "0: bimodal_diverging (balanced + large_hue_gap)"
       }
     },
     "phase3": {
@@ -54,102 +54,95 @@
       "has_numeric_labels": true,
       "has_string_labels": true,
       "usage_distribution": "uniform",
-      "has_semantic_midpoint": false,
-      "midpoint_type": null,
+      "has_semantic_midpoint": true,
+      "midpoint_type": "hue_cluster",
       "possible_mismatch": false
     },
     "phase4": {
       "needs_user_choice": false,
-      "reconciled_type": "sequential",
+      "reconciled_type": "diverging",
       "mismatch_explanation": null
     },
     "phase5": {
       "tests_run": [
         {
-          "name": "Sequential Test 1: Monotonicity",
+          "name": "Diverging Test 1: Midpoint Extremum",
           "passed": true,
           "value": 1.0,
           "threshold": 1.0,
           "repair_suggestion": null
         },
         {
-          "name": "Sequential Test 2: Uniformity",
-          "passed": false,
-          "value": 0.73,
-          "threshold": 0.4,
-          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
-        },
-        {
-          "name": "Sequential Test 3: Direction",
+          "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 1.0,
-          "threshold": 1.0,
+          "value": 34.29,
+          "threshold": 10.0,
           "repair_suggestion": null
         },
         {
-          "name": "Sequential Test 4: Min Step Size",
+          "name": "Diverging Test 3: Arms Sequential",
           "passed": false,
-          "value": 0.18,
-          "threshold": 3.0,
-          "repair_suggestion": "Expand L* range or reduce number of bins"
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Apply Sequential repairs to each failing arm independently"
         },
         {
-          "name": "Sequential Cross-Check: Adjacent \u0394E",
-          "passed": false,
-          "value": 2.47,
-          "threshold": 5.0,
-          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.01,
+          "threshold": 0.3,
+          "repair_suggestion": null
         }
       ],
       "all_tests_passed": false
     },
     "phase6": {
       "color_mapping": {
-        "#ff3333": "#3f007d",
-        "#cc0000": "#4e1d8a",
-        "#ff9999": "#5d3897",
-        "#ffcccc": "#6c55a5",
-        "#999999": "#7c74b5",
-        "#003300": "#8f8bc1",
-        "#006600": "#a4a1cc",
-        "#0c6d0c": "#b9b9da",
-        "#009900": "#cecee5",
-        "#66ff66": "#e4e4f0",
-        "#00cc00": "#fcfbfd"
+        "#cc0000": "#7034ac",
+        "#ff3333": "#9161bc",
+        "#999999": "#af8dcb",
+        "#ff9999": "#ccbada",
+        "#ffcccc": "#e8e8e8",
+        "#003300": "#002000",
+        "#006600": "#093b1a",
+        "#0c6d0c": "#375b3e",
+        "#009900": "#617c65",
+        "#00cc00": "#8c9f8e",
+        "#66ff66": "#b9c3ba"
       },
       "new_palette": [
-        "#fcfbfd",
-        "#4e1d8a",
-        "#cecee5",
-        "#e4e4f0",
-        "#5d3897",
-        "#8f8bc1",
-        "#b9b9da",
-        "#7c74b5",
-        "#3f007d",
-        "#6c55a5",
-        "#a4a1cc"
+        "#8c9f8e",
+        "#7034ac",
+        "#617c65",
+        "#b9c3ba",
+        "#ccbada",
+        "#002000",
+        "#375b3e",
+        "#af8dcb",
+        "#9161bc",
+        "#e8e8e8",
+        "#093b1a"
       ],
       "verification_tests": [
         {
-          "name": "Sequential Test 1: Monotonicity",
+          "name": "Diverging Test 1: Midpoint Extremum",
           "passed": true,
           "value": 1.0
         },
         {
-          "name": "Sequential Test 2: Uniformity",
+          "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 0.14
+          "value": 39.15
         },
         {
-          "name": "Sequential Test 3: Direction",
+          "name": "Diverging Test 3: Arms Sequential",
           "passed": true,
           "value": 1.0
         },
         {
-          "name": "Sequential Test 4: Min Step Size",
+          "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 5.78
+          "value": 0.08
         }
       ],
       "verification_passed": true,
@@ -158,39 +151,39 @@
         {
           "iteration": 1,
           "color_mapping": {
-            "#ff3333": "#3f007d",
-            "#cc0000": "#4e1d8a",
-            "#ff9999": "#5d3897",
-            "#ffcccc": "#6c55a5",
-            "#999999": "#7c74b5",
-            "#003300": "#8f8bc1",
-            "#006600": "#a4a1cc",
-            "#0c6d0c": "#b9b9da",
-            "#009900": "#cecee5",
-            "#66ff66": "#e4e4f0",
-            "#00cc00": "#fcfbfd"
+            "#cc0000": "#7034ac",
+            "#ff3333": "#9161bc",
+            "#999999": "#af8dcb",
+            "#ff9999": "#ccbada",
+            "#ffcccc": "#e8e8e8",
+            "#003300": "#002000",
+            "#006600": "#093b1a",
+            "#0c6d0c": "#375b3e",
+            "#009900": "#617c65",
+            "#00cc00": "#8c9f8e",
+            "#66ff66": "#b9c3ba"
           },
           "verification_passed": true,
           "tests": [
             {
-              "name": "Sequential Test 1: Monotonicity",
+              "name": "Diverging Test 1: Midpoint Extremum",
               "passed": true,
               "value": 1.0
             },
             {
-              "name": "Sequential Test 2: Uniformity",
+              "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 0.14
+              "value": 39.15
             },
             {
-              "name": "Sequential Test 3: Direction",
+              "name": "Diverging Test 3: Arms Sequential",
               "passed": true,
               "value": 1.0
             },
             {
-              "name": "Sequential Test 4: Min Step Size",
+              "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 5.78
+              "value": 0.08
             }
           ]
         }
@@ -199,5 +192,5 @@
   },
   "warnings": [],
   "recoloring_applied": true,
-  "processing_time_sec": 0.059
+  "processing_time_sec": 0.064
 }

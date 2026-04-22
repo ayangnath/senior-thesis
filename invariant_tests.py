@@ -383,6 +383,104 @@ def _find_diverging_midpoint(colors: List[Tuple]) -> int:
     return n // 2
 
 
+# Split a diverging palette into two arms by HUE CLUSTER (not by positional
+# L* argmax), mirroring the recolorer. Returns two lists of indices, each
+# ordered from the lightest color (midpoint-adjacent) to the darkest
+# (endpoint). The lightest color in the palette serves as the shared
+# midpoint anchor and is prepended to both arms, so each arm reads as a
+# sequential ramp starting from the midpoint.
+#
+# This exists because the earlier positional slice `colors[:mid+1]` /
+# `colors[mid:]` assumes the palette is authored in V-shape gradient order.
+# Many real-world SVGs (election maps, migration maps, etc.) are authored
+# bin-by-bin in arbitrary order, which scrambles the positional split and
+# makes sequential checks fail on well-formed diverging palettes.
+def _split_diverging_arms_by_hue(colors: List[Tuple]):
+    n = len(colors)
+    labs = [srgb_to_lab(c) for c in colors]
+    L_values = [lab[0] for lab in labs]
+    chromas = [np.sqrt(lab[1] ** 2 + lab[2] ** 2) for lab in labs]
+    hues_deg = [np.degrees(np.arctan2(lab[2], lab[1])) % 360 for lab in labs]
+
+    # Midpoint anchor = the lightest low-chroma color. Picking plain argmax(L*)
+    # fails when the palette's brightest color is a saturated arm endpoint
+    # (e.g. #66ff66 in a growth map, #dede00 in a RdYlGn) rather than the
+    # semantic neutral. Fall back to overall argmax(L*) if no color is near-
+    # neutral (single-hue-ish palettes without a clear midpoint color).
+    NEUTRAL_CHROMA_MAX = 25
+    near_neutral = [i for i in range(n) if chromas[i] < NEUTRAL_CHROMA_MAX]
+    if near_neutral:
+        midpoint_idx = max(near_neutral, key=lambda i: L_values[i])
+    else:
+        midpoint_idx = int(np.argmax(np.array(L_values)))
+
+    # Chromatic threshold is deliberately low so that desaturated-but-hued
+    # colors (e.g. a pale gray-green at chroma 8) cluster by their hue rather
+    # than getting shunted into the nearest-L* arm, which would land them on
+    # the wrong semantic side of the palette.
+    chromatic_idx = [i for i in range(n) if chromas[i] > 5 and i != midpoint_idx]
+    neutral_idx = [i for i in range(n)
+                   if chromas[i] <= 5 and i != midpoint_idx]
+
+    if len(chromatic_idx) < 2:
+        # Not enough chromatic colors to split by hue; fall back to L* split.
+        arr = sorted(range(n), key=lambda i: L_values[i], reverse=True)
+        half = len(arr) // 2
+        return arr[:half + 1], [arr[0]] + arr[half + 1:]
+
+    sorted_by_hue = sorted(chromatic_idx, key=lambda i: hues_deg[i])
+    m_ = len(sorted_by_hue)
+    max_gap = 0.0
+    split_k = 0
+    for k in range(m_):
+        h_cur = hues_deg[sorted_by_hue[k]]
+        h_nxt = hues_deg[sorted_by_hue[(k + 1) % m_]]
+        gap = (h_nxt - h_cur) % 360
+        if gap > max_gap:
+            max_gap = gap
+            split_k = k
+    rotated = [sorted_by_hue[(split_k + 1 + j) % m_] for j in range(m_)]
+
+    second_gap = 0.0
+    second_k = 0
+    for k in range(len(rotated) - 1):
+        h_cur = hues_deg[rotated[k]]
+        h_nxt = hues_deg[rotated[k + 1]]
+        gap = (h_nxt - h_cur) % 360
+        if gap > second_gap:
+            second_gap = gap
+            second_k = k
+    cluster_1 = rotated[: second_k + 1]
+    cluster_2 = rotated[second_k + 1:]
+
+    # Neutrals ride with whichever cluster has the closest mean L*.
+    if cluster_1 and cluster_2:
+        mean_L_1 = float(np.mean([L_values[i] for i in cluster_1]))
+        mean_L_2 = float(np.mean([L_values[i] for i in cluster_2]))
+        for idx in neutral_idx:
+            if abs(L_values[idx] - mean_L_1) <= abs(L_values[idx] - mean_L_2):
+                cluster_1.append(idx)
+            else:
+                cluster_2.append(idx)
+    else:
+        (cluster_1 if cluster_1 else cluster_2).extend(neutral_idx)
+
+    # Each arm reads lightest-to-darkest as a standalone sequential ramp.
+    # The midpoint is included in the arm where its L* naturally fits (i.e.,
+    # not force-prepended), so if one of the cluster colors happens to be
+    # lighter than the semantic midpoint, the arm's L* sequence stays
+    # monotonic. Include the midpoint in both arms for anchoring.
+    def _sort_with_midpoint(cluster):
+        members = list(cluster)
+        if midpoint_idx not in members:
+            members.append(midpoint_idx)
+        return sorted(members, key=lambda i: L_values[i], reverse=True)
+
+    arm_1 = _sort_with_midpoint(cluster_1)
+    arm_2 = _sort_with_midpoint(cluster_2)
+    return arm_1, arm_2
+
+
 # Check that the midpoint sits at a perceptual extremum (lightest or darkest)
 # and is distinguishable from its neighbors.
 def test_diverging_midpoint_extremum(colors: List[Tuple], cvd_type: str = "deutan") -> TestResult:
@@ -493,9 +591,9 @@ def test_diverging_arms_sequential(colors: List[Tuple], cvd_type: str = "deutan"
             details={"reason": "need at least 3 colors"},
         )
 
-    mid_idx = _find_diverging_midpoint(colors)
-    left_arm = colors[:mid_idx + 1]
-    right_arm = colors[mid_idx:]
+    left_idx, right_idx = _split_diverging_arms_by_hue(colors)
+    left_arm = [colors[i] for i in left_idx]
+    right_arm = [colors[i] for i in right_idx]
 
     left_results = run_sequential_tests(left_arm, cvd_type)
     right_results = run_sequential_tests(right_arm, cvd_type)

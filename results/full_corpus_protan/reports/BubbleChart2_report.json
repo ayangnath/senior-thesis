@@ -16,5 +16,5 @@
   "warnings": [
     "Fewer than 2 data colors detected; nothing to check."
   ],
-  "processing_time_sec": 0.004
+  "processing_time_sec": 0.003
 }

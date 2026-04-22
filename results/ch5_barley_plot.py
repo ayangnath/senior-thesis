@@ -2,57 +2,48 @@
 Becker's Barley-style faceted dot plot for Chapter 5 results.
 Each facet is a palette type, Y-axis is the 6 thesis invariants,
 X-axis is % passing, with Before/After as the two color marks.
+
+Numbers auto-parsed from ch5_results.md so they stay in sync with the
+latest aggregate run.
 """
+
+import re
+from pathlib import Path
 
 import altair as alt
 import pandas as pd
 
-# Data from ch5_results.md (collapsed to 6 thesis invariants)
-rows = [
-    # Categorical
-    {"Palette Type": "Categorical", "Invariant": "Pairwise Distinguishability", "% Passing": 35.0, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Pairwise Distinguishability", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Categorical", "Invariant": "Lightness Monotonicity", "% Passing": 20.0, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Lightness Monotonicity", "% Passing": 15.0, "Condition": "After"},
-    {"Palette Type": "Categorical", "Invariant": "Perceptual Uniformity", "% Passing": 25.0, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Perceptual Uniformity", "% Passing": 20.0, "Condition": "After"},
-    {"Palette Type": "Categorical", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Categorical", "Invariant": "Midpoint Integrity", "% Passing": 72.2, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Midpoint Integrity", "% Passing": 83.3, "Condition": "After"},
-    {"Palette Type": "Categorical", "Invariant": "Bidirectional Separability", "% Passing": 11.1, "Condition": "Before"},
-    {"Palette Type": "Categorical", "Invariant": "Bidirectional Separability", "% Passing": 0.0, "Condition": "After"},
-    # Sequential
-    {"Palette Type": "Sequential", "Invariant": "Pairwise Distinguishability", "% Passing": 16.7, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Pairwise Distinguishability", "% Passing": 21.4, "Condition": "After"},
-    {"Palette Type": "Sequential", "Invariant": "Lightness Monotonicity", "% Passing": 22.6, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Lightness Monotonicity", "% Passing": 97.6, "Condition": "After"},
-    {"Palette Type": "Sequential", "Invariant": "Perceptual Uniformity", "% Passing": 25.0, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Perceptual Uniformity", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Sequential", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Sequential", "Invariant": "Midpoint Integrity", "% Passing": 80.0, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Midpoint Integrity", "% Passing": 86.2, "Condition": "After"},
-    {"Palette Type": "Sequential", "Invariant": "Bidirectional Separability", "% Passing": 12.5, "Condition": "Before"},
-    {"Palette Type": "Sequential", "Invariant": "Bidirectional Separability", "% Passing": 27.5, "Condition": "After"},
-    # Diverging
-    {"Palette Type": "Diverging", "Invariant": "Pairwise Distinguishability", "% Passing": 27.3, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Pairwise Distinguishability", "% Passing": 50.0, "Condition": "After"},
-    {"Palette Type": "Diverging", "Invariant": "Lightness Monotonicity", "% Passing": 13.6, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Lightness Monotonicity", "% Passing": 36.4, "Condition": "After"},
-    {"Palette Type": "Diverging", "Invariant": "Perceptual Uniformity", "% Passing": 4.5, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Perceptual Uniformity", "% Passing": 36.4, "Condition": "After"},
-    {"Palette Type": "Diverging", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Direction Preservation", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Diverging", "Invariant": "Midpoint Integrity", "% Passing": 86.4, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Midpoint Integrity", "% Passing": 100.0, "Condition": "After"},
-    {"Palette Type": "Diverging", "Invariant": "Bidirectional Separability", "% Passing": 9.1, "Condition": "Before"},
-    {"Palette Type": "Diverging", "Invariant": "Bidirectional Separability", "% Passing": 77.3, "Condition": "After"},
-]
 
+MD_PATH = Path(__file__).with_name("ch5_results.md")
+OUT_SVG = Path(__file__).with_name("ch5_barley_plot.svg")
+OUT_PNG = Path(__file__).with_name("ch5_barley_plot.png")
+
+
+def parse_markdown(md_text: str):
+    """Return list of {Palette Type, Invariant, % Passing, Condition} rows."""
+    rows = []
+    sections = re.split(r"^## (Categorical|Sequential|Diverging) Palettes.*$", md_text, flags=re.M)
+    for i in range(1, len(sections), 2):
+        ptype = sections[i]
+        body = sections[i + 1]
+        for line in body.splitlines():
+            m = re.match(
+                r"\|\s*([A-Za-z ]+?)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|",
+                line,
+            )
+            if not m:
+                continue
+            inv = m.group(1).strip()
+            pct_before = float(m.group(5))
+            pct_after = float(m.group(6))
+            rows.append({"Palette Type": ptype, "Invariant": inv, "% Passing": pct_before, "Condition": "Before"})
+            rows.append({"Palette Type": ptype, "Invariant": inv, "% Passing": pct_after, "Condition": "After"})
+    return rows
+
+
+rows = parse_markdown(MD_PATH.read_text())
 df = pd.DataFrame(rows)
 
-# Invariant display order (top to bottom on Y-axis)
 invariant_order = [
     "Bidirectional Separability",
     "Midpoint Integrity",
@@ -61,8 +52,6 @@ invariant_order = [
     "Lightness Monotonicity",
     "Pairwise Distinguishability",
 ]
-
-# Facet order
 palette_order = ["Categorical", "Sequential", "Diverging"]
 
 chart = alt.Chart(df, title="Invariant Pass Rates Before and After Correction").mark_point(
@@ -107,6 +96,6 @@ chart = alt.Chart(df, title="Invariant Pass Rates Before and After Correction").
     anchor="start",
 )
 
-chart.save("results/ch5_barley_plot.svg")
-chart.save("results/ch5_barley_plot.png", ppi=300)
-print("Saved to results/ch5_barley_plot.svg and .png")
+chart.save(str(OUT_SVG))
+chart.save(str(OUT_PNG), ppi=300)
+print(f"Saved to {OUT_SVG} and {OUT_PNG}")

@@ -130,13 +130,13 @@
       <text id="RepSa" x="855" y="569">Safe Rep</text>
     </g>
   </g>
-  <rect id="SafeDem" x="828" y="370" height="19" width="19" fill="#193875" stroke="#000000" stroke-width="0.8"/>
-  <rect id="LikelyDem" x="828" y="400" height="19" width="19" fill="#586394" stroke="#000000" stroke-width="0.8"/>
-  <rect id="LeanDem" x="828" y="430" height="19" width="19" fill="#8c91b5" stroke="#000000" stroke-width="0.8"/>
-  <rect id="Tossup" x="828" y="460" height="19" width="19" fill="#c1c3d5" stroke="#000000" stroke-width="0.8"/>
-  <rect id="LeanRep" x="828" y="490" height="19" width="19" fill="#f7f7f7" stroke="#000000" stroke-width="0.8"/>
-  <rect id="LikelyRep" x="828" y="520" height="19" width="19" fill="#e3b39f" stroke="#000000" stroke-width="0.8"/>
-  <rect id="SafeRep" x="828" y="550" height="19" width="19" fill="#9a2c00" stroke="#000000" stroke-width="0.8"/>
+  <rect id="SafeDem" x="828" y="370" height="19" width="19" fill="#173774" stroke="#000000" stroke-width="0.8"/>
+  <rect id="LikelyDem" x="828" y="400" height="19" width="19" fill="#858aad" stroke="#000000" stroke-width="0.8"/>
+  <rect id="LeanDem" x="828" y="430" height="19" width="19" fill="#e8e8e8" stroke="#000000" stroke-width="0.8"/>
+  <rect id="Tossup" x="828" y="460" height="19" width="19" fill="#d59d87" stroke="#000000" stroke-width="0.8"/>
+  <rect id="LeanRep" x="828" y="490" height="19" width="19" fill="#e1c2b6" stroke="#000000" stroke-width="0.8"/>
+  <rect id="LikelyRep" x="828" y="520" height="19" width="19" fill="#c57959" stroke="#000000" stroke-width="0.8"/>
+  <rect id="SafeRep" x="828" y="550" height="19" width="19" fill="#9c2d00" stroke="#000000" stroke-width="0.8"/>
   <path id="lines" d="M844,62l13,29 M832,86l8,17 M889,153l34,3 M882,178l41,12 M866,184l51,33 M845,230l50,22 M837,250l51,26 M833,261l46,33 M800,251l61,61" stroke="#000000" stroke-width="1.6"/>
   <path id="frames" fill="none" stroke="#A9A9A9" stroke-width="2" d="M215,493v55l36,45 M0,425h147l68,68h85l54,54v46"/>
 </svg>

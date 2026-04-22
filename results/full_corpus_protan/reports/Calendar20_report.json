@@ -1034,5 +1034,5 @@
     "Post-recoloring verification did not fully pass after 3 attempt(s). Best result applied. Manual review recommended."
   ],
   "recoloring_applied": true,
-  "processing_time_sec": 0.475
+  "processing_time_sec": 0.304
 }

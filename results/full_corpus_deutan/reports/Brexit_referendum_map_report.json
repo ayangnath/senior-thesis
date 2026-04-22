@@ -41,7 +41,7 @@
           "max_gap": 238.6
         },
         "avg_chroma": 30.62929800418735,
-        "rule": "0: hue_clusters + achromatic"
+        "rule": "0: bimodal_diverging (balanced + large_hue_gap)"
       }
     },
     "phase3": {
@@ -94,18 +94,18 @@
     "phase6": {
       "color_mapping": {
         "#8c510a": "#8e2000",
-        "#c7eae5": "#ce8c70",
-        "#f6e8c3": "#f7f7f7",
+        "#d8b365": "#b66543",
+        "#c7eae5": "#d5a592",
+        "#f6e8c3": "#e8e8e8",
         "#01665e": "#27417f",
-        "#5ab4ac": "#7079a6",
-        "#d8b365": "#b3b6ce"
+        "#5ab4ac": "#8b90b3"
       },
       "new_palette": [
         "#8e2000",
-        "#ce8c70",
-        "#f7f7f7",
-        "#7079a6",
-        "#b3b6ce",
+        "#d5a592",
+        "#e8e8e8",
+        "#8b90b3",
+        "#b66543",
         "#27417f"
       ],
       "verification_tests": [
@@ -127,7 +127,7 @@
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 0.08
+          "value": 0.09
         }
       ],
       "verification_passed": true,
@@ -137,11 +137,11 @@
           "iteration": 1,
           "color_mapping": {
             "#8c510a": "#8e2000",
-            "#c7eae5": "#ce8c70",
-            "#f6e8c3": "#f7f7f7",
+            "#d8b365": "#b66543",
+            "#c7eae5": "#d5a592",
+            "#f6e8c3": "#e8e8e8",
             "#01665e": "#27417f",
-            "#5ab4ac": "#7079a6",
-            "#d8b365": "#b3b6ce"
+            "#5ab4ac": "#8b90b3"
           },
           "verification_passed": true,
           "tests": [
@@ -163,7 +163,7 @@
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 0.08
+              "value": 0.09
             }
           ]
         }
@@ -172,5 +172,5 @@
   },
   "warnings": [],
   "recoloring_applied": true,
-  "processing_time_sec": 0.038
+  "processing_time_sec": 0.037
 }

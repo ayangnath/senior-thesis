@@ -2,9 +2,9 @@
   "total_files": 75,
   "cvd_type": "deutan",
   "results": {
-    "passed": 11,
-    "recolored": 50,
-    "recolored_with_warnings": 2,
+    "passed": 10,
+    "recolored": 48,
+    "recolored_with_warnings": 5,
     "skipped": 12,
     "error": 0,
     "failed_to_recolor": 0
@@ -29,7 +29,7 @@
     {
       "file": "2020_United_States_presidential_election_results_map_by_county.svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 14,
       "signal_passed": false,
       "recolored": true
@@ -37,18 +37,18 @@
     {
       "file": "Annual_Net_Migration_Rate_2015\u20132020.svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true
     },
     {
       "file": "AreaChart11.svg",
-      "status": "passed",
+      "status": "recolored",
       "palette_type": "diverging",
       "n_colors": 3,
-      "signal_passed": true,
-      "recolored": false
+      "signal_passed": false,
+      "recolored": true
     },
     {
       "file": "AreaChart14.svg",
@@ -92,7 +92,7 @@
     },
     {
       "file": "BarChart10.svg",
-      "status": "recolored",
+      "status": "recolored_with_warnings",
       "palette_type": "diverging",
       "n_colors": 47,
       "signal_passed": false,
@@ -229,7 +229,7 @@
     {
       "file": "Countries_by_Real_GDP_Growth_Rate_(2016).svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true
@@ -492,7 +492,7 @@
     },
     {
       "file": "Scatterplot16.svg",
-      "status": "recolored",
+      "status": "recolored_with_warnings",
       "palette_type": "diverging",
       "n_colors": 168,
       "signal_passed": false,
@@ -572,8 +572,8 @@
     },
     {
       "file": "World_Map_Index_of_perception_of_corruption_2009.svg",
-      "status": "recolored",
-      "palette_type": "sequential",
+      "status": "recolored_with_warnings",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true

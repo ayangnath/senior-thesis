@@ -43,7 +43,7 @@
           "max_gap": 234.1
         },
         "avg_chroma": 23.820360818461253,
-        "rule": "0: hue_clusters + achromatic"
+        "rule": "0: bimodal_diverging (balanced + large_hue_gap)"
       }
     },
     "phase3": {
@@ -95,24 +95,24 @@
     },
     "phase6": {
       "color_mapping": {
-        "#698dc5": "#193875",
-        "#82a0cf": "#586394",
-        "#a3b8d9": "#8c91b5",
-        "#c0c0c0": "#c1c3d5",
-        "#f0bdb4": "#f7f7f7",
-        "#f07763": "#9a2c00",
-        "#a9a9a9": "#c3704e",
-        "#f09e90": "#e3b39f"
+        "#698dc5": "#173774",
+        "#82a0cf": "#858aad",
+        "#a3b8d9": "#e8e8e8",
+        "#f07763": "#9c2d00",
+        "#a9a9a9": "#b2542d",
+        "#f09e90": "#c57959",
+        "#c0c0c0": "#d59d87",
+        "#f0bdb4": "#e1c2b6"
       },
       "new_palette": [
-        "#193875",
-        "#586394",
-        "#8c91b5",
-        "#c1c3d5",
-        "#f7f7f7",
-        "#e3b39f",
-        "#9a2c00",
-        "#c3704e"
+        "#173774",
+        "#858aad",
+        "#e8e8e8",
+        "#d59d87",
+        "#e1c2b6",
+        "#c57959",
+        "#9c2d00",
+        "#b2542d"
       ],
       "verification_tests": [
         {
@@ -123,7 +123,7 @@
         {
           "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 55.81
+          "value": 53.48
         },
         {
           "name": "Diverging Test 3: Arms Sequential",
@@ -133,7 +133,7 @@
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 0.15
+          "value": 0.13
         }
       ],
       "verification_passed": true,
@@ -142,14 +142,14 @@
         {
           "iteration": 1,
           "color_mapping": {
-            "#698dc5": "#193875",
-            "#82a0cf": "#586394",
-            "#a3b8d9": "#8c91b5",
-            "#c0c0c0": "#c1c3d5",
-            "#f0bdb4": "#f7f7f7",
-            "#f07763": "#9a2c00",
-            "#a9a9a9": "#c3704e",
-            "#f09e90": "#e3b39f"
+            "#698dc5": "#173774",
+            "#82a0cf": "#858aad",
+            "#a3b8d9": "#e8e8e8",
+            "#f07763": "#9c2d00",
+            "#a9a9a9": "#b2542d",
+            "#f09e90": "#c57959",
+            "#c0c0c0": "#d59d87",
+            "#f0bdb4": "#e1c2b6"
           },
           "verification_passed": true,
           "tests": [
@@ -161,7 +161,7 @@
             {
               "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 55.81
+              "value": 53.48
             },
             {
               "name": "Diverging Test 3: Arms Sequential",
@@ -171,7 +171,7 @@
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 0.15
+              "value": 0.13
             }
           ]
         }
@@ -180,5 +180,5 @@
   },
   "warnings": [],
   "recoloring_applied": true,
-  "processing_time_sec": 0.238
+  "processing_time_sec": 0.054
 }

@@ -25,6 +25,9 @@ env/
 # Generated output (reproducible by running the tool)
 output/
 
+# Local backup of prior results runs
+results (old)/
+
 # IDE
 .vscode/
 .idea/

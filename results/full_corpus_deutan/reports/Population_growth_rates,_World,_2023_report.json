@@ -102,38 +102,38 @@
     },
     "phase6": {
       "color_mapping": {
-        "#002147": "#7f1000",
-        "#543005": "#933309",
-        "#8c510a": "#a64f2b",
-        "#ce261e": "#b76a4a",
-        "#bf812d": "#c7856a",
-        "#aaaaaa": "#d6a18c",
-        "#dfc27d": "#e2bdae",
-        "#cccccc": "#eedad2",
-        "#f6e8c3": "#f7f7f7",
-        "#003c30": "#354d8c",
-        "#01665e": "#59669e",
-        "#35978f": "#7981af",
-        "#adacac": "#989dc1",
-        "#80cdc1": "#b8bad3",
-        "#c7eae5": "#d7d8e5"
+        "#003c30": "#952700",
+        "#543005": "#9f380b",
+        "#01665e": "#a8471f",
+        "#8c510a": "#b05630",
+        "#ce261e": "#b86441",
+        "#35978f": "#c07353",
+        "#bf812d": "#c78164",
+        "#aaaaaa": "#ce8f76",
+        "#adacac": "#d49e88",
+        "#80cdc1": "#d9ad9b",
+        "#dfc27d": "#debbae",
+        "#cccccc": "#e2cac1",
+        "#c7eae5": "#e5d9d4",
+        "#f6e8c3": "#e8e8e8",
+        "#002147": "#1f3c79"
       },
       "new_palette": [
-        "#eedad2",
-        "#7f1000",
-        "#b76a4a",
-        "#d6a18c",
-        "#933309",
-        "#a64f2b",
-        "#c7856a",
-        "#e2bdae",
-        "#f7f7f7",
-        "#d7d8e5",
-        "#b8bad3",
-        "#7981af",
-        "#59669e",
-        "#354d8c",
-        "#989dc1"
+        "#e2cac1",
+        "#1f3c79",
+        "#b86441",
+        "#ce8f76",
+        "#9f380b",
+        "#b05630",
+        "#c78164",
+        "#debbae",
+        "#e8e8e8",
+        "#e5d9d4",
+        "#d9ad9b",
+        "#c07353",
+        "#a8471f",
+        "#952700",
+        "#d49e88"
       ],
       "verification_tests": [
         {
@@ -144,7 +144,7 @@
         {
           "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 26.68
+          "value": 11.75
         },
         {
           "name": "Diverging Test 3: Arms Sequential",
@@ -154,7 +154,7 @@
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 0.19
+          "value": 0.04
         }
       ],
       "verification_passed": true,
@@ -163,21 +163,21 @@
         {
           "iteration": 1,
           "color_mapping": {
-            "#002147": "#7f1000",
-            "#543005": "#933309",
-            "#8c510a": "#a64f2b",
-            "#ce261e": "#b76a4a",
-            "#bf812d": "#c7856a",
-            "#aaaaaa": "#d6a18c",
-            "#dfc27d": "#e2bdae",
-            "#cccccc": "#eedad2",
-            "#f6e8c3": "#f7f7f7",
-            "#003c30": "#354d8c",
-            "#01665e": "#59669e",
-            "#35978f": "#7981af",
-            "#adacac": "#989dc1",
-            "#80cdc1": "#b8bad3",
-            "#c7eae5": "#d7d8e5"
+            "#003c30": "#952700",
+            "#543005": "#9f380b",
+            "#01665e": "#a8471f",
+            "#8c510a": "#b05630",
+            "#ce261e": "#b86441",
+            "#35978f": "#c07353",
+            "#bf812d": "#c78164",
+            "#aaaaaa": "#ce8f76",
+            "#adacac": "#d49e88",
+            "#80cdc1": "#d9ad9b",
+            "#dfc27d": "#debbae",
+            "#cccccc": "#e2cac1",
+            "#c7eae5": "#e5d9d4",
+            "#f6e8c3": "#e8e8e8",
+            "#002147": "#1f3c79"
           },
           "verification_passed": true,
           "tests": [
@@ -189,7 +189,7 @@
             {
               "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 26.68
+              "value": 11.75
             },
             {
               "name": "Diverging Test 3: Arms Sequential",
@@ -199,7 +199,7 @@
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 0.19
+              "value": 0.04
             }
           ]
         }
@@ -207,35 +207,23 @@
       "legend_position_shifts": [
         {
           "color_before": "#cccccc",
-          "color_after": "#eedad2",
+          "color_after": "#e2cac1",
           "legend_pos_before": 11,
           "legend_pos_after": 4
-        },
-        {
-          "color_before": "#002147",
-          "color_after": "#7f1000",
-          "legend_pos_before": 25,
-          "legend_pos_after": 1
-        },
-        {
-          "color_before": "#ce261e",
-          "color_after": "#b76a4a",
-          "legend_pos_before": 2,
-          "legend_pos_after": 3
         },
         {
           "color_before": "#aaaaaa",
-          "color_after": "#d6a18c",
+          "color_after": "#ce8f76",
           "legend_pos_before": 11,
-          "legend_pos_after": 4
+          "legend_pos_after": 3
         }
       ]
     }
   },
   "warnings": [
     "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead.",
-    "4 data color(s) now map to a different legend position after recoloring."
+    "2 data color(s) now map to a different legend position after recoloring."
   ],
   "recoloring_applied": true,
-  "processing_time_sec": 0.044
+  "processing_time_sec": 0.042
 }

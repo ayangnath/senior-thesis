@@ -86,5 +86,5 @@
     "Path B (alternative): Path B: Treat as categorical data. Evidence: Sequential palette but labels are strings. Data may be categorical. Repair will use discrete color palette for 2 categories."
   ],
   "recoloring_applied": false,
-  "processing_time_sec": 0.014
+  "processing_time_sec": 0.015
 }

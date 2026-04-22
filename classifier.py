@@ -233,6 +233,23 @@ def classify_palette(colors):
     # two hue clusters plus neutral colors usually means diverging
     # (think election maps, temperature maps)
     if has_clusters and n_achromatic >= 1 and not is_single_hue:
+        # Bimodal diverging short-circuit: two clusters with a large empty arc
+        # between them (>=200 deg), balanced sizes, and a hue progression that
+        # is NOT unidirectional-with-L*. This catches saturated red/blue and
+        # green/red diverging palettes whose high chroma would otherwise fall
+        # into the sequential override below. A true multi-hue sequential ramp
+        # (e.g. viridis, YlGnBu) fills more of the wheel so max_gap stays small.
+        max_gap = cluster_info.get("max_gap", 0)
+        c1_size = cluster_info.get("cluster1_size", 0)
+        c2_size = cluster_info.get("cluster2_size", 0)
+        cluster_balance = min(c1_size, c2_size) / max(c1_size, c2_size, 1)
+        if (max_gap >= 200
+                and cluster_balance >= 0.3
+                and hue_div >= 40
+                and not _is_unidirectional_hue(labs)):
+            details["rule"] = "0: bimodal_diverging (balanced + large_hue_gap)"
+            return PaletteClassification("diverging", 0.90, details)
+
         if avg_chroma > 35 and hue_div > 50:
             # large L* range in a big palette = multi-hue sequential ramp (e.g. YlGnBu)
             # n >= 10 avoids false positives on 8-9 color categorical palettes

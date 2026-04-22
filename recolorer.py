@@ -57,11 +57,14 @@ SAFE_SEQUENTIAL_ANCHORS = {
                (217, 72, 1), (166, 54, 3)],
 }
 
-# safe diverging endpoint pairs
+# safe diverging endpoint pairs. Midpoints use a light gray (L* ~92) rather
+# than pure white so the midpoint region stays visible on white page
+# backgrounds - a pure-white midpoint blends into the page and makes
+# near-zero data points invisible in rendered SVGs.
 SAFE_DIVERGING_ENDPOINTS = [
-    {"left": (8, 48, 107), "mid": (247, 247, 247), "right": (166, 54, 3)},    # blue / orange
-    {"left": (63, 0, 125), "mid": (247, 247, 247), "right": (0, 68, 27)},     # purple / green
-    {"left": (5, 48, 97), "mid": (247, 247, 247), "right": (103, 0, 31)},     # blue / red-brown
+    {"left": (8, 48, 107), "mid": (232, 232, 232), "right": (166, 54, 3)},    # blue / orange
+    {"left": (63, 0, 125), "mid": (232, 232, 232), "right": (0, 68, 27)},     # purple / green
+    {"left": (5, 48, 97), "mid": (232, 232, 232), "right": (103, 0, 31)},     # blue / red-brown
 ]
 
 
@@ -411,45 +414,92 @@ def recolor_diverging(colors, cvd_type="deutan", attempt=0):
     mid_lab = np.array(srgb_to_lab(best_scheme["mid"]), dtype=np.float64)
     right_lab = np.array(srgb_to_lab(best_scheme["right"]), dtype=np.float64)
 
-    # --- 2. Split palette into arms at the L* peak (midpoint) ---
-    # Diverging palettes go endpoint -> midpoint -> endpoint with an
-    # inverted-V lightness curve.  Splitting at the L* maximum avoids
-    # relying on hue angles for near-achromatic midpoint colors, which
-    # are too noisy to classify reliably.
-    midpoint_idx = int(np.argmax(L_arr))
+    # --- 2. Split palette into two arms + neutrals by HUE CLUSTER ---
+    # Diverging palettes have two chromatic arms with a neutral midpoint,
+    # but SVG authoring tools rarely serialize colors in positional order.
+    # Splitting at the L* argmax (as earlier versions did) breaks when the
+    # palette is interleaved - it would dump most colors into one arm.
+    # Instead we split by the biggest gap in hue angle among chromatic
+    # colors, which matches the classifier's diverging detection logic.
+    chromas = [np.sqrt(lab[1]**2 + lab[2]**2) for lab in orig_labs]
+    hues_deg = [np.degrees(np.arctan2(lab[2], lab[1])) % 360 for lab in orig_labs]
 
-    group_a = list(range(midpoint_idx + 1))   # includes midpoint
-    group_b = list(range(midpoint_idx + 1, n))
+    CHROMA_ARM_THRESHOLD = 15  # below this a color is treated as neutral / no-data
+    chromatic_idx = [i for i in range(n) if chromas[i] > CHROMA_ARM_THRESHOLD]
+    neutral_idx = [i for i in range(n) if chromas[i] <= CHROMA_ARM_THRESHOLD]
 
-    # Match each group to the correct safe-scheme arm by comparing the
-    # most chromatic color in each group to the safe endpoint hues.
+    if len(chromatic_idx) >= 2:
+        # Find the biggest empty arc in the hue ring; the two arms lie on
+        # either side of it.
+        sorted_chromatic = sorted(chromatic_idx, key=lambda i: hues_deg[i])
+        m_ = len(sorted_chromatic)
+        max_gap = 0.0
+        split_k = 0
+        for k in range(m_):
+            h_cur = hues_deg[sorted_chromatic[k]]
+            h_nxt = hues_deg[sorted_chromatic[(k + 1) % m_]]
+            gap = (h_nxt - h_cur) % 360
+            if gap > max_gap:
+                max_gap = gap
+                split_k = k
+        cluster_a_idx = [sorted_chromatic[(split_k + 1 + j) % m_] for j in range(m_)]
+        # Now walk the cluster_a list and split it at the SECOND biggest gap
+        # so the two arms separate cleanly on the hue ring.
+        second_gap = 0.0
+        second_k = 0
+        for k in range(len(cluster_a_idx) - 1):
+            h_cur = hues_deg[cluster_a_idx[k]]
+            h_nxt = hues_deg[cluster_a_idx[k + 1]]
+            gap = (h_nxt - h_cur) % 360
+            if gap > second_gap:
+                second_gap = gap
+                second_k = k
+        cluster_1 = cluster_a_idx[: second_k + 1]
+        cluster_2 = cluster_a_idx[second_k + 1:]
+    else:
+        # Degenerate: too few chromatic colors to split by hue.
+        cluster_1 = chromatic_idx
+        cluster_2 = []
+
+    # Match each cluster to the correct safe-scheme arm by comparing the
+    # mean hue of each cluster to the safe endpoint hues.
     left_ep_hue = np.arctan2(left_lab[2], left_lab[1])
     right_ep_hue = np.arctan2(right_lab[2], right_lab[1])
 
-    def _dominant_hue(indices):
-        best_chroma = 0.0
-        best_hue = 0.0
-        for idx in indices:
-            c = np.sqrt(orig_labs[idx][1]**2 + orig_labs[idx][2]**2)
-            if c > best_chroma:
-                best_chroma = c
-                best_hue = np.arctan2(orig_labs[idx][2], orig_labs[idx][1])
-        return best_hue
+    def _mean_hue(indices):
+        if not indices:
+            return 0.0
+        sin_sum = sum(np.sin(np.radians(hues_deg[i])) for i in indices)
+        cos_sum = sum(np.cos(np.radians(hues_deg[i])) for i in indices)
+        return np.arctan2(sin_sum, cos_sum)
 
-    hue_a = _dominant_hue(group_a)
-    da_left = abs(hue_a - left_ep_hue)
-    if da_left > np.pi:
-        da_left = 2 * np.pi - da_left
-    da_right = abs(hue_a - right_ep_hue)
-    if da_right > np.pi:
-        da_right = 2 * np.pi - da_right
+    def _circular_dist(a, b):
+        d = abs(a - b)
+        if d > np.pi:
+            d = 2 * np.pi - d
+        return d
 
-    if da_left <= da_right:
-        left_indices = group_a
-        right_indices = group_b
+    hue_1 = _mean_hue(cluster_1)
+    # If cluster 1 is closer to the left endpoint hue, it becomes the left arm.
+    if _circular_dist(hue_1, left_ep_hue) <= _circular_dist(hue_1, right_ep_hue):
+        left_indices = list(cluster_1)
+        right_indices = list(cluster_2)
     else:
-        left_indices = group_b
-        right_indices = group_a
+        left_indices = list(cluster_2)
+        right_indices = list(cluster_1)
+
+    # Neutrals ride with whichever arm has the closest L*; this keeps them
+    # near the midpoint region of the new palette instead of scrambling the
+    # ordered diverging progression.
+    for idx in neutral_idx:
+        left_Lgap = min((abs(L_values[idx] - L_values[i]) for i in left_indices),
+                        default=float('inf'))
+        right_Lgap = min((abs(L_values[idx] - L_values[i]) for i in right_indices),
+                         default=float('inf'))
+        if left_Lgap <= right_Lgap:
+            left_indices.append(idx)
+        else:
+            right_indices.append(idx)
 
     # --- 3. Set arm sizes from actual assignment ---
     n_left = len(left_indices)   # including midpoint

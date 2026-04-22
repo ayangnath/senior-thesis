@@ -96,26 +96,26 @@
     },
     "phase6": {
       "color_mapping": {
-        "#27aaea": "#2d006d",
-        "#f4f4f4": "#f7f7f7",
-        "#c0a6f2": "#165329",
-        "#eaaff7": "#386943",
-        "#fbc5c0": "#57805e",
-        "#a4dbfb": "#76977b",
-        "#d2f89b": "#95ae98",
-        "#bbfdd9": "#b5c6b7",
-        "#f7fab2": "#d6ded7"
+        "#d2f89b": "#ffa16a",
+        "#bbfdd9": "#ffba94",
+        "#f4f4f4": "#ffd2bd",
+        "#f7fab2": "#e8e8e8",
+        "#27aaea": "#000c41",
+        "#c0a6f2": "#2a305f",
+        "#eaaff7": "#4f567d",
+        "#fbc5c0": "#7b7f9a",
+        "#a4dbfb": "#a8a9b8"
       },
       "new_palette": [
-        "#76977b",
-        "#57805e",
-        "#b5c6b7",
-        "#95ae98",
-        "#386943",
-        "#165329",
-        "#d6ded7",
-        "#f7f7f7",
-        "#2d006d"
+        "#a8a9b8",
+        "#7b7f9a",
+        "#ffba94",
+        "#ffa16a",
+        "#4f567d",
+        "#2a305f",
+        "#e8e8e8",
+        "#ffd2bd",
+        "#000c41"
       ],
       "verification_tests": [
         {
@@ -126,7 +126,7 @@
         {
           "name": "Diverging Test 2: Endpoints Distinct",
           "passed": true,
-          "value": 52.96
+          "value": 54.36
         },
         {
           "name": "Diverging Test 3: Arms Sequential",
@@ -136,61 +136,24 @@
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
           "passed": true,
-          "value": 0.07
+          "value": 0.11
         }
       ],
       "verification_passed": true,
-      "iterations_used": 2,
+      "iterations_used": 1,
       "iteration_log": [
         {
           "iteration": 1,
           "color_mapping": {
-            "#c0a6f2": "#a43401",
-            "#eaaff7": "#b8562d",
-            "#fbc5c0": "#ca7653",
-            "#a4dbfb": "#d9957a",
-            "#d2f89b": "#e6b5a2",
-            "#bbfdd9": "#f0d6cc",
-            "#f7fab2": "#f7f7f7",
-            "#27aaea": "#0c326d",
-            "#f4f4f4": "#888db0"
-          },
-          "verification_passed": false,
-          "tests": [
-            {
-              "name": "Diverging Test 1: Midpoint Extremum",
-              "passed": true,
-              "value": 1.0
-            },
-            {
-              "name": "Diverging Test 2: Endpoints Distinct",
-              "passed": true,
-              "value": 53.45
-            },
-            {
-              "name": "Diverging Test 3: Arms Sequential",
-              "passed": true,
-              "value": 1.0
-            },
-            {
-              "name": "Diverging Test 4: Arm Ratio Preservation",
-              "passed": false,
-              "value": 0.32
-            }
-          ]
-        },
-        {
-          "iteration": 2,
-          "color_mapping": {
-            "#27aaea": "#2d006d",
-            "#f4f4f4": "#f7f7f7",
-            "#c0a6f2": "#165329",
-            "#eaaff7": "#386943",
-            "#fbc5c0": "#57805e",
-            "#a4dbfb": "#76977b",
-            "#d2f89b": "#95ae98",
-            "#bbfdd9": "#b5c6b7",
-            "#f7fab2": "#d6ded7"
+            "#d2f89b": "#ffa16a",
+            "#bbfdd9": "#ffba94",
+            "#f4f4f4": "#ffd2bd",
+            "#f7fab2": "#e8e8e8",
+            "#27aaea": "#000c41",
+            "#c0a6f2": "#2a305f",
+            "#eaaff7": "#4f567d",
+            "#fbc5c0": "#7b7f9a",
+            "#a4dbfb": "#a8a9b8"
           },
           "verification_passed": true,
           "tests": [
@@ -202,7 +165,7 @@
             {
               "name": "Diverging Test 2: Endpoints Distinct",
               "passed": true,
-              "value": 52.96
+              "value": 54.36
             },
             {
               "name": "Diverging Test 3: Arms Sequential",
@@ -212,7 +175,7 @@
             {
               "name": "Diverging Test 4: Arm Ratio Preservation",
               "passed": true,
-              "value": 0.07
+              "value": 0.11
             }
           ]
         }
@@ -221,5 +184,5 @@
   },
   "warnings": [],
   "recoloring_applied": true,
-  "processing_time_sec": 0.029
+  "processing_time_sec": 0.019
 }

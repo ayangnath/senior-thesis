@@ -1,7 +1,7 @@
 {
   "file": "AreaChart11.svg",
   "cvd_type": "deutan",
-  "status": "passed",
+  "status": "recolored",
   "phases": {
     "phase1": {
       "n_data_elements": 5,
@@ -65,10 +65,10 @@
         },
         {
           "name": "Diverging Test 3: Arms Sequential",
-          "passed": true,
-          "value": 1.0,
+          "passed": false,
+          "value": 0.0,
           "threshold": 1.0,
-          "repair_suggestion": null
+          "repair_suggestion": "Apply Sequential repairs to each failing arm independently"
         },
         {
           "name": "Diverging Test 4: Arm Ratio Preservation",
@@ -78,10 +78,141 @@
           "repair_suggestion": null
         }
       ],
-      "all_tests_passed": true
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#00e396": "#6c82bc",
+        "#78909c": "#400000",
+        "#008ffb": "#7f4e51"
+      },
+      "new_palette": [
+        "#400000",
+        "#6c82bc",
+        "#7f4e51"
+      ],
+      "verification_tests": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 21.55
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.25
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 3,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#00e396": "#e76c39",
+            "#78909c": "#000f44",
+            "#008ffb": "#666b8d"
+          },
+          "verification_passed": false,
+          "tests": [
+            {
+              "name": "Diverging Test 1: Midpoint Extremum",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 2: Endpoints Distinct",
+              "passed": true,
+              "value": 28.69
+            },
+            {
+              "name": "Diverging Test 3: Arms Sequential",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 4: Arm Ratio Preservation",
+              "passed": false,
+              "value": 0.7
+            }
+          ]
+        },
+        {
+          "iteration": 2,
+          "color_mapping": {
+            "#78909c": "#18005c",
+            "#008ffb": "#e8e8e8",
+            "#00e396": "#569262"
+          },
+          "verification_passed": false,
+          "tests": [
+            {
+              "name": "Diverging Test 1: Midpoint Extremum",
+              "passed": false,
+              "value": 0.0
+            },
+            {
+              "name": "Diverging Test 2: Endpoints Distinct",
+              "passed": true,
+              "value": 83.61
+            },
+            {
+              "name": "Diverging Test 3: Arms Sequential",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 4: Arm Ratio Preservation",
+              "passed": true,
+              "value": 0.12
+            }
+          ]
+        },
+        {
+          "iteration": 3,
+          "color_mapping": {
+            "#00e396": "#6c82bc",
+            "#78909c": "#400000",
+            "#008ffb": "#7f4e51"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Diverging Test 1: Midpoint Extremum",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 2: Endpoints Distinct",
+              "passed": true,
+              "value": 21.55
+            },
+            {
+              "name": "Diverging Test 3: Arms Sequential",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 4: Arm Ratio Preservation",
+              "passed": true,
+              "value": 0.25
+            }
+          ]
+        }
+      ]
     }
   },
   "warnings": [],
-  "recoloring_applied": false,
-  "processing_time_sec": 0.004
+  "recoloring_applied": true,
+  "processing_time_sec": 0.011
 }

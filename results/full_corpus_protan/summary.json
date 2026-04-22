@@ -29,7 +29,7 @@
     {
       "file": "2020_United_States_presidential_election_results_map_by_county.svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 14,
       "signal_passed": false,
       "recolored": true
@@ -37,7 +37,7 @@
     {
       "file": "Annual_Net_Migration_Rate_2015\u20132020.svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true
@@ -92,7 +92,7 @@
     },
     {
       "file": "BarChart10.svg",
-      "status": "recolored",
+      "status": "recolored_with_warnings",
       "palette_type": "diverging",
       "n_colors": 47,
       "signal_passed": false,
@@ -132,7 +132,7 @@
     },
     {
       "file": "BubbleChart12.svg",
-      "status": "recolored_with_warnings",
+      "status": "recolored",
       "palette_type": "diverging",
       "n_colors": 9,
       "signal_passed": false,
@@ -229,7 +229,7 @@
     {
       "file": "Countries_by_Real_GDP_Growth_Rate_(2016).svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true
@@ -573,7 +573,7 @@
     {
       "file": "World_Map_Index_of_perception_of_corruption_2009.svg",
       "status": "recolored",
-      "palette_type": "sequential",
+      "palette_type": "diverging",
       "n_colors": 11,
       "signal_passed": false,
       "recolored": true

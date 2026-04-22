@@ -268,5 +268,5 @@
     "Path B (alternative): Path B: Treat as sequential data. Evidence: 29 categories detected. Humans struggle to distinguish >8-10 discrete colors. Data may be better suited to sequential encoding. Repair will use ordered lightness gradient to convey magnitude."
   ],
   "recoloring_applied": true,
-  "processing_time_sec": 0.025
+  "processing_time_sec": 0.02
 }

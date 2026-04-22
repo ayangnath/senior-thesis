@@ -27,34 +27,34 @@ Tier 1 (already accessible): 7 | Tier 2/3 (needed correction): 13 | Successfully
 | Perceptual Uniformity        | 20  | 5      | 4     | 25.0     | 20.0    |
 | Direction Preservation       | 20  | 20     | 20    | 100.0    | 100.0   |
 | Midpoint Integrity           | 18  | 13     | 15    | 72.2     | 83.3    |
-| Bidirectional Separability   | 18  | 2      | 0     | 11.1     | 0.0     |
+| Bidirectional Separability   | 18  | 0      | 0     | 0.0      | 0.0     |
 
 ---
 
-## Sequential Palettes (N = 84 test cases)
+## Sequential Palettes (N = 76 test cases)
 
-Tier 1 (already accessible): 14 | Tier 2/3 (needed correction): 70 | Successfully corrected: 70
+Tier 1 (already accessible): 14 | Tier 2/3 (needed correction): 62 | Successfully corrected: 62
 
 | Invariant                    | N   | Before | After | % Before | % After |
 |------------------------------|-----|--------|-------|----------|---------|
-| Pairwise Distinguishability  | 84  | 14     | 18    | 16.7     | 21.4    |
-| Lightness Monotonicity       | 84  | 19     | 82    | 22.6     | 97.6    |
-| Perceptual Uniformity        | 84  | 21     | 84    | 25.0     | 100.0   |
-| Direction Preservation       | 84  | 84     | 84    | 100.0    | 100.0   |
-| Midpoint Integrity           | 80  | 64     | 69    | 80.0     | 86.2    |
-| Bidirectional Separability   | 80  | 10     | 22    | 12.5     | 27.5    |
+| Pairwise Distinguishability  | 76  | 52     | 76    | 68.4     | 100.0   |
+| Lightness Monotonicity       | 76  | 19     | 74    | 25.0     | 97.4    |
+| Perceptual Uniformity        | 76  | 21     | 76    | 27.6     | 100.0   |
+| Direction Preservation       | 76  | 76     | 76    | 100.0    | 100.0   |
+| Midpoint Integrity           | 72  | 56     | 61    | 77.8     | 84.7    |
+| Bidirectional Separability   | 72  | 8      | 13    | 11.1     | 18.1    |
 
 ---
 
-## Diverging Palettes (N = 22 test cases)
+## Diverging Palettes (N = 30 test cases)
 
-Tier 1 (already accessible): 2 | Tier 2/3 (needed correction): 20 | Successfully corrected: 20
+Tier 1 (already accessible): 1 | Tier 2/3 (needed correction): 29 | Successfully corrected: 29
 
 | Invariant                    | N   | Before | After | % Before | % After |
 |------------------------------|-----|--------|-------|----------|---------|
-| Pairwise Distinguishability  | 22  | 6      | 11    | 27.3     | 50.0    |
-| Lightness Monotonicity       | 22  | 3      | 8     | 13.6     | 36.4    |
-| Perceptual Uniformity        | 22  | 1      | 8     | 4.5      | 36.4    |
-| Direction Preservation       | 22  | 22     | 22    | 100.0    | 100.0   |
-| Midpoint Integrity           | 22  | 19     | 22    | 86.4     | 100.0   |
-| Bidirectional Separability   | 22  | 2      | 17    | 9.1      | 77.3    |
+| Pairwise Distinguishability  | 30  | 27     | 30    | 90.0     | 100.0   |
+| Lightness Monotonicity       | 30  | 6      | 24    | 20.0     | 80.0    |
+| Perceptual Uniformity        | 30  | 7      | 25    | 23.3     | 83.3    |
+| Direction Preservation       | 30  | 29     | 30    | 96.7     | 100.0   |
+| Midpoint Integrity           | 30  | 27     | 29    | 90.0     | 96.7    |
+| Bidirectional Separability   | 30  | 1      | 23    | 3.3      | 76.7    |
