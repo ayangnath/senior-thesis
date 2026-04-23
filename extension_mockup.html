@@ -513,9 +513,9 @@
     <div class="svg-selector">
       <span class="svg-selector-label">SVG</span>
       <select id="svgPicker">
-        <option value="0">1 / 3 · Stacked bar (revenue)</option>
-        <option value="1">2 / 3 · Choropleth (unemployment)</option>
-        <option value="2">3 / 3 · Calendar heatmap (activity)</option>
+        <option value="0">1 / 3 · Stacked bar (econ factors)</option>
+        <option value="1">2 / 3 · Choropleth (Gini coefficient)</option>
+        <option value="2">3 / 3 · Calendar heatmap (temperatures)</option>
       </select>
     </div>
 
@@ -538,10 +538,10 @@
         This chart uses many distinct colors, but the data looks like a range of values. Pick the version that reads better:
       </div>
       <div class="path-options">
-        <button class="path-btn active" data-path="A">
+        <button class="path-btn" data-path="A">
           <b>Distinct colors</b>Each value its own hue
         </button>
-        <button class="path-btn" data-path="B">
+        <button class="path-btn active" data-path="B">
           <b>Light-to-dark</b>Ordered gradient
         </button>
       </div>
@@ -587,16 +587,28 @@
   // and a categorical-but-mismatched case.
   const svgs = [
     {
-      name: 'Stacked bar (revenue)',
+      // Corpus file: DivergingStackedBarChart22.svg (quarterly econometric
+      // factors over time). 4 categorical data colors (red, yellow, green,
+      // blue) + 2 grey reference-line fills; popup shows n=4 for reader.
+      // Phase 6 cleanly swaps in Okabe-Ito (min ΔE 5.19 → 12.52 post-correction).
+      name: 'Stacked bar (econ factors)',
       type: 'Categorical', n: 4,
       mismatch: false,
+      // Legend-order candidate palettes (Persistence, Output gap, 3M PRIBOR,
+      // Real exchange rate gap), computed by running the pipeline's greedy
+      // nearest-match against each library palette's first 6 colors.
+      // IBM Design is skipped at runtime because it has only 5 colors and
+      // the pipeline sees 6 data fills (4 legend + 2 greys).
       candidates: [
-        { name: 'Okabe-Ito', meta: 'min ΔE 21.3', colors: ['#0072b2','#e69f00','#56b4e9','#009e73'] },
-        { name: 'IBM Design', meta: 'min ΔE 18.7', colors: ['#648fff','#dc267f','#ffb000','#fe6100'] },
-        { name: 'Wong',       meta: 'min ΔE 16.2', colors: ['#785ef0','#fe6100','#ffb000','#648fff'] },
+        { name: 'Okabe-Ito', meta: 'min ΔE 12.5 (under deutan)',
+          colors: ['#0072b2','#d55e00','#e69f00','#009e73'] },
+        { name: 'Wong',      meta: 'min ΔE 11.5 (under deutan)',
+          colors: ['#0072b2','#e69f00','#009e73','#000000'] },
       ],
-      orig: ['#e53935','#43a047','#fb8c00','#8e24aa'],
-      legend: ['Tech','Health','Finance','Education'],
+      // The 4 econ-factor fills from the legend (Persistence, Output gap,
+      // 3M PRIBOR, Real exchange rate gap).
+      orig: ['#2426a9','#d52b1e','#ffbb00','#9acd32'],
+      legend: [],
       invariants: [
         ['Pairwise distinguishability','fail → fixed','fixed'],
         ['Lightness monotonicity','n/a','pass'],
@@ -605,17 +617,24 @@
       invSummary: '1 invariant failed → fixed'
     },
     {
-      name: 'Choropleth (unemployment)',
-      type: 'Sequential', n: 12,
+      // Corpus file: World_Map_Gini_coefficient.svg (Wikimedia).
+      // Pipeline's phase1 reports n=11 but that includes the ocean tint and
+      // the "no data" grey. The map has 9 actual inequality bins, so the popup
+      // shows n=9.
+      name: 'Choropleth (Gini coefficient)',
+      type: 'Sequential', n: 9,
       mismatch: false,
       candidates: [
-        { name: 'Single-hue Blue', meta: '12 steps · ΔE step ~5.2', stops: ['#f0f7ff','#08306b'] },
-        { name: 'Single-hue Purple', meta: '12 steps · ΔE step ~4.9', stops: ['#f7f0fa','#3f007d'] },
-        { name: 'Single-hue Orange', meta: '12 steps · ΔE step ~4.7', stops: ['#fff5eb','#7f2704'] },
+        // VCR's actual phase 6 output for this SVG is a single-hue orange ramp
+        // (chroma-weighted mean hue ≈ 56°), so "Single-hue Orange" is first.
+        { name: 'Single-hue Orange', meta: '9 steps · ΔE step 8.00', stops: ['#fff7ed','#a63603'] },
+        { name: 'Single-hue Blue',   meta: '9 steps · ΔE step 8.95', stops: ['#f0f7ff','#08306b'] },
+        { name: 'Single-hue Purple', meta: '9 steps · ΔE step 8.91', stops: ['#f7f0fa','#3f007d'] },
       ],
-      orig: ['#1a9850','#ffffbf','#d73027'],
+      // Original palette is messy multi-hue RYG; represent intent as a gradient.
+      orig: ['#007500','#ffc958','#c00000'],
       legend: [],
-      ticks: ['0%','—','20%+'],
+      ticks: ['low','—','high'],
       invariants: [
         ['Lightness monotonicity','fail → fixed','fixed'],
         ['Perceptual uniformity','fail → fixed','fixed'],
@@ -625,17 +644,20 @@
       invSummary: '3 invariants failed → fixed'
     },
     {
-      name: 'Calendar heatmap (activity)',
+      // Corpus file: Calendar12.svg (Highcharts calendar heatmap, Oslo July 2023).
+      // 29 cells in yellow-cream-orange; Phase 3 flags mismatch (29 bins + numeric labels).
+      name: 'Calendar heatmap (temperatures)',
       type: 'Categorical', n: 29,
       mismatch: true,
       mismatchText: 'This chart uses 29 distinct colors, but the values look ordered. Pick the version that reads better:',
       candidates: [
-        { name: 'Single-hue Blue (sequential)', meta: '29 steps · ΔE step ~2.1', stops: ['#f0f7ff','#08306b'] },
-        { name: 'Single-hue Orange (sequential)', meta: '29 steps · ΔE step ~2.0', stops: ['#fff5eb','#7f2704'] },
+        { name: 'Single-hue Blue (sequential)', meta: '29 steps · ΔE step 2.59', stops: ['#f7fbff','#08306b'] },
+        { name: 'Single-hue Orange (sequential)', meta: '29 steps · ΔE step 2.31', stops: ['#fff5eb','#7f2704'] },
       ],
-      orig: ['#ffffcc','#fd8d3c','#800026'],
+      // Calendar12's Highcharts gradient stops: blue → green → cream → orange.
+      orig: ['#add8e6','#cbdfc8','#f3e99e','#f9a05c'],
       legend: [],
-      ticks: ['0','—','max'],
+      ticks: ['0 °C','10 °C','20 °C','30 °C'],
       invariants: [
         ['Lightness monotonicity','fail → fixed','fixed'],
         ['Perceptual uniformity','fail → fixed','fixed'],
