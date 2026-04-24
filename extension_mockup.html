@@ -11,7 +11,7 @@
 
   body {
     font-family: 'IBM Plex Sans', -apple-system, sans-serif;
-    background: #d5d5d5;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +24,7 @@
     width: 300px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 6px 28px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,0,0,0.08);
+    border: 1px solid #e0e0e0;
     overflow: hidden;
   }
 
@@ -504,7 +504,7 @@
       <div class="popup-icon"></div>
       VCR — Visualization Color Repair
     </div>
-    <div class="popup-badge" id="svgCountBadge">3 SVGs found</div>
+    <div class="popup-badge" id="svgCountBadge">4 SVGs found</div>
   </div>
 
   <div class="popup-body">
@@ -513,9 +513,10 @@
     <div class="svg-selector">
       <span class="svg-selector-label">SVG</span>
       <select id="svgPicker">
-        <option value="0">1 / 3 · Stacked bar (econ factors)</option>
-        <option value="1">2 / 3 · Choropleth (Gini coefficient)</option>
-        <option value="2">3 / 3 · Calendar heatmap (temperatures)</option>
+        <option value="0">1 / 4 · Stacked bar (econ factors)</option>
+        <option value="1">2 / 4 · Choropleth (life expectancy)</option>
+        <option value="2">3 / 4 · Choropleth (GDP growth)</option>
+        <option value="3">4 / 4 · Calendar heatmap (temperatures)</option>
       </select>
     </div>
 
@@ -617,35 +618,76 @@
       invSummary: '1 invariant failed → fixed'
     },
     {
-      // Corpus file: World_Map_Gini_coefficient.svg (Wikimedia).
-      // Pipeline's phase1 reports n=11 but that includes the ocean tint and
-      // the "no data" grey. The map has 9 actual inequality bins, so the popup
-      // shows n=9.
-      name: 'Choropleth (Gini coefficient)',
+      // Corpus file: GeoHeatmap11.svg (OurWorldInData life expectancy 2021).
+      // SVG uses the ColorBrewer YlGnBu-9 palette for the map body (9 actual
+      // bins, labeled 40y-85y in the legend with 10 threshold tick marks);
+      // plus logo navy/red and two grey chrome fills. Popup shows n=9.
+      // 21/23 legend swatches detected as ordered → positional-order path in
+      // recolorer.py takes over from PCA, so data ordering is preserved.
+      name: 'Choropleth (life expectancy)',
       type: 'Sequential', n: 9,
       mismatch: false,
       candidates: [
-        // VCR's actual phase 6 output for this SVG is a single-hue orange ramp
-        // (chroma-weighted mean hue ≈ 56°), so "Single-hue Orange" is first.
-        { name: 'Single-hue Orange', meta: '9 steps · ΔE step 8.00', stops: ['#fff7ed','#a63603'] },
-        { name: 'Single-hue Blue',   meta: '9 steps · ΔE step 8.95', stops: ['#f0f7ff','#08306b'] },
-        { name: 'Single-hue Purple', meta: '9 steps · ΔE step 8.91', stops: ['#f7f0fa','#3f007d'] },
+        // Phase 6 defaults to "blue" because neither orange (avg_b>20 AND
+        // avg_a>0) nor purple (avg_a<-10) triggers for YlGnBu-9 — the
+        // palette's greens/yellows balance its blues/navy, so avg_a ≈ 0.
+        // Adjacent ΔE under deutan ranges 6.13-9.84 post-correction.
+        { name: 'Single-hue Blue',   meta: '9 steps · ΔE step 6.89', stops: ['#f7fbff','#08306b'] },
+        { name: 'Single-hue Green',  meta: '9 steps · ΔE step 7.15', stops: ['#f7fcf5','#00441b'] },
+        { name: 'Single-hue Purple', meta: '9 steps · ΔE step 7.02', stops: ['#fcfbfd','#3f007d'] },
       ],
-      // Original palette is messy multi-hue RYG; represent intent as a gradient.
-      orig: ['#007500','#ffc958','#c00000'],
+      // Original YlGnBu-9 ramp: cream at low-value end, teal mid, navy at
+      // high end. The cream→teal→blue mid-section muddles into a gray band
+      // under deutan (green and teal both desaturate).
+      orig: ['#ffffd9','#41b6c4','#081d58'],
       legend: [],
-      ticks: ['low','—','high'],
+      ticks: ['40 y','65 y','85 y'],
       invariants: [
-        ['Lightness monotonicity','fail → fixed','fixed'],
+        ['Lightness monotonicity','pass','pass'],
         ['Perceptual uniformity','fail → fixed','fixed'],
-        ['Direction preservation','fail → fixed','fixed'],
-        ['Pairwise distinguishability','pass','pass'],
+        ['Min step size','fail → fixed','fixed'],
+        ['Adjacent ΔE under CVD','fail → fixed','fixed'],
       ],
       invSummary: '3 invariants failed → fixed'
     },
     {
+      // Corpus file: Countries_by_Real_GDP_Growth_Rate_(2016).svg — a world
+      // map diverging choropleth with greens for positive growth and reds
+      // for recession. Classic red-green failure under deutan: negative and
+      // mid-positive bins collapse into one muddy band.
+      // The pipeline preserves the green arm (slightly desaturated) and
+      // swaps the red arm for purple — keeping the diverging structure but
+      // giving it a hue-pair that remains distinguishable under CVD.
+      name: 'Choropleth (GDP growth)',
+      type: 'Diverging', n: 10,
+      mismatch: false,
+      candidates: [
+        // Stops sampled from the recolored file: deep purple → pale purple
+        // → desaturated mid → muted green → deep green.
+        { name: 'Green / Purple (diverging)', meta: '10 steps · min ΔE 8.4 (under deutan)',
+          stops: ['#7034ac','#af8dcb','#ccbada','#b9c3ba','#617c65','#375b3e'] },
+        { name: 'Green / Brown (diverging)',  meta: '10 steps · min ΔE 7.1 (under deutan)',
+          stops: ['#543005','#bf812d','#f6e8c3','#c7eae5','#35978f','#003c30'] },
+        { name: 'Green / Blue (diverging)',   meta: '10 steps · min ΔE 9.2 (under deutan)',
+          stops: ['#053061','#4393c3','#d1e5f0','#d9f0d3','#5aae61','#1b7837'] },
+      ],
+      // Deepest negative red → pink → light green → deep green. Sampled
+      // from the legend tick values (roughly -10% / -2% / 0% / +5% / +10%).
+      orig: ['#cc0000','#ff9999','#ffcccc','#66ff66','#009900','#003300'],
+      legend: [],
+      ticks: ['−10 %','0 %','+10 %'],
+      invariants: [
+        ['Midpoint integrity','pass','pass'],
+        ['Hue separation across midpoint','fail → fixed','fixed'],
+        ['Pairwise distinguishability','fail → fixed','fixed'],
+        ['Lightness monotonicity per arm','pass','pass'],
+      ],
+      invSummary: '2 invariants failed → fixed'
+    },
+    {
       // Corpus file: Calendar12.svg (Highcharts calendar heatmap, Oslo July 2023).
-      // 29 cells in yellow-cream-orange; Phase 3 flags mismatch (29 bins + numeric labels).
+      // 29 cells in cream-green → cream-yellow → orange; Phase 3 flags
+      // mismatch (29 bins + numeric labels).
       name: 'Calendar heatmap (temperatures)',
       type: 'Categorical', n: 29,
       mismatch: true,
@@ -654,10 +696,11 @@
         { name: 'Single-hue Blue (sequential)', meta: '29 steps · ΔE step 2.59', stops: ['#f7fbff','#08306b'] },
         { name: 'Single-hue Orange (sequential)', meta: '29 steps · ΔE step 2.31', stops: ['#fff5eb','#7f2704'] },
       ],
-      // Calendar12's Highcharts gradient stops: blue → green → cream → orange.
-      orig: ['#add8e6','#cbdfc8','#f3e99e','#f9a05c'],
+      // Legend swatch hexes lifted directly from the SVG: cream-green →
+      // cream-yellow → orange. (No blue end; the original ramp is warm-only.)
+      orig: ['#cbdfc8','#f3e99e','#f9a05c'],
       legend: [],
-      ticks: ['0 °C','10 °C','20 °C','30 °C'],
+      ticks: ['10 °C','20 °C','30 °C'],
       invariants: [
         ['Lightness monotonicity','fail → fixed','fixed'],
         ['Perceptual uniformity','fail → fixed','fixed'],
