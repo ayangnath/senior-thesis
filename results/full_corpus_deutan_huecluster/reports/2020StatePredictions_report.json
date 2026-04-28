@@ -1,0 +1,184 @@
+{
+  "file": "2020StatePredictions.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 8,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 2,
+      "n_data_colors": 8,
+      "original_palette": [
+        "#698dc5",
+        "#82a0cf",
+        "#a3b8d9",
+        "#c0c0c0",
+        "#f0bdb4",
+        "#f09e90",
+        "#f07763",
+        "#a9a9a9"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "diverging",
+      "confidence": 0.9,
+      "details": {
+        "n_colors": 8,
+        "lightness_range": 22.744771091568907,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 119.58259168376446,
+        "has_hue_clusters": true,
+        "n_achromatic": 3,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 3,
+          "cluster1_mean_hue": 35.0,
+          "cluster2_mean_hue": 272.5,
+          "hue_separation": 122.5,
+          "max_gap": 234.1
+        },
+        "avg_chroma": 23.820360818461253,
+        "rule": "0: bimodal_diverging (balanced + large_hue_gap)"
+      }
+    },
+    "phase3": {
+      "n_categories": 8,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "hue_cluster",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "diverging",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 22.24,
+          "threshold": 10.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Apply Sequential repairs to each failing arm independently"
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.01,
+          "threshold": 0.3,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#698dc5": "#173774",
+        "#82a0cf": "#858aad",
+        "#a3b8d9": "#e8e8e8",
+        "#f07763": "#9c2d00",
+        "#a9a9a9": "#b2542d",
+        "#f09e90": "#c57959",
+        "#c0c0c0": "#d59d87",
+        "#f0bdb4": "#e1c2b6"
+      },
+      "new_palette": [
+        "#173774",
+        "#858aad",
+        "#e8e8e8",
+        "#d59d87",
+        "#e1c2b6",
+        "#c57959",
+        "#9c2d00",
+        "#b2542d"
+      ],
+      "verification_tests": [
+        {
+          "name": "Diverging Test 1: Midpoint Extremum",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 2: Endpoints Distinct",
+          "passed": true,
+          "value": 53.48
+        },
+        {
+          "name": "Diverging Test 3: Arms Sequential",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Diverging Test 4: Arm Ratio Preservation",
+          "passed": true,
+          "value": 0.13
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#698dc5": "#173774",
+            "#82a0cf": "#858aad",
+            "#a3b8d9": "#e8e8e8",
+            "#f07763": "#9c2d00",
+            "#a9a9a9": "#b2542d",
+            "#f09e90": "#c57959",
+            "#c0c0c0": "#d59d87",
+            "#f0bdb4": "#e1c2b6"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Diverging Test 1: Midpoint Extremum",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 2: Endpoints Distinct",
+              "passed": true,
+              "value": 53.48
+            },
+            {
+              "name": "Diverging Test 3: Arms Sequential",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Diverging Test 4: Arm Ratio Preservation",
+              "passed": true,
+              "value": 0.13
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.127
+}

@@ -1,0 +1,189 @@
+{
+  "file": "_bespoke10.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 204,
+      "n_legend_elements": 56,
+      "n_nondata_elements": 12,
+      "n_data_colors": 4,
+      "original_palette": [
+        "#4a83f0",
+        "#dc4747",
+        "#f0be32",
+        "#5ac85a"
+      ],
+      "legend_luminance_monotonic": false,
+      "n_legend_swatches_ordered": 5
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 4,
+        "lightness_range": 27.33562326421078,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 87.1783753883995,
+        "has_hue_clusters": true,
+        "n_achromatic": 0,
+        "cluster_info": {
+          "cluster1_size": 2,
+          "cluster2_size": 2,
+          "cluster1_mean_hue": 112.8,
+          "cluster2_mean_hue": 337.6,
+          "hue_separation": 135.1,
+          "max_gap": 145.6
+        },
+        "avg_chroma": 67.76853440228682,
+        "rule": "5.5: multi_hue_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 4,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": true
+    },
+    "phase4": {
+      "needs_user_choice": true,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": "Sequential palette but labels are strings. Data may be categorical."
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.59,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 2.64,
+          "threshold": 3.0,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": true,
+          "value": 11.19,
+          "threshold": 5.0,
+          "repair_suggestion": null
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#dc4747": "#a63603",
+        "#4a83f0": "#f57523",
+        "#f0be32": "#fec590",
+        "#5ac85a": "#fff5eb"
+      },
+      "new_palette": [
+        "#f57523",
+        "#a63603",
+        "#fec590",
+        "#fff5eb"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.28
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 12.09
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#dc4747": "#a63603",
+            "#4a83f0": "#f57523",
+            "#f0be32": "#fec590",
+            "#5ac85a": "#fff5eb"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.28
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 12.09
+            }
+          ]
+        }
+      ],
+      "legend_position_shifts": [
+        {
+          "color_before": "#4a83f0",
+          "color_after": "#f57523",
+          "legend_pos_before": 2,
+          "legend_pos_after": 1
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead.",
+    "PALETTE-DATA MISMATCH: Sequential palette but labels are strings. Data may be categorical.",
+    "Path A (default): Path A: Respect designer's sequential palette. Repair will ensure monotonic lightness gradient with uniform steps, treating data as ordered/continuous.",
+    "Path B (alternative): Path B: Treat as categorical data. Evidence: Sequential palette but labels are strings. Data may be categorical. Repair will use discrete color palette for 4 categories.",
+    "1 data color(s) now map to a different legend position after recoloring."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.019
+}

@@ -1,0 +1,137 @@
+{
+  "file": "Percent_of_population_living_on_less_than_$1.25_per_day.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 2267,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 6,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#ffff00",
+        "#ff0000",
+        "#0000ff",
+        "#7f7f7f",
+        "#ff7f00",
+        "#7f0000",
+        "#00ffff",
+        "#00ff00",
+        "#ff7f2a"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 71.8378632603173,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 73.84096378120034,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 5,
+          "cluster1_mean_hue": 143.9,
+          "cluster2_mean_hue": 33.7,
+          "hue_separation": 110.1,
+          "max_gap": 109.9
+        },
+        "avg_chroma": 81.0607369704077,
+        "rule": "0_override: high_chroma_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": false,
+          "value": 1.33,
+          "threshold": 8.0,
+          "repair_suggestion": "Max Delta E + supplementary encoding (texture, labels) - Flag: hard to distinguish"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#ffff00": "#ffc400",
+        "#ff0000": "#ff0000",
+        "#0000ff": "#0000ff",
+        "#7f7f7f": "#7f7f7f",
+        "#ff7f00": "#fe7f00",
+        "#7f0000": "#7f0000",
+        "#00ffff": "#00ffff",
+        "#00ff00": "#00ff28",
+        "#ff7f2a": "#fe7f55"
+      },
+      "new_palette": [
+        "#ffc400",
+        "#ff0000",
+        "#0000ff",
+        "#7f7f7f",
+        "#fe7f00",
+        "#7f0000",
+        "#00ffff",
+        "#00ff28",
+        "#fe7f55"
+      ],
+      "verification_tests": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 8.26
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#ffff00": "#ffc400",
+            "#ff0000": "#ff0000",
+            "#0000ff": "#0000ff",
+            "#7f7f7f": "#7f7f7f",
+            "#ff7f00": "#fe7f00",
+            "#7f0000": "#7f0000",
+            "#00ffff": "#00ffff",
+            "#00ff00": "#00ff28",
+            "#ff7f2a": "#fe7f55"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Categorical Pairwise \u0394E",
+              "passed": true,
+              "value": 8.26
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.124
+}

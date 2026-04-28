@@ -1,0 +1,279 @@
+{
+  "file": "Prevailing_religious_population_by_country_percentage.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 2316,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 3,
+      "n_data_colors": 29,
+      "original_palette": [
+        "#e0e0e0",
+        "#065106",
+        "#3a9cff",
+        "#0057b0",
+        "#014489",
+        "#009a00",
+        "#027ffe",
+        "#0068d2",
+        "#006d00",
+        "#6bf46b",
+        "#ff69cd",
+        "#008100",
+        "#8e44ff",
+        "#82772a",
+        "#c9b215",
+        "#7bbdff",
+        "#59378e",
+        "#00c100",
+        "#da6d00",
+        "#ff3bbe",
+        "#a374ea",
+        "#ebcf16",
+        "#cf0600",
+        "#ffe74c",
+        "#ffed79",
+        "#ad9b22",
+        "#6c3cb6",
+        "#ffbf7e",
+        "#084686"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 29,
+        "lightness_range": 63.85571782265138,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 125.11157490288346,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 15,
+          "cluster2_size": 13,
+          "cluster1_mean_hue": 105.2,
+          "cluster2_mean_hue": 298.1,
+          "hue_separation": 167.1,
+          "max_gap": 126.0
+        },
+        "avg_chroma": 64.90532970193551,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 29,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": true
+    },
+    "phase4": {
+      "needs_user_choice": true,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": "Sequential palette but labels are strings. Data may be categorical."
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.81,
+          "threshold": 0.54,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.08,
+          "threshold": 1.1785714285714284,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": false,
+          "value": 0.42,
+          "threshold": 1.1785714285714284,
+          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#014489": "#08306b",
+        "#084686": "#093877",
+        "#59378e": "#094083",
+        "#6c3cb6": "#09498f",
+        "#0057b0": "#08519c",
+        "#0068d2": "#1159a2",
+        "#8e44ff": "#1761a8",
+        "#027ffe": "#1c69af",
+        "#a374ea": "#2171b5",
+        "#ff3bbe": "#2b79b9",
+        "#3a9cff": "#3381be",
+        "#ff69cd": "#3b8ac2",
+        "#7bbdff": "#4292c6",
+        "#065106": "#4d99ca",
+        "#006d00": "#58a0ce",
+        "#cf0600": "#62a7d2",
+        "#008100": "#6baed6",
+        "#82772a": "#79b5d9",
+        "#009a00": "#86bcdc",
+        "#da6d00": "#92c3de",
+        "#ad9b22": "#9ecae1",
+        "#00c100": "#a8cee4",
+        "#c9b215": "#b2d2e8",
+        "#ffbf7e": "#bcd7eb",
+        "#ebcf16": "#c6dbef",
+        "#6bf46b": "#d2e3f3",
+        "#e0e0e0": "#dfebf7",
+        "#ffe74c": "#ebf3fb",
+        "#ffed79": "#f7fbff"
+      },
+      "new_palette": [
+        "#dfebf7",
+        "#4d99ca",
+        "#3381be",
+        "#08519c",
+        "#08306b",
+        "#86bcdc",
+        "#1c69af",
+        "#1159a2",
+        "#58a0ce",
+        "#d2e3f3",
+        "#3b8ac2",
+        "#6baed6",
+        "#1761a8",
+        "#79b5d9",
+        "#b2d2e8",
+        "#4292c6",
+        "#094083",
+        "#a8cee4",
+        "#92c3de",
+        "#2b79b9",
+        "#2171b5",
+        "#c6dbef",
+        "#62a7d2",
+        "#ebf3fb",
+        "#f7fbff",
+        "#9ecae1",
+        "#09498f",
+        "#bcd7eb",
+        "#093877"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.14
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 1.83
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#014489": "#08306b",
+            "#084686": "#093877",
+            "#59378e": "#094083",
+            "#6c3cb6": "#09498f",
+            "#0057b0": "#08519c",
+            "#0068d2": "#1159a2",
+            "#8e44ff": "#1761a8",
+            "#027ffe": "#1c69af",
+            "#a374ea": "#2171b5",
+            "#ff3bbe": "#2b79b9",
+            "#3a9cff": "#3381be",
+            "#ff69cd": "#3b8ac2",
+            "#7bbdff": "#4292c6",
+            "#065106": "#4d99ca",
+            "#006d00": "#58a0ce",
+            "#cf0600": "#62a7d2",
+            "#008100": "#6baed6",
+            "#82772a": "#79b5d9",
+            "#009a00": "#86bcdc",
+            "#da6d00": "#92c3de",
+            "#ad9b22": "#9ecae1",
+            "#00c100": "#a8cee4",
+            "#c9b215": "#b2d2e8",
+            "#ffbf7e": "#bcd7eb",
+            "#ebcf16": "#c6dbef",
+            "#6bf46b": "#d2e3f3",
+            "#e0e0e0": "#dfebf7",
+            "#ffe74c": "#ebf3fb",
+            "#ffed79": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.14
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 1.83
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "PALETTE-DATA MISMATCH: Sequential palette but labels are strings. Data may be categorical.",
+    "Path A (default): Path A: Respect designer's sequential palette. Repair will ensure monotonic lightness gradient with uniform steps, treating data as ordered/continuous.",
+    "Path B (alternative): Path B: Treat as sequential data. Evidence: Sequential palette but labels are strings. Data may be categorical. Repair will use ordered lightness gradient to convey magnitude."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.09
+}

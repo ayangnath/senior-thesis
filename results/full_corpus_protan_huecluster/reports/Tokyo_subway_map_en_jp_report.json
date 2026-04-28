@@ -1,0 +1,215 @@
+{
+  "file": "Tokyo_subway_map_en_jp.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 22,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 122,
+      "n_data_colors": 13,
+      "original_palette": [
+        "#ffa500",
+        "#cccc66",
+        "#808080",
+        "#ff0000",
+        "#34cc34",
+        "#7fc342",
+        "#b51e82",
+        "#0080ff",
+        "#9400d3",
+        "#faf1b1",
+        "#f2f2f2",
+        "#dadada",
+        "#8d8d8d"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 13,
+        "lightness_range": 55.91380153670249,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 77.33292560209779,
+        "has_hue_clusters": true,
+        "n_achromatic": 4,
+        "cluster_info": {
+          "cluster1_size": 6,
+          "cluster2_size": 3,
+          "cluster1_mean_hue": 98.5,
+          "cluster2_mean_hue": 315.6,
+          "hue_separation": 143.0,
+          "max_gap": 147.2
+        },
+        "avg_chroma": 52.046458232363825,
+        "rule": "0_override: large_L_range_sequential"
+      }
+    },
+    "phase3": {
+      "n_categories": 13,
+      "has_numeric_labels": false,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": false,
+      "midpoint_type": null,
+      "possible_mismatch": true
+    },
+    "phase4": {
+      "needs_user_choice": true,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": "Sequential palette but labels are strings. Data may be categorical."
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.66,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.37,
+          "threshold": 2.7499999999999996,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        },
+        {
+          "name": "Sequential Cross-Check: Adjacent \u0394E",
+          "passed": false,
+          "value": 2.38,
+          "threshold": 5.0,
+          "repair_suggestion": "Multi-hue ramp has plateau under CVD. Remap to single-hue CVD-safe ramp (viridis, cividis) or increase L* separation."
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#9400d3": "#08306b",
+        "#b51e82": "#094387",
+        "#0080ff": "#0e56a0",
+        "#ff0000": "#1c69af",
+        "#808080": "#2e7cbb",
+        "#8d8d8d": "#408fc5",
+        "#7fc342": "#58a0ce",
+        "#34cc34": "#70b0d7",
+        "#ffa500": "#8ec1dd",
+        "#cccc66": "#a8cee4",
+        "#dadada": "#bfd8ed",
+        "#faf1b1": "#dbe8f6",
+        "#f2f2f2": "#f7fbff"
+      },
+      "new_palette": [
+        "#8ec1dd",
+        "#a8cee4",
+        "#2e7cbb",
+        "#1c69af",
+        "#70b0d7",
+        "#58a0ce",
+        "#094387",
+        "#0e56a0",
+        "#08306b",
+        "#dbe8f6",
+        "#f7fbff",
+        "#bfd8ed",
+        "#408fc5"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.18
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 4.2
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#9400d3": "#08306b",
+            "#b51e82": "#094387",
+            "#0080ff": "#0e56a0",
+            "#ff0000": "#1c69af",
+            "#808080": "#2e7cbb",
+            "#8d8d8d": "#408fc5",
+            "#7fc342": "#58a0ce",
+            "#34cc34": "#70b0d7",
+            "#ffa500": "#8ec1dd",
+            "#cccc66": "#a8cee4",
+            "#dadada": "#bfd8ed",
+            "#faf1b1": "#dbe8f6",
+            "#f2f2f2": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.18
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 4.2
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "PALETTE-DATA MISMATCH: Sequential palette but labels are strings. Data may be categorical.",
+    "Path A (default): Path A: Respect designer's sequential palette. Repair will ensure monotonic lightness gradient with uniform steps, treating data as ordered/continuous.",
+    "Path B (alternative): Path B: Treat as sequential data. Evidence: Sequential palette but labels are strings. Data may be categorical. Repair will use ordered lightness gradient to convey magnitude."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.013
+}

@@ -1,0 +1,148 @@
+{
+  "file": "StackedBarChart15.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 231,
+      "n_legend_elements": 12,
+      "n_nondata_elements": 47,
+      "n_data_colors": 9,
+      "original_palette": [
+        "#cccccc",
+        "#002147",
+        "#ce261e",
+        "#6d3e91",
+        "#c05917",
+        "#58ac8c",
+        "#286bbb",
+        "#883039",
+        "#bc8e5a"
+      ],
+      "legend_luminance_monotonic": false,
+      "n_legend_swatches_ordered": 12
+    },
+    "phase2": {
+      "palette_type": "categorical",
+      "confidence": 0.85,
+      "details": {
+        "n_colors": 9,
+        "lightness_range": 69.17058004629305,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 100.90964010770168,
+        "has_hue_clusters": true,
+        "n_achromatic": 1,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 5,
+          "cluster1_mean_hue": 92.2,
+          "cluster2_mean_hue": 328.3,
+          "hue_separation": 123.9,
+          "max_gap": 113.8
+        },
+        "avg_chroma": 42.739822075467,
+        "rule": "0_override: high_chroma_categorical"
+      }
+    },
+    "phase3": {
+      "n_categories": 9,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "categorical",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": false,
+          "value": 3.22,
+          "threshold": 8.0,
+          "repair_suggestion": "Max Delta E + supplementary encoding (texture, labels) - Flag: hard to distinguish"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#cccccc": "#cccccc",
+        "#002147": "#002147",
+        "#ce261e": "#ee0029",
+        "#6d3e91": "#6f3b8f",
+        "#c05917": "#74b100",
+        "#58ac8c": "#58ac8c",
+        "#286bbb": "#1e6dbd",
+        "#883039": "#883039",
+        "#bc8e5a": "#bc8e5a"
+      },
+      "new_palette": [
+        "#cccccc",
+        "#002147",
+        "#ee0029",
+        "#6f3b8f",
+        "#74b100",
+        "#58ac8c",
+        "#1e6dbd",
+        "#883039",
+        "#bc8e5a"
+      ],
+      "verification_tests": [
+        {
+          "name": "Categorical Pairwise \u0394E",
+          "passed": true,
+          "value": 8.22
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#cccccc": "#cccccc",
+            "#002147": "#002147",
+            "#ce261e": "#ee0029",
+            "#6d3e91": "#6f3b8f",
+            "#c05917": "#74b100",
+            "#58ac8c": "#58ac8c",
+            "#286bbb": "#1e6dbd",
+            "#883039": "#883039",
+            "#bc8e5a": "#bc8e5a"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Categorical Pairwise \u0394E",
+              "passed": true,
+              "value": 8.22
+            }
+          ]
+        }
+      ],
+      "legend_position_shifts": [
+        {
+          "color_before": "#ce261e",
+          "color_after": "#ee0029",
+          "legend_pos_before": 9,
+          "legend_pos_after": 3
+        }
+      ]
+    }
+  },
+  "warnings": [
+    "Non-monotonic luminance detected in legend swatches. L*-rank remapping may re-order values; using legend-based positional mapping instead.",
+    "1 data color(s) now map to a different legend position after recoloring."
+  ],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.071
+}

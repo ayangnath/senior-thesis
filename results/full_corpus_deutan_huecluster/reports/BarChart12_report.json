@@ -1,0 +1,305 @@
+{
+  "file": "BarChart12.svg",
+  "cvd_type": "deutan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 72,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 45,
+      "n_data_colors": 25,
+      "original_palette": [
+        "#cccccc",
+        "#ff9577",
+        "#ffa083",
+        "#ff987a",
+        "#ff8767",
+        "#ff8463",
+        "#ff6b4a",
+        "#ffa98e",
+        "#ff8a6b",
+        "#ff8261",
+        "#ff7958",
+        "#ff7f5e",
+        "#ff7150",
+        "#ff4f2f",
+        "#ff6e4d",
+        "#ffd6c7",
+        "#ffcab9",
+        "#ffded2",
+        "#ff7352",
+        "#ff6443",
+        "#ffb9a3",
+        "#ffb299",
+        "#ff7554",
+        "#ff8d6e",
+        "#ff704f"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 25,
+        "lightness_range": 31.818338900307822,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": false,
+        "v_midpoint_index": -1,
+        "hue_diversity_deg": 19.710933390529235,
+        "has_hue_clusters": true,
+        "n_achromatic": 3,
+        "cluster_info": {
+          "cluster1_size": 3,
+          "cluster2_size": 20,
+          "cluster1_mean_hue": 44.7,
+          "cluster2_mean_hue": 41.3,
+          "hue_separation": 3.4,
+          "max_gap": 353.7
+        },
+        "avg_chroma": 51.365868188877755,
+        "rule": "2b: single_hue_sequential_unordered"
+      }
+    },
+    "phase3": {
+      "n_categories": 25,
+      "has_numeric_labels": true,
+      "has_string_labels": true,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.88,
+          "threshold": 0.5,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.11,
+          "threshold": 1.3749999999999998,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#ff4f2f": "#3f007d",
+        "#ff6443": "#450e82",
+        "#ff6b4a": "#4b1987",
+        "#ff6e4d": "#51238d",
+        "#ff704f": "#582e92",
+        "#ff7150": "#5e3b98",
+        "#ff7352": "#65479e",
+        "#ff7554": "#6b53a4",
+        "#ff7958": "#7260ab",
+        "#ff7f5e": "#786cb1",
+        "#ff8261": "#7e79b8",
+        "#ff8463": "#8683bd",
+        "#ff8767": "#8f8bc1",
+        "#ff8a6b": "#9894c5",
+        "#ff8d6e": "#a09dca",
+        "#ff9577": "#a9a7cf",
+        "#ff987a": "#b2b1d5",
+        "#ffa083": "#bbbcdb",
+        "#ffa98e": "#c3c4e0",
+        "#ffb299": "#cccde4",
+        "#ffb9a3": "#d5d5e9",
+        "#ffcab9": "#dedeed",
+        "#ffd6c7": "#e8e8f2",
+        "#ffded2": "#f2f1f8",
+        "#cccccc": "#fcfbfd"
+      },
+      "new_palette": [
+        "#fcfbfd",
+        "#a9a7cf",
+        "#bbbcdb",
+        "#b2b1d5",
+        "#8f8bc1",
+        "#8683bd",
+        "#4b1987",
+        "#c3c4e0",
+        "#9894c5",
+        "#7e79b8",
+        "#7260ab",
+        "#786cb1",
+        "#5e3b98",
+        "#3f007d",
+        "#51238d",
+        "#e8e8f2",
+        "#dedeed",
+        "#f2f1f8",
+        "#65479e",
+        "#450e82",
+        "#d5d5e9",
+        "#cccde4",
+        "#6b53a4",
+        "#a09dca",
+        "#582e92"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.16
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 2.19
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 2,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#ff4f2f": "#a63603",
+            "#ff6443": "#b53b03",
+            "#ff6b4a": "#c34002",
+            "#ff6e4d": "#d24601",
+            "#ff704f": "#dd4e03",
+            "#ff7150": "#e45809",
+            "#ff7352": "#eb610e",
+            "#ff7554": "#f26b15",
+            "#ff7958": "#f57523",
+            "#ff7f5e": "#f9802e",
+            "#ff8261": "#fc8a39",
+            "#ff8463": "#fd9446",
+            "#ff8767": "#fe9e54",
+            "#ff8a6b": "#fda761",
+            "#ff8d6e": "#fdb170",
+            "#ff9577": "#febb80",
+            "#ff987a": "#fec590",
+            "#ffa083": "#fbcd9e",
+            "#ffa98e": "#fad2aa",
+            "#ffb299": "#fbdab8",
+            "#ffb9a3": "#fbdfc4",
+            "#ffcab9": "#fee8d2",
+            "#ffd6c7": "#ffecda",
+            "#ffded2": "#fff4e4",
+            "#cccccc": "#fff8ee"
+          },
+          "verification_passed": false,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.32
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": false,
+              "value": 1.14
+            }
+          ]
+        },
+        {
+          "iteration": 2,
+          "color_mapping": {
+            "#ff4f2f": "#3f007d",
+            "#ff6443": "#450e82",
+            "#ff6b4a": "#4b1987",
+            "#ff6e4d": "#51238d",
+            "#ff704f": "#582e92",
+            "#ff7150": "#5e3b98",
+            "#ff7352": "#65479e",
+            "#ff7554": "#6b53a4",
+            "#ff7958": "#7260ab",
+            "#ff7f5e": "#786cb1",
+            "#ff8261": "#7e79b8",
+            "#ff8463": "#8683bd",
+            "#ff8767": "#8f8bc1",
+            "#ff8a6b": "#9894c5",
+            "#ff8d6e": "#a09dca",
+            "#ff9577": "#a9a7cf",
+            "#ff987a": "#b2b1d5",
+            "#ffa083": "#bbbcdb",
+            "#ffa98e": "#c3c4e0",
+            "#ffb299": "#cccde4",
+            "#ffb9a3": "#d5d5e9",
+            "#ffcab9": "#dedeed",
+            "#ffd6c7": "#e8e8f2",
+            "#ffded2": "#f2f1f8",
+            "#cccccc": "#fcfbfd"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.16
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 2.19
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.049
+}

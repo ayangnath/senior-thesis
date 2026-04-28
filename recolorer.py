@@ -187,6 +187,127 @@ def recolor_categorical(colors, cvd_type="deutan", attempt=0):
     return color_map
 
 
+# Group colors into hue neighborhoods on the hue circle.  Returns a list
+# of cluster ids (one per input color) or None when the palette has no
+# meaningful hue split - meaning a smooth single-hue ramp, a ramp with a
+# continuous hue gradient (e.g. viridis-like), or a mostly-achromatic
+# palette.  Callers should fall back to PCA sorting in the None case.
+#
+# This is used for the "multi-hue sequential without a legend" edge case:
+# when a palette has distinct hue neighborhoods but no legend to anchor
+# ordering, we cluster by hue and sort by L* within each cluster so that
+# the within-cluster luminance ordering is preserved through recoloring.
+def _detect_hue_neighborhoods(labs, hue_gap_threshold=45.0, min_chroma=8.0):
+    n = len(labs)
+    if n < 3:
+        return None
+
+    hues = []
+    chromas = []
+    for lab in labs:
+        a, b = lab[1], lab[2]
+        chromas.append(np.sqrt(a * a + b * b))
+        hues.append(np.degrees(np.arctan2(b, a)) % 360)
+
+    # If most colors are achromatic, hue clustering is meaningless.
+    chromatic_count = sum(1 for c in chromas if c >= min_chroma)
+    if chromatic_count < max(3, n // 2):
+        return None
+
+    sorted_idx = sorted(range(n), key=lambda i: hues[i])
+
+    # Walk sorted hues; start a new cluster on each gap > threshold.
+    clusters = []
+    current = [sorted_idx[0]]
+    for k in range(1, n):
+        gap = (hues[sorted_idx[k]] - hues[sorted_idx[k - 1]]) % 360
+        if gap > hue_gap_threshold:
+            clusters.append(current)
+            current = [sorted_idx[k]]
+        else:
+            current.append(sorted_idx[k])
+    clusters.append(current)
+
+    # Handle wrap-around: if first and last clusters are close on the
+    # hue circle, they belong together.
+    if len(clusters) >= 2:
+        wrap_gap = (hues[sorted_idx[0]] - hues[sorted_idx[-1]]) % 360
+        if wrap_gap <= hue_gap_threshold:
+            clusters[0] = clusters[-1] + clusters[0]
+            clusters.pop()
+
+    if len(clusters) < 2:
+        return None
+
+    cluster_of = [0] * n
+    for cid, indices in enumerate(clusters):
+        for idx in indices:
+            cluster_of[idx] = cid
+    return cluster_of
+
+
+# Produce sort indices by hue-neighborhood ordering: darkest-mean cluster
+# first, then L*-ascending within each cluster.  Returns (indices, cluster_of)
+# or None when there are no meaningful hue neighborhoods.
+def _hue_cluster_sort_indices(labs):
+    cluster_of = _detect_hue_neighborhoods(labs)
+    if cluster_of is None:
+        return None
+
+    n = len(labs)
+    # Group indices by cluster
+    by_cluster = {}
+    for i, cid in enumerate(cluster_of):
+        by_cluster.setdefault(cid, []).append(i)
+
+    # Order clusters by mean L* ascending so the darkest neighborhood
+    # maps to the darkest end of the new ramp.
+    cluster_ids_sorted = sorted(
+        by_cluster.keys(),
+        key=lambda cid: np.mean([labs[i][0] for i in by_cluster[cid]])
+    )
+
+    sorted_indices = []
+    for cid in cluster_ids_sorted:
+        sorted_indices.extend(sorted(by_cluster[cid], key=lambda i: labs[i][0]))
+
+    if len(sorted_indices) != n:
+        return None
+    return sorted_indices, cluster_of
+
+
+# Verify that within each hue cluster, the L* ordering of new colors
+# matches the L* ordering of the original colors - i.e. that the
+# recoloring did not swap the luminance rank of marks inside a hue
+# neighborhood.  Returns True when preserved, False when violated.
+def _cluster_L_order_preserved(orig_labs, new_colors_sorted, sorted_indices,
+                               cluster_of, tol=0.5):
+    if cluster_of is None:
+        return True
+
+    new_labs = [srgb_to_lab(c) for c in new_colors_sorted]
+    # Map original idx -> new L* via the rank assignment.
+    orig_to_new_L = [0.0] * len(orig_labs)
+    for rank, orig_idx in enumerate(sorted_indices):
+        orig_to_new_L[orig_idx] = new_labs[rank][0]
+
+    by_cluster = {}
+    for i, cid in enumerate(cluster_of):
+        by_cluster.setdefault(cid, []).append(i)
+
+    for indices in by_cluster.values():
+        if len(indices) < 2:
+            continue
+        ordered = sorted(indices, key=lambda i: orig_labs[i][0])
+        prev = orig_to_new_L[ordered[0]]
+        for i in ordered[1:]:
+            cur = orig_to_new_L[i]
+            if cur < prev - tol:
+                return False
+            prev = cur
+    return True
+
+
 # Interpolate a Lab ramp to n evenly-spaced steps.
 # Sort colors by projection onto the first principal component in Lab space.
 # For single-hue ramps this reduces to L*-ordering.  For multi-hue ramps
@@ -324,25 +445,29 @@ def recolor_sequential(colors, cvd_type="deutan", attempt=0, positional_order=No
     labs = [srgb_to_lab(c) for c in colors]
     L_values = [lab[0] for lab in labs]
 
+    # Choose an ordering strategy.  Three paths, in priority order:
+    #   1. positional_order (from a non-monotonic legend) - highest signal.
+    #   2. hue-neighborhood sort (multi-hue palette, no legend) - preserves
+    #      within-cluster L* ordering.
+    #   3. PCA on Lab - single-hue ramps or continuous multi-hue gradients.
+    # Path 2 is a new path for the "no legend + multi-hue" edge case; it
+    # falls through to path 3 when there are no distinct hue clusters or
+    # when the within-cluster L* invariant would be violated.
+    cluster_of = None
     if positional_order is not None and len(positional_order) == n:
-        # Use positional mapping: positional_order[0] is the index of the
-        # original color at "lowest data value" gets darkest new color.
-        # Determine direction: if positional order goes generally light->dark,
-        # reverse so first position still maps to "low end" of new ramp.
         pos_Ls = [L_values[i] for i in positional_order]
         first_half_mean = np.mean(pos_Ls[:max(n // 2, 1)])
         second_half_mean = np.mean(pos_Ls[max(n // 2, 1):]) if n > 1 else first_half_mean
         if first_half_mean > second_half_mean:
-            # Original goes light->dark; reverse so we still map low->dark
             sorted_indices = list(reversed(positional_order))
         else:
             sorted_indices = list(positional_order)
     else:
-        # PCA ordering: projects colors onto the principal axis of variation
-        # in Lab space.  For single-hue ramps this reduces to L*-ordering;
-        # for multi-hue ramps it captures hue progression which carries
-        # ordering information when L* range is narrow.
-        sorted_indices = _pca_sort_indices(labs)
+        hue_result = _hue_cluster_sort_indices(labs)
+        if hue_result is not None:
+            sorted_indices, cluster_of = hue_result
+        else:
+            sorted_indices = _pca_sort_indices(labs)
 
     # pick a ramp: infer from original on first try, cycle on retries
     ramp_names = list(SAFE_SEQUENTIAL_ANCHORS.keys())
@@ -370,6 +495,12 @@ def recolor_sequential(colors, cvd_type="deutan", attempt=0, positional_order=No
 
     # verify and fix invariants under CVD
     new_colors_sorted = _enforce_sequential_under_cvd(new_colors_sorted, cvd_type)
+
+    # If we used the hue-cluster path, verify within-cluster L* ordering
+    # survived CVD enforcement.  On violation, fall back to PCA sort.
+    if cluster_of is not None and not _cluster_L_order_preserved(
+            labs, new_colors_sorted, sorted_indices, cluster_of):
+        sorted_indices = _pca_sort_indices(labs)
 
     # map by rank: sorted_indices[0] gets darkest new, etc.
     color_map = {}

@@ -1,0 +1,20 @@
+{
+  "file": "World_religions_map_en.svg",
+  "cvd_type": "deutan",
+  "status": "skipped",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 7,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 20,
+      "n_data_colors": 1,
+      "original_palette": [
+        "#b281bf"
+      ]
+    }
+  },
+  "warnings": [
+    "Fewer than 2 data colors detected; nothing to check."
+  ],
+  "processing_time_sec": 0.012
+}

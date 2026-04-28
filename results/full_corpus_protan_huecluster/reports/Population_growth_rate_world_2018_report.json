@@ -1,0 +1,178 @@
+{
+  "file": "Population_growth_rate_world_2018.svg",
+  "cvd_type": "protan",
+  "status": "recolored",
+  "phases": {
+    "phase1": {
+      "n_data_elements": 6,
+      "n_legend_elements": 0,
+      "n_nondata_elements": 0,
+      "n_data_colors": 6,
+      "original_palette": [
+        "#ee0066",
+        "#cc0055",
+        "#990044",
+        "#660033",
+        "#110066",
+        "#4400ee"
+      ],
+      "legend_luminance_monotonic": true,
+      "n_legend_swatches_ordered": 0
+    },
+    "phase2": {
+      "palette_type": "sequential",
+      "confidence": 0.75,
+      "details": {
+        "n_colors": 6,
+        "lightness_range": 41.22682169789785,
+        "is_monotonic": false,
+        "monotonic_direction": "non-monotonic",
+        "is_v_shaped": true,
+        "v_midpoint_index": 4,
+        "hue_diversity_deg": 28.41514946017764,
+        "has_hue_clusters": true,
+        "n_achromatic": 0,
+        "cluster_info": {
+          "cluster1_size": 4,
+          "cluster2_size": 2,
+          "cluster1_mean_hue": 6.6,
+          "cluster2_mean_hue": 307.7,
+          "hue_separation": 58.9,
+          "max_gap": 296.9
+        },
+        "avg_chroma": 73.96962015691052,
+        "mid_chroma": 67.14962852586342,
+        "hue_steps_direction": "pos=0 neg=2",
+        "rule": "3a: multi_hue_sequential_v_shape"
+      }
+    },
+    "phase3": {
+      "n_categories": 6,
+      "has_numeric_labels": true,
+      "has_string_labels": false,
+      "usage_distribution": "uniform",
+      "has_semantic_midpoint": true,
+      "midpoint_type": "zero",
+      "possible_mismatch": false
+    },
+    "phase4": {
+      "needs_user_choice": false,
+      "reconciled_type": "sequential",
+      "mismatch_explanation": null
+    },
+    "phase5": {
+      "tests_run": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": false,
+          "value": 0.0,
+          "threshold": 1.0,
+          "repair_suggestion": "Force monotonic L* (Single-hue ramp or adjust L*)"
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": false,
+          "value": 0.65,
+          "threshold": 0.4,
+          "repair_suggestion": "Redistribute L* evenly (Clip range or resample steps)"
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0,
+          "threshold": 1.0,
+          "repair_suggestion": null
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": false,
+          "value": 0.63,
+          "threshold": 3.0,
+          "repair_suggestion": "Expand L* range or reduce number of bins"
+        }
+      ],
+      "all_tests_passed": false
+    },
+    "phase6": {
+      "color_mapping": {
+        "#110066": "#08306b",
+        "#4400ee": "#155ea6",
+        "#660033": "#3c8bc3",
+        "#990044": "#76b4d8",
+        "#cc0055": "#b6d4e9",
+        "#ee0066": "#f7fbff"
+      },
+      "new_palette": [
+        "#f7fbff",
+        "#b6d4e9",
+        "#76b4d8",
+        "#3c8bc3",
+        "#08306b",
+        "#155ea6"
+      ],
+      "verification_tests": [
+        {
+          "name": "Sequential Test 1: Monotonicity",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 2: Uniformity",
+          "passed": true,
+          "value": 0.16
+        },
+        {
+          "name": "Sequential Test 3: Direction",
+          "passed": true,
+          "value": 1.0
+        },
+        {
+          "name": "Sequential Test 4: Min Step Size",
+          "passed": true,
+          "value": 11.91
+        }
+      ],
+      "verification_passed": true,
+      "iterations_used": 1,
+      "iteration_log": [
+        {
+          "iteration": 1,
+          "color_mapping": {
+            "#110066": "#08306b",
+            "#4400ee": "#155ea6",
+            "#660033": "#3c8bc3",
+            "#990044": "#76b4d8",
+            "#cc0055": "#b6d4e9",
+            "#ee0066": "#f7fbff"
+          },
+          "verification_passed": true,
+          "tests": [
+            {
+              "name": "Sequential Test 1: Monotonicity",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 2: Uniformity",
+              "passed": true,
+              "value": 0.16
+            },
+            {
+              "name": "Sequential Test 3: Direction",
+              "passed": true,
+              "value": 1.0
+            },
+            {
+              "name": "Sequential Test 4: Min Step Size",
+              "passed": true,
+              "value": 11.91
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "warnings": [],
+  "recoloring_applied": true,
+  "processing_time_sec": 0.017
+}
